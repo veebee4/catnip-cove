@@ -1,0 +1,119 @@
+/* ---------------------------------------- Special headings/paddings/margins/text */
+html {
+    height: 100%;
+}
+
+/* -------------------------------------------------------------------------------------------------------------------------------- Body */
+
+body {
+    background: url('/media/banner-cat.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: calc(100vh - 164px);
+    color: #555;
+    font-family: 'Dosis';
+}
+
+/* -------------------------------------------------------------------------------------------------------------------------------- Header & Nav */
+
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.nav-bar-icon {
+    color: #CBDBB5;
+}
+
+.logo-font {
+    font-family: 'Pacifico';
+    font-size: 5rem;
+    color: #CBDBB5;
+    text-shadow: 4px 4px black;
+}
+
+.main-logo-link {
+    width: fit-content;
+}
+
+.btn-green {
+    background-color: #ABB356;
+    color: #434128;
+}
+
+.btn-green:hover,
+.btn-green:active,
+.btn-green:focus {
+    background: #7D8D42;
+    color: white;
+}
+
+.nav-link-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #CBDBB5;
+}
+
+/* -------------------------------------------------------------------------------------------------------------------------------- Home Page */
+
+.home-logo {
+    font-family: 'Pacifico';
+    font-size: 5rem;
+    color: #CBDBB5;
+    text-shadow: 5px 5px black;
+    background-color: rgba(125, 141, 66, 1);
+    padding: 2rem;
+}
+
+.home-desc-text {
+    color: #CBDBB5;
+    background-color: rgba(67, 65, 40, 1);
+    padding: 2rem;
+    font-weight: 700;
+}
+
+.home-cat-button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.meet-cats-button {
+    background: #ABB356;
+    color: #434128;
+    min-width: 260px;
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.meet-cats-button:hover,
+.meet-cats-button:active,
+.meet-cats-button:focus {
+    background: #7D8D42;
+    color: white;
+}
+
+/* -------------------------------- Media Queries */
+
+/* Slightly larger container on xl screens */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 80%;
+  }
+}
+
+/* fixed top navbar only on medium and up */
+@media (min-width: 992px) {
+    .fixed-top-desktop-only {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+    }
+
+    .header-container {
+        padding-top: 164px;
+    }
+}
