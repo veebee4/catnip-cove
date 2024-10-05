@@ -15,6 +15,10 @@ body {
 
 /* -------------------------------------------------------------------------------------------------------------------------------- Header & Nav */
 
+.custom-nav-bg {
+    background-color: #7D8D42;
+}
+
 .icon {
     align-items: center;
     display: inline-flex;
@@ -25,13 +29,16 @@ body {
 
 .nav-bar-icon {
     color: #CBDBB5;
+    padding-left: 1rem;
 }
 
 .logo-font {
     font-family: 'Pacifico';
     font-size: 5rem;
     color: #CBDBB5;
-    text-shadow: 4px 4px black;
+    text-shadow: 4px 4px 2px black;
+    position: relative;
+    z-index: 10;
 }
 
 .main-logo-link {
@@ -50,9 +57,30 @@ body {
     color: white;
 }
 
-.nav-link-title {
+.user-option-link {
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 800;
+    color: #434128;
+    padding-left: 2rem;
+}
+
+.navbar-option {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #434128;
+}
+
+.navbar {
+    background-color: #7D8D42;
+}
+
+/* -------------------------------------------------------------------------------------------------------------------------------- Donation Call To Action */
+
+.donation-banner {
+    background-color: #434128;
+}
+
+.donation-call-text {
     color: #CBDBB5;
 }
 
