@@ -74,6 +74,21 @@ body {
     background-color: #7D8D42;
 }
 
+.dropdown-menu {
+    background-color: #434128;
+}
+
+.dropdown-item {
+    color: #CBDBB5;
+    font-weight: 600;
+}
+
+.nav-link:hover,
+.nav-link:active,
+.nav-link:focus {
+    color: white;
+}
+
 /* -------------------------------------------------------------------------------------------------------------------------------- Donation Call To Action */
 
 .donation-banner {
