@@ -85,7 +85,10 @@ body {
 
 .nav-link:hover,
 .nav-link:active,
-.nav-link:focus {
+.nav-link:focus,
+.user-option-link:hover,
+.user-option-link:active,
+.user-option-link:focus {
     color: white;
 }
 
