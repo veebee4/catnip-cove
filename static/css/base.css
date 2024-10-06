@@ -92,6 +92,10 @@ body {
     color: white;
 }
 
+.nav-link, .dropdown-menu {
+    margin-left: 2.5rem;
+}
+
 /* -------------------------------------------------------------------------------------------------------------------------------- Donation Call To Action */
 
 .donation-banner {

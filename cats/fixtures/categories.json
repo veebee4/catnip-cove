@@ -1,0 +1,1 @@
+[{"pk": 1, "model": "cats.category", "fields": {"name": "age", "friendly_name": "Age"}}, {"pk": 2, "model": "cats.category", "fields": {"name": "breed", "friendly_name": "Breed"}}, {"pk": 3, "model": "cats.category", "fields": {"name": "colour", "friendly_name": "Colour"}}, {"pk": 4, "model": "cats.category", "fields": {"name": "gender", "friendly_name": "Gender"}}]
