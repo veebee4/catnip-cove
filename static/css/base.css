@@ -144,6 +144,13 @@ body {
     color: white;
 }
 
+/* -------------------------------------------------------------------------------------------------------------------------------- Cats Page */
+
+.cat-records {
+    margin-top: 20rem;
+    color: black;
+}
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
