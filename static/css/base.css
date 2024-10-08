@@ -146,9 +146,23 @@ body {
 
 /* -------------------------------------------------------------------------------------------------------------------------------- Cats Page */
 
-.cat-records {
-    margin-top: 20rem;
-    color: black;
+.overlay {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background: #7D8D42;
+    z-index: -1;
+}
+
+.page-heading {
+    margin-top: revert;
+    padding-bottom: 2rem;
+}
+
+.card {
+    width: 15rem;
 }
 
 /* -------------------------------- Media Queries */
