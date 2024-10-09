@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="overlay"></div>
+<div class="container fluid">
+    <div class="row cat-details-container">
+        <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
+            <div class="image-container my-5">
+                {% if cat.image %}
+                    <a href="{{ cat.image.url }}" target="_blank">
+                        <img class="card-img-top img-fluid rounded-pill" src="{{ cat.image.url }}" alt="{{ cat.name }}">
+                    </a>
+                    {% else %}
+                    <a href="">
+                        <img class="card-img-top img-fluid rounded-circle" src="{{ MEDIA_URL }}noimage.png" alt="{{ cat.name }}">
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4 cat-id-container">
+            <div class="card cat-id-card">
+                <div class="card-header">
+                    CAT ID
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title text-center fw-bolder">{{ cat.name }}</h4>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item text-center">Breed: {{ cat.breed }}</li>
+                    <li class="list-group-item text-center">Age (if known): {{ cat.age_if_known }}</li>
+                    <li class="list-group-item text-center">Sex: {{ cat.gender }}</li>
+                    <li class="list-group-item text-center">Main Colour: {{ cat.colour }}</li>
+                    <li class="list-group-item text-center">Description: {{ cat.description }}</li>
+                  </ul>
+                  <div class="card-body">
+                    <button><a href="#" class="card-link donation-link-btn">Donate</a></button>
+                  </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

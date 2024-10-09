@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Cat
 
 def all_cats(request):
@@ -11,3 +11,15 @@ def all_cats(request):
     }
 
     return render(request, 'cats/cats.html', context)
+
+
+def cat_detail(request, cat_id):
+    """ a view to show individual cat record """
+
+    cat = get_object_or_404(Cat, pk=cat_id)
+
+    context = {
+        'cat': cat,
+    }
+
+    return render(request, 'cats/cat_detail.html', context)

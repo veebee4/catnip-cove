@@ -165,6 +165,17 @@ body {
     width: 15rem;
 }
 
+/* -------------------------------------------------------------------------------------------------------------------------------- Cat Detail Page */
+
+.cat-details-container {
+    margin-top: 5rem;
+}
+
+.cat-id-card {
+    width: 50rem;
+    margin-top: 10rem;
+}
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
