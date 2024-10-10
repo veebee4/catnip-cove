@@ -8,6 +8,7 @@ def all_cats(request):
 
     cats = Cat.objects.all()
     query = None
+    sort_by_gender = None
 
     if request.GET:
         if 'q' in request.GET:
@@ -19,10 +20,46 @@ def all_cats(request):
             queries = Q(name__icontains=query) | Q(breed__icontains=query) | Q(colour__icontains=query) | Q(gender__icontains=query)
             cats = cats.filter(queries)
 
+    if 'sort' in request.GET:
+        sort_by_gender = request.GET['sort']
+        if sort_by_gender == 'male':
+            cats = cats.filter(gender='M')
+        elif sort_by_gender == 'female':
+            cats = cats.filter(gender='F')
+
+    unique_breeds = cats.values_list('breed', flat=True).distinct()
+    unique_colour = cats.values_list('colour', flat=True).distinct()
 
     context = {
         'cats': cats,
         'search_term': query,
+        'sort_by_gender': sort_by_gender,
+        'unique_breeds': unique_breeds,
+        'unique_colour': unique_colour,
+    }
+
+    return render(request, 'cats/cats.html', context)
+
+
+def cats_by_breed(request, breed):
+    """ A view to show all cats of a specific breed """
+    cats = Cat.objects.filter(breed=breed)
+
+    context = {
+        'cats': cats,
+        'breed': breed,
+    }
+
+    return render(request, 'cats/cats.html', context)
+
+
+def cats_by_colour(request, colour):
+    """ A view to show all cats of a specific colour """
+    cats = Cat.objects.filter(colour=colour)
+
+    context = {
+        'cats': cats,
+        'colour': colour,
     }
 
     return render(request, 'cats/cats.html', context)

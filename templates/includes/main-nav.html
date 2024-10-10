@@ -5,10 +5,8 @@
                 <i class="fa-solid fa-paw"></i> Cats <i class="fa-solid fa-paw"></i>
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="all-cats-link">
-                <a href="" class="dropdown-item">By Age</a>
-                <a href="" class="dropdown-item ">By Breed</a>
-                <a href="" class="dropdown-item ">By Colour</a>
-                <a href="" class="dropdown-item ">By Gender</a>
+                <a href="{% url 'cats' %}?sort=male" class="dropdown-item ">Male Cats</a>
+                <a href="{% url 'cats' %}?sort=female" class="dropdown-item ">Female Cats</a>
                 <a href="{% url 'cats' %}" class="dropdown-item">All Cats</a>
             </div>
         </li>

@@ -165,6 +165,12 @@ body {
     width: 15rem;
 }
 
+.btn-group {
+    display: flex;
+    width: fit-content;
+    margin-left: 17rem;
+}
+
 /* -------------------------------------------------------------------------------------------------------------------------------- Cat Detail Page */
 
 .cat-details-container {

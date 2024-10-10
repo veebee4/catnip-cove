@@ -17,6 +17,47 @@
             <h2 class="logo-font page-heading"><i class="fa-solid fa-paw"></i> Our Cats <i class="fa-solid fa-paw"></i></h2>
         </div>
     </div>
+
+    <div class="btn-group cat-filter-buttons mt-1 mb-5 text-center" role="group" aria-label="Cat filter">
+        <div class="btn-group" role="group">
+            <!-- button to show all breeds of cat currently on the website populated by for loop -->
+            <button type="button" class="btn btn-outline-warning dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              Breeds
+            </button>
+            <ul class="dropdown-menu">
+                {% for breed in unique_breeds %}
+                <li><a class="dropdown-item" href="{% url 'cats_by_breed' breed=breed %}">{{ breed }}</a></li>
+                {% endfor %}
+            </ul>
+          </div>
+        <!-- button to show all colours of cats currently on the website populated by for loop -->
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-outline-warning dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              Colour
+            </button>
+            <ul class="dropdown-menu">
+                {% for colour in unique_colour %}
+                <li><a class="dropdown-item" href="{% url 'cats_by_colour' colour=colour %}">{{ colour }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <!-- Button for Male Cats -->
+        <a href="{% url 'cats' %}?sort=male" class="btn btn-outline-warning sort-btn {% if sort_by_gender == 'male' %}active{% endif %}">
+            Male Cats
+        </a>
+
+        <!-- Button for Female Cats -->
+        <a href="{% url 'cats' %}?sort=female" class="btn btn-outline-warning sort-btn {% if sort_by_gender == 'female' %}active{% endif %}">
+            Female Cats
+        </a>
+
+        <!-- Button for All Cats -->
+        <a href="{% url 'cats' %}" class="btn btn-outline-warning sort-btn {% if not sort_by_gender %}active{% endif %}">
+            All Cats
+        </a>
+    </div>
+
     <div class="row">
         <div class="cat-container col-10 offset-1">
             <div class="row mt-1 mb-2"></div>
