@@ -96,6 +96,21 @@ body {
     margin-left: 2.5rem;
 }
 
+/* -------------------------------------------------------------------------------------------------------------------------------- Mobile Nav */
+
+.mobile-nav-icon {
+    color: #CBDBB5;
+}
+
+.navbar-toggler {
+    margin-left: 0.5rem;
+}
+
+.mobile-icon-list {
+    margin-right: 2rem;
+    margin-top: 1rem;
+}
+
 /* -------------------------------------------------------------------------------------------------------------------------------- Donation Call To Action */
 
 .donation-banner {
@@ -114,7 +129,7 @@ body {
     color: #CBDBB5;
     text-shadow: 5px 5px black;
     background-color: rgba(125, 141, 66, 1);
-    padding: 2rem;
+    padding: 1rem;
 }
 
 .home-desc-text {
@@ -183,6 +198,27 @@ body {
 }
 
 /* -------------------------------- Media Queries */
+
+/*------- For Large sized Mobile screens */
+
+@media screen and (min-width: 425px) and (max-width: 767px) {
+    .home-main-content {
+        height: 50%;
+        margin-right: 1rem;
+    }
+
+    .home-logo {
+        font-size: 1.5rem;
+    }
+
+    .home-desc-text {
+        font-size: 1rem;
+    }
+
+    .meet-cats-button {
+        margin-bottom: 2rem;
+    }
+}
 
 /* Slightly larger container on xl screens */
 @media (min-width: 1200px) {
