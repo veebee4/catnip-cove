@@ -186,6 +186,9 @@ body {
     margin-left: 17rem;
 }
 
+.back-to-top-button {
+    padding: 2rem;
+}
 /* -------------------------------------------------------------------------------------------------------------------------------- Cat Detail Page */
 
 .cat-details-container {

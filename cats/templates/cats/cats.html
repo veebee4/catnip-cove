@@ -64,11 +64,11 @@
                 <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
                     <div class="sort-select-wrapper w-10">
                         <select id="sort-selector" class="custom-select custom-select-sm rounded-0 border border-black">
-                            <option value="reset">Sort by...</option>
-                            <option value="name_asc">Name (A-Z)</option>
-                            <option value="name_desc">Name (Z-A)</option>
-                            <option value="breed_asc">Breed (A-Z)</option>
-                            <option value="breed_desc">Breed (Z-A)</option>
+                            <option value="reset" {% if current_sorting == 'reset' %}selected{% endif %}>Sort by...</option>
+                            <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name (A-Z)</option>
+                            <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name (Z-A)</option>
+                            <option value="breed_asc" {% if current_sorting == 'breed_asc' %}selected{% endif %}>Breed (A-Z)</option>
+                            <option value="breed_desc" {% if current_sorting == 'breed_desc' %}selected{% endif %}>Breed (Z-A)</option>
                         </select>
                     </div>
                 </div>
@@ -120,4 +120,42 @@
         </div>
     </div>
 </div>
+<div class="d-flex justify-content-end sticky-bottom back-to-top-button">
+    <button id="backToTop" class="btn btt-link btn-outline-warning" title="Back to top">
+        <i class="fa-solid fa-chevron-up"></i>
+    </button>
+</div>
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <script type="text/javascript">
+        // Scroll to top button is clicked
+        $('.btt-link').click(function() {
+            window.scrollTo(0, 0);
+        });
+
+        // Sorting functionality for the dropdown
+        $('#sort-selector').change(function() {
+            var selector = $(this);
+            var currentUrl = new URL(window.location);
+
+            var selectedVal = selector.val();
+            if (selectedVal !== "reset") {
+                var sort = selectedVal.split("_")[0];  // 'name' or 'breed'
+                var direction = selectedVal.split("_")[1]; // 'asc' or 'desc'
+
+                // Update the URL parameters for sorting
+                currentUrl.searchParams.set("sortkey", sort);
+                currentUrl.searchParams.set("direction", direction);
+            } else {
+                // Reset sorting parameters if "reset" is selected
+                currentUrl.searchParams.delete("sortkey");
+                currentUrl.searchParams.delete("direction");
+            }
+
+            // Redirect to the updated URL
+            window.location.replace(currentUrl);
+        });
+    </script>
 {% endblock %}
