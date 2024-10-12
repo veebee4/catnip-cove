@@ -60,7 +60,25 @@
 
     <div class="row">
         <div class="cat-container col-10 offset-1">
-            <div class="row mt-1 mb-2"></div>
+            <div class="row mt-1 mb-2">
+                <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
+                    <div class="sort-select-wrapper w-10">
+                        <select id="sort-selector" class="custom-select custom-select-sm rounded-0 border border-black">
+                            <option value="reset">Sort by...</option>
+                            <option value="name_asc">Name (A-Z)</option>
+                            <option value="name_desc">Name (Z-A)</option>
+                            <option value="breed_asc">Breed (A-Z)</option>
+                            <option value="breed_desc">Breed (Z-A)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 order-md-first">
+                    <p class="mt-3 text-md-left">
+                            <span class="small"><a href="{% url 'cats' %}">Cats Home</a> | </span>
+                        {{ cats|length }} Cats
+                    </p>
+                </div>
+            </div>
             <div class="row">
                 {% for cat in cats %}
                     <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">

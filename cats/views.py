@@ -1,4 +1,4 @@
-from django.shortcuts import render, reverse, get_object_or_404
+from django.shortcuts import render, reverse, get_object_or_404, redirect
 from django.contrib import messages
 from django.db.models import Q
 from .models import Cat
@@ -15,10 +15,20 @@ def all_cats(request):
             query = request.GET['q']
             if not query:
                 messages.error(request, "You didn't enter any search criteria!")
-                return redirect(reverse,('cats'))
+                return redirect(reverse('cats'))
 
             queries = Q(name__icontains=query) | Q(breed__icontains=query) | Q(colour__icontains=query) | Q(gender__icontains=query)
             cats = cats.filter(queries)
+
+    sortkey = request.GET.get('sortkey', 'name')
+
+    if sortkey == 'cat':
+        sortkey = 'cat__name'
+
+    if 'direction' in request.GET and request.GET['direction'] == 'desc':
+        sortkey = f'-{sortkey}'
+    
+    cats = cats.order_by(sortkey)
 
     if 'sort' in request.GET:
         sort_by_gender = request.GET['sort']
@@ -27,8 +37,10 @@ def all_cats(request):
         elif sort_by_gender == 'female':
             cats = cats.filter(gender='F')
 
-    unique_breeds = cats.values_list('breed', flat=True).distinct()
-    unique_colour = cats.values_list('colour', flat=True).distinct()
+    # get unique breeds and colours for filtering options, breeds and colours
+    ## that appear multiple times in database are only shown once
+    unique_breeds = Cat.objects.order_by('breed').values_list('breed', flat=True).distinct()
+    unique_colour = Cat.objects.order_by('colour').values_list('colour', flat=True).distinct()
 
     context = {
         'cats': cats,
