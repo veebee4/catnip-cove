@@ -77,20 +77,6 @@
                           {% endif %}
                       </div>
                   </li>
-                  <li class="list-inline-item">
-                      <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="{% url 'view_bag' %}">
-                          <div class="text-center">
-                              <div><i class="fa-solid fa-sterling-sign fa-2xl icon nav-bar-icon"></i></i></div>
-                              <p class="my-0 user-option-link">
-                                  {% if grand_total %}
-                                      £{{ grand_total|floatformat:2 }}
-                                  {% else %}
-                                      £0.00
-                                  {% endif %}
-                              </p>
-                          </div>
-                      </a>
-                  </li>
               </ul>
           </div>
       </div>
