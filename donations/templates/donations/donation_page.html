@@ -23,17 +23,19 @@
     <form method="POST" action="">
         {% csrf_token %}
         <div class="form-group">
-            <label for="fname" class="">First Name:</label>
-            <label>Last Name:</label>
-            <label>Email Address:</label>
-            <p>Address:</p>
-            <label>Address Line 1:</label>
-            <label>Address Line 2:</label>
-            <label>Address Line 1:</label>
-            <label>City/Town:</label>
-            <label>County:</label>
-            <label>Country:</label>
-            <label>Comment:</label>
+            <label for="fname" class="form-label">First Name:</label>
+            <input type="text" class="form-control" id="fname" aria-describedby="firstHelp">
+            <small id="firstHelp" class="form-text text-muted">Please enter your first name.</small>
+            <label for="lname" class="form-label">Last Name:</label>
+            <label for="email" class="form-label">Email Address:</label>
+            <input type="email" class="form-control" id="email" aria-describedby="email">
+            <label>Address:</label>
+            <label for="address1" class="form-label">Address Line 1:</label>
+            <label for="address2" class="form-label">Address Line 2:</label>
+            <label for="city_or_town" class="form-label">City/Town:</label>
+            <label for="county" class="form-label">County:</label>
+            <label for="country" class="form-label">Country:</label>
+            <label for="comment" class="form-label">Comment:</label>
         </div>
         <div class="form-group">
             <label>Select a donation amount:</label>
