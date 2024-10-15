@@ -5,6 +5,7 @@ from cats.models import Cat
 class Donation(models.Model):
     cat = models.ForeignKey('cats.Cat', on_delete=models.CASCADE, blank=True)
     amount = models.DecimalField(max_digits=10, decimal_places=2)
+    custom_amount = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
     donation_total = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     donor_first_name = models.CharField(max_length=100)
     donor_last_name = models.CharField(max_length=100)
