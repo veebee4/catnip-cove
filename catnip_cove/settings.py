@@ -48,7 +48,10 @@ INSTALLED_APPS = [
     'home',
     'cats',
     'donations',
+    'crispy_forms',
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

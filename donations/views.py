@@ -33,10 +33,12 @@ def donate(request, cat_id=None): #accepts cat_id as an optional parameter
             )
 
             donation.save()
+            messages.success(request, ('Your donation was successfully received!'))
             return redirect('donation_success')
 
     else:
         form = DonationForm(cat=cat)
+        messages.error(request, 'Error processing donation')
 
     return render(request, 'donations/donate.html', {'form': form, 'cat': cat})
 
