@@ -1,4 +1,6 @@
 from django.db import models
+from cats.models import Cat
+
 
 class Donation(models.Model):
     cat = models.ForeignKey('cats.Cat', on_delete=models.CASCADE, blank=True)

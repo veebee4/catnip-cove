@@ -37,6 +37,10 @@
             <label for="country" class="form-label">Country:</label>
             <label for="comment" class="form-label">Comment:</label>
         </div>
+        <div>
+            <label>Is this donation for a specific cat?</label>
+            {{ form.cat }}
+        </div>
         <div class="form-group">
             <label>Select a donation amount:</label>
             {{ form.amount }}
