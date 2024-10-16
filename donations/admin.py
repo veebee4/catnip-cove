@@ -1,38 +1,45 @@
 from django.contrib import admin
 from .models import Donation
 
-# class DonationAdmin(admin.ModelAdmin):
-#     list_display = (
-#         'cat',  
-#         'donor_first_name', 
-#         'donor_last_name', 
-#         'donor_email_address', 
-#         'donor_address_line1', 
-#         'donor_address_line2', 
-#         'donor_city_or_town',
-#         'donor_county',
-#         'donor_postcode',
-#         'donor_country',
-#         'donor_comment',
-#         'date',
-#     )
+class DonationAdmin(admin.ModelAdmin):
 
-#     readonly_fields = (
-#         'cat', 
-#         'donor_first_name', 
-#         'donor_last_name', 
-#         'donor_email_address', 
-#         'donor_address_line1', 
-#         'donor_address_line2', 
-#         'donor_city_or_town',
-#         'donor_county',
-#         'donor_postcode',
-#         'donor_country',
-#         'donor_comment',
-#         'date',
-#     )
+    readonly_fields = (
+        'donation_number',
+        'date',
+        'amount',
+        'custom_amount',
+    )
 
-#     ordering = ('donor_last_name',)
+    fields = (
+        'donation_number',
+        'date',
+        'cat',
+        'amount',
+        'custom_amount',
+        'donor_first_name', 
+        'donor_last_name', 
+        'donor_email_address', 
+        'donor_address_line1', 
+        'donor_address_line2', 
+        'donor_city_or_town',
+        'donor_county',
+        'donor_postcode',
+        'donor_country',
+        'donor_comment',
+    )
 
-# admin.site.register(Donation, DonationAdmin)
-admin.site.register(Donation)
+    list_display = (
+        'donation_number',
+        'date',
+        'cat',
+        'amount',
+        'custom_amount',
+        'donor_first_name', 
+        'donor_last_name', 
+        'donor_email_address', 
+        'donor_country',
+    )
+
+    ordering = ('-date',)
+
+admin.site.register(Donation, DonationAdmin)
