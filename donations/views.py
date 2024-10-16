@@ -1,46 +1,46 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from .forms import DonationForm
 from .models import Donation
 from cats.models import Cat
+import stripe
 
-def donate(request, cat_id=None): #accepts cat_id as an optional parameter
-    cat = None
+stripe.api_key = "sk_test_51QASgVIRFfIYrlwCBc5gn8svbvDBHC5AmGFV0iKrPONbfcMTdkt5ejqmEHRnzfn35rkexHvPt6JfTFIX9XgbZtCr00cIhVLqwL"
 
-    # Check if a cat ID is provided in the GET request
-    if cat_id:
-        cat = get_object_or_404(Cat, id=cat_id)
+def donate(request):
+    """ a view to return the donation page """
 
-    if request.method == 'POST':
-        form = DonationForm(request.POST, cat=cat)
-        if form.is_valid():
-            # Use the custom amount if provided, otherwise use the selected amount
-            amount = form.cleaned_data['custom_amount'] or form.cleaned_data['amount']
-
-            Donation.objects.create(
-                cat=cat,
-                amount=amount,
-                custom_amount=custom_amount,
-                donor_first_name=form.cleaned_data['donor_first_name'],
-                donor_last_name=form.cleaned_data['donor_last_name'],
-                donor_email_address=form.cleaned_data['donor_email_address'],
-                donor_address_line1=form.cleaned_data['donor_address_line1'],
-                donor_address_line2=form.cleaned_data['donor_address_line2'],
-                donor_city_or_town=form.cleaned_data['donor_city_or_town'],
-                donor_county=form.cleaned_data['donor_county'],
-                donor_postcode=form.cleaned_data['donor_postcode'],
-                donor_country=form.cleaned_data['donor_country'],
-                donor_comment=form.cleaned_data['donor_comment'],
-            )
-
-            donation.save()
-            messages.success(request, ('Your donation was successfully received!'))
-            return redirect('donation_success')
-
-    else:
-        form = DonationForm(cat=cat)
-        messages.error(request, 'Error processing donation')
-
-    return render(request, 'donations/donate.html', {'form': form, 'cat': cat})
+    return render(request, 'donations/donate.html')
 
 
+def charge(request):
+
+
+        amount = 5
+        if request.method == 'POST':
+            print('Data:', request.POST)
+        return redirect(reverse('success', args=[amount]))
+
+
+        # if request.method == 'POST':
+		# print('Data:', request.POST)
+
+		# amount = int(request.POST['amount'])
+
+		# customer = stripe.Customer.create(
+		# 	email=request.POST['email'],
+		# 	name=request.POST['nickname'],
+		# 	source=request.POST['stripeToken']
+		# 	)
+
+		# charge = stripe.Charge.create(
+		# 	customer=customer,
+		# 	amount=amount*100,
+		# 	currency='usd',
+		# 	description="Donation"
+		# 	)
+
+
+def successMsg(request, args):
+	amount = args
+	return render(request, 'donations/success.html', {'amount':amount})

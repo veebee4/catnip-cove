@@ -1,6 +1,14 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'donations/css/donation.css' %}">
+{% endblock %}
+
+{% block extra_js %}
+    <script src="{% static 'donations/js/stripe_elements.js' %}"></script>
+{% endblock %}
+
 {% block page_header %}
     <div class="container header-container">
         <div class="row">
@@ -24,15 +32,32 @@
 
     <h1 class="text-center">{% if cat %}Donate for {{ cat.name }}{% else %}Make a Donation{% endif %}</h1>
 
-    <form method="POST" class="donation-form">
+    <form action="{% url 'charge' %}" method="POST" id="payment-form" class="donation-form">
         {% csrf_token %}
-        <form method="POST">
-            {% csrf_token %}
-            {{ form|crispy }}
-            {% if cat %}
-                <input type="hidden" name="cat_id" value="{{ cat.id }}">
-            {% endif %}
-            <button type="submit">Donate</button>
+        <div class="form-field-12">
+        {{ form|crispy }}
+        {% if cat %}
+            <input type="hidden" name="cat_id" value="{{ cat.id }}">
+        {% endif %}
+        </div>
+
+        <div class="form-row">
+            <label for="card-element">
+              Credit or debit card
+            </label>
+        <div id="card-element">
+            <!-- A Stripe Element will be inserted here. -->
+        </div>
+
+        <!-- Used to display form errors. -->
+        <div id="card-errors" role="alert"></div>
+        </div>
+          
+        <div style="clear:left"></div>
+        <hr>
+
+        <input  class="myButton" style="background-color:#10a195" type="submit" value="Submit Payment" name="">
+
         </form>
     
 {% endblock %}
