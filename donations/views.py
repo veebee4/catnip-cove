@@ -5,7 +5,7 @@ from .models import Donation
 from cats.models import Cat
 import stripe
 
-stripe.api_key = "sk_test_51QASgVIRFfIYrlwCBc5gn8svbvDBHC5AmGFV0iKrPONbfcMTdkt5ejqmEHRnzfn35rkexHvPt6JfTFIX9XgbZtCr00cIhVLqwL"
+stripe.api_key = "pk_test_51QASgVIRFfIYrlwCBIXBXENo9MSaCGZgqBVInE366lvYT6LTjPqIBWF1uRNXitgCGTiGmoaFKZWakoLikzEJTfoj006Wugd9js"
 
 def donate(request):
     """ a view to return the donation page """
