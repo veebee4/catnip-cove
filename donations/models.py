@@ -13,6 +13,7 @@ class Donation(models.Model):
     donor_first_name = models.CharField(max_length=100, blank=False)
     donor_last_name = models.CharField(max_length=100, blank=False)
     donor_email_address = models.EmailField(max_length=100, blank=False)
+    donor_telephone_number = models.CharField(max_length=100, blank=True)
     donor_address_line1 = models.CharField(max_length=100, blank=True)
     donor_address_line2 = models.CharField(max_length=100, blank=True)
     donor_city_or_town = models.CharField(max_length=100, blank=True)

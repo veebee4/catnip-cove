@@ -1,44 +1,43 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
+from django.conf import settings
+from django.http import JsonResponse
 from .forms import DonationForm
 from .models import Donation
 from cats.models import Cat
 import stripe
 
-stripe.api_key = "pk_test_51QASgVIRFfIYrlwCBIXBXENo9MSaCGZgqBVInE366lvYT6LTjPqIBWF1uRNXitgCGTiGmoaFKZWakoLikzEJTfoj006Wugd9js"
+stripe.api_key = settings.STRIPE_API_KEY
+
 
 def donate(request):
-    """ a view to return the donation page """
-
     return render(request, 'donations/donate.html')
 
 
 def charge(request):
+    
+    if request.method == 'POST':
+        print('Data:', request.POST)
+
+        selected_amount = request.POST.get('amount')
+        custom_amount = request.POST.get('custom-amount')
+        amount = int(selected_amount) * 100 if selected_amount else int(custom_amount) * 100 if custom_amount else 0
 
 
-        amount = 5
-        if request.method == 'POST':
-            print('Data:', request.POST)
-        return redirect(reverse('success', args=[amount]))
+        customer = stripe.Customer.create(
+            name=f"{request.POST['first_name']} {request.POST['last_name']}",
+            email=request.POST['email'],
+            source=request.POST['stripeToken']
+        )
 
+        charge = stripe.Charge.create(
+			customer=customer.id,
+			amount=amount,
+			currency='gbp',
+			description="Donation"
+			)
 
-        # if request.method == 'POST':
-		# print('Data:', request.POST)
-
-		# amount = int(request.POST['amount'])
-
-		# customer = stripe.Customer.create(
-		# 	email=request.POST['email'],
-		# 	name=request.POST['nickname'],
-		# 	source=request.POST['stripeToken']
-		# 	)
-
-		# charge = stripe.Charge.create(
-		# 	customer=customer,
-		# 	amount=amount*100,
-		# 	currency='usd',
-		# 	description="Donation"
-		# 	)
+    return redirect(reverse('success', args=[int(amount / 100)]))
 
 
 def successMsg(request, args):
