@@ -28,7 +28,7 @@
 
     {% load crispy_forms_tags %}
 
-    <h1 class="text-center">{% if cat %}Donate for {{ cat.name }}{% else %}Make a Donation{% endif %}</h1>
+    <h1 class="text-center donate-sub-header">{% if cat %}Donate for {{ cat.name }}{% else %}Make a Donation{% endif %}</h1>
 
     <form action="{% url 'charge' %}" method="POST" id="payment-form">
         {% csrf_token %}
@@ -37,46 +37,62 @@
             <input type="hidden" name="cat_id" value="{{ cat.id }}">
         {% endif %}
 
-        <div class="form-field-12">
-            <label for="amount">Choose Amount:</label>
-            <br>
-            <br>
-            <select required name="amount" id="amount">
-              <option selected value="5">£5 - This can provide specialist milk for a kitten for 10 days</option>
-              <option value="10">£10 - This can provide food for one of our rescue cats for 50 days</option>
-              <option value="20">£20 - This amount can provide warm blankets to 10 cats</option>
-              <option value="30">£30 - With this we can provide lots of stimulating toys to keep our cats happy</option>
-              <option value="50">£50 - This incredible amount will pay for a cats full healthcheck including parasite treatments & vaccinations</option>
-            </select>
+        <div class="amount-input">
+            <div class="form-field amount-dropdown mx-1">
+                <label for="amount">Choose an amount from dropdown OR enter custom amount in box on right hand side:</label>
+                <select required name="amount" id="amount">
+                    <option selected disabled>Select Amount</option>
+                    <option value="5">£5 - This can provide specialist milk for a kitten for 10 days</option>
+                    <option value="10">£10 - This can provide food for one of our rescue cats for 50 days</option>
+                    <option value="20">£20 - This amount can provide warm blankets to 10 cats</option>
+                    <option value="30">£30 - With this we can provide lots of stimulating toys to keep our cats happy</option>
+                    <option value="50">£50 - This incredible amount will pay for a cats full healthcheck including parasite treatments & vaccinations</option>
+                </select>
+            </div>
+
+            <div class="custom-amount-wrapper">
+                <div class="form-field mx-5">
+                    <label for="custom-amount">Custom Amount:</label>
+                    <input type="number" name="custom-amount" id="custom-amount" placeholder="Enter custom donation amount here" min="1">
+                </div>
+            </div>
         </div>
 
-        <div class="form-field-12"></div>
-            <label for="custom-amount">Enter Custom Amount:</label>
-            <br>
-            <br>
-            <input type="number" name="custom-amount" placeholder="Enter custom donation amount here" min="1">
+        <div class="detail-input-wrapper">
+            <div class="customer-details p-3">
+                <fieldset>
+                    <legend class="fieldset-label small text-black w-auto">Customer Details</legend>
+                    <br>
+                    <br>
+                        <input class="form-detail-input" type="text" name="first_name" placeholder="First Name" required>
+                        <br>
+                        <br>
+                        <input class="form-detail-input" type="text" name="last_name" placeholder="Last Name" required>
+                        <br>
+                        <br>
+                        <input class="form-detail-input" type="email" name="email" placeholder="Email Address" required>
+                        <br>
+                        <br>
+                        <input class="form-detail-input" type="text" name="postcode" placeholder="Postal Code" required>
+                </fieldset>
+            </div>
         </div>
 
-        <fieldset class="rounded px-3 mb-5">
-            <legend class="fieldset-label small text-black px-2 w-auto">Customer Details</legend>
-                <input type="text" name="first_name" placeholder="First Name" required>
-                <input type="text" name="last_name" placeholder="Last Name" required>
-                <input type="email" name="email" placeholder="Email Address" required>
-        </fieldset>
+        <div class="card-details-wrapper">
+            <div class="form-row card-details">
+                <label for="card-element">
+                Credit or debit card
+                </label>
+            <div id="card-element">
+                <!-- A Stripe Element will be inserted here. -->
+            </div>
 
-        <div class="form-row">
-            <label for="card-element">
-              Credit or debit card
-            </label>
-        <div id="card-element">
-            <!-- A Stripe Element will be inserted here. -->
+            <!-- Used to display form errors. -->
+            <div id="card-errors" role="alert"></div>
+            </div>
+
+        <button class="payment-button m-3 p-3">Submit Payment</button>
         </div>
-
-        <!-- Used to display form errors. -->
-        <div id="card-errors" role="alert"></div>
-        </div>
-
-        <button>Submit Payment</button>
     </form>
     
 {% endblock %}
