@@ -31,8 +31,7 @@ STRIPE_API_KEY = os.getenv('STRIPE_API_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-veebee4-catnipcove-90n0ixqs2a2.ws.codeinstitute-ide.net']
-
+ALLOWED_HOSTS = ['8000-veebee4-catnipcove-yvdje4r4d7i.ws.codeinstitute-ide.net']
 
 # Application definition
 
