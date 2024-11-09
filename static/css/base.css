@@ -74,7 +74,7 @@ body {
 /* -------------------------------------------- Mobile Nav Colors*/
 
 .mobile-nav-icon {
-    color: #CBDBB5;
+    color: #6f8659;
 }
 
 /* -------------------------------------------- Home page Colors*/
@@ -106,6 +106,20 @@ body {
 
 .overlay {
     background: #c0cfb1;
+}
+
+/* -------------------------------------------- Contact us page Colors*/
+
+.contact-button {
+    background: #98b080;
+    color: black;
+}
+
+.contact-button:hover,
+.contact-button:active,
+.contact-button:focus {
+    background: #6f8659;
+    color: black;
 }
 
 /* -------------------------------------------------------------------------------------------------------------------------------- Body */
@@ -247,6 +261,21 @@ body {
 .cat-id-card {
     width: 50rem;
     margin-top: 10rem;
+}
+
+/* -------------------------------------------------------------------------------------------------------------------------------- Contact us Page */
+
+.contact-header {
+    margin-top: 3rem;
+}
+
+.form-control {
+    margin: 1rem;
+}
+
+.contact-button {
+    padding: 1rem;
+    font-size: 1.5rem;
 }
 
 /* -------------------------------------------------------------------------------------------------------------------------------- Bootstrap Toasts */

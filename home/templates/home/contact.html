@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="container h-100">
+    <div class="row h-100 justify-content-end">
+        <div class="col-7 col-md-6 my-auto home-main-content">
+            <h1 class="display-4 home-logo text-center contact-header rounded-3 mb-4">
+                Contact Us!
+            </h1>
+            <h5 class="home-desc-text text-center rounded-pill">
+                If you have any questions, or would like to volunteer at our rescue centre, <br> please fill out the form below.
+            </h5>
+            <div class="contact-form-container my-5">
+                    <form>
+                        <input type="text" name="name" id="fullname" class="form-control" placeholder="Name" required />
+                        <input type="email" name="email" id="emailaddress" class="form-control" placeholder="Email" required />
+                        <textarea rows="5" name="message" id="message" class="form-control" placeholder="Your message here..." required></textarea>
+                        <div class="form-row text-center">
+                            <div class="col">
+                                <button type="submit" class="btn contact-button"><strong>Send Message</strong></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
