@@ -1,6 +1,111 @@
 /* ---------------------------------------- Special headings/paddings/margins/text */
+
 html {
     height: 100%;
+}
+
+/* -------------------------------------------------------------------------------------------------------------------------------- Colors*/
+/* -------------------------------------------- Body Colors*/
+
+body {
+    color: #555;
+}
+
+/* -------------------------------------------- Nav Colors*/
+
+/* Nav background colour */
+.custom-nav-bg, .navbar {
+    background-color: #98b080;
+}
+
+.nav-bar-icon {
+    color: #1A191A;
+}
+
+/* Nav text logo colour */
+.logo-font {
+    color: #1A191A;
+}
+
+/* Nav search button colour */
+.btn-green {
+    background-color: #1A191A;
+    color: white;
+}
+
+/* Nav search button feedback colours */
+.btn-green:hover,
+.btn-green:active,
+.btn-green:focus {
+    background: #c0cfb1;
+    color: black;
+}
+
+/* Account link colour */
+.user-option-link {
+    color: #1A191A;
+}
+
+/* Nav links colour */
+.navbar-option {
+    color: #1A191A;
+}
+
+/* dropdown for cats nav link colour */
+.dropdown-menu {
+    background-color: #1A191A;
+}
+
+/* all dropdowns link colour */
+.dropdown-item {
+    color: white;
+}
+
+/* feedback nav link colours */
+.nav-link:hover,
+.nav-link:active,
+.nav-link:focus,
+.user-option-link:hover,
+.user-option-link:active,
+.user-option-link:focus {
+    color: white;
+}
+
+/* -------------------------------------------- Mobile Nav Colors*/
+
+.mobile-nav-icon {
+    color: #CBDBB5;
+}
+
+/* -------------------------------------------- Home page Colors*/
+
+.home-logo {
+    color: #1A191A;
+    text-shadow: 5px 5px white;
+    background-color: #98b080;
+}
+
+.home-desc-text {
+    color: black;
+    background-color: #98b080;
+}
+
+.meet-cats-button {
+    background: #98b080;
+    color: black;
+}
+
+.meet-cats-button:hover,
+.meet-cats-button:active,
+.meet-cats-button:focus {
+    background: #6f8659;
+    color: black;
+}
+
+/* -------------------------------------------- Cats page Colors*/
+
+.overlay {
+    background: #c0cfb1;
 }
 
 /* -------------------------------------------------------------------------------------------------------------------------------- Body */
@@ -9,15 +114,10 @@ body {
     background: url('/media/banner-cat.jpg') no-repeat center center fixed;
     background-size: cover;
     height: calc(100vh - 164px);
-    color: #555;
     font-family: 'Dosis';
 }
 
 /* -------------------------------------------------------------------------------------------------------------------------------- Header & Nav */
-
-.custom-nav-bg {
-    background-color: #7D8D42;
-}
 
 .icon {
     align-items: center;
@@ -28,15 +128,12 @@ body {
 }
 
 .nav-bar-icon {
-    color: #CBDBB5;
     padding-left: 1rem;
 }
 
 .logo-font {
     font-family: 'Pacifico';
     font-size: 5rem;
-    color: #CBDBB5;
-    text-shadow: 4px 4px 2px black;
     position: relative;
     z-index: 10;
 }
@@ -45,62 +142,27 @@ body {
     width: fit-content;
 }
 
-.btn-green {
-    background-color: #ABB356;
-    color: #434128;
-}
-
-.btn-green:hover,
-.btn-green:active,
-.btn-green:focus {
-    background: #7D8D42;
-    color: white;
-}
-
 .user-option-link {
     font-size: 1rem;
     font-weight: 800;
-    color: #434128;
     padding-left: 2rem;
 }
 
 .navbar-option {
     font-size: 2rem;
     font-weight: 800;
-    color: #434128;
-}
-
-.navbar {
-    background-color: #7D8D42;
-}
-
-.dropdown-menu {
-    background-color: #434128;
+    margin-right: 3rem;
 }
 
 .dropdown-item {
-    color: #CBDBB5;
     font-weight: 600;
 }
 
-.nav-link:hover,
-.nav-link:active,
-.nav-link:focus,
-.user-option-link:hover,
-.user-option-link:active,
-.user-option-link:focus {
-    color: white;
-}
-
-.nav-link, .dropdown-menu {
-    margin-left: 2.5rem;
+.navbar {
+    border-bottom: 10px double black;
 }
 
 /* -------------------------------------------------------------------------------------------------------------------------------- Mobile Nav */
-
-.mobile-nav-icon {
-    color: #CBDBB5;
-}
 
 .navbar-toggler {
     margin-left: 0.5rem;
@@ -111,32 +173,19 @@ body {
     margin-top: 1rem;
 }
 
-/* -------------------------------------------------------------------------------------------------------------------------------- Donation Call To Action */
-
-.donation-banner {
-    background-color: #434128;
-}
-
-.donation-call-text {
-    color: #CBDBB5;
-}
-
 /* -------------------------------------------------------------------------------------------------------------------------------- Home Page */
 
 .home-logo {
     font-family: 'Pacifico';
     font-size: 5rem;
-    color: #CBDBB5;
-    text-shadow: 5px 5px black;
-    background-color: rgba(125, 141, 66, 1);
     padding: 1rem;
+    border: 2px solid black;
 }
 
 .home-desc-text {
-    color: #CBDBB5;
-    background-color: rgba(67, 65, 40, 1);
     padding: 2rem;
     font-weight: 700;
+    border: 2px solid black;
 }
 
 .home-cat-button-container {
@@ -145,18 +194,9 @@ body {
 }
 
 .meet-cats-button {
-    background: #ABB356;
-    color: #434128;
     min-width: 260px;
     font-weight: 600;
     font-size: 1.5rem;
-}
-
-.meet-cats-button:hover,
-.meet-cats-button:active,
-.meet-cats-button:focus {
-    background: #7D8D42;
-    color: white;
 }
 
 /* -------------------------------------------------------------------------------------------------------------------------------- Cats Page */
@@ -167,7 +207,6 @@ body {
     top: 0;
     left: 0;
     position: fixed;
-    background: #7D8D42;
     z-index: -1;
 }
 
@@ -180,10 +219,19 @@ body {
     width: 15rem;
 }
 
+.button-group-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .btn-group {
     display: flex;
     width: fit-content;
-    margin-left: 17rem;
+}
+
+.sort-btn {
+    font-size: larger;
 }
 
 .back-to-top-button {
