@@ -1,6 +1,15 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_js %}
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script type="text/javascript">
+    (function() {
+        emailjs.init("T1hI3_NLTj2GPQBdu");
+    })();
+</script>
+{% endblock %}
+
 {% block page_header %}
     <div class="container header-container">
         <div class="row">
@@ -20,8 +29,8 @@
                 If you have any questions, or would like to volunteer at our rescue centre, <br> please fill out the form below.
             </h5>
             <div class="contact-form-container my-5">
-                    <form>
-                        <input type="text" name="name" id="fullname" class="form-control" placeholder="Name" required />
+                    <form id="contactForm" onsubmit="return sendEmail(this);">
+                        <input type="text" name="name" id="name" class="form-control" placeholder="Full Name" required />
                         <input type="email" name="email" id="emailaddress" class="form-control" placeholder="Email" required />
                         <textarea rows="5" name="message" id="message" class="form-control" placeholder="Your message here..." required></textarea>
                         <div class="form-row text-center">
@@ -35,4 +44,6 @@
         </div>
     </div>
 </div>
+
+<script src="{% static 'js/sendEmail.js'%}"></script>
 {% endblock %}
