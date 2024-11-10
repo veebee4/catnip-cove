@@ -1,13 +1,19 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block content %}
-		<h4 style="padding-top: 20rem; font-size: 6rem;">Thank you for your contribution</h4>
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'donations/css/donation.css' %}">
+{% endblock %}
 
-        <div id="box">
+{% block content %}
+    <div role="heading" class="thankyou-container text-center container col-7 col-md-6 rounded">
+		<h1 class="text-black">Thank you from all staff and cats at Catnip Cove for your kind donation!</h1>
+    </div>
+
+        <div class="text-center text-black thankyou-message container col-6 col-md-5 rounded">
             <h4>Thank you for your contribution of £{{ amount }}!</h4>
-            <p>Your support helps us fulfill our objective of helping rescued cats! You should receive a receipt to the email you provided shortly :)</p>
+            <p>Your support helps us fulfill our objective of helping rescued cats and allowing us to continue our work!</p>
             <hr>
-            <a class="myButton" href="{% url 'donate' %}">&#x2190;Back to donation page</a>
+            <a class="back-to-donate-button text-black rounded" role="button" href="{% url 'donate' %}"><strong> &#x2190;Back to donation page </strong></a>
         </div>
 {% endblock %}

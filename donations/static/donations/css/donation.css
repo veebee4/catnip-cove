@@ -1,8 +1,5 @@
-/* -------------------------------------------------------------------------------------------------------------------------------- Donation Page */
-
-.donate-header {
-    margin-top: 5rem;
-}
+/* -------------------------------------------------------------------------------------------------------------------------------- Colours */
+/* ---------------------------------------------------------------- Donation Page Colours */
 
 .donate-sub-header {
     color: black;
@@ -10,6 +7,36 @@
 
 label {
     color: black;
+}
+
+.customer-details {
+    background-color: #eeeeee;
+}
+
+legend {
+    color: white;
+}
+
+/* ---------------------------------------------------------------- Success Page Colours */
+
+.thankyou-container, .thankyou-message {
+    background: #c0cfb1;
+}
+
+.back-to-donate-button {
+    background: #6f8659;
+}
+
+.back-to-donate-button:hover,
+.back-to-donate-button:active,
+.back-to-donate-button:focus {
+    background: #98b080;
+}
+
+/* -------------------------------------------------------------------------------------------------------------------------------- Donation Page */
+
+.donate-header {
+    margin-top: 5rem;
 }
 
 .form-field {
@@ -42,7 +69,6 @@ label {
 }
 
 .customer-details {
-    background-color: #eeeeee;
     width: 30%;
     border: 2px black solid;
     border-radius: 10px;
@@ -51,7 +77,6 @@ label {
 legend {
     border: 2px black solid;
     border-radius: 10px;
-    color: white;
     padding: 5px 10px;
 }
   
@@ -77,6 +102,26 @@ input {
 .payment-button {
     border: 2px black solid;
     border-radius: 10px;
+}
+
+/* -------------------------------------------------------------------------------------------------------------------------------- Success Page */
+
+.thankyou-container {
+    margin-top: 20rem;
+    padding: 1rem;
+    border: 5px double black;
+}
+
+.thankyou-message {
+    margin-top: 5rem;
+    padding: 1rem;
+    border: 5px double black;
+}
+
+.back-to-donate-button {
+    padding: 0.5rem;
+    border: 2px solid black;
+    font-size: 1.5rem;
 }
 
 /* -------------------------------------------------------------------------------------------------------------------------------- Stripe CSS */
