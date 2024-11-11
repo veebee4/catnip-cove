@@ -10,7 +10,6 @@ stripe.api_key = settings.STRIPE_API_KEY
 
 
 def donate(request):
-    # Get the cat_id if selected
     cat_id = request.GET.get('cat_id')
     cat = get_object_or_404(Cat, id=cat_id) if cat_id else None
 

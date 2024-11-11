@@ -19,13 +19,7 @@ class DonationAdmin(admin.ModelAdmin):
         'donor_first_name', 
         'donor_last_name', 
         'donor_email_address', 
-        'donor_address_line1', 
-        'donor_address_line2', 
-        'donor_city_or_town',
-        'donor_county',
         'donor_postcode',
-        'donor_country',
-        'donor_comment',
     )
 
     list_display = (
@@ -37,7 +31,7 @@ class DonationAdmin(admin.ModelAdmin):
         'donor_first_name', 
         'donor_last_name', 
         'donor_email_address', 
-        'donor_country',
+        'donor_postcode',
     )
 
     ordering = ('-date',)

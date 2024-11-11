@@ -13,14 +13,7 @@ class Donation(models.Model):
     donor_first_name = models.CharField(max_length=100, blank=False)
     donor_last_name = models.CharField(max_length=100, blank=False)
     donor_email_address = models.EmailField(max_length=100, blank=False)
-    donor_telephone_number = models.CharField(max_length=100, blank=True)
-    donor_address_line1 = models.CharField(max_length=100, blank=True)
-    donor_address_line2 = models.CharField(max_length=100, blank=True)
-    donor_city_or_town = models.CharField(max_length=100, blank=True)
-    donor_county = models.CharField(max_length=50, blank=True)
     donor_postcode = models.CharField(max_length=15, blank=True) 
-    donor_country = models.CharField(max_length=50, blank=True)
-    donor_comment = models.TextField(blank=True)
     date = models.DateTimeField(auto_now_add=True)
 
     def _generate_donation_number(self):
@@ -39,8 +32,6 @@ class Donation(models.Model):
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return self.donation_number
+        return f"Donation of {self.amount} by {self.donor_first_name} {self.donor_last_name} for {self.cat.name if self.cat else 'General Donation'}"
 
-    def __str__(self):
-        return f"Donation of {self.amount} by {self.donor_first_name} {self.donor_last_name}"
 
