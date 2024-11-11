@@ -49,8 +49,7 @@ INSTALLED_APPS = [
     'home',
     'cats',
     'donations',
-    'crispy_forms',
-    'crispy_bootstrap5',
+    'profiles',
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
