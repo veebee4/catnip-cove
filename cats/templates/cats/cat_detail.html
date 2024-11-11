@@ -43,7 +43,7 @@
                     </ul>
                 <div class="card-body">
                     <div class="col-12">
-                        <a href="{% url 'donate_with_cat' cat.id %}" class="card-link donation-link-btn">Donate for {{ cat.name }}</a>
+                        <a href="{% url 'donate' %}?cat_id={{ cat.id }}" class="card-link donation-link-btn">Donate for {{ cat.name }}</a>
                     </div>
                 </div>
             </div>
