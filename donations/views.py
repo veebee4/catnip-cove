@@ -48,6 +48,18 @@ def charge(request):
 			description="Donation"
 			)
 
+        # Save the donation to the database
+        donation = Donation(
+            cat=cat,
+            amount=amount / 100,
+            custom_amount=None if selected_amount else amount / 100,
+            donor_first_name=request.POST['first_name'],
+            donor_last_name=request.POST['last_name'],
+            donor_email_address=request.POST['email'],
+            donor_postcode=request.POST['postcode']
+        )
+        donation.save()
+
     return redirect(reverse('success', args=[int(amount / 100)]))
 
 
