@@ -27,27 +27,20 @@ def charge(request):
         amount = int(selected_amount) * 100 if selected_amount else int(custom_amount) * 100 if custom_amount else 0
 
         cat_id = request.POST.get('cat_id')
-        cat = None  # Default to None (for general donations)
-
-        if cat_id:
-            cat = get_object_or_404(Cat, id=cat_id)
-
-        # Create the customer in Stripe
-        customer = stripe.Customer.create(
-            name=f"{request.POST['first_name']} {request.POST['last_name']}",
-            email=request.POST['email'],
-            source=request.POST['stripeToken']
-        )
+        cat = get_object_or_404(Cat, id=cat_id) if cat_id else None
 
         # Add a description for the donation
         description = f"Donation for {cat.name}" if cat else "General Donation"
 
-        charge = stripe.Charge.create(
-			customer=customer.id,
-			amount=amount,
-			currency='gbp',
-			description="Donation"
-			)
+        intent = stripe.PaymentIntent.create(
+            amount=amount,
+            currency='gbp',
+            description=description,
+            metadata={
+                "cat_id": cat_id,
+                "donor_email": request.POST['email']
+            }
+        )
 
         # Save the donation to the database
         donation = Donation(
@@ -57,7 +50,8 @@ def charge(request):
             donor_first_name=request.POST['first_name'],
             donor_last_name=request.POST['last_name'],
             donor_email_address=request.POST['email'],
-            donor_postcode=request.POST['postcode']
+            donor_postcode=request.POST['postcode'],
+            stripe_pid=intent.id  #stores the payment id
         )
         donation.save()
 
