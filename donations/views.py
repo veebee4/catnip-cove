@@ -26,6 +26,7 @@ def charge(request):
         custom_amount = request.POST.get('custom-amount')
         amount = int(selected_amount) * 100 if selected_amount else int(custom_amount) * 100 if custom_amount else 0
 
+        # get id of cat if one was selected, otherwise default to none
         cat_id = request.POST.get('cat_id')
         cat = get_object_or_404(Cat, id=cat_id) if cat_id else None
 
