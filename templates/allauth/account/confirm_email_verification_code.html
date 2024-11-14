@@ -4,10 +4,14 @@
 {% block head_title %}
     {% translate "Email Verification" %}
 {% endblock head_title %}
-{% block content %}
-    {% element h1 %}
-        {% translate "Enter Email Verification Code" %}
-    {% endelement %}
+{% block inner_content %}
+    <div class="logo-font mt-5">
+        <hr>
+        {% element h1 %}
+            {% trans "Enter Email Verification Code" %}
+        {% endelement %}
+        <hr>
+    </div>
     {% setvar email_link %}
         <a href="mailto:{{ email }}">{{ email }}</a>
     {% endsetvar %}
@@ -45,4 +49,4 @@
             {% csrf_token %}
         </form>
     {% endif %}
-{% endblock content %}
+{% endblock inner_content %}

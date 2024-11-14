@@ -278,6 +278,28 @@ body {
     font-size: 1.5rem;
 }
 
+/* -------------------------------------------------------------------------------------------------------------------------------- Allauth templates */
+
+.allauth-form-inner-content {
+    margin-top: 1rem;
+}
+
+.allauth-form-inner-content > p {
+    color: black;
+    font-weight: 700;
+}
+
+.allauth-form-inner-content > form > p > input {
+    display: flex;
+}
+
+.allauth-form-inner-content > form > button {
+    border-radius: 10px;
+    background-color: #6f8659;
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+
 /* -------------------------------------------------------------------------------------------------------------------------------- Bootstrap Toasts */
 
 .message-container {

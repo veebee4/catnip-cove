@@ -3,10 +3,14 @@
 {% block head_title %}
     {% trans "Sign Out" %}
 {% endblock head_title %}
-{% block content %}
-    {% element h1 %}
-        {% trans "Sign Out" %}
-    {% endelement %}
+{% block inner_content %}
+    <div class="logo-font mt-5">
+        <hr>
+        {% element h1 %}
+            {% trans "Sign Out" %}
+        {% endelement %}
+        <hr>
+    </div>
     {% element p %}
         {% trans 'Are you sure you want to sign out?' %}
     {% endelement %}
@@ -22,4 +26,4 @@
             {% endelement %}
         {% endslot %}
     {% endelement %}
-{% endblock content %}
+{% endblock inner_content %}

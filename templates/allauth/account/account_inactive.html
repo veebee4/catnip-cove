@@ -4,11 +4,15 @@
 {% block head_title %}
     {% translate "Account Inactive" %}
 {% endblock head_title %}
-{% block content %}
+{% block inner_content %}
+<div class="logo-font mt-5">
+    <hr>
     {% element h1 %}
-        {% translate "Account Inactive" %}
+        {% trans "Account Inactive" %}
     {% endelement %}
+    <hr>
+</div>
     {% element p %}
         {% translate "This account is inactive." %}
     {% endelement %}
-{% endblock content %}
+{% endblock inner_content %}
