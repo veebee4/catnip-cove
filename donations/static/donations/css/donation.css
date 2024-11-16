@@ -35,53 +35,14 @@ legend {
     margin-top: 5rem;
 }
 
-.form-field {
+.form-container {
     display: flex;
     flex-direction: column;
-    text-align: center;
+    margin-left: 10rem;
 }
 
-.amount-dropdown {
-    width: 65%;
-}
-
-.custom-amount-wrapper {
-    width: 50%;
-}
-
-.amount-input {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        padding: 1rem;
-        border: 2px black dashed;
-        border-radius: 10px;
-        margin: 2rem;
-}
-
-.detail-input-wrapper {
-    display: flex;
-    justify-content: center;
-}
-
-.customer-details {
-    width: 30%;
-    border: 2px black solid;
-    border-radius: 10px;
-}
-  
-legend {
-    border: 2px black solid;
-    border-radius: 10px;
-    padding: 5px 10px;
-}
-  
-input {
-    margin: 5px;
-}
-
-.form-detail-input {
-    width: 90%;
+.form-label {
+    display: none;
 }
 
 .card-details-wrapper {
