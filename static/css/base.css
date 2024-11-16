@@ -176,6 +176,10 @@ body {
     border-bottom: 10px double black;
 }
 
+input[name='q']::placeholder {
+    color: #aab7c4;
+}
+
 /* -------------------------------------------------------------------------------------------------------------------------------- Mobile Nav */
 
 .navbar-toggler {
@@ -281,7 +285,7 @@ body {
 /* -------------------------------------------------------------------------------------------------------------------------------- Allauth templates */
 
 .allauth-form-inner-content {
-    margin-top: 1rem;
+    margin-top: 15rem;
 }
 
 .allauth-form-inner-content > p {
@@ -291,13 +295,46 @@ body {
 
 .allauth-form-inner-content > form > p > input {
     display: flex;
+    border-color: black;
+    border-radius: 4px;
 }
 
-.allauth-form-inner-content > form > button {
+.allauth-form-inner-content label:not([for='id_remember']) {
+    display: none;
+}
+
+.allauth-form-inner-content input::placeholder {
+    color: #aab7c4;
+}
+
+.allauth-form-inner-content button,
+.allauth-form-inner-content input[type='submit'] {
+	/* btn */
+	display: inline-block;
+    font-weight: 700;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: #000;
+    border: 1px solid #000;
+    padding: .375rem .75rem;
+    font-size: 1.3rem;
+    line-height: 1.5;
     border-radius: 10px;
     background-color: #6f8659;
-    font-weight: 700;
-    font-size: 1.3rem;
+}
+
+.allauth-form-inner-content button:hover,
+.allauth-form-inner-content input[type='submit']:hover {	
+    background-color: #98b080;
+    border-color: #222;
+}
+
+.allauth-form-inner-content a {
+	color: #17a2b8; /* text-info */
 }
 
 /* -------------------------------------------------------------------------------------------------------------------------------- Bootstrap Toasts */
