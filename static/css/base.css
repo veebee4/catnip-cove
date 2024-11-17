@@ -74,7 +74,7 @@ body {
 /* -------------------------------------------- Mobile Nav Colors*/
 
 .mobile-nav-icon {
-    color: #6f8659;
+    color: #0a0a0a;
 }
 
 /* -------------------------------------------- Home page Colors*/
@@ -425,7 +425,7 @@ input[name='q']::placeholder {
 /* Slightly larger container on xl screens */
 @media (min-width: 1200px) {
   .container {
-    max-width: 80%;
+    max-width: 100%;
   }
 }
 

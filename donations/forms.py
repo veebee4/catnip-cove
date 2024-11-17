@@ -7,8 +7,8 @@ class DonationForm(forms.ModelForm):
         (5, "£5 - Specialist milk for a kitten for 10 days"),
         (10, "£10 - Food for a cat for 50 days"),
         (20, "£20 - Warm blankets for 10 cats"),
-        (30, "£30 - Stimulating toys for cats"),
-        (50, "£50 - Full healthcheck including vaccinations"),
+        (30, "£30 - Stimulating toys to keep our cats happy"),
+        (50, "£50 - Full healthcheck including vaccinations for a cat"),
     ]
 
     amount = forms.ChoiceField(choices=amount_choices, required=False)
@@ -35,7 +35,7 @@ class DonationForm(forms.ModelForm):
         self.fields['amount'].widget.attrs['autofocus'] = True
         #iterates over each field in the donation form
         for field in self.fields:
-            if field != 'amount' and field != 'custom_amount': #exclude these fields from 
+            if field != 'amount': #exclude the amount field from from below customisation 
                 placeholder = placeholders.get(field) # for all fields except above get placeholders
                 self.fields[field].widget.attrs['placeholder'] = placeholder
                 self.fields[field].widget.attrs['class'] = 'form-control stripe-style-input' #applies two classes to each input on the form
