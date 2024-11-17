@@ -77,11 +77,20 @@ body {
     color: #0a0a0a;
 }
 
+.search-submit-btn {
+    background-color: #6f8659;
+}
+
+.search-submit-btn:hover,
+.search-submit-btn:active,
+.search-submit-btn:focus {
+    background-color: #c0cfb1;
+}
+
 /* -------------------------------------------- Home page Colors*/
 
 .home-logo {
     color: #1A191A;
-    text-shadow: 5px 5px white;
     background-color: #98b080;
 }
 
@@ -198,6 +207,13 @@ input[name='q']::placeholder {
     font-size: 5rem;
     padding: 1rem;
     border: 2px solid black;
+    width: 80%;
+    text-shadow: 4px 4px white;
+}
+
+.rescue-info-container {
+    width: 85%;
+    padding: 2rem;
 }
 
 .home-desc-text {
@@ -206,15 +222,12 @@ input[name='q']::placeholder {
     border: 2px solid black;
 }
 
-.home-cat-button-container {
-    display: flex;
-    justify-content: center;
-}
-
 .meet-cats-button {
-    min-width: 260px;
+    width: 40%;
     font-weight: 600;
     font-size: 1.5rem;
+    border: 2px solid black;
+    margin-left: 13rem;
 }
 
 /* -------------------------------------------------------------------------------------------------------------------------------- Cats Page */
@@ -399,18 +412,27 @@ input[name='q']::placeholder {
     border-bottom-color: #343a40 !important;
 }
 
-/* -------------------------------- Media Queries */
+/* -------------------------------------------------------------------------------------------------------------------------------- Media Queries */
 
-/*------- For Large sized Mobile screens */
+/*---------------------------- For Small sized Mobile screens */
 
-@media screen and (min-width: 425px) and (max-width: 767px) {
+@media screen and (min-width: 320px) and (max-width: 424px) {
+
+    /*----------------- Home page */
+
     .home-main-content {
-        height: 50%;
-        margin-right: 1rem;
+        height: 60%;
+        width: 100%;
     }
 
     .home-logo {
-        font-size: 1.5rem;
+        font-size: 2rem;
+        text-shadow: none;
+        margin-top: 1rem;
+    }
+
+    .rescue-info-container {
+        margin-top: 3rem;
     }
 
     .home-desc-text {
@@ -418,9 +440,104 @@ input[name='q']::placeholder {
     }
 
     .meet-cats-button {
-        margin-bottom: 2rem;
+        margin-top: 2rem;
     }
 }
+
+/*---------------------------- For Large sized Mobile screens */
+
+@media screen and (min-width: 425px) and (max-width: 767px) {
+
+    /*----------------- Home page */
+
+    .home-main-content {
+        height: 60%;
+        margin-right: 2rem;
+        width: 80%;
+    }
+
+    .home-logo {
+        font-size: 3rem;
+        text-shadow: 2px 2px white;
+    }
+
+    .rescue-info-container {
+        margin-top: 3rem;
+    }
+
+    .home-desc-text {
+        font-size: 1rem;
+    }
+
+    .meet-cats-button {
+        margin-top: 2rem;
+    }
+}
+
+/*---------------------------- For tablet screens */
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    /*----------------- Home page */
+    .home-main-content {
+        height: 60%;
+        width: 100%;
+    }
+
+    .home-logo {
+        font-size: 4rem;
+        text-shadow: 3px 3px white;
+        margin-top: 1rem;
+    }
+
+    .rescue-info-container {
+        margin-top: 5rem;
+    }
+
+    .home-desc-text {
+        font-size: 1.2rem;
+    }
+
+    .meet-cats-button {
+        margin-top: 2rem;
+    }
+}
+
+/*---------------------------- For laptop screens */
+
+@media screen and (min-width: 1024px) and (max-width: 1439px) {
+    /*----------------- Home page */
+
+    .home-main-content {
+        height: 90%;
+        width: 50%;
+    }
+
+    .home-logo {
+        font-size: 4rem;
+        text-shadow: 3px 3px white;
+    }
+
+    .rescue-info-container {
+        margin-top: 5rem;
+    }
+
+    .home-desc-text {
+        font-size: 1.2rem;
+    }
+
+    .meet-cats-button {
+        margin-top: 2rem;
+    }
+
+    /*----------------- Nav */
+
+    .logo-font {
+        font-size: 3rem;
+    }
+
+}
+
+/*---------------------------- Special sizes */
 
 /* Slightly larger container on xl screens */
 @media (min-width: 1200px) {
