@@ -13,13 +13,14 @@
 <div class="overlay"></div>
 <div class="container fluid">
     <div class="row">
-        <div class="col text-center mt-3">
+        <div class="col-12 mt-3">
             <h2 class="logo-font page-heading"><i class="fa-solid fa-paw"></i> Our Cats <i class="fa-solid fa-paw"></i></h2>
+            <hr class="hr-cats">
         </div>
     </div>
 
 <div class="button-group-wrapper">
-    <div class="btn-group cat-filter-buttons mt-1 mb-5 text-center" role="group" aria-label="Cat filter">
+    <div class="btn-group cat-filter-buttons mt-1 mb-1 text-center" role="group" aria-label="Cat filter">
         <div class="btn-group" role="group">
             <!-- button to show all breeds of cat currently on the website populated by for loop -->
             <button type="button" class="btn btn-outline-dark dropdown-toggle sort-btn" data-bs-toggle="dropdown" aria-expanded="false">
@@ -59,9 +60,10 @@
         </a>
     </div>
 </div>
+<hr class="hr-cats">
 
     <div class="row">
-        <div class="cat-container col-10 offset-1">
+        <div class="cat-container col-11 offset-1">
             <div class="row mt-1 mb-2">
                 <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
                     <div class="sort-select-wrapper w-10">
@@ -75,15 +77,15 @@
                     </div>
                 </div>
                 <div class="col-12 col-md-6 order-md-first">
-                    <p class="mt-3 text-md-left">
-                            <span class="small"><a href="{% url 'cats' %}">Cats Home</a> | </span>
-                        {{ cats|length }} Cats
+                    <p class="mt-3 text-md-left text-center">
+                            <span class="small"><a href="{% url 'cats' %}" class="cat-record-home-link"><strong>Cats - Home</strong></a> | </span>
+                        {{ cats | length }} Cats
                     </p>
                 </div>
             </div>
             <div class="row">
                 {% for cat in cats %}
-                    <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                    <div class="col-sm-8 col-md-6 col-lg-4 col-xl-3 card-wrapper">
                         <div class="card h-100 border-2">
                             {% if cat.image %}
                             <a href="{% url 'cat_detail' cat.id %}">
@@ -101,7 +103,8 @@
                                {{ cat.breed }}
                             </div>
                         </div>
-                    </div>                      
+                    </div>
+                    <!-- Code taken from Boutique Ado walkthrough to show horizontal rules between cat pictures depending on screen size -->                   
                     {% if forloop.counter|divisibleby:2 %}
                         <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
                             <hr>

@@ -117,6 +117,19 @@ body {
     background: #c0cfb1;
 }
 
+.cat-record-home-link {
+    color: #0044CC;
+    border-radius: 1rem;
+    background-color: white;
+    padding: 0.5rem;
+}
+
+.cat-record-home-link:hover,
+.cat-record-home-link:active,
+.cat-record-home-link:focus {
+    color: #007BFF;
+}
+
 /* -------------------------------------------- Contact us page Colors*/
 
 .contact-button {
@@ -246,6 +259,20 @@ input[name='q']::placeholder {
     padding-bottom: 2rem;
 }
 
+.hr-cats {
+    width: 20%;
+    margin: 1rem auto;
+    border: 3px solid #6f8659;
+}
+
+.cat-record-home-link {
+    border-radius: 1rem;
+    padding: 0.5rem;
+    border: 2px solid #98b080;
+    font-size: 1rem;
+    text-decoration: none;
+}
+
 .card {
     width: 15rem;
 }
@@ -347,7 +374,7 @@ input[name='q']::placeholder {
 }
 
 .allauth-form-inner-content a {
-	color: #17a2b8; /* text-info */
+	color: #17a2b8;
 }
 
 /* -------------------------------------------------------------------------------------------------------------------------------- Bootstrap Toasts */
@@ -441,6 +468,33 @@ input[name='q']::placeholder {
 
     .meet-cats-button {
         margin-top: 2rem;
+    }
+
+    /*----------------- Cats page */
+
+    .page-heading {
+        margin-top: 7rem;
+        font-size: 2.5rem;
+        text-align: center;
+    }
+
+    .btn-group {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .custom-select {
+        margin: 1rem;
+        margin-right: 3rem;
+        padding: 0.5rem;
+    }
+
+    .cat-record-counter-link {
+        margin-right: 3rem;
+    }
+
+    .card-wrapper {
+        margin-bottom: 2rem;
     }
 }
 
