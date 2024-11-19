@@ -144,6 +144,11 @@ body {
     color: black;
 }
 
+.contact-desc-text {
+    color: black;
+    background-color: #98b080;
+}
+
 /* -------------------------------------------------------------------------------------------------------------------------------- Body */
 
 body {
@@ -310,15 +315,28 @@ input[name='q']::placeholder {
 
 .contact-header {
     margin-top: 3rem;
+    width: 80%;
 }
 
 .contact-input {
     margin: 1rem;
+    border: 1px solid black;
 }
 
 .contact-button {
     padding: 1rem;
     font-size: 1.5rem;
+}
+
+.contact-form-container {
+    width: 80%;
+}
+
+.contact-desc-text {
+    width: 80%;
+    padding: 2rem;
+    font-weight: 700;
+    border: 2px solid black;
 }
 
 /* -------------------------------------------------------------------------------------------------------------------------------- Allauth templates */
@@ -494,6 +512,26 @@ input[name='q']::placeholder {
     .card-wrapper {
         margin-bottom: 2rem;
     }
+
+    /*----------------- Contact Us page */
+
+    .contact-main-content {
+        height: 60%;
+        width: 95%;
+    }
+
+    .contact-header, .home-desc-text {
+        margin-left: 1rem;
+    }
+
+    .contact-button {
+        margin-left: 2rem;
+        margin-top: 1rem;
+    }
+
+    .contact-header {
+        margin-top: 0;
+    }
 }
 
 /*---------------------------- For Large sized Mobile screens */
@@ -541,6 +579,26 @@ input[name='q']::placeholder {
     .card-wrapper {
         margin-bottom: 2rem;
     }
+
+    /*----------------- Contact Us page */
+
+    .contact-main-content {
+        height: 60%;
+        width: 90%;
+    }
+
+    .contact-header, .contact-desc-text {
+        margin-left: 1rem;
+    }
+
+    .contact-button {
+        margin-left: 2rem;
+        margin-top: 1rem;
+    }
+
+    .contact-header {
+        margin-top: 0;
+    }
 }
 
 /*---------------------------- For tablet screens */
@@ -576,6 +634,17 @@ input[name='q']::placeholder {
         margin-top: 7rem;
     }
 
+    /*----------------- Contact Us page */
+
+    .contact-main-content {
+        height: 60%;
+        width: 85%;
+    }
+
+    .contact-header {
+        margin-top: 0;
+    }
+
 }
 
 /*---------------------------- For laptop screens */
@@ -597,7 +666,7 @@ input[name='q']::placeholder {
         margin-top: 5rem;
     }
 
-    .home-desc-text {
+    .contact-desc-text {
         font-size: 1.2rem;
     }
 
@@ -609,6 +678,17 @@ input[name='q']::placeholder {
 
     .logo-font {
         font-size: 3rem;
+    }
+
+    /*----------------- Contact Us page */
+
+    .contact-main-content {
+        height: 60%;
+        width: 85%;
+    }
+
+    .contact-header {
+        margin-top: 1rem;
     }
 
 }
