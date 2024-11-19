@@ -512,26 +512,6 @@ input[name='q']::placeholder {
     .card-wrapper {
         margin-bottom: 2rem;
     }
-
-    /*----------------- Contact Us page */
-
-    .contact-main-content {
-        height: 60%;
-        width: 95%;
-    }
-
-    .contact-header, .home-desc-text {
-        margin-left: 1rem;
-    }
-
-    .contact-button {
-        margin-left: 2rem;
-        margin-top: 1rem;
-    }
-
-    .contact-header {
-        margin-top: 0;
-    }
 }
 
 /*---------------------------- For Large sized Mobile screens */

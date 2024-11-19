@@ -19,7 +19,7 @@
 
 {% block content %}
 <div class="overlay"></div>
-<div class="container mb-2">
+<div class="container-fluid mb-2 d-flex donation-page-container">
     <div class="row">
         <div class="col">
             <h2 class="logo-font mb-4 text-center donate-header">Donation Form</h2>
@@ -35,9 +35,10 @@
         {% endif %}
     </div>
 
-    <div class="col-12 col-lg-8 col-md-5 col-sm-3 form-container">
+
+    <div class="col-12 col-lg-10 col-md-6 col-sm-3 form-container">
         <p class="text-muted mt-5 text-center">Please fill out the form below to complete your donation</p>
-        <form action="{% url 'charge' %}" method="POST" id="payment-form">
+        <form action="{% url 'charge' %}" method="POST" id="payment-form" class="payment-section">
             {% csrf_token %}
 
             <input type="hidden" name="cat_id" value="{{ cat.id }}">
@@ -57,7 +58,7 @@
             </div>
     
 
-            <div class="detail-input-wrapper">
+            <div class="detail-input-wrapper rounded-1">
                 <div class="customer-details">
                     <fieldset>
                         <legend class="fieldset-label small text-black w-auto">Customer Details</legend>
