@@ -256,7 +256,6 @@ input[name='q']::placeholder {
 
 .page-heading {
     margin-top: revert;
-    padding-bottom: 2rem;
 }
 
 .hr-cats {
@@ -475,7 +474,6 @@ input[name='q']::placeholder {
     .page-heading {
         margin-top: 7rem;
         font-size: 2.5rem;
-        text-align: center;
     }
 
     .btn-group {
@@ -526,6 +524,23 @@ input[name='q']::placeholder {
     .meet-cats-button {
         margin-top: 2rem;
     }
+
+    /*----------------- Cats page */
+
+    .page-heading {
+        margin-top: 7rem;
+        font-size: 3rem;
+    }
+
+    .custom-select {
+        margin: 1rem;
+        margin-right: 3rem;
+        padding: 0.5rem;
+    }
+
+    .card-wrapper {
+        margin-bottom: 2rem;
+    }
 }
 
 /*---------------------------- For tablet screens */
@@ -554,6 +569,13 @@ input[name='q']::placeholder {
     .meet-cats-button {
         margin-top: 2rem;
     }
+
+    /*----------------- Cats page */
+
+    .page-heading {
+        margin-top: 7rem;
+    }
+
 }
 
 /*---------------------------- For laptop screens */
