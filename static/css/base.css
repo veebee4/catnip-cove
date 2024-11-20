@@ -391,6 +391,16 @@ input[name='q']::placeholder {
 	color: #17a2b8;
 }
 
+.cats-playing-image {
+    height: 20rem;
+    border-radius: 3rem;
+}
+
+.signup-content-container {
+    flex-direction: column;
+    align-items: center;
+}
+
 /* -------------------------------------------------------------------------------------------------------------------------------- Bootstrap Toasts */
 
 .message-container {
