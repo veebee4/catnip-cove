@@ -13,6 +13,22 @@ legend {
     color: white;
 }
 
+.text-info {
+    color: #0044CC;
+}
+
+.text-info:hover,
+.text-info:active,
+.text-info:focus {
+    color: #007BFF;
+}
+
+.payment-button:hover,
+.payment-button:active,
+.payment-button:focus {
+    background-color: #98b080
+}
+
 /* ---------------------------------------------------------------- Success Page Colours */
 
 .thankyou-container, .thankyou-message {
@@ -62,6 +78,7 @@ legend {
 .payment-button {
     border: 2px black solid;
     border-radius: 10px;
+    font-weight: 600;
 }
 
 .detail-input-wrapper {
@@ -70,6 +87,31 @@ legend {
 
 .payment-section {
     width: 70%;
+}
+
+.stripe-style-input {
+    width: 70%;
+    border: 1px solid black;
+    margin-left: 5rem;
+}
+
+.fieldset-label {
+    text-align: center;
+    padding: 1rem;
+    margin: 0.5rem;
+    border: 0.5px dashed black;
+}
+
+.form-check-label {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.numberinput {
+    width: 100%;
+    margin-left: 0;
 }
 
 /* -------------------------------------------------------------------------------------------------------------------------------- Success Page */
@@ -95,8 +137,7 @@ legend {
 /* -------------------------------------------------------------------------------------------------------------------------------- Stripe CSS */
 
 .StripeElement {
-	box-sizing: border-box;
-	height: 40px;
+    width: 40rem;
     padding: 10px 12px;
     border: 1px solid transparent;
     border-radius: 4px;
