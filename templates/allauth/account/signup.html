@@ -6,16 +6,10 @@
     {% trans "Signup" %}
 {% endblock head_title %}
 {% block inner_content %}
-<div class="signup-content-container d-flex">
-    <div>
-        <img src="{% static 'images/group-cats.jpeg' %}" alt="group of cats playing" class="cats-playing-image">
-    </div>
-    <div class="logo-font allauth-header mt-5">
-        <hr>
+    <div class="logo-font allauth-header m-3">
         {% element h1 %}
             {% trans "Sign Up" %}
         {% endelement %}
-        <hr>
     </div>
     {% setvar link %}
         <a href="{{ login_url }}">
@@ -52,5 +46,4 @@
     {% if SOCIALACCOUNT_ENABLED %}
         {% include "socialaccount/snippets/login.html" with page_layout="entrance" %}
     {% endif %}
-</div>
 {% endblock inner_content %}
