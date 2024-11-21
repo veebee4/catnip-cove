@@ -1,0 +1,67 @@
+.profile-header-separator {
+    border: 0;
+    border-top: 3px solid black;
+    width: 20%;
+    margin: auto;
+}
+
+.profile-form-wrapper {
+    flex-direction: column;
+}
+
+.profile-form {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.profile-details-form {
+    background-color: white;
+    border: 2px solid black;
+    width: 60%;
+    padding: 1rem;
+}
+
+/* .profile-form-input {
+    border: 1px solid black;
+} */
+
+fieldset .fieldset-label {
+    margin: 0.5rem;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px dashed black;
+    background-color: #6f8659;
+}
+
+fieldset .form-detail-input {
+    margin-left: 2rem;
+}
+
+.donation-history-header {
+    text-decoration: underline;
+    border: 1px dashed black;
+    background-color: #6f8659;
+    display: inline-block;
+}
+
+.donation-history-details {
+    margin-top: 2rem;
+    background-color: white;
+    border: 2px solid black;
+    height: 29.5rem;
+    width: 40%;
+}
+
+.btn-update {
+    background-color: #6f8659;
+    border: 1px solid black;
+    color: black;
+}
+
+.btn-update:hover,
+.btn-update:focus,
+.btn-update:active {
+    background-color: #98b080;
+    color: black;
+    border: 1px solid black;
+}

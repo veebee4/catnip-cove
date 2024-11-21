@@ -18,37 +18,26 @@
 <div class="container mb-2">
     <div class="row">
         <div class="col">
-            <hr>
             <h2 class="logo-font m-5 text-center profile-header">My Profile</h2>
-            <hr>
+            <hr class="profile-header-separator">
         </div>
     </div>
 
-<div class="row">
-    <div class="detail-input-wrapper">
-        <div class="col-12 col-lg-6 customer-details p-3">
-            <fieldset>
-                <legend class="fieldset-label small text-black w-auto">Your Details</legend>
-                <br>
-                <br>
-                    <input class="form-detail-input" type="text" name="first_name" placeholder="First Name" required>
-                    <br>
-                    <br>
-                    <input class="form-detail-input" type="text" name="last_name" placeholder="Last Name" required>
-                    <br>
-                    <br>
-                    <input class="form-detail-input" type="email" name="email" placeholder="Email Address" required>
-                    <br>
-                    <br>
-                    <input class="form-detail-input" type="text" name="postcode" placeholder="Postal Code" required>
-                    <button class="btn btn-black rounded-0 text-uppercase float-right">Update Information</button>
-            </fieldset>
-        </div>
+<div class="row mt-5">
+    <div class="col-12 col-lg-6 p-3 d-flex profile-form-wrapper">
+                <form class="mt-3 profile-form" action="{% url 'profile' %}" method="POST" id="profile-update-form">
+                    {% csrf_token %}
+
+                    <fieldset class="profile-details-form rounded-3">
+                        <legend class="fieldset-label small text-black w-auto rounded-3">Your Details</legend>
+                        {{ form|crispy }}
+                        <button class="btn btn-update rounded-3 text-uppercase float-right">Update Information</button>
+                    </fieldset>
+                </form>
+    </div>
+    <div class="col-12 col-lg-6 donation-history-details text-black rounded-3">
+        <p class="donation-history-header rounded-3 mt-3 mb-3 p-2">Donation History</p>
+        <p>{{ donations }}</p>
     </div>
 </div>
-    <div class="col-12 col-lg-6">
-        <p class="text-muted">Donation History</p>
-        {{ donations }}
-    </div>
-
 {% endblock %}

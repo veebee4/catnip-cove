@@ -6,13 +6,13 @@ from django.dispatch import receiver
 class UserProfile(models.Model):
     """
     A user profile model for maintaining records of
-    donations and giving access to register users blog
+    donations and giving access to registered users blog
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    default_donor_first_name = models.CharField(max_length=100, blank=True, null=True)
-    default_donor_last_name = models.CharField(max_length=100, blank=True, null=True)
-    default_donor_email_address = models.EmailField(max_length=100, blank=True, null=True)
-    default_donor_postcode = models.CharField(max_length=15, blank=True, null=True)
+    default_first_name = models.CharField(max_length=100, blank=True, null=True)
+    default_last_name = models.CharField(max_length=100, blank=True, null=True)
+    default_email_address = models.EmailField(max_length=100, blank=True, null=True)
+    default_postcode = models.CharField(max_length=15, blank=True, null=True)
 
     def __str__(self):
         return self.user.username
