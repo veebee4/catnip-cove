@@ -6,11 +6,9 @@
 {% endblock head_title %}
 {% block inner_content %}
     <div class="logo-font allauth-header mt-5">
-        <hr>
         {% element h1 %}
             {% trans "Passkey Sign Up" %}
         {% endelement %}
-        <hr>
     </div>
     {% setvar link %}
         <a href="{{ login_url }}">

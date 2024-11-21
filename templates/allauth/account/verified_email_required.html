@@ -7,11 +7,9 @@
 {% endblock head_title %}
 {% block inner_content %}
     <div class="logo-font allauth-header">
-        <hr>
         {% element h1 %}
             {% trans "Verify Your Email Address" %}
         {% endelement %}
-        <hr>
     </div>
     {% url 'account_email' as email_url %}
     {% element p %}

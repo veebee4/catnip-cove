@@ -7,11 +7,9 @@
 {% endblock head_title %}
 {% block inner_content %}
     <div class="logo-font allauth-header mt-5">
-        <hr>
         {% element h1 %}
             {% trans "Confirm Email Address" %}
         {% endelement %}
-        <hr>
     </div>
     {% if confirmation %}
         {% user_display confirmation.email_address.user as user_display %}

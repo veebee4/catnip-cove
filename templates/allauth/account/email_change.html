@@ -7,11 +7,9 @@
 {% endblock head_title %}
 {% block inner_content %}
     <div class="logo-font allauth-header mt-5">
-        <hr>
         {% element h1 %}
             {% trans "Email Address" %}
         {% endelement %}
-        <hr>
     </div>
     {% if not emailaddresses %}
         {% include "account/snippets/warn_no_email.html" %}

@@ -8,11 +8,9 @@
 
 {% block inner_content %}
                 <div class="logo-font allauth-header mt-5">
-                    <hr>
                     {% element h1 %}
                         {% trans "Sign In" %}
                     {% endelement %}
-                    <hr>
                 </div>
                     {% if not SOCIALACCOUNT_ONLY %}
                         {% setvar link %}
