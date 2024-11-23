@@ -25,7 +25,7 @@ def donate(request):
 
 def charge(request):
     if request.method == 'POST':
-        print('Data:', request.POST)
+        print('Data:', request.POST) # remove this before production
 
         # Handle form submission with the selected amount or custom amount
         donation_form = DonationForm(request.POST)
@@ -65,7 +65,7 @@ def charge(request):
                     description=description,
                     metadata={
                         "cat_id": cat_id,
-                        "donor_email": donation_form.cleaned_data['donor_email_address']
+                        "donor_email_address": donation_form.cleaned_data['donor_email_address'],
                     }
                 )
             except stripe.error.StripeError as e:
@@ -86,7 +86,7 @@ def charge(request):
             )
             donation.save()
 
-            return redirect(reverse('success', args=[int(amount / 100)]))
+            return redirect(reverse('success', args=[donation.donation_number]))
         else:
             # If the form is not valid, return to the donation page & display error
             messages.error(request, "There was an issue with your donation form.")
@@ -95,11 +95,17 @@ def charge(request):
     return redirect('donate')
 
 
-def successMsg(request, args):
-    amount = args
+def successMsg(request, donation_number):
+    """
+    Handle successful checkouts
+    """
+    donation = get_object_or_404(Donation, donation_number=donation_number)
+    amount = donation.amount
+    save_info = request.session.get('save_info', False)
 
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)
+
         # Attach the user profile to the order
         donation.user_profile = profile
         donation.save()
@@ -107,13 +113,15 @@ def successMsg(request, args):
         # Save the user's info
         if save_info:
             profile_data = {
-                'default_first_name': donation.first_name,
-                'default_last_name': donation.last_name,
-                'default_postcode': donation.postcode,
-                'default_email_address': donation.email_address,
+                'default_first_name': donation.donor_first_name,
+                'default_last_name': donation.donor_last_name,
+                'default_postcode': donation.donor_postcode,
+                'default_email_address': donation.donor_email_address,
             }
             user_profile_form = UserProfileForm(profile_data, instance=profile)
             if user_profile_form.is_valid():
                 user_profile_form.save()
+            else:
+                messages.error(request, "There was an error saving your profile information.")
 
     return render(request, 'donations/success.html', {'amount': amount})
