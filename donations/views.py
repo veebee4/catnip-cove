@@ -9,7 +9,6 @@ import stripe
 
 stripe.api_key = settings.STRIPE_API_KEY
 
-
 def donate(request):
     cat_id = request.GET.get('cat_id')
     cat = get_object_or_404(Cat, id=cat_id) if cat_id else None
@@ -22,51 +21,63 @@ def donate(request):
 
 
 def charge(request):
-    
     if request.method == 'POST':
         print('Data:', request.POST)
 
-        selected_amount = request.POST.get('amount')
-        custom_amount = request.POST.get('custom-amount')
-        amount = int(selected_amount) * 100 if selected_amount else int(custom_amount) * 100 if custom_amount else 0
+        # Handle form submission with the selected amount or custom amount
+        donation_form = DonationForm(request.POST)
+        
+        if donation_form.is_valid():
+            selected_amount = donation_form.cleaned_data['amount']
+            custom_amount = donation_form.cleaned_data['custom_amount']
 
-        if not selected_amount and not custom_amount:
-            messages.error(request, "Please select or enter an amount.")
-        return redirect('donate')
+            # Determine the donation amount
+            if custom_amount:
+                amount = custom_amount * 100 
+            elif selected_amount:
+                amount = selected_amount * 100
+            else:
+                messages.error(request, "Please select or enter an amount.")
+                return redirect('donate')
 
-        # get id of cat if one was selected, otherwise default to none
-        cat_id = request.POST.get('cat_id')
-        cat = get_object_or_404(Cat, id=cat_id) if cat_id else None
+            # Get the cat ID, if available
+            cat_id = request.POST.get('cat_id')
+            cat = get_object_or_404(Cat, id=cat_id) if cat_id else None
 
-        # Add a description for the donation
-        description = f"Donation for {cat.name}" if cat else "General Donation"
+            # Create the Stripe payment intent
+            description = f"Donation for {cat.name}" if cat else "General Donation"
+            intent = stripe.PaymentIntent.create(
+                amount=amount,
+                currency='gbp',
+                description=description,
+                metadata={
+                    "cat_id": cat_id,
+                    "donor_email": donation_form.cleaned_data['donor_email_address']
+                }
+            )
 
-        intent = stripe.PaymentIntent.create(
-            amount=amount,
-            currency='gbp',
-            description=description,
-            metadata={
-                "cat_id": cat_id,
-                "donor_email": request.POST['email']
-            }
-        )
+            # Save the donation in the database
+            donation = Donation(
+                cat=cat,
+                amount=amount / 100,
+                custom_amount=custom_amount,
+                donor_first_name=donation_form.cleaned_data['donor_first_name'],
+                donor_last_name=donation_form.cleaned_data['donor_last_name'],
+                donor_email_address=donation_form.cleaned_data['donor_email_address'],
+                donor_postcode=donation_form.cleaned_data['donor_postcode'],
+                stripe_pid=intent.id  # Store the payment ID from Stripe
+            )
+            donation.save()
 
-        # Save the donation to the database
-        donation = Donation(
-            cat=cat,
-            amount=amount / 100,
-            custom_amount=amount / 100 if custom_amount else None,
-            donor_first_name=request.POST['donor_first_name'],
-            donor_last_name=request.POST['donor_last_name'],
-            donor_email_address=request.POST['donor_email_address'],
-            donor_postcode=request.POST['donor_postcode'],
-            stripe_pid=intent.id  #stores the payment id
-        )
-        donation.save()
+            return redirect(reverse('success', args=[int(amount / 100)]))
+        else:
+            # If the form is not valid, return to the donation page & display error
+            messages.error(request, "There was an issue with your donation form.")
+            return redirect('donate')
 
-    return redirect(reverse('success', args=[int(amount / 100)]))
+    return redirect('donate')
 
 
 def successMsg(request, args):
-	amount = args
-	return render(request, 'donations/success.html', {'amount':amount})
+    amount = args
+    return render(request, 'donations/success.html', {'amount': amount})
