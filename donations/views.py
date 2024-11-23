@@ -33,6 +33,9 @@ def charge(request):
         if donation_form.is_valid():
             selected_amount = donation_form.cleaned_data['amount']
             custom_amount = donation_form.cleaned_data['custom_amount']
+            save_info = 'save-info' in request.POST
+
+            request.session['save_info'] = save_info
 
             # Determine the donation amount
             if custom_amount:
@@ -97,7 +100,7 @@ def charge(request):
 
 def successMsg(request, donation_number):
     """
-    Handle successful checkouts
+    Handle successful checkouts and update user profile if needed
     """
     donation = get_object_or_404(Donation, donation_number=donation_number)
     amount = donation.amount
