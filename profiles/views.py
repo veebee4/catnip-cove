@@ -3,6 +3,7 @@ from django.contrib import messages
 
 from .models import UserProfile
 from .forms import UserProfileForm
+from donations.models import Donation
 
 
 def profile(request):
@@ -22,6 +23,23 @@ def profile(request):
     context = {
         'form': form,
         'donations': donations
+    }
+
+    return render(request, template, context)
+
+
+def donation_history(request, donation_number):
+    donation = get_object_or_404(Donation, donation_number=donation_number)
+
+    messages.info(request, (
+        f'this is a past confirmation for donation number {donation_number}. '
+        'A confirmation email was sent on the donation date.'
+    ))
+
+    template = 'donation/success.html'
+    context = {
+        'donation': donation,
+        'from_profile': True,
     }
 
     return render(request, template, context)

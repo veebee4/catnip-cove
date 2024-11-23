@@ -12,6 +12,7 @@ class DonationAdmin(admin.ModelAdmin):
 
     fields = (
         'donation_number',
+        'user_profile',
         'date',
         'cat',
         'amount',

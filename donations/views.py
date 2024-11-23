@@ -2,9 +2,12 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.conf import settings
 from django.http import JsonResponse
+
 from .models import Donation
 from cats.models import Cat
 from .forms import DonationForm
+from profiles.forms import UserProfileForm
+from profiles.models import UserProfile
 import stripe
 
 stripe.api_key = settings.STRIPE_API_KEY
@@ -33,9 +36,17 @@ def charge(request):
 
             # Determine the donation amount
             if custom_amount:
-                amount = custom_amount * 100 
+                try:
+                    amount = int(custom_amount) * 100
+                except ValueError:
+                    messages.error(request, "Invalid custom donation amount.")
+                    return redirect('donate')
             elif selected_amount:
-                amount = selected_amount * 100
+                try:
+                    amount = int(selected_amount) * 100
+                except ValueError:
+                    messages.error(request, "Invalid predefined donation amount.")
+                    return redirect('donate')
             else:
                 messages.error(request, "Please select or enter an amount.")
                 return redirect('donate')
@@ -46,15 +57,21 @@ def charge(request):
 
             # Create the Stripe payment intent
             description = f"Donation for {cat.name}" if cat else "General Donation"
-            intent = stripe.PaymentIntent.create(
-                amount=amount,
-                currency='gbp',
-                description=description,
-                metadata={
-                    "cat_id": cat_id,
-                    "donor_email": donation_form.cleaned_data['donor_email_address']
-                }
-            )
+
+            try:
+                intent = stripe.PaymentIntent.create(
+                    amount=amount,
+                    currency='gbp',
+                    description=description,
+                    metadata={
+                        "cat_id": cat_id,
+                        "donor_email": donation_form.cleaned_data['donor_email_address']
+                    }
+                )
+            except stripe.error.StripeError as e:
+                # Handle Stripe errors (like invalid payment info)
+                messages.error(request, f"Stripe error: {e.user_message}")
+                return redirect('donate')
 
             # Save the donation in the database
             donation = Donation(
@@ -80,4 +97,23 @@ def charge(request):
 
 def successMsg(request, args):
     amount = args
+
+    if request.user.is_authenticated:
+        profile = UserProfile.objects.get(user=request.user)
+        # Attach the user profile to the order
+        donation.user_profile = profile
+        donation.save()
+
+        # Save the user's info
+        if save_info:
+            profile_data = {
+                'default_first_name': donation.first_name,
+                'default_last_name': donation.last_name,
+                'default_postcode': donation.postcode,
+                'default_email_address': donation.email_address,
+            }
+            user_profile_form = UserProfileForm(profile_data, instance=profile)
+            if user_profile_form.is_valid():
+                user_profile_form.save()
+
     return render(request, 'donations/success.html', {'amount': amount})
