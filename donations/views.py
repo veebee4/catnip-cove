@@ -86,10 +86,10 @@ def charge(request):
             )
             donation.save()
 
-            return redirect(reverse('success', args=[donation.donation_number]))
+            return redirect(reverse('success', args=[donation.donation_number]) + "?is_new_donation=True")
         else:
             # If the form is not valid, return to the donation page & display error
-            messages.error(request, "There was an issue with your donation form.")
+            messages.error(request, "There was an issue with the donation form.")
             return redirect('donate')
 
     return redirect('donate')
@@ -102,8 +102,14 @@ def successMsg(request, donation_number):
     donation = get_object_or_404(Donation, donation_number=donation_number)
     amount = donation.amount
     save_info = request.session.get('save_info', False)
+    is_new_donation_str = request.GET.get('is_new_donation', 'False')
+    is_new_donation = is_new_donation_str.lower() == 'true'
 
-
+    context = {
+        'donation': donation,
+        'is_new_donation': is_new_donation
+    }
+    
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)
 
@@ -125,4 +131,6 @@ def successMsg(request, donation_number):
             else:
                 messages.error(request, "There was an error saving your profile information.")
 
-    return render(request, 'donations/success.html', {'amount': amount})
+
+    return render(request, 'donations/success.html', context)
+

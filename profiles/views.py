@@ -36,9 +36,10 @@ def donation_history(request, donation_number):
         'A confirmation email was sent on the donation date.'
     ))
 
-    template = 'donation/success.html'
+    template = 'donations/success.html'
     context = {
-        'donation': donation
+        'donation': donation,
+        'is_new_donation': False
     }
 
     return render(request, template, context)

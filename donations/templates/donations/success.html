@@ -6,32 +6,66 @@
 {% endblock %}
 
 {% block content %}
+
+{% if is_new_donation %}
     <div role="heading" class="thankyou-container text-center container col-7 col-md-6 rounded">
-		<h1 class="text-black">Thank you from all staff and cats at Catnip Cove for your kind donation!</h1>
+		<h1 class="text-black">Thank you {{ donation.donor_first_name }} from all staff and cats at Catnip Cove for your kind donation!</h1>
     </div>
 
-        <div class="text-center text-black thankyou-message container col-6 col-md-5 rounded">
-            <h4>Thank you for your contribution of £{{ amount }}!</h4>
-            <p>Your support helps us fulfill our objective of helping rescued cats and allowing us to continue our work!</p>
-            <hr>
-        </div>
-        <div class="row">
-			<div class="col-12 col-lg-7 profile-donate-buttons mt-5">
-                {% if user.is_authenticated %}
-                    <a href="{% url 'profile' %}" class="back-to-donate-button text-black rounded my-2">
-                        <span class="icon mr-2">
-                            <i class="fas fa-angle-left"></i>
-                        </span>
-                        <span>Back to Profile</span>
-                    </a>
-                {% else %}
-                    <a class="back-to-donate-button text-black rounded my-2" role="button" href="{% url 'donate' %}">
-                        <span class="icon mr-2">
-                            <i class="fas fa-angle-left"></i>
-                        </span>
-                        <strong>Back to donation page</strong></a>
-                {% endif %}
-			</div>
-		</div>
+    {% if donation.cat %}
+    <p><strong>Donated for:</strong><i class="fa-solid fa-cat"></i> {{ donation.cat.name }} <i class="fa-solid fa-cat"></i> </p>
+    {% endif %}
+
+    <div class="text-center text-black thankyou-message container col-6 col-md-5 rounded">
+        <h4>Thank you for your contribution of £{{ donation.amount }}! An email confirmation will be sent to {{ donation.donor_email_address }}</h4>
+        <p>Your support helps us fulfill our objective of helping rescued cats and allowing us to continue our work!</p>
+        <hr>
     </div>
+
+    <div class="row">
+        <div class="col-12 col-lg-7 profile-donate-buttons mt-5">
+            {% if user.is_authenticated %}
+                <a href="{% url 'profile' %}" class="back-to-donate-button text-black rounded my-2">
+                    <span class="icon mr-2">
+                        <i class="fas fa-angle-left"></i>
+                    </span>
+                    <strong>Back to Profile</strong>
+                </a>
+            {% else %}
+                <a class="back-to-donate-button text-black rounded my-2" role="button" href="{% url 'donate' %}">
+                    <span class="icon mr-2">
+                        <i class="fas fa-angle-left"></i>
+                    </span>
+                    <strong>Back to donation page</strong></a>
+            {% endif %}
+        </div>
+    </div>
+{% else %}
+    <!-- Code for viewing a past donation that has been clicked through in user profile -->
+    <div role="heading" class="thankyou-container text-center container col-7 col-md-6 rounded">
+        <h1 class="text-black">Thank you for your past donation!</h1>
+        <p class="text-black">submitted on {{ donation.date }} - A confirmation email was sent on this date.</p>
+    </div>
+
+    {% if donation.cat %}
+    <p><strong>Donated for:</strong><i class="fa-solid fa-cat"></i> {{ donation.cat.name }} <i class="fa-solid fa-cat"></i> </p>
+    {% endif %}
+
+    <div class="text-center text-black thankyou-message container col-6 col-md-5 rounded">
+        <h4>You kindly donated £{{ donation.amount }}</h4>
+        <p>Your support helps us fulfill our objective of helping rescued cats and allowing us to continue our work!</p>
+        <hr>
+    </div>
+
+    <div class="row">
+        <div class="col-12 col-lg-7 profile-donate-buttons mt-5">
+            <a href="{% url 'profile' %}" class="back-to-donate-button text-black rounded my-2">
+                <span class="icon mr-2">
+                    <i class="fas fa-angle-left"></i>
+                </span>
+                <strong>Back to Profile</strong>
+            </a>
+        </div>
+    </div>
+{% endif %}
 {% endblock %}

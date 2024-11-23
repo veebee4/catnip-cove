@@ -141,6 +141,7 @@ legend {
 .profile-donate-buttons {
     display: flex;
     flex-direction: row-reverse;
+    margin: inherit;
 }
 
 /* -------------------------------------------------------------------------------------------------------------------------------- Stripe CSS */
