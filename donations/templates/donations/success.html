@@ -16,16 +16,20 @@
             <hr>
         </div>
         <div class="row">
-			<div class="col-12 col-lg-7 text-right">
-                {% if from_profile %}
-                    <a href="{% url 'profile' %}" class="btn back-to-donate-button rounded my-2">
+			<div class="col-12 col-lg-7 profile-donate-buttons mt-5">
+                {% if user.is_authenticated %}
+                    <a href="{% url 'profile' %}" class="back-to-donate-button text-black rounded my-2">
                         <span class="icon mr-2">
                             <i class="fas fa-angle-left"></i>
                         </span>
-                        <span class="text-uppercase">Back to Profile</span>
+                        <span>Back to Profile</span>
                     </a>
                 {% else %}
-                    <a class="back-to-donate-button text-black rounded" role="button" href="{% url 'donate' %}"><strong> &#x2190;Back to donation page </strong></a>
+                    <a class="back-to-donate-button text-black rounded my-2" role="button" href="{% url 'donate' %}">
+                        <span class="icon mr-2">
+                            <i class="fas fa-angle-left"></i>
+                        </span>
+                        <strong>Back to donation page</strong></a>
                 {% endif %}
 			</div>
 		</div>

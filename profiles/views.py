@@ -38,8 +38,7 @@ def donation_history(request, donation_number):
 
     template = 'donation/success.html'
     context = {
-        'donation': donation,
-        'from_profile': True,
+        'donation': donation
     }
 
     return render(request, template, context)

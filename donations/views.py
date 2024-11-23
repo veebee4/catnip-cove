@@ -25,9 +25,7 @@ def donate(request):
 
 def charge(request):
     if request.method == 'POST':
-        print('Data:', request.POST) # remove this before production
 
-        # Handle form submission with the selected amount or custom amount
         donation_form = DonationForm(request.POST)
         
         if donation_form.is_valid():
@@ -54,13 +52,12 @@ def charge(request):
                 messages.error(request, "Please select or enter an amount.")
                 return redirect('donate')
 
-            # Get the cat ID, if available
+            # Get the cat ID, if applicable
             cat_id = request.POST.get('cat_id')
             cat = get_object_or_404(Cat, id=cat_id) if cat_id else None
 
             # Create the Stripe payment intent
             description = f"Donation for {cat.name}" if cat else "General Donation"
-
             try:
                 intent = stripe.PaymentIntent.create(
                     amount=amount,
@@ -105,6 +102,7 @@ def successMsg(request, donation_number):
     donation = get_object_or_404(Donation, donation_number=donation_number)
     amount = donation.amount
     save_info = request.session.get('save_info', False)
+
 
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)
