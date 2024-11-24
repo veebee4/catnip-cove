@@ -43,8 +43,8 @@
 {% else %}
     <!-- Code for viewing a past donation that has been clicked through in user profile -->
     <div role="heading" class="thankyou-container text-center container col-7 col-md-6 rounded">
-        <h1 class="text-black">Thank you for your past donation!</h1>
-        <p class="text-black">submitted on {{ donation.date }} - A confirmation email was sent on this date.</p>
+        <h1 class="text-black">Thank you {{ donation.donor_first_name }} for your past donation!</h1>
+        <p class="text-black">submitted on {{ donation.date }} - A confirmation email was sent to {{ donation.donor_email_address }} on this date.</p>
     </div>
 
     {% if donation.cat %}
