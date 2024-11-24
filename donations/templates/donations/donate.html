@@ -35,6 +35,7 @@
         {% endif %}
     </div>
 
+    <pre>{{ donation_form.initial }}</pre>
 
     <div class="col-12 col-lg-10 col-md-8 col-sm-6 form-container">
         <p class="text-muted mt-5 text-center instruct-text">Please fill out the form below to complete your donation</p>
@@ -55,8 +56,7 @@
                         {{ donation_form.custom_amount | as_crispy_field }}
                     </div>
                 </div>
-            </div>
-    
+            </div>    
 
             <div class="detail-input-wrapper rounded-1">
                 <div class="customer-details">

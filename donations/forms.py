@@ -24,6 +24,9 @@ class DonationForm(forms.ModelForm):
         labels and set autofocus on first field
         """
         super().__init__(*args, **kwargs)
+
+        print("Form initialized with initial data:", self.initial)
+        
         placeholders = {
             'custom_amount': 'Enter Amount Here...',
             'donor_first_name': 'First Name',

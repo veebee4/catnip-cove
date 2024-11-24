@@ -15,7 +15,32 @@ stripe.api_key = settings.STRIPE_API_KEY
 def donate(request):
     cat_id = request.GET.get('cat_id')
     cat = get_object_or_404(Cat, id=cat_id) if cat_id else None
-    donation_form = DonationForm()
+    initial = {}
+
+    # Attempt to prefill the form with any info the user maintains in their profile
+    if request.user.is_authenticated:
+        print("User is authenticated")
+        try:
+            profile = UserProfile.objects.get(user=request.user)
+
+            donation_form = DonationForm(initial={
+                'first_name': profile.default_first_name,
+                'last_name': profile.default_last_name,
+                'email_address': profile.user.email,
+                'postcode': profile.default_postcode,
+                })
+
+            print(f"User Profile found: {profile}")
+            print(f"Initial data passed to form: {donation_form.initial}")
+            
+        except UserProfile.DoesNotExist:
+            print("No profile found for the user")
+            donation_form = DonationForm()
+        else:
+            donation_form = DonationForm()
+
+        donation_form = DonationForm(initial=initial)
+
 
     return render(request, 'donations/donate.html', {
         'cat': cat,
@@ -24,8 +49,8 @@ def donate(request):
 
 
 def charge(request):
-    if request.method == 'POST':
 
+    if request.method == 'POST':
         donation_form = DonationForm(request.POST)
         
         if donation_form.is_valid():
@@ -73,6 +98,7 @@ def charge(request):
                 messages.error(request, f"Stripe error: {e.user_message}")
                 return redirect('donate')
 
+
             # Save the donation in the database
             donation = Donation(
                 cat=cat,
@@ -87,6 +113,7 @@ def charge(request):
             donation.save()
 
             return redirect(reverse('success', args=[donation.donation_number]) + "?is_new_donation=True")
+
         else:
             # If the form is not valid, return to the donation page & display error
             messages.error(request, "There was an issue with the donation form.")
