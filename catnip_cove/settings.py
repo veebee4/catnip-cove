@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'cats',
     'donations',
     'profiles',
+    'blog',
 
     'crispy_forms',
     'crispy_bootstrap5',

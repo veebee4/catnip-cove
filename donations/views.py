@@ -10,7 +10,7 @@ from profiles.forms import UserProfileForm
 from profiles.models import UserProfile
 import stripe
 
-stripe.api_key = settings.STRIPE_API_KEY
+stripe.api_key = settings.STRIPE_SECRET_KEY
 
 def donate(request):
     cat_id = request.GET.get('cat_id')
