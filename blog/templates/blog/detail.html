@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
 
+{% if blog.image %}
+    <img class="card-img-top img-fluid" src="{{ blog.image.url }}" alt="{{ blog.title }}">
+{% endif %}
+
 {% block page_title %}
     <h2>{{ post.title }}</h2>
 {% endblock page_title %}
