@@ -26,7 +26,7 @@ def donate(request):
             donation_form = DonationForm(initial={
                 'first_name': profile.default_first_name,
                 'last_name': profile.default_last_name,
-                'email_address': profile.user.email,
+                'email_address': profile.default_email_address,
                 'postcode': profile.default_postcode,
                 })
 
