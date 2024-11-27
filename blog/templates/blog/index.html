@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
 {% endblock %}
 
 {% block page_header %}
@@ -17,15 +17,16 @@
 <div class="overlay"></div>
 <div class="container-fluid mb-2 blog-page-container">
     <div class="row">
-        <div class="col">
-            <h2 class="logo-font mb-5 mt-5 text-center blog-header">The Cat Blog</h2>
+        <div class="col d-flex flex-column">
+            <h2 class="logo-font mb-5 mt-5 text-center blog-header">The Cat Nap</h2>
+            <h5 class="text-center text-black">An informative blog about all things cats!</h5>
         </div>
     </div>
 
     {% block posts %}
-    <div class="blog-post-container">
+    <div class="blog-post-container mt-5">
         {% for post in posts %}
-            <h3><a href="{% url 'blog_detail' post.pk %}">{{ post.title }}</a></h3>
+            <h4><a href="{% url 'blog_detail' post.pk %}">{{ post.title }}</a></h4>
             <small>
                 {{ post.created_on.date }} | Categories:
                 {% for category in post.categories.all %}
@@ -35,6 +36,7 @@
                 {% endfor %}
             </small>
             <p>{{ post.body | slice:":400" }}...</p>
+            <hr class="mb-5">
         {% endfor %}
     {% endblock posts %}
     </div>

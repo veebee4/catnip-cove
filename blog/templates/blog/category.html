@@ -1,4 +1,9 @@
 {% extends "blog/index.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+{% endblock %}
 
 {% block page_title %}
 <h2>{{ category }}</h2>
