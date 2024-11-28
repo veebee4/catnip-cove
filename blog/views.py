@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from blog.models import Post, Comment
+from blog.models import Post, Comment, Category
 
 def blog_index(request):
     posts = Post.objects.all().order_by("-created_on") #obtain all posts in database

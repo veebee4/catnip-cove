@@ -46,3 +46,35 @@ img {
 small {
     margin-top: 2rem;
 }
+
+h1, h3 {
+    color: black;
+}
+
+h1 {
+    font-weight: 700;
+    text-decoration: underline;
+    margin-top: 2rem;
+}
+
+h3 {
+    text-align: left;
+}
+
+.back-to-blog-button {
+    background-color: #6f8659;
+    width: 100%;
+    border: 2px solid black;
+}
+
+.back-to-blog-button:hover,
+.back-to-blog-button:active,
+.back-to-blog-button:focus {
+    background-color: #98b080;
+}
+
+/* ------------------------------------------------------------------------------------------- Blog Category Page*/
+
+.category-title {
+    line-height: normal;
+}

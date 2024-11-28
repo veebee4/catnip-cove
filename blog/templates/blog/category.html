@@ -5,6 +5,54 @@
     <link rel="stylesheet" href="{% static 'css/blog.css' %}">
 {% endblock %}
 
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="overlay"></div>
+<div class="container-fluid mb-2 blog-page-container">
+    <div class="row">
+        <div class="col d-flex flex-column">
+            <h2 class="logo-font mb-5 mt-5 text-center blog-header">The Cat Nap</h2>
+            <h5 class="text-center text-black">An informative blog about all things cats!</h5>
+        </div>
+    </div>
+
 {% block page_title %}
-<h2>{{ category }}</h2>
+    <h2 class="category-title text-black m-3">Blog posts for {{ category }}</h2>
 {% endblock page_title %}
+
+{% block posts %}
+    <div class="blog-post-container mt-5">
+        {% for post in posts %}
+            <h4><a href="{% url 'blog_detail' post.pk %}">{{ post.title }}</a></h4>
+            <small>
+                {{ post.created_on.date }} | Categories:
+                {% for category in post.categories.all %}
+                    <a href="{% url 'blog_category' category.name %}">
+                        {{ category.name }}
+                    </a>
+                {% endfor %}
+            </small>
+            <p>{{ post.body | slice:":400" | safe }}...</p>
+            <hr class="mb-5">
+        {% endfor %}
+    {% endblock posts %}
+    </div>
+
+<div class="row">
+    <div class="col-12 col-lg-7 back-to-blog-button mb-5 p-2 rounded">
+        <a href="{% url 'blog_index' %}" class="text-black my-2">
+            <span class="icon mr-2">
+                <i class="fas fa-angle-left"></i>
+            </span>
+            <strong>Back to Blog Posts</strong>
+        </a>
+    </div>
+</div>
+{% endblock %}

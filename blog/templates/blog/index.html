@@ -35,7 +35,7 @@
                     </a>
                 {% endfor %}
             </small>
-            <p>{{ post.body | slice:":400" }}...</p>
+            <p>{{ post.body | slice:":400" | safe }}...</p>
             <hr class="mb-5">
         {% endfor %}
     {% endblock posts %}
