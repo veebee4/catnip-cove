@@ -67,10 +67,43 @@ h3 {
     border: 2px solid black;
 }
 
+.blog-back-link {
+    text-decoration: none;
+}
+
 .back-to-blog-button:hover,
 .back-to-blog-button:active,
 .back-to-blog-button:focus {
     background-color: #98b080;
+}
+
+.comments-area {
+    display: flex;
+    gap: 20rem;
+}
+
+.comments {
+    background-color: #6f8659;
+    border: 2px dashed black;
+    width: fit-content;
+}
+
+.form-control {
+    margin: 0.5rem;
+}
+
+.comment-submit-button {
+    background-color: #6f8659;
+    margin-left: 4rem;
+    padding: 0.3rem;
+    border: 2px solid black;
+    width: 70%;
+}
+
+.comment-submit-button:hover,
+.comment-submit-button:active,
+.comment-submit-button:focus {
+    background-color: #98b080
 }
 
 /* ------------------------------------------------------------------------------------------- Blog Category Page*/
