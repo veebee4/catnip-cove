@@ -481,10 +481,13 @@ input[name='q']::placeholder {
         font-size: 2rem;
         text-shadow: none;
         margin-top: 1rem;
+        margin: auto;
     }
 
     .rescue-info-container {
-        margin-top: 3rem;
+        margin-top: 5rem;
+        width: 95%;
+        padding: 0;
     }
 
     .home-desc-text {
@@ -492,7 +495,9 @@ input[name='q']::placeholder {
     }
 
     .meet-cats-button {
+        margin-left: 0;
         margin-top: 2rem;
+        width: 95%;
     }
 
     /*----------------- Cats page */
@@ -529,9 +534,11 @@ input[name='q']::placeholder {
     /*----------------- Home page */
 
     .home-main-content {
-        height: 60%;
-        margin-right: 2rem;
-        width: 80%;
+        height: 55%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .home-logo {
@@ -541,6 +548,7 @@ input[name='q']::placeholder {
 
     .rescue-info-container {
         margin-top: 3rem;
+        width: 95%;
     }
 
     .home-desc-text {
@@ -548,7 +556,8 @@ input[name='q']::placeholder {
     }
 
     .meet-cats-button {
-        margin-top: 2rem;
+        width: auto;
+        display: table-cell;
     }
 
     /*----------------- Cats page */
@@ -595,7 +604,11 @@ input[name='q']::placeholder {
     /*----------------- Home page */
     .home-main-content {
         height: 60%;
-        width: 100%;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
+        width: auto;
     }
 
     .home-logo {
@@ -604,16 +617,13 @@ input[name='q']::placeholder {
         margin-top: 1rem;
     }
 
-    .rescue-info-container {
-        margin-top: 5rem;
-    }
-
     .home-desc-text {
         font-size: 1.2rem;
     }
 
     .meet-cats-button {
-        margin-top: 2rem;
+        width: auto;
+        display: table-cell;
     }
 
     /*----------------- Cats page */
@@ -648,10 +658,12 @@ input[name='q']::placeholder {
     .home-logo {
         font-size: 4rem;
         text-shadow: 3px 3px white;
+        width: auto;
     }
 
     .rescue-info-container {
-        margin-top: 5rem;
+        width: auto;
+        padding: initial;
     }
 
     .contact-desc-text {
@@ -659,7 +671,8 @@ input[name='q']::placeholder {
     }
 
     .meet-cats-button {
-        margin-top: 2rem;
+        width: auto;
+        margin-left: 8.5rem;
     }
 
     /*----------------- Nav */
@@ -678,6 +691,42 @@ input[name='q']::placeholder {
     .contact-header {
         margin-top: 1rem;
     }
+
+}
+
+/*---------------------------- For large laptop screens */
+
+@media screen and (min-width: 1440px) and (max-width: 2560px) {
+    /*----------------- Home page */
+
+    .home-main-content {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
+    }
+
+    .rescue-info-container {
+        width: auto;
+        padding: initial;
+    }
+
+    .meet-cats-button {
+        width: auto;
+        margin: auto;
+    }
+
+    /*----------------- Contact Us page */
+
+    /* .contact-main-content {
+        height: 60%;
+        width: 85%;
+    }
+
+    .contact-header {
+        margin-top: 1rem;
+    } */
 
 }
 
