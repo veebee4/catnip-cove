@@ -129,32 +129,64 @@ My goal is to design and create a website that allows users to view the current 
 
 When planning for this website, I researched existing websites and found that they were all quite busy and overwhelming. With this in mind, I conducted Desirability, Importance and Viability analysis to determine the features I would like to add and whether they were feasible.
 
-
+| # | Feature | Target User | Desirability | Importance | Viability  | Delivered |
+| --- | --- | --- | --- | --- | --- | --- |
+| Users |  |  |  |  |  |  |
+| 1 | Admin Access | Superuser/Admin | 5 | 5 | 5 | ✅ |
+| 2 | Account Registration | All Users | 5 | 5 | 5 | ✅ |
+| 3 | User Email Confirmation | Registered User | 5 | 5 | 5 | ✅ |
+| 4 | Password Change/Reset | Registered Users | 5 | 5 | 5 | ✅ |
+| 5 | User Profile Page | Registered Users | 5 | 5 | 5 | ✅ |
+| Navigation |  |  |  |  |  |  |
+| 6 | Top Navigation to Include: logo, search bar, my account (register, login) and site links | All Users | 5 | 5 | 5 | ✅ |
+| 7 | Top Navigation to Include: my account (my profile, logout), and members blog | Logged In Users | 5 | 5 | 5 | ✅ |
+| 8 | Top Navigation to Include: my account (cat management, my profile, logout) and members blog | Logged In Superuser/Admin | 5 | 5 | 5 | ✅ |
+| 9 | Top Navigation Search Bar: to be enabled for searching by cat name, breed or colour | All Users | 5 | 5 | 5 | ✅ |
+| Cats |  |  |  |  |  |  |
+| 10 | Filter Cat Records | All Users | 5 | 5 | 5 | ✅ |
+| 11 | Sort Cat Records | All Users | 5 | 5 | 5 | ✅ |
+| 12 | Cat details/information | All Users | 5 | 5 | 5 | ✅ |
+| 13 | Link to Donate for Specific Cat | All Users | 4 | 5 | 5 | ✅ |
+| 14 | Display Counter of Cat Records | All Users | 5 | 5 | 5 | ✅ |
+| 15 | Cat Management Frontend | Superuser/Admin | 5 | 5 | 5 | ✅ |
+| Contact Us |  |  |  |  |  |  |
+| 16 | Contact Form | All Users | 5 | 3 | 5 | ✅ |
+| 17 | Email of Contact Details Sent | Superuser/Admin/Owner | 5 | 5 | 5 | ✅ |
+| Donate |  |  |  |  |  |  |
+| 18 | Email Confirmation of Donation | Donator | 5 | 5 | 5 | ✅ |
+| 19 | Donation History | Registered Users | 5 | 5 | 5 | ✅ |
+| 20 | Save/ Update Customer Details on form submission | Registered Users/Sign Up Users | 5 | 5 | 5 | ✅ |
+| 21 | Pre-fill Form From Profile Details | Registered Users |  5 | 3 | 3 | ✅ |
+| 22 | Share Donation Via Social Media | All users |  5 | 2 | 2 | ❌ |
+| Blog |  |  |  |  |  |  |
+| 23 | Articles - Create, Read, Update and Delete | Superuser/Admin | 5 | 5 | 5 | ✅ |
+| 24 | Comments - Read and Delete | Superuser/Admin | 5 | 5 | 5 | ✅ |
+| 25 | Comment on Articles | Registered Users | 5 | 5 | 5 | ✅ |
 
 
 ### **User Stories**
-<!-- | **USER STORY #** | **ISSUE ID** | **As a/an** | **I want to be able to...** | **So that I can...** |
+<!-- | **USER STORY #** | **As a/an** | **I want to be able to...** | **So that I can...** |
 | --- | --- | --- | --- | --- |
 | **VIEWING & NAVIGATION** |   |   |
-| 1 | [#9](https://github.com/JoyZadan/shop-kbeauty/issues/9) | Shopper | Navigate around the site | View a list of products  |
-| 2 | [#54](https://github.com/JoyZadan/shop-kbeauty/issues/54) | Shopper | View a specific category of products | Quickly find products I'm interested in without having to search through all products. |
-| 3 | [#47](https://github.com/JoyZadan/shop-kbeauty/issues/47) | Shopper | Quickly identify deals, clearance items and special offers | Take advantage of special savings on products I'd like to purchase |
-| 4 | [#32](https://github.com/JoyZadan/shop-kbeauty/issues/32) | Shopper | Quickly view how much was the original price | Identify how much I may be able to save when buying the product and may also help me compare prices with other sites |
-| 5 | [#36](https://github.com/JoyZadan/shop-kbeauty/issues/36) | Shopper | View individual product details | Identify the price, description, product reviews, product image, product ingredients and instructions how to use product |
-| 6 | [#38](https://github.com/JoyZadan/shop-kbeauty/issues/38) | Shopper | Easily view the total amount of products in my shopping bag at any time throughout my visit | Avoid spending too much |
-| 7 | [#28](https://github.com/JoyZadan/shop-kbeauty/issues/28) | Shopper | Easily view the featured brands | To assure me that Shop K-Beauty really offers K-Beauty products from authentic K-Beauty brands |
-| 8 | [#48](https://github.com/JoyZadan/shop-kbeauty/issues/48) | Shopper | Search/ View all of the available K-Beauty brands | Look for my favourite brands  |
-| 9 | [#70](https://github.com/JoyZadan/shop-kbeauty/issues/70) | Shopper | Easily view details about the brand of a product I am purchasing | Learn more about the brands and feel confident about my purchase |
-| 10 | [#73](https://github.com/JoyZadan/shop-kbeauty/issues/73) | Shopper | View a list of available products when viewing the details about a brand | Quickly decide what product to purchase from a particular brand |
-| 11 | [#81](https://github.com/JoyZadan/shop-kbeauty/issues/81) | Shopper | Find skincare tips and information about K-Beauty skincare routine | Decide which products I need to purchase |
-| 12 | [#82](https://github.com/JoyZadan/shop-kbeauty/issues/82) | Shopper | Easily navigate from a product category to the corresponding subcategories | Easily find the products I am looking for |
-| 13 | [#89](https://github.com/JoyZadan/shop-kbeauty/issues/89) | Shopper | View Related products | Make a more informed decision before finalising my purchase |
+| 1 | Shopper | Navigate around the site | View a list of products  |
+| 2 | Shopper | View a specific category of products | Quickly find products I'm interested in without having to search through all products. |
+| 3 | Shopper | Quickly identify deals, clearance items and special offers | Take advantage of special savings on products I'd like to purchase |
+| 4 | Shopper | Quickly view how much was the original price | Identify how much I may be able to save when buying the product and may also help me compare prices with other sites |
+| 5 | Shopper | View individual product details | Identify the price, description, product reviews, product image, product ingredients and instructions how to use product |
+| 6 | Shopper | Easily view the total amount of products in my shopping bag at any time throughout my visit | Avoid spending too much |
+| 7 | Shopper | Easily view the featured brands | To assure me that Shop K-Beauty really offers K-Beauty products from authentic K-Beauty brands |
+| 8 | Shopper | Search/ View all of the available K-Beauty brands | Look for my favourite brands  |
+| 9 | Shopper | Easily view details about the brand of a product I am purchasing | Learn more about the brands and feel confident about my purchase |
+| 10 | Shopper | View a list of available products when viewing the details about a brand | Quickly decide what product to purchase from a particular brand |
+| 11 | Shopper | Find skincare tips and information about K-Beauty skincare routine | Decide which products I need to purchase |
+| 12 | Shopper | Easily navigate from a product category to the corresponding subcategories | Easily find the products I am looking for |
+| 13 | Shopper | View Related products | Make a more informed decision before finalising my purchase |
 | **REGISTRATION & USER ACCOUNTS** |   |   |
-| 14 | [#8](https://github.com/JoyZadan/shop-kbeauty/issues/8)| Shopper | Easily register for an account | Have a personal account and be able to view my profile |
-| 15 | [#52](https://github.com/JoyZadan/shop-kbeauty/issues/52) | Shopper | Receive an email confirmation after registering | View that my personal account registration was successful |
-| 16 | [#50](https://github.com/JoyZadan/shop-kbeauty/issues/50) | Shopper | Easily login and logout of my shopper's account | Access my personal account information |
-| 17 | [#51](https://github.com/JoyZadan/shop-kbeauty/issues/51) | Shopper | Easily recover my password in case I forget it | Recover access to my account |
-| 18 | [#53](https://github.com/JoyZadan/shop-kbeauty/issues/53) | Shopper | Have a personalised user profile | View my personal order history and order confirmations |
+| 14 | Shopper | Easily register for an account | Have a personal account and be able to view my profile |
+| 15 | Shopper | Receive an email confirmation after registering | View that my personal account registration was successful |
+| 16 | Shopper | Easily login and logout of my shopper's account | Access my personal account information |
+| 17 | Shopper | Easily recover my password in case I forget it | Recover access to my account |
+| 18 | Shopper | Have a personalised user profile | View my personal order history and order confirmations |
 | **SORTING & SEARCHING** |   |   |
 | 19 | [#31](https://github.com/JoyZadan/shop-kbeauty/issues/31) | Shopper | Sort the list of available products | Easily identify the best priced, best discounted products and categorically and subcategorically sorted products |
 | 20 | [#54](https://github.com/JoyZadan/shop-kbeauty/issues/54) | Shopper | Sort a specific category of product | Find the best priced product in a specific category |
