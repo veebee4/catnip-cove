@@ -97,76 +97,40 @@ Catnip Cove is my 4th milestone project for Code Institute's Level 5 Diploma in 
 ## STRATEGY PLANE
 
 Cat rescue centres are hardworking charities that employ numerous staff, including volunteers and require donations to continue the work that they do. From helping strays to struggling families with household pet cats.
-They have even helped people who are in a domestic abuse situation within their living space, by taking in pets to help and make it easier for the victims to get away from the situation they are in without worrying about their pets.
+They have even helped people who are in a domestic abuse situation within their living space (according to Cats Protection (https://www.cats.org.uk/mediacentre/facts-figures)), by taking in pets to help and make it easier for the victims to get away from the situation they are in without worrying about their pets.
 They require all the help they can get, from anyone.
+
+## Target Audience
+
+- The target audience for Catnip Cove is anyone who loves cats, who would like to donate to a worthy cause and get a little something in return.
 
 ### **Project Goals**
 
-My goal is to create a website that allows users to donate money to the rescue centre, to keep track of how much they have donated and to have information about the cats at the rescue and cats in general by way of a blog.
+My goal is to design and create a website that allows users to view the current rescue centre cats, donate money to the rescue centre or to a particular cat, to keep track of how much they have donated and to have information about the cats at the rescue and cats in general by way of a blog.
+
+- ### Create a clear, readable and intuitive front end display
+
+  I wanted the point of the website to be easily understood from the home page whilst looking appealing and for the user to be able to easily navigate the website where they can view all the cats and donate money to the rescue/particular cat. I also wanted a superuser (admin) to be easily able to add, edit and delete the records that are on the database.
+
+- ### Make use of available backend functionality & Store data on an external cloud database
+
+  The use of the backend framework allows users to create, edit and delete records of cats/blogs and comments. I used Code Institute's Postgres database server to store the PostgreSQL database for this project.
+
+- ### Make it easy for the user to donate to the rescue centre
+  
+  The main point of this rescue centre website is to obtain and encourage donations, so I want the donation form quick and easy to navigate to and fill out. I wanted there to be an option to register for the website so that the user can then keep track of all the donations made.
+  
+- ### Give the user an option and incentive to register
+  
+  As mentioned above, I wanted to provide an area of the website for people who want to register and keep track of their donations. Any user who is registered, can then access a members only blog, where they can comment on the articles that have been shared by the admin of the website.
 
 ## SCOPE PLANE
 ### **Feature Planning**
-<!-- When planning the Shop K-Beauty ecommerce store's features and scope, I drew up a Desirability, Importance and  Viability analysis of all the possible features to be included in the project, ranking them by order of importance from low (1) to high (5). Features that ranked the highest will be prioritised and should they have been delivered within this release, will then be marked accordingly so. The target users for each ranked feature are also identified.
 
-| # | Feature | Target User | Desirability | Importance | Viability  | Delivered |
-| --- | --- | --- | --- | --- | --- | --- |
-| User Accounts |  |  |  |  |  |  |
-| 1 | User Role Permissions | All Users <sup>1</sup> | 5 | 5 | 5 | ✅ |
-| 2 | Account Registration | All Users <sup>1</sup> | 5 | 5 | 5 | ✅ |
-| 3 | User Email Confirmation | All Users <sup>1</sup> | 5 | 5 | 5 | ✅ |
-| 4 | Password Reset | All Users <sup>1</sup> | 5 | 5 | 5 | ✅ |
-| 5 | Social Media Registration &amp; Login | Visitors &amp; Shoppers | 5 | 2 | 2 | ❌ |
-| 6 | User Profile Page | Registered Users | 5 | 5 | 5 | ✅ |
-| Navigation |  |  |  |  |  |  |
-| 7 | Top Navigation to include: logo, search bar, my account (register, login) and bag | All Users <sup>1</sup> | 5 | 5 | 5 | ✅ |
-| 8 | Top Navigation to include: my account (my profile, logout), wishlist | Logged In Users | 5 | 5 | 5 | ✅ |
-| 9 | Top Navigation Search Bar: to be enabled for product name, brands or ingredients searching | All Users <sup>1</sup> | 5 | 5 | 5 | ✅ |
-| 10 | Top Navigation to include: my account (brand management, product management, my profile, logout) and wishlist | Logged In Shop Owners &amp; Superadmins | 5 | 5 | 5 | ✅ |
-| 11 | Main Navigation to include links to: all products, product types by categories, special offers and available brands | All Users <sup>1</sup> | 5 | 5 | 5 | ✅ |
-| Products |  |  |  |  |  |  |
-| 12 | Featured Products | All Users <sup>1</sup> | 5 | 5 | 5 | ✅ |
-| 13 | Product Main Categories | All Users <sup>1</sup> | 5 | 5 | 5 | ✅ |
-| 14 | Product Categories | All Users <sup>1</sup> | 5 | 5 | 5 | ✅ |
-| 15 | Product Subcategories | All Users <sup>1</sup> | 5 | 5 | 5 | ✅ |
-| 16 | Product Detail page to include: link to brands, categories and subcategories, accordion to contain description, how to use and ingredient details | All Users <sup>1</sup> | 5 | 5 | 5 | ✅ |
-| 17 | Product Subcategories | All Users <sup>1</sup> | 5 | 5 | 5 | ✅ |
-| 18 | Randomized List of Related Products (filtered by subcategory) | All Users <sup>1</sup> | 5 | 4 | 3 | ✅ |
-| 19 | Product Management - Create, Read, Update and Delete Products via the front-end | Shop Owners &amp; Superadmins | 5 | 5 | 5 | ✅ |
-| Brands |  |  |  |  |  |  |
-| 20 | Featured Brands | All Users <sup>1</sup> | 5 | 5 | 5 | ✅ |
-| 21 | List of All Available Brands | All Users <sup>1</sup> | 5 | 5 | 5 | ✅ |
-| 22 | List of All Available Products by Brand | All Users <sup>1</sup> | 5 | 5 | 5 | ✅ |
-| 23 | Brand Management - Create, Read, Update Brands via the front-end | Shop Owners &amp; Superadmins | 5 | 5 | 5 | ✅ |
-| Stock Inventory |  |  |  |  |  |  |
-| 24 | Display Percentage of Stock Availability against Total Quantity of Stocks Per Product  | All Users <sup>1</sup> | 3 | 3 | 3 | ❌ |
-| 25 | Automatically Deduct quantity of product sold from Total Quantity and Update Stock Availability Displayed on Product Detail Page | All Users <sup>1</sup> | 4 | 2 | 2 | ❌ |
-| 26 | Design SKUs to Conform with both Stock Inventory and Pick and Pack Fulfillment <sup>2</sup> | Shop Owners &amp; Superadmin | 5 | 5 | 5 | ✅ |
-| Checkout |  |  |  |  |  |  |
-| 27 | Email Confirmation of Order | Shoppers | 5 | 5 | 5 | ✅ |
-| 28 | Order History | Shoppers | 5 | 5 | 5 | ✅ |
-| 29 | Save/ Update Customer Details on Checkout | Shoppers | 5 | 5 | 5 | ✅ |
-| Product Reviews |  |  |  |  |  |  |
-| 30 | Product Reviews - Create and Read Reviews | Logged In Users  |  5 | 5 | 5 | ✅ |
-| 31 | Product Reviews - Create, Read Update and Delete Reviews | Shop Owners and Superadmins (CRUD) |  5 | 5 | 5 | ✅ |
-| Wishlist |  |  |  |  |  |  |
-| 32 | Individual User's Wishlist - Create, Read, Update and Delete Wishlist | Logged In Users | 5 | 5 | 5 | ✅ |
-| 33 | Policy Pages | All Users <sup>1</sup> | 5 | 5 | 5 | ✅ |
-| Digital Marketing |  |  |  |  |  |  |
-| 34 | Social Media Presence | Shop Owners &amp; Superadmins | 5 | 5 | 5 | ✅ |
-| Email Marketing |  |  |  |  |  |  |
-| 35 | Email Subscription, Powered by MailChimp | Registered Subscribers | 3 | 3 | 3 | ❌ |
-| Contact Us |  |  |  |  |  |  |
-| 36 | Contact Form | All Users <sup>1</sup> | 3 | 3 | 3 | ❌ |
-| Loyalty, Gift Cards and Discount Vouchers |  |  |  |  |  |  |
-| 37 | Loyalty Cards | Shoppers | 4 | 3 | 2 | ❌ |
-| 38 | Digital Gift Cards | All Users <sup>1</sup> | 5 | 2 | 1 | ❌ |
-| 39 | Digital Discount Vouchers | All Users <sup>1</sup> | 5 | 2 | 1 | ❌ |
-| Other Features |  |  |  |  |  |  |
-| 40 | SEO Friendly URLs - use slugs for URLs vs IDs such as product id, review id, brand id for better SEO | All Users <sup>1</sup> | 3 | 5 | 2 | ❌ |
+When planning for this website, I researched existing websites and found that they were all quite busy and overwhelming. With this in mind, I conducted Desirability, Importance and Viability analysis to determine the features I would like to add and whether they were feasible.
 
-1. All Users: Site Visitors, Logged In Users, Shop Owners, Superadmins
 
-2. Source: [James and James Ecommerce Fulfillment: What is SKU and how are they used by retailers?](https://www.ecommercefulfilment.com/en/scale-up/sku-important-many-need/) -->
+
 
 ### **User Stories**
 <!-- | **USER STORY #** | **ISSUE ID** | **As a/an** | **I want to be able to...** | **So that I can...** |

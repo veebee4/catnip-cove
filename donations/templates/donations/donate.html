@@ -31,11 +31,9 @@
     <div class="cat-selected-donation text-center text-black">
         {% if cat %}
             <h2>You have selected {{ cat.name }}</h2>
-            {{ cat.image }}
+            <img src="{{ cat.image.url }}" alt="Image of {{ cat.name }}">
         {% endif %}
     </div>
-
-    <pre>{{ donation_form.initial }}</pre>
 
     <div class="col-12 col-lg-10 col-md-8 col-sm-6 form-container">
         <p class="text-muted mt-5 text-center instruct-text">Please fill out the form below to complete your donation</p>

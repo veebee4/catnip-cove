@@ -15,36 +15,11 @@ stripe.api_key = settings.STRIPE_SECRET_KEY
 def donate(request):
     cat_id = request.GET.get('cat_id')
     cat = get_object_or_404(Cat, id=cat_id) if cat_id else None
-    initial = {}
-
-    # Attempt to prefill the form with any info the user maintains in their profile
-    if request.user.is_authenticated:
-        print("User is authenticated")
-        try:
-            profile = UserProfile.objects.get(user=request.user)
-
-            donation_form = DonationForm(initial={
-                'first_name': profile.default_first_name,
-                'last_name': profile.default_last_name,
-                'email_address': profile.default_email_address,
-                'postcode': profile.default_postcode,
-                })
-
-            print(f"User Profile found: {profile}")
-            print(f"Initial data passed to form: {donation_form.initial}")
-            
-        except UserProfile.DoesNotExist:
-            print("No profile found for the user")
-            donation_form = DonationForm()
-        else:
-            donation_form = DonationForm()
-
-        donation_form = DonationForm(initial=initial)
-
+    form = DonationForm()
 
     return render(request, 'donations/donate.html', {
         'cat': cat,
-        'donation_form': donation_form
+        'donation_form': form,
     })
 
 
