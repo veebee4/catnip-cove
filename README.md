@@ -165,66 +165,44 @@ When planning for this website, I researched existing websites and found that th
 
 
 ### **User Stories**
-<!-- | **USER STORY #** | **As a/an** | **I want to be able to...** | **So that I can...** |
-| --- | --- | --- | --- | --- |
+| **USER STORY #** | **As a/an** | **I want to be able to...** | **So that I can...** |
+| --- | --- | --- | --- |
 | **VIEWING & NAVIGATION** |   |   |
-| 1 | Shopper | Navigate around the site | View a list of products  |
-| 2 | Shopper | View a specific category of products | Quickly find products I'm interested in without having to search through all products. |
-| 3 | Shopper | Quickly identify deals, clearance items and special offers | Take advantage of special savings on products I'd like to purchase |
-| 4 | Shopper | Quickly view how much was the original price | Identify how much I may be able to save when buying the product and may also help me compare prices with other sites |
-| 5 | Shopper | View individual product details | Identify the price, description, product reviews, product image, product ingredients and instructions how to use product |
-| 6 | Shopper | Easily view the total amount of products in my shopping bag at any time throughout my visit | Avoid spending too much |
-| 7 | Shopper | Easily view the featured brands | To assure me that Shop K-Beauty really offers K-Beauty products from authentic K-Beauty brands |
-| 8 | Shopper | Search/ View all of the available K-Beauty brands | Look for my favourite brands  |
-| 9 | Shopper | Easily view details about the brand of a product I am purchasing | Learn more about the brands and feel confident about my purchase |
-| 10 | Shopper | View a list of available products when viewing the details about a brand | Quickly decide what product to purchase from a particular brand |
-| 11 | Shopper | Find skincare tips and information about K-Beauty skincare routine | Decide which products I need to purchase |
-| 12 | Shopper | Easily navigate from a product category to the corresponding subcategories | Easily find the products I am looking for |
-| 13 | Shopper | View Related products | Make a more informed decision before finalising my purchase |
+| 1 | First Time User | Understand the concept of the website and how to use it | See what the site is about  |
+| 2 | First Time User | Go to the cat records & filter/sort them | See the cats at the rescue |
+| 3 | First Time User | Contact the rescue centre | Offer to volunteer or ask any questions I may have |
+| 4 | First Time User | Easily navigate to any of the other pages, from every page | Go wherever I choose on the website |
+| 5 | Donator | Navigate to the correct page to donate | Make a general donation to the rescue |
+| 6 | Superuser/Admin | View special pages to adjust the records on the website | Keep records up-to-date and what I want to be on the site |
 | **REGISTRATION & USER ACCOUNTS** |   |   |
-| 14 | Shopper | Easily register for an account | Have a personal account and be able to view my profile |
-| 15 | Shopper | Receive an email confirmation after registering | View that my personal account registration was successful |
-| 16 | Shopper | Easily login and logout of my shopper's account | Access my personal account information |
-| 17 | Shopper | Easily recover my password in case I forget it | Recover access to my account |
-| 18 | Shopper | Have a personalised user profile | View my personal order history and order confirmations |
+| 7 | First Time User | Sign up for an account easily | Have a user profile and the perks that come with that |
+| 8 | Registered User | Receive an email confirmation of my registration | Confirm my sign up was successful  |
+| 9 | Registered User | Easily log in and out of my account | Access my personal information and to be able to logout of my account for security |
+| 10 | Registered User | Recover/Change my password | Ensure security of my account or gain access if I forget my password |
+| 11 | Registered User | Have a personalised profile | To view my donation history and donation confirmations |
+| 12 | Donator | View a list of all the donations I have made already | Keep track of my spending |
+| 13 | Superuser/Admin | Gain access from my account to page for creating, reading, editing or deleting the cat records | Keep the website up-to-date |
 | **SORTING & SEARCHING** |   |   |
-| 19 | [#31](https://github.com/JoyZadan/shop-kbeauty/issues/31) | Shopper | Sort the list of available products | Easily identify the best priced, best discounted products and categorically and subcategorically sorted products |
-| 20 | [#54](https://github.com/JoyZadan/shop-kbeauty/issues/54) | Shopper | Sort a specific category of product | Find the best priced product in a specific category |
-| 21 | [#55](https://github.com/JoyZadan/shop-kbeauty/issues/55) | Shopper | Sort a specific subcategories of products | To easily identify the most suitable product for me to purchase |
-| 22 | [#56](https://github.com/JoyZadan/shop-kbeauty/issues/56) | Shopper | Sort multiple categories of products simultaneously | Find the best priced products or discounts across broad categories, such as "skincare" or "hair &amp; body" |
-| 23 | [#29](https://github.com/JoyZadan/shop-kbeauty/issues/29) | Shopper | Search for a product or products by name, by description or by ingredients | Find a specific product I'd like to purchase  |
-| 24 | [#57](https://github.com/JoyZadan/shop-kbeauty/issues/57) | Shopper | Easily see what I've searched for and the number of results | Quickly decide whether the product I want is available |
-| **PURCHASING & CHECKOUT** |   |   |
-| 25 | [#32](https://github.com/JoyZadan/shop-kbeauty/issues/32) | Shopper | Quickly view how much was the original price and what savings, if any are available | Easily compare prices with other sites |
-| 26 | [#39](https://github.com/JoyZadan/shop-kbeauty/issues/39) | Shopper | Easily select the quantity for a product when purchasing it | Ensure I don't accidentally select the wrong product quantity |
-| 27 | [#33](https://github.com/JoyZadan/shop-kbeauty/issues/33) | Shopper | Easily view notifications on screen when I add a product to my bag | Find out immediately if my actions were correct or if the was an error |
-| 28 | [#40](https://github.com/JoyZadan/shop-kbeauty/issues/40) | Shopper | View items in my bag to be purchased | Identify the total cost of my purchase and all items I will receive |
-| 29 | [#41](https://github.com/JoyZadan/shop-kbeauty/issues/41) | Shopper | Adjust the quantity of individual items in my bag | Easily make changes to my purchase before checkout |
-| 30 | [#42](https://github.com/JoyZadan/shop-kbeauty/issues/42) | Shopper | Easily enter my payment information | Check out quickly and with no hassles |
-| 31 | [#43](https://github.com/JoyZadan/shop-kbeauty/issues/43) | Shopper | Feel my personal and payment information is safe and secure | Confidently provide the needed information to make a purchase |
-| 32 | [#44](https://github.com/JoyZadan/shop-kbeauty/issues/44) | Shopper | View an order confirmation after checkout | Verify that I haven't made any mistakes |
-| 33 | [#45](https://github.com/JoyZadan/shop-kbeauty/issues/45) | Shopper | Receive an email confirmation after checking out | Keep the confirmation of what I've purchased for my records |
-| **PRODUCT REVIEWS** |   |   |
-| 34 | [#64](https://github.com/JoyZadan/shop-kbeauty/issues/64) | Shopper | View available reviews for a product I am viewing  | Find out what others think of the product |
-| 35 | [#58](https://github.com/JoyZadan/shop-kbeauty/issues/58) | Shopper | Easily see how I can add my reviews on products I purchased | Decide whether I want to add my review |
-| 36| [#71](https://github.com/JoyZadan/shop-kbeauty/issues/71) | Shopper | Easily view/ have access to details about the product I am reviewing | Refer to the information about the product, should I need to do so |
-| 37 | [#65](https://github.com/JoyZadan/shop-kbeauty/issues/65) | Shopper | Add my review of the product | Share my personal experience of using the products |
-| 38 | [#23](https://github.com/JoyZadan/shop-kbeauty/issues/23) | Store Owner | Add Featured Reviews on specific product detail page | Opt to highlight specific reviews |
-| 39 | [#66](https://github.com/JoyZadan/shop-kbeauty/issues/66) | Store Owner | Edit submitted reviews | Opt to block off profanities, if any |
-| 40 | [#67](https://github.com/JoyZadan/shop-kbeauty/issues/67) | Store Owner | Delete a review | Have control over unacceptable comments such as discriminatory statements, if any |
+| 14 | First Time User | Sort cats by breed, colour or sex | To find a cat of a particular category |
+| 15 | Frequent User | Search for cats by typing their name, colour or breed in the search bar | To find a cat of a particular category |
+| 16 | General User | Easily see my search results and the number of records | See how many cats are at the rescue in the breed/colour/sex I typed |
+| **DONATING** |   |   |
+| 17 | Donator | Make a donation for a particular cat | Make a donation that will be spent on a particular cat |
+| 18 | Donator | Make a different donation than any suggested amounts | Pay as much as I want |
+| 19 | Donator | Fill in the donation form easily and quickly | Make a donation without too much hassle |
+| 20 | Donator | View a donation confirmation after it has processed | Verify everything is correct |
+| 21 | Donator | Receive an email confirmation of the donation | To keep records of my spending |
+| **BLOG** |   |   |
+| 22 | Registered User | View blog articles | Gain information about cats |
+| 23 | Registered User | View blog articles in a certain category | View all articles in that category  |
+| 24 | Registered User | Make comments on blog articles | Contribute to the community or ask questions |
+| 25 | Registered User | Easily navigate back to the initial blog page | Go back and view more articles |
+| 26 | Superuser/Admin | Create, read, edit, update and delete blog articles | Have control over the content on the blog |
+| 27 | Superuser/Admin | Read and delete inappropriate comments | Have control over the comments on the blog |
 | **ADMIN & STORE MANAGEMENT** |   |   |
-| 41 | [#60](https://github.com/JoyZadan/shop-kbeauty/issues/60) | Store Owner | Add a product | Add new items to my store |
-| 42 | [#61](https://github.com/JoyZadan/shop-kbeauty/issues/61) | Store Owner | Edit/update a product | Change product process, descriptions, ingredients, images and other product criteria |
-| 43 | [#62](https://github.com/JoyZadan/shop-kbeauty/issues/62) | Store Owner | Delete a product | Remove items that are no longer for sale |
-| 44 | [#72](https://github.com/JoyZadan/shop-kbeauty/issues/72) | Store Owner | Have policy pages (privacy, terms & conditions, return & refund and shipping) on the site | Be assured that all the legalities of doing business online are taken care of |
-| 45 | [#76](https://github.com/JoyZadan/shop-kbeauty/issues/76) | Store Owner | Receive a warning if I accidentally click the delete a product button | Avoid accidental deletion of a product |
-| 46 | [#83](https://github.com/JoyZadan/shop-kbeauty/issues/83) | Store Owner | Add a brand to my store | Add new products even if the product's brand is not in the store yet |
-| 47 | [#84](https://github.com/JoyZadan/shop-kbeauty/issues/84) | Store Owner | Edit/ Update a brand in my store | Make changes to a brand name, description, brand logo or choose to feature a brand |
-| **DIGITAL MARKETING** |   |   |
-| 48 | [#26](https://github.com/JoyZadan/shop-kbeauty/issues/26) | Store Owner | Have a social media presence | Create awareness of Shop K-Beauty products |
-| **USER'S WISHLIST** |   |   |
-| 49 | [#85](https://github.com/JoyZadan/shop-kbeauty/issues/85) | Shopper | Easily add a product to my wishlist | Save it for future purchase or reference |
-| 50 | [#87](https://github.com/JoyZadan/shop-kbeauty/issues/87) | Shopper | Easily remove a product from my wishlist | Keep only the products I'm interested in | -->
+| 28 | Superuser/Admin | Add, edit or delete a cat | Keep records up-to-date, add new cats to the site and remove cats that are no longer in the rescue centre |
+| 29 | Superuser/Admin | Receive a warning when I click the delete button | Avoid accidental deletion of a cat record/blog/comment |
+
 
 ## STRUCTURE PLANE
 ### **Interaction Design**
@@ -232,81 +210,81 @@ When planning for this website, I researched existing websites and found that th
 ![Catnip Cove User Flow Diagram: logged in superuser, logged in user, and anonymous donator]
 
 ### **Database Design**
-<!-- When designing an efficient, useful database for Shop K-Beauty, we followed the following phases:
+Designing an efficient, useful database is a matter of following the proper process, including these phases:
+1. Requirements analysis, or identifying the purpose of the database
+2. Organizing data into tables
+3. Specifying primary keys and analyzing relationships
+4. Normalizing to standardize the tables
+
+Above points obtained from - Source: [Lucidchart Database Design Info](https://www.lucidchart.com/pages/database-diagram/database-design)
+
+How did these phases get implemented in the designing of the database?
 1. Requirements Analysis - identifying the purpose of the database
+This first phase was completed after carrying out research & brainstorming:
+* Visiting other cat rescue websites and seeing what they have to offer.
+* Researching ideas to give the user more than just a donation site.
 2. Organizing data into tables - determining the database structure
-3. Normalizing to standardize the tables -->
-
-Source: [Lucidcart Database Diagram/ Database Design]
-
-<!-- How were these phases conducted and completed?
-1. Requirements Analysis - identifying the purpose of the database
-This first phase was completed after the following information were gathered/ determined:
-* During the Discovery Phase (Please refer to Strategy Plane > Project Goals > User Research > Discovery Phase), test users were interviewed about how they normally shop (online) for skincare and hair &amp; body products in order to learn more about their buying process, the information they typically look for when buying said products and any other information they require to help them decide which product to purchase.
-* Additional insights were also gathered by researching similar online shops to find out what information they typically include in their product detail page, the steps from browsing a product to buying the product, and what information they require a shopper to provide. Finally, their search, sorting and filtering functionalities were also perused for insights.
-2. Organizing data into tables - determining the database structure
-* The second phase took several iterations to complete. First, the database tables were created for each so-called real-world entities such as an individual (person), the things (products, product classification and data about the products) and also the places (personal information, address details, etc). The purchasing process itself was mapped to determine what data will be needed, generated and stored.
-
-* These tables are the visual representation of the data that will be in the database and as the project development progressed, as and when required, we refined the tables by adding, amending, moving or deleting the data types in each table.
-
-* Analysing the relationships between these tables was an important step to identify the cardinality (cardinality refers to the quantity of elements that interact between two related tables - source: [Lucidcart Database Diagram/ Database Design](https://www.lucidchart.com/pages/database-diagram/database-design)) to ensure that the data have been divided into tables efficiently. The relationships between entities were also determined whether they are:
+* The planning of the tables, with the visual help of Lucid Chart, was designed on their website using their own app.
+* The tables are the visual representation of the data that will be in the database and as the project development progressed, other fields and data types were added and refined.
+3. Analysing the relationships between the tables was an important step to identify the cardinality (Cardinality refers to the maximum number of times an instance in one entity can relate to instances of another entity - source: [Lucidchart Database Diagram Symbols & Meaning](https://www.lucidchart.com/pages/ER-diagram-symbols-and-meaning), this basically means how many times one thing can be connected to another thing, in this case, tables.) to ensure that the data has been appropriately allocated and positioned. The relationships between entities were determined whether they are:
     * one-to-one relationships
     * one-to-many relationships
     * many-to-many relationships
 
-* In the case of many-to-many relationships, these were then further divided by creating another table to become one-to-many relationships.
+    <img src="./documentation/database/erd-cardinality.png" width="300" alt="Cardinality symbols and meanings">
 
 3. Normalizing to standardize the tables
-* As an ecommerce store, Shop K-Beauty's databases are good candidates for normalization as the users (Shop Owners, Superadmins and Shoppers) are concerned with creating, reading, updating and deleting (CRUD) records.
-* As an example, the product tables can only have one value of say, product brand. There cannot be two brands for one product. -->
+* As a website that processes donations, Catnip Cove's databases are ideal candidates for normalization as the users (Shop Owners, Superadmins and Shoppers) are concerned with creating, reading, updating and deleting (CRUD) records.
+* For normalizing, the tables can only have unique rows and atomic values (no lists or arrays). For instance, a cat cannot have more than one gender/breed etc.
 
 #### **Database ERD**
 **Entity Relationship Diagram**<br/>
-This ER diagram captures the relationships between real-world entities. The entities are the data points of objects such as persons, places and things and together with their attributes, compose their domain, ie, their individual table. The cardinality (relationships) between these entities are then mapped and identified (see **Database Design** above).
+The below ER diagram shows the relationships between real-world entities identified in my project, for use with the project.
 
-[ERD Cardinality]() - Source: [Lucid Chart](https://lucidchart.zendesk.com/hc/en-us/articles/207299756-Entity-Relationship-Diagrams)
-
-Initial ERD: [ERD/DATABASE SCHEMA - V1]<br/>
+Initial ERD: [ERD/DATABASE SCHEMA - V1](./documentation/database/catnip-cove-erd.png)<br/>
 Final ERD: ![ERD/ DATABASE SCHEMA - V3]
 
 #### **Data Modelling**
-As evidenced by the database design and the ERD discussed above, the data model type used for this project is the Relational Model. Further readings about Relational Model can be found [here](https://www.guru99.com/relational-data-model-dbms.html).
+As shown by the database design and the ERD above, the data model type used for this project is the Relational Model. This is basically an organised digital filing system where you store related/connected information in tables made up of rows and columns. You can read more about Relational Databases [here](https://www.oracle.com/uk/database/what-is-a-relational-database/).
 
-Each of the models below are used for the project and contain the fields and behaviours of the data being created and stored.
+
 ##### *User Model*
 - The User model is a component of Django's Authentication system and contains information about the user.
-- The User model contains the following fields: username, email, first_name, last_name, password, is_staff, is_active, is_superuser, date_joined, and last_login.
+- The User model contains the following fields: email, first_name, last_name, password, is_staff, is_active, is_superuser, date_joined, and last_login.
 
 ##### *UserProfile Model*
 - The UserProfile model is an extension of the Django User model and has a one-to-one relationship with it.
-- The UserProfile model contains the following fields: user, default_phone_number, default_postcode.
+- The UserProfile model contains the following fields: user, default_first_name, default_last_name, default_email_address, default_postcode.
 - The UserProfile model is included in the installed profiles application.
 
 ##### *Cats Model*
-- The Cats model contains the following fields: .
+- The Cats model contains the following fields: name, age_if_known, breed, colour, gender, description, image_url, image.
 - It is one of the models included in the installed Cats application.
 - It is one of three original custom Django models created for the project.
 
-##### *Category Model*
-- The Category model contains the following fields: name, friendly_name and slug.
-- It also contains Main_Category as a ForeignKey
-- It is one of the models included in the installed products application.
+##### *Donation Model*
+- The Donation model contains the following fields: donation_number, amount, custom_amount, donor_first_name, donor_last_name, donor_email_address, donor_postcode, date, stripe_pid.
+- It also contains user_profile and cat as a ForeignKey
+- It is one of the models included in the installed donation application.
 
-##### *Subcategory Model*
-- The Subcategory model contains the following fields: name, friendly_name and slug
-- It also contains Category as a ForeignKey
-- It is one of the models included in the installed products application.
+##### *BlogPost Model*
+- The BlogPost model (called Post in application) contains the following fields: slug, title, body, created_on, last_modified, categories, image_url, image.
+- It is one of the models included in the installed Blog application.
 - It is one of FIVE original custom Django models created for the project.
 
-##### *Donation Model*
-- The Donation model contains the following fields: and stripe_pid.
-- It also contains UserProfile as a ForeignKey.
-- It is one of the models included in the installed Donation application.
+##### *BlogComment Model*
+- The BlogComment model (called Comment in application) contains the following fields: author, body, created_on.
+- It also contains Post as a ForeignKey.
+- It is one of the models included in the installed Blog application.
+
+##### *BlogCategory Model*
+- The BlogCategory model (called Category in application) contains the following fields: name, slug.
+- It is one of the models included in the installed Blog application.
 
 
 ## **SKELETON PLANE**
 ### **Wireframes**
-The wireframes were created using [Lucidchart](https://www.lucidchart.com/pages/templates/wireframe).
+The wireframes were created using [Balsamiq](https://balsamiq.com/).
 
 * Home Page
 ![Home Page Wireframe]()
