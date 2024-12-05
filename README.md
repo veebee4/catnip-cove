@@ -24,52 +24,40 @@ Catnip Cove is my 4th milestone project for Code Institute's Level 5 Diploma in 
     * [Scope Plane](#scope-plane)
         * [Feature Planning](#feature-planning)
         * [Content Requirement Planning](#content-requirement-planning)
-            * [Content Type: Text](#content-type-text)
-            * [Content Type: Images](#content-type-images)
-            * [Content Type: Videos](#content-type-videos)
-            * [Integrating Content Strategy and SEO](#integrating-content-strategy-and-seo)
         * [User Stories](#user-stories)
     * [Structure Plane](#structure-plane)
-        * [Interaction Design](#interaction-design)
-            * [User Flow Diagram](#user-flow-diagram)
-        * [Information Architecture](#information-architecture)
+        * [User Flow Diagram](#user-flow-diagram)
             * [Site Map](#site-map)
         * [Database Design](#database-design)
             * [Database ERD](#database-erd)
             * [Data Modelling](#data-modelling)
                 * [User Model](#user-model)
                 * [UserProfile](#userprofile-model)
-                * [MainCategory Model](#maincategory-model)
-                * [Category Model](#category-model)
-                * [Subcategory Model](#subcategory-model)
-                * [Brand Model](#brand-model)
-                * [Product Model](#product-model)
-                * [Order Model](#order-model)
-                * [OrderLineItem Model](#orderlineitem-model)
-                * [Review Model](#review-model)
-                * [Wishlist Model](#wishlist-model)
+                * [Cat Model](#cat-model)
+                * [Donation Model](#donation-model)
+                * [BlogPost Model](#blogpost-model)
+                * [BlogComment Model](#blogcomment-model)
+                * [BlogCategory Model](#blogcategory-model)
     * [Skeleton Plane](#skeleton-plane)
         * [Wireframes](#wireframes)
     * [Surface Plane](#surface-plane)
         * [Typography](#typography)
         * [Colour Palette](#colour-palette)
         * [Imagery](#imagery)
-* [Agile Methodology](#agile-methodology)
-    * [GitHub Projects](#github-projects)
 * [Features](#features)
-    * [Product Categorization](#product-categorization)
-    * [Stock Keeping Unit (SKU) Architecture](#stock-keeping-unit-sku-architecture)
-    * [Defensive Programming](#defensive-programming)
-    * [Accessibility](#accessibility)
-    * [Extra Meta Tags for Specific Pages](#extra-meta-tags-for-specific-pages)
-    * [Multi Brands](#multi-brands)
-    * [Brand Management - Authorized Personnel Only](#brand-management---authorized-personnel-only)
-    * [Product Management - Authorized Personnel Only](#product-management---authorized-personnel-only)
-    * [Product Reviews](#product-reviews)
-    * [Related Products](#related-products)
-    * [Wishlist](#wishlist)
     * [Site Features Common to All Pages](#site-features-common-to-all-pages)
     * [Site Pages](#site-pages)
+        * [Home Page](#home-page)
+        * [Cats Page](#cats-page)
+        * [Contact Us Page](#contact-us-page)
+        * [Main Blog Page](#main-blog-page)
+        * [Example Blog Article Page](#example-blog-article-page)
+        * [Example Blog Category Page](#example-blog-category-page)
+        * [Profile Page](#profile-page)
+        * [Cat Management Page (Superuser/Admin Only)](#cat-management-page-superuseradmin-only)
+        * [404 Error Page](#404-error-page)
+    * [Defensive Programming](#defensive-programming)
+    * [Accessibility](#accessibility)
 * [Future Development, Iteration and Implementation](#future-development-iteration-and-implementation)
 * [Technologies Used](#technologies-used)
     * [Languages Used](#languages-used)
@@ -205,7 +193,7 @@ When planning for this website, I researched existing websites and found that th
 
 
 ## STRUCTURE PLANE
-### **Interaction Design**
+
 #### **User Flow Diagram**
 ![Catnip Cove User Flow Diagram: logged in superuser, logged in user, and anonymous donator]
 
@@ -284,23 +272,224 @@ As shown by the database design and the ERD above, the data model type used for 
 
 ## **SKELETON PLANE**
 ### **Wireframes**
-The wireframes were created using [Balsamiq](https://balsamiq.com/).
+Wireframes are a necessary part of the planning process, to help visualise the look of the site, these wireframes were created using [Balsamiq](https://balsamiq.com/).
 
-* Home Page
-![Home Page Wireframe]()
+<details>
+  <summary>Click here to view Home Page Wireframes</summary>
+
+  <img src="./documentation/wireframes/home-page-desktop.png" height="500" alt="Home page desktop wireframe">
+  <img src="./documentation/wireframes/home-page-mobile.png" height="500" alt="Home page mobile wireframe">
+
+</details>
+
+<details>
+  <summary>Click here to view Contact Us Wireframes</summary>
+
+  <img src="./documentation/wireframes/contact-desktop.png" height="500" alt="Contact us page desktop wireframe">
+  <img src="./documentation/wireframes/contact-mobile.png" height="500" alt="Contact us page mobile wireframe">
+  <img src="./documentation/wireframes/contact-tablet.png" height="500" alt="Contact us page tablet wireframe">
+
+</details>
+
+<details>
+  <summary>Click here to view Donate Page Wireframes</summary>
+
+  <img src="./documentation/wireframes/donate-page-desktop.png" height="500" alt="Donate page desktop wireframe">
+  <img src="./documentation/wireframes/donate-page-mobile.png" height="500" alt="Donate page mobile wireframe">
+
+</details>
+
+<details>
+  <summary>Click here to view Blog Page Wireframe</summary>
+
+  <img src="./documentation/wireframes/main-blog-page.png" height="500" alt="Blog page desktop wireframe">
+
+</details>
+
+<details>
+  <summary>Click here to view Profile Page Wireframes</summary>
+
+  <img src="./documentation/wireframes/profile-page-desktop.png" height="500" alt="Profile page desktop wireframe">
+  <img src="./documentation/wireframes/profile-page-tablet.png" height="500" alt="Profile page tablet wireframe">
+
+</details>
+
 
 ## **SURFACE PLANE**
 ### **Typography**
+For the fonts on the website, I decided to go with a slightly fancy font, **'Pacifico'**, for the main navbar text logo and headings. For the rest of the site, I decided to use a plain but clear and smart looking font called **'Dosis'**, this distinguishes the body of the site from the titles and headings and also means it is easy for the user to read.
 
-<br/><br/>
-![ FONT]
+![Pacifico Font](./documentation/branding/pacifico-font-example.png)
+![Dosis Font](./documentation/branding/dosis-font-example.png)
 
 ### **Colour Palette**
+To create the colour palette, I used the hero image and picked some colours from that to make the site cohesive and to give it a relevant colour scheme. Using the Colour Contrast Analyser, this showed that the colours were not contrasting enough so I had revise my choices so that the contrast would be good enough to meet the WCAG 2.1 standards.<br>
+<br>
+Below is the final colour palette that has been used throughout the site, please click [HERE](./documentation/branding/old-colour-palette.png) to see my inital colour choices.
 
+<img src="./documentation/branding/colour-palette.png" height="500" alt="Colour palette for Catnip Cove">
 
 ### **Imagery**
+The hero image was created with the help of AI, using [Deep AI](https://deepai.org/machine-learning-model/text2img), which then inspired the colour palette for the whole site.
+All the cat images were obtained using the free image section of [Pexels](https://www.pexels.com/), all of which do not require attribution, but I have credited them in the [credits](#credits) section.
 
 ---
+
+## **FEATURES**
+
+This website consists of 8 pages, all of which are extended from the base page.
+
+- Home page
+- Cats Page
+- Contact Us page
+- Donation page
+- Blog page (linking to blog articles)
+- Profile page
+- Cat Management (Superuser/Admin only)
+- 404 Error Page
+
+### **Site Features Common to All Pages**
+The below items are used throughout the website.
+
+- Favicon : The website features a picture of a cartoon cat's face as the tab icon, on every page.
+<br>
+Created at [Favicon](https://favicon.io/) Example - <img src="./documentation/branding/cat-favicon.png" height="50" alt="Cat favicon">
+
+- Navbar : The navbar has two parts; the top navigation and the main navigation links. The first component is the top navigation; this shows the site's clickable text logo (directs to the home page), visitors can also search for cats using the search bar, and sign up or login through the My Account icon dropdown menu.
+<br>
+<br>
+The second component is the main navigation links that allow visitors to browse through the cats at the rescue, go to a contact form, and the donation form. The navbar and all its components are fully responsive, as shown below.
+
+    - Top Navigation:
+
+        - Logo (text-based logo)
+        - Search bar
+        - My account (login, register)
+        - for logged in Superuser:
+            - Cat management
+            - My profile
+            - Logout
+        - For general logged in users (no superadmin permissions):
+            - My profile
+            - Logout
+            - Blog
+
+<br>
+<img src="./documentation/features/nav-bar-screenshot.png" width="800" alt="Nav bar screenshot">
+<br>
+<br>
+
+* **Top Navigation screenshots<br/>
+    1. Top Navigation - desktop
+    * ![Top Navigation - desktop]()
+    2. Top Navigation - mobile
+    * ![Top Navivation - mobile]()
+    3. Top Navigation - desktop - logged in user
+    * ![Top Navigation - desktop - logged in user]()
+    4. Top Navigation - tablet - logged in user
+    * ![Top Navigation - tablet - logged in user]()
+
+<br/>
+
+* **Main Navigation**
+    * Catnip Cove Text Logo
+        * Links back to the home page
+    * Cats Dropdown
+        * View cats by all cats, male cats, and female cats
+    * Contact Us Link
+        * Directs to contact form
+    * Donate Link
+        * Directs to donation form
+    * My Account Dropdown
+        * Not logged in:
+            * Register, login
+        * Logged in:
+            * My profile, members blog, logout
+        * Logged in superuser/admin:
+            * Cat management, my profile, members blog, logout
+
+    Main Navigation screenshots<br/>
+    1. Main Navigation - desktop
+    * ![Main Navigation - desktop]()
+    2. Main Navigation - tablet - before
+    * ![Main Navigation - tablet - before]()
+    3. Main Navigation - tablet - after
+    * ![Main Navigation - tablet - after]()
+    4. Main Navigation - mobile - before
+    * ![Main Navigation - mobile - before]()
+    5. Main Navigation - mobile - after
+    * ![Main Navigation - mobile - after]()
+
+- Responsive across all devices, using Bootstrap and Flexbox.
+<br> 
+[Responsive Image HERE]
+<br>
+<br>
+
+- User feedback with lighter colour on all buttons to show when they are hovered over.
+<br>
+![User Feedback on Buttons](./documentation/features/button-feedback-screenshot.png)
+<br>
+<br>
+- Main nav links and account link also have a lighter feedback colour when hovered over.
+<br>
+![Nav Link Feedback](./documentation/features/nav-link-feedback.png)
+<br>
+<br>
+- The Cats page link and the my account link has a dropdown which features a different colour for feedback to the user to indicate what they are hovering over.
+<br>
+![Cat Link Dropdown](./documentation/features/cat-dropdown-feedback.png) ![Account Link Dropdown](./documentation/features/account-dropdown-feedback.png)
+<br>
+<br>
+- There is a counter on the cat pages to indicate how many records there are - this updates when the filtering system is used.
+<br>
+![Cat Record Counter](./documentation/features/cat-record-counter.png)
+<br>
+<br>
+- The filtering buttons on the cats page also have a different colour for hovering over and current view to provide more user feedback.
+<br>
+![Cat Filter Buttons](./documentation/features/filter-buttons-feedback.png)
+<br>
+<br>
+
+## **Site Pages**
+
+## Home Page
+![Home Page Screenshot](./documentation/features/home-page-screenshot.png)
+<br>
+
+## Cats Page
+![Cats Page Screenshot](./documentation/features/)
+<br>
+
+## Contact Us Page
+![Contact Us Page Screenshot](./documentation/features/contact-page-screenshot.png)
+<br>
+
+## Donation Page
+![Donation Page Screenshot](./documentation/features/donate-page-screenshot.png)
+<br>
+
+## Main Blog Page
+![Main Blog Page Screenshot](./documentation/features/main-blog-page-screenshot.png)
+<br>
+
+## Example Blog Article Page
+![Example Blog Article Screenshot](./documentation/features/example-blog-article-screenshot.png)
+<br>
+
+## Example Blog Category Page
+![Example Blog Article Screenshot](./documentation/features/example-blog-article-screenshot.png)
+<br>
+
+## Profile page
+![Profile Page Screenshot](./documentation/features/profile-page-screenshot.png)
+<br>
+
+## Cat Management (Superuser/Admin only)
+
+## 404 Error Page
+
 
 ## **Defensive Programming**
 <!-- To keep the site secure and protected against a brute force attack or attempts to access pages reserved solely based on user permission levels, defensive programming was at the forefront of the development.
@@ -312,7 +501,7 @@ Defensive programming is also implemented to handle bad user inputs or actions a
 
 **Update**: deleting a product when it is still in the shopping bag caused an unnecessary 404 error. This was fixed by amending the modal popup to warn the shop owner to first check that this is not the case prior to deleting the product. -->
 
-**Defensive Programming at work:**
+<!-- **Defensive Programming at work:**
 * Edit a brand: user is logged in but without the correct permission level
 ![Edit a brand -logged in user without the correct permission level](./documentation/features/edit-brand-logged-in-not-superadmin-user.gif)
 
@@ -325,16 +514,16 @@ Defensive programming is also implemented to handle bad user inputs or actions a
 * Modal
 ![Modal](./documentation/features/modal.png)
 * updated modal warning
-![Update: modal popup warning](./documentation/features/modal-updated.png)
+![Update: modal popup warning](./documentation/features/modal-updated.png) -->
 
 ## **Accessibility**
-To ensure that the Shop K-Beauty site will be as usable by as many visitors and shoppers alike, I ensure that the site is accessible by:
+To ensure that Catnip Cove will be as easy for everyone to access and view, I ensure that the site is accessible by:
 * using Semantic HTML
 * using descriptive alt attributes on images used on the site
-* providing the order, role and accessible name (what is read by a screen reader) for all navigable elements that are used on the site
-* providing ARIA attributes where they are needed
-* ensuring that there is sufficient colour contrast throughout the site
-* converting png images to next generation webp versions to achieve better compression and making the site usable for those onn low network speed
+<!-- * providing the order, role and accessible name (what is read by a screen reader) for all navigable elements that are used on the site (look this up) -->
+<!-- * providing ARIA attributes where they are needed (and this) -->
+* Ensuring that there is a sufficient colour contrast throughout the site.
+* Optimising images for the website by reducing the file and image size.
 
 <!-- I tested the Shop K-Beauty's accessibility using Lighthouse and WAVE and fixed any errors highlighted, including amending the colour scheme used for the site. -->
 
@@ -488,17 +677,6 @@ On the product detail page, below the featured reviews (if available) or below t
 * related products
     * ![related products](./documentation/user_stories_testing/user-story-13-related-products.png) -->
 
-## **Site Features Common to All Pages**
-Common to all pages of the Shop K-Beauty site are:
-
-* **Favicon**
-    The favicon is an effective visual reminder of the site's identity in the browser tabs and has been tested against the following browsers:
-    1. Safari
-    2. Google Chrome
-    3. Microsoft Edge
-    4. Firefox
-    * Favicons
-        * ![Favicons screenshot](./documentation/features/shop-kbeauty-favicons.png)
 
 * **Navbar**
     The navbar has two main components, the top navigation and the main navigation. The first component is the top navigation (see below). It shows the site's logo, visitors can search for products using the search bar, sign up or login via the My Account icon and view the grand total of items in their bag. The second component is the main navigation that allows the visitors to browse for products, special offers, brands and K-Beauty tips. The navbar and all its components are fully responsive, as evidenced by the screenshots below.
@@ -518,43 +696,7 @@ Common to all pages of the Shop K-Beauty site are:
         * wishlist (for logged in users)
         * bag
 
-        Top Navigation screenshots<br/>
-        1. Top Navigation - desktop
-        * ![Top Navigation - desktop](./documentation/features/top-navigation-desktop.png)
-        2. Top Navigation - mobile
-        * ![Top Navivation - mobile](./documentation/features/top-navigation-mobile.png)
-        3. Top Navigation - desktop - logged in superadmin user
-        * ![Top Navigation - desktop - logged in superadmin user](./documentation/features/top-navigation-desktop-logged-in-superadmin.png)
-        4. Top Navigation - tablet - logged in user
-        * ![Top Navigation - tablet - logged in user](./documentation/features/top-navigation-tablet-logged-in-user.png)
-        5. Top Navigation - mobile - logged in user: wishlist icon is displayed
-        * ![Top Navigation - mobile - logged in user: wishlist icon is displayed](./documentation/features/top-navigation-mobile-wishlist-logged-in-user.png)
-
-    <br/>
-
-    * **Main Navigation**
-        * all products dropdown
-            * view products by brand, price, discount, category, subcategory, all products
-        * skincare dropdown
-            * view skincare product types by categories, subcategories and all skincare
-        * hair &amp; body dropdown
-            * view hair &amp; body product types by categories, subcategories and all hair &amp; body
-        * special offers dropdown
-            * view deal types by new arrivals, top deals, clearance and all special offers
-        * brands
-        * k-beauty tips
-
-        Main Navigation screenshots<br/>
-        1. Main Navigation - desktop
-        * ![Main Navigation - desktop](./documentation/features/main-navigation-desktop.png)
-        2. Main Navigation - tablet - before
-        * ![Main Navigation - tablet - before](./documentation/features/main-navigation-tablet-before.png)
-        3. Main Navigation - tablet - after
-        * ![Main Navigation - tablet - after](./documentation/features/main-navigation-tablet-after.png)
-        4. Main Navigation - mobile - before
-        * ![Main Navigation - mobile - before](./documentation/features/main-navigation-mobile-before.png)
-        5. Main Navigation - mobile - after
-        * ![Main Navigation - mobile - after](./documentation/features/main-navigation-mobile-after.png)
+        
 
 * **Delivery Banner**
     The banner area is currently being used to flag the free delivery threshold.
