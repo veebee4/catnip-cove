@@ -115,8 +115,18 @@ def add_cat(request):
 def edit_cat(request, cat_id):
     """ edit a cat record """
     cat = get_object_or_404(Cat, pk=cat_id)
-    form = CatForm(instance=cat)
-    messages.info(request, f'You are editing {cat.name}')
+
+    if request.method == 'POST':
+        form = CatForm(request.POST, request.FILES, instance=cat)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully updated cat record!')
+            return redirect(reverse('cat_detail', args=[cat.id]))
+        else:
+            messages.error(request, 'Failed to update cat record. Please ensure the form is valid.')
+    else:
+        form = CatForm(instance=cat)
+        messages.info(request, f'You are editing {cat.name}')
 
     template = "cats/edit_cat.html"
     context = {
