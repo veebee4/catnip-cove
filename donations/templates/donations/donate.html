@@ -31,8 +31,13 @@
     <div class="cat-selected-donation text-center text-black">
         {% if cat %}
             <h2>You have selected {{ cat.name }}</h2>
-            <img src="{{ cat.image.url }}" alt="Image of {{ cat.name }}">
-        {% endif %}
+            {% endif %}
+
+            {% if cat.image %}
+            <img src="{{ cat.image.url }}" alt="{{ cat.name }}">
+            {% else %}
+            <img src="{{ MEDIA_URL }}noimage.png" alt="{{ cat.name }}">
+            {% endif %}
     </div>
 
     <div class="col-12 col-lg-10 col-md-8 col-sm-6 form-container">

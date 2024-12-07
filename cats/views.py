@@ -1,7 +1,9 @@
 from django.shortcuts import render, reverse, get_object_or_404, redirect
+from django.conf import settings
 from django.contrib import messages
 from django.db.models import Q
 from .models import Cat
+from .forms import CatForm
 
 def all_cats(request):
     """ a view to show all of the cats, including sorting and search queries """
@@ -87,3 +89,24 @@ def cat_detail(request, cat_id):
     }
 
     return render(request, 'cats/cat_detail.html', context)
+
+
+def add_cat(request):
+    """ add a cat to the rescue records """
+    if request.method == 'POST':
+        form = CatForm(request.POST, request.FILES)
+        if form.is_valid:
+            form.save()
+            messages.success(request, 'Successfully added cat!')
+            return redirect(reverse('add_cat'))
+        else:
+            messages.error(request, 'Failed to add cat. Please ensure the form is valid.')
+    else:
+        form = CatForm()
+
+    template = "cats/add_cat.html"
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
