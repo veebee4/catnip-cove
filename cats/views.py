@@ -110,3 +110,18 @@ def add_cat(request):
     }
 
     return render(request, template, context)
+
+
+def edit_cat(request, cat_id):
+    """ edit a cat record """
+    cat = get_object_or_404(Cat, pk=cat_id)
+    form = CatForm(instance=cat)
+    messages.info(request, f'You are editing {cat.name}')
+
+    template = "cats/edit_cat.html"
+    context = {
+        'form': form,
+        'cat': cat,
+    }
+
+    return render(request, template, context)
