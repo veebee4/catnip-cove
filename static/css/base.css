@@ -241,7 +241,6 @@ input[name='q']::placeholder {
     width: 40%;
     font-weight: 600;
     font-size: 1.5rem;
-    border: 2px solid black;
     margin-left: 13rem;
 }
 
