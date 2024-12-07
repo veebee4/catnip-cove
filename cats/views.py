@@ -96,11 +96,11 @@ def add_cat(request):
     if request.method == 'POST':
         form = CatForm(request.POST, request.FILES)
         if form.is_valid:
-            form.save()
-            messages.success(request, 'Successfully added cat!')
-            return redirect(reverse('add_cat'))
+            cat = form.save()
+            messages.success(request, 'Successfully added cat record!')
+            return redirect(reverse('cat_detail', args=[cat.id]))
         else:
-            messages.error(request, 'Failed to add cat. Please ensure the form is valid.')
+            messages.error(request, 'Failed to add cat record. Please ensure the form is valid.')
     else:
         form = CatForm()
 
@@ -135,3 +135,12 @@ def edit_cat(request, cat_id):
     }
 
     return render(request, template, context)
+
+
+def delete_cat(request, cat_id):
+    """ delete a cat record """
+    cat = get_object_or_404(Cat, pk=cat_id)
+    cat.delete()
+    messages.success(request, f'Cat record deleted!')
+
+    return redirect(reverse('cats'))

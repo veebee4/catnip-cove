@@ -45,6 +45,12 @@
                     <div class="col-12">
                         <a href="{% url 'donate' %}?cat_id={{ cat.id }}" class="card-link donation-link-btn">Donate for {{ cat.name }}</a>
                     </div>
+                    {% if request.user.is_superuser %}
+                        <small class="ml-3">
+                            <a href="{% url 'edit_cat' cat.id %}">Edit</a> | 
+                            <a class="text-danger" href="{% url 'delete_cat' cat.id %}">Delete</a>
+                        </small>
+                    {% endif %}
                 </div>
             </div>
         </div>

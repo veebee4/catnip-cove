@@ -102,6 +102,12 @@
                             <div class="card-footer text-body-secondary text-center">
                                {{ cat.breed }}
                             </div>
+                            {% if request.user.is_superuser %}
+                                <small class="ml-3">
+                                    <a href="{% url 'edit_cat' cat.id %}">Edit</a> | 
+                                    <a class="text-danger" href="{% url 'delete_cat' cat.id %}">Delete</a>
+                                </small>
+                            {% endif %}
                         </div>
                     </div>
                     <!-- Code taken from Boutique Ado walkthrough to show horizontal rules between cat pictures depending on screen size -->                   

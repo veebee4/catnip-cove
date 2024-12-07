@@ -8,4 +8,5 @@ urlpatterns = [
     path('colour/<str:colour>/', views.cats_by_colour, name='cats_by_colour'),
     path('add/', views.add_cat, name='add_cat'),
     path('edit/<int:cat_id>/', views.edit_cat, name='edit_cat'),
+    path('delete/<int:cat_id>/', views.delete_cat, name='delete_cat'),
 ]
