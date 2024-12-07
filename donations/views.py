@@ -99,7 +99,7 @@ def charge(request):
 
 def successMsg(request, donation_number):
     """
-    Handle successful checkouts and update user profile if needed
+    Handle successful donations and update user profile if needed
     """
     donation = get_object_or_404(Donation, donation_number=donation_number)
     amount = donation.amount

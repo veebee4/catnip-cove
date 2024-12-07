@@ -31,11 +31,6 @@ def profile(request):
 def donation_history(request, donation_number):
     donation = get_object_or_404(Donation, donation_number=donation_number)
 
-    messages.info(request, (
-        f'this is a past confirmation for donation number {donation_number}. '
-        'A confirmation email was sent on the donation date.'
-    ))
-
     template = 'donations/success.html'
     context = {
         'donation': donation,
