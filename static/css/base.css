@@ -296,6 +296,21 @@ input[name='q']::placeholder {
     padding: 2rem;
 }
 
+.edit-delete-buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.edit-delete-buttons > a {
+    margin: 1rem;
+}
+
+.btn-outline-danger:hover,
+.btn-outline-danger:active,
+.btn-outline-danger:focus {
+    color: white !important;
+}
+
 /* ------------------------------------------------------------------------------------------- Cat Detail Page */
 
 .cat-details-container {

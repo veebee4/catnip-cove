@@ -103,10 +103,10 @@
                                {{ cat.breed }}
                             </div>
                             {% if request.user.is_superuser %}
-                                <small class="ml-3">
-                                    <a href="{% url 'edit_cat' cat.id %}">Edit</a> | 
-                                    <a class="text-danger" href="{% url 'delete_cat' cat.id %}">Delete</a>
-                                </small>
+                                <div class="ml-3 edit-delete-buttons">
+                                    <a href="{% url 'edit_cat' cat.id %}" class="btn btn-outline-dark" role="button">Edit</a>
+                                    <a href="{% url 'delete_cat' cat.id %}" class="btn text-danger btn-outline-danger" role="button">Delete</a>
+                                </div> 
                             {% endif %}
                         </div>
                     </div>
