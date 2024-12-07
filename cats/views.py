@@ -1,7 +1,9 @@
 from django.shortcuts import render, reverse, get_object_or_404, redirect
 from django.conf import settings
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.db.models import Q
+
 from .models import Cat
 from .forms import CatForm
 
@@ -91,8 +93,13 @@ def cat_detail(request, cat_id):
     return render(request, 'cats/cat_detail.html', context)
 
 
+@login_required
 def add_cat(request):
     """ add a cat to the rescue records """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only site owners can do that.')
+        return redirect(reverse, ('home'))
+
     if request.method == 'POST':
         form = CatForm(request.POST, request.FILES)
         if form.is_valid:
@@ -112,8 +119,13 @@ def add_cat(request):
     return render(request, template, context)
 
 
+@login_required
 def edit_cat(request, cat_id):
     """ edit a cat record """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only site owners can do that.')
+        return redirect(reverse, ('home'))
+
     cat = get_object_or_404(Cat, pk=cat_id)
 
     if request.method == 'POST':
@@ -137,8 +149,13 @@ def edit_cat(request, cat_id):
     return render(request, template, context)
 
 
+@login_required
 def delete_cat(request, cat_id):
     """ delete a cat record """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only site owners can do that.')
+        return redirect(reverse, ('home'))
+
     cat = get_object_or_404(Cat, pk=cat_id)
     cat.delete()
     messages.success(request, f'Cat record deleted!')
