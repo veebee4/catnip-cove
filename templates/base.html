@@ -119,13 +119,21 @@
     {% block postloadjs %}
     
     <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const toastElList = document.querySelectorAll('.toast');
-        const toastList = [...toastElList].map(toastEl => new bootstrap.Toast(toastEl)); // Create Toast instances
-    
-        toastList.forEach(toast => toast.show()); // Show each toast
-    });
+        document.addEventListener("DOMContentLoaded", function () {
+            // Select all toast elements
+            const toastElList = document.querySelectorAll('.toast');
+            
+            // Create Toast instances for each toast element
+            const toastList = [...toastElList].map(toastEl => new bootstrap.Toast(toastEl, {
+                autohide: false,  // Prevent automatic hiding
+                delay: 0  // Set delay to 0 for no auto-hide behavior
+            }));
+            
+            // Show each toast
+            toastList.forEach(toast => toast.show());
+        });
     </script>
+    
     {% endblock %}
   </body>
 </html>
