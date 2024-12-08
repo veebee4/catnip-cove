@@ -23,10 +23,16 @@
         <div class="col-12">
             <form method="POST" action="{% url 'add_cat' %}" class="form mb-2" enctype="multipart/form-data">
                 {% csrf_token %}
-                {{ form | crispy }}
-                <div class="text-right">
-                    <a class="btn btn-outline-black rounded-0" href="{% url 'cats' %}">Cancel</a>
-                    <button class="btn btn-black rounded-0" type="submit">Add Cat Record</button>
+                {% for field in form %}
+                    {% if field.name != 'image' %}
+                        {{ field | as_crispy_field }}
+                    {% else %}
+                        {{ field }}
+                    {% endif %}
+                {% endfor %}
+                <div class="d-flex button-container">
+                    <a class="btn cancel-btn" href="{% url 'cats' %}">Cancel</a>
+                    <button class="btn add-cat-btn" type="submit">Add Cat Record</button>
                 </div>
             </form>
         </div>            
@@ -34,4 +40,23 @@
 </div>
 
 </div>    
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', () => {
+            const fileInput = document.getElementById('new-image'); // targets the element with ID 'new-image'
+            const filenameDisplay = document.getElementById('filename'); // targets the element with the ID 'filename'
+
+            fileInput.addEventListener('change', () => { // listens to the change event of the file input
+                const file = fileInput.files?.[0]; // get the first file by accessing files property
+                if (file) { // checks if a file is selected
+                    filenameDisplay.textContent = `Image will be set to: ${file.name}`; // displays text to show user filename selected
+                } else {
+                    filenameDisplay.textContent = 'No file selected.'; // displays this text if file selection is cancelled
+                }
+            });
+        });
+    </script>
 {% endblock %}

@@ -338,6 +338,71 @@ input[name='q']::placeholder {
     font-weight: 700;
 }
 
+/* -------------------------------------------------- Cat Form - Add & Edit */
+
+.form-label, p {
+    color: black;
+}
+
+.btn-file {
+    border: 2px solid black;
+    background-color: #6f8659;
+    color: black;
+    width: 100%;
+    border-radius: 3px;
+    font-weight: 600;
+    position: relative;
+    display: inline-block;
+}
+
+.cancel-btn:hover,
+.cancel-btn:active,
+.cancel-btn:focus,
+.update-cat-btn:hover,
+.update-cat-btn:active,
+.update-cat-btn:focus,
+.add-cat-btn:hover,
+.add-cat-btn:active,
+.add-cat-btn:focus,
+.btn-file:hover,
+.btn-file:active,
+.btn-file:focus {
+    border: 2px solid black;
+    color: black;
+    background-color: #98b080;
+}
+
+.btn-file input[type="file"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer; 
+}
+
+.custom-checkbox-label {
+    margin: 0.5rem;
+    font-weight: 600;
+}
+
+.cancel-btn, .update-cat-btn, .add-cat-btn {
+    border: 2px solid black;
+    background-color: #6f8659;
+    border-radius: 3px;
+    color: black;
+    font-weight: 600;
+}
+
+.cancel-btn {
+    min-width: 120px;
+}
+
+.button-container {
+    gap: 5rem;
+}
+
 /* ------------------------------------------------------------------------------------------- Contact Us Page */
 
 .contact-header {

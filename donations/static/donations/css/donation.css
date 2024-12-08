@@ -117,6 +117,11 @@ legend {
     margin-left: 0;
 }
 
+input[type="checkbox"]:checked {
+    background-color: #4caf50 !important; /* Green when checked */
+    border-color: #4caf50 !important;
+}
+
 /* -------------------------------------------------------------------------------------------------------------------------------- Success Page */
 
 .thankyou-container {
