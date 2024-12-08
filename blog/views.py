@@ -1,7 +1,8 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from blog.models import Post, Comment, Category
-from blog.forms import CommentForm
+from .models import Post, Comment, Category
+from .forms import CommentForm, BlogForm
+
 
 def blog_index(request):
     posts = Post.objects.all().order_by("-created_on") #obtain all posts in database
@@ -47,3 +48,14 @@ def blog_detail(request, pk):
     }
 
     return render(request, "blog/detail.html", context)
+
+
+def add_post(request):
+    """ Add a blog post to the blog """
+    form = BlogForm()
+    template = 'blog/add_blog.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
