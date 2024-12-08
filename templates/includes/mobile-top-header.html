@@ -40,8 +40,10 @@
             {% if request.user.is_authenticated %}
                 {% if request.user.is_superuser %}
                     <a href="{% url 'add_cat' %}" class="dropdown-item">Cat Management</a>
+                    <a href="{% url 'add_blog' %}" class="dropdown-item">Blog Management</a>
                 {% endif %}
                 <a href="" class="dropdown-item">My Profile</a>
+                <a href="{% url 'blog_index' %}" class="dropdown-item">Members Blog</a>
                 <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
             {% else %}
                 <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>

@@ -1,5 +1,6 @@
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, reverse, redirect
+from django.contrib import messages
 from .models import Post, Comment, Category
 from .forms import CommentForm, BlogForm
 
@@ -9,7 +10,7 @@ def blog_index(request):
     context = {
         "posts": posts,
     }
-    return render(request, "blog/index.html", context)
+    return render(request, "blog/blog_index.html", context)
 
 
 def blog_category(request, category):
@@ -50,9 +51,19 @@ def blog_detail(request, pk):
     return render(request, "blog/detail.html", context)
 
 
-def add_post(request):
+def add_blog(request):
     """ Add a blog post to the blog """
-    form = BlogForm()
+    if request.method == 'POST':
+        form = BlogForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully added blog post!')
+            return redirect(reverse('add_blog'))
+        else:
+            messages.error(request, 'Failed to add the post. Please ensure the form is valid.')
+    else:
+        form = BlogForm()
+
     template = 'blog/add_blog.html'
     context = {
         'form': form,

@@ -504,7 +504,7 @@ input[name='q']::placeholder {
     right: 7rem !important;
 }
 
-.toast-icon-info, .toast-icon-error, .toast-icon-success, .toast-icon-warning {
+.toast-icon-info, .toast-icon-error, .toast-icon-success, .toast-icon-warning, .toast-icon-danger {
     width: 1.5rem;
     height: 1.5rem;
     border-radius: 3px;
