@@ -1,4 +1,5 @@
 from django import forms
+from .models import Post, Comment, Category
 
 class CommentForm(forms.Form):
     author = forms.CharField(
@@ -12,3 +13,13 @@ class CommentForm(forms.Form):
             attrs={"class": "form-control", "placeholder": "Leave a comment!"}
         )
     )
+
+
+class BlogForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = '__all__'
+
+        def __init__(self, *args, **kwargs):
+            super().__init__(*args, **kwargs)
+            posts = Post.objects.all()

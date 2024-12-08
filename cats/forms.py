@@ -14,6 +14,3 @@ class CatForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         cats = Cat.objects.all()
 
-        for field_name, field in self.fields.items():
-            field.widget.attrs['class'] = 'border-black rounded-0'
-
