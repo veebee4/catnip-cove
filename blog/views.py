@@ -1,5 +1,5 @@
 from django.http import HttpResponseRedirect
-from django.shortcuts import render, reverse, redirect
+from django.shortcuts import render, reverse, redirect, get_object_or_404
 from django.contrib import messages
 from .models import Post, Comment, Category
 from .forms import CommentForm, BlogForm
@@ -67,6 +67,30 @@ def add_blog(request):
     template = 'blog/add_blog.html'
     context = {
         'form': form,
+    }
+
+    return render(request, template, context)
+
+
+def edit_blog(request, post_id):
+    """ Edit a blog post """
+    post = get_object_or_404(Post, pk=post_id)
+    if request.method == 'POST':
+        form = BlogForm(request.POST, request.FILES, instance=post)
+        if form.is_valid():
+            form.save()
+            messages.success(request, '{post.title} has been updated successfully!')
+            return redirect(reverse('blog_detail', args=[post.id]))
+        else:
+            messages.error(request, 'Failed to update blog article. Please ensure the form is valid.')
+    else:
+        form = BlogForm(instance=post)
+        messages.info(request, f'You are editing {post.title}')
+
+    template = 'blog/edit_blog.html'
+    context = {
+        'form': form,
+        'post': post,
     }
 
     return render(request, template, context)
