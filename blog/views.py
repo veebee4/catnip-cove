@@ -56,11 +56,11 @@ def add_blog(request):
     if request.method == 'POST':
         form = BlogForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            post = form.save()
             messages.success(request, 'Successfully added blog post!')
-            return redirect(reverse('add_blog'))
+            return redirect(reverse('blog_detail', args=['post.id']))
         else:
-            messages.error(request, 'Failed to add the post. Please ensure the form is valid.')
+            messages.error(request, 'Failed to add the blog post. Please ensure the form is valid.')
     else:
         form = BlogForm()
 
@@ -79,10 +79,10 @@ def edit_blog(request, post_id):
         form = BlogForm(request.POST, request.FILES, instance=post)
         if form.is_valid():
             form.save()
-            messages.success(request, '{post.title} has been updated successfully!')
-            return redirect(reverse('blog_detail', args=[post.id]))
+            messages.success(request, f'{post.title} has been updated successfully!')
+            return redirect(reverse('blog_detail', args=[post.pk]))
         else:
-            messages.error(request, 'Failed to update blog article. Please ensure the form is valid.')
+            messages.error(request, 'Failed to update blog post. Please ensure the form is valid.')
     else:
         form = BlogForm(instance=post)
         messages.info(request, f'You are editing {post.title}')
@@ -91,6 +91,15 @@ def edit_blog(request, post_id):
     context = {
         'form': form,
         'post': post,
+        'post_id': post_id
     }
-
     return render(request, template, context)
+
+
+def delete_blog(request, post_id):
+    """ Delete a blog post """
+    post = get_object_or_404(Post, pk=post_id)
+    post.delete()
+    messages.success(request, 'Blog article deleted!')
+
+    return redirect(reverse('blog_index'))

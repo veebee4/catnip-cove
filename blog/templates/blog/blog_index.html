@@ -35,9 +35,15 @@
                     </a>
                 {% endfor %}
             </small>
+            {% if request.user.is_superuser %}
+            <div class="ml-3 edit-delete-buttons-blog">
+                <a href="{% url 'edit_blog' post.pk %}" class="btn btn-outline-dark" role="button">Edit</a>
+                <a href="{% url 'delete_blog' post.pk %}" class="btn text-danger btn-outline-danger" role="button">Delete</a>
+            </div> 
+            {% endif %}
             <p>{{ post.body | slice:":400" | safe }}...</p>
             <hr class="mb-5">
-        {% endfor %}
+        {% endfor %}   
     {% endblock posts %}
     </div>
 {% endblock %}

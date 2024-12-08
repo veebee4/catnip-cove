@@ -22,6 +22,11 @@ a:focus {
     color: #007BFF;
 }
 
+.edit-delete-buttons-blog > a {
+    margin: 0.5rem;
+    font-weight: 600;
+}
+
 /* ------------------------------------------------------------------------------------------- Blog Detail Page*/
 
 .blog-detail-page-container {
