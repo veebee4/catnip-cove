@@ -64,7 +64,7 @@ def add_blog(request):
         if form.is_valid():
             post = form.save()
             messages.success(request, 'Successfully added blog post!')
-            return redirect(reverse('blog_detail', args=['post.id']))
+            return redirect(reverse('blog_detail', args=[post.id]))
         else:
             messages.error(request, 'Failed to add the blog post. Please ensure the form is valid.')
     else:
@@ -119,3 +119,18 @@ def delete_blog(request, post_id):
     messages.success(request, 'Blog article deleted!')
 
     return redirect(reverse('blog_index'))
+
+
+@login_required
+def delete_comment(request, comment_id):
+    """ Delete a comment post """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only site owners can do that.')
+        return redirect(reverse, ('home'))
+        
+    comment = get_object_or_404(Comment, pk=comment_id)
+    post = comment.post
+    comment.delete()
+    messages.success(request, 'Comment deleted!')
+
+    return redirect(reverse('blog_detail', args=[post.id]))
