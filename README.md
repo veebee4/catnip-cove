@@ -229,8 +229,7 @@ This first phase was completed after carrying out research & brainstorming:
 **Entity Relationship Diagram**<br/>
 The below ER diagram shows the relationships between real-world entities identified in my project, for use with the project.
 
-Initial ERD: [ERD/DATABASE SCHEMA - V1](./documentation/database/catnip-cove-erd.png)<br/>
-Final ERD: ![ERD/ DATABASE SCHEMA - V3]
+Initial ERD: [ERD/DATABASE SCHEMA](./documentation/database/catnip-cove-database-erd.png)<br/>
 
 #### **Data Modelling**
 As shown by the database design and the ERD above, the data model type used for this project is the Relational Model. This is basically an organised digital filing system where you store related/connected information in tables made up of rows and columns. You can read more about Relational Databases [here](https://www.oracle.com/uk/database/what-is-a-relational-database/).
@@ -341,11 +340,16 @@ This website consists of 8 pages, all of which are extended from the base page.
 
 - Home page
 - Cats Page
+- Cat Detail Page
+- Cat Management/Add Cat (Superuser/Admin only)
+- Cat Management/Edit Cat (Superuser/Admin only)
 - Contact Us page
 - Donation page
-- Blog page (linking to blog articles)
+- Blog Index Page (linking to blog articles)
+- Blog Detail Page
+- Blog Management/Add Blog (Superuser/Admin only)
+- Blog Management/Edit Blog (Superuser/Admin only)
 - Profile page
-- Cat Management (Superuser/Admin only)
 - 404 Error Page
 
 ### **Site Features Common to All Pages**
@@ -489,7 +493,13 @@ The second component is the main navigation links that allow visitors to browse 
 ## Cat Management (Superuser/Admin only)
 
 ## 404 Error Page
+The error pages on the site include custom pages for the following errors:
 
+400
+403
+404
+500
+All pages use the same background image and layout with only the content amended to reflect the error code and message to the user.
 
 ## **Defensive Programming**
 <!-- To keep the site secure and protected against a brute force attack or attempts to access pages reserved solely based on user permission levels, defensive programming was at the forefront of the development.
