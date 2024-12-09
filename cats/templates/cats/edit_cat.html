@@ -45,9 +45,18 @@
 {% block postloadjs %}
     {{ block.super }}
     <script type="text/javascript">
-        $('#new-image').change(function() {
-            var file = $('#new-image')[0].files[0];
-            $('#filename').text(`Image will be set to: ${file.name}`);
+        document.addEventListener('DOMContentLoaded', () => {
+            const fileInput = document.getElementById('new-image'); // targets the element with ID 'new-image'
+            const filenameDisplay = document.getElementById('filename'); // targets the element with the ID 'filename'
+
+            fileInput.addEventListener('change', () => { // listens to the change event of the file input
+                const file = fileInput.files?.[0]; // get the first file by accessing files property
+                if (file) { // checks if a file is selected
+                    filenameDisplay.textContent = `Image will be set to: ${file.name}`; // displays text to show user filename selected
+                } else {
+                    filenameDisplay.textContent = 'No file selected.'; // displays this text if file selection is cancelled
+                }
+            });
         });
     </script>
 {% endblock %}
