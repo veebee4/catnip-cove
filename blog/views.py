@@ -1,5 +1,6 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, reverse, redirect, get_object_or_404
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .models import Post, Comment, Category
 from .forms import CommentForm, BlogForm
@@ -51,8 +52,13 @@ def blog_detail(request, pk):
     return render(request, "blog/detail.html", context)
 
 
+@login_required
 def add_blog(request):
     """ Add a blog post to the blog """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only site owners can do that.')
+        return redirect(reverse, ('home'))
+
     if request.method == 'POST':
         form = BlogForm(request.POST, request.FILES)
         if form.is_valid():
@@ -72,8 +78,13 @@ def add_blog(request):
     return render(request, template, context)
 
 
+@login_required
 def edit_blog(request, post_id):
     """ Edit a blog post """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only site owners can do that.')
+        return redirect(reverse, ('home'))
+
     post = get_object_or_404(Post, pk=post_id)
     if request.method == 'POST':
         form = BlogForm(request.POST, request.FILES, instance=post)
@@ -96,8 +107,13 @@ def edit_blog(request, post_id):
     return render(request, template, context)
 
 
+@login_required
 def delete_blog(request, post_id):
     """ Delete a blog post """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only site owners can do that.')
+        return redirect(reverse, ('home'))
+        
     post = get_object_or_404(Post, pk=post_id)
     post.delete()
     messages.success(request, 'Blog article deleted!')
