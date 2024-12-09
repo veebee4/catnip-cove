@@ -1,4 +1,5 @@
 from django import forms
+from .widgets import CustomClearableFileInput
 from .models import Post, Comment, Category
 
 class CommentForm(forms.Form):
@@ -20,6 +21,8 @@ class BlogForm(forms.ModelForm):
         model = Post
         fields = '__all__'
 
-        def __init__(self, *args, **kwargs):
-            super().__init__(*args, **kwargs)
-            posts = Post.objects.all()
+    image = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        posts = Post.objects.all()
