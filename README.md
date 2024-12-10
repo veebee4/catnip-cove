@@ -27,7 +27,6 @@ Catnip Cove is my 4th milestone project for Code Institute's Level 5 Diploma in 
         * [User Stories](#user-stories)
     * [Structure Plane](#structure-plane)
         * [User Flow Diagram](#user-flow-diagram)
-            * [Site Map](#site-map)
         * [Database Design](#database-design)
             * [Database ERD](#database-erd)
             * [Data Modelling](#data-modelling)
@@ -195,7 +194,11 @@ When planning for this website, I researched existing websites and found that th
 ## STRUCTURE PLANE
 
 #### **User Flow Diagram**
-![Catnip Cove User Flow Diagram: logged in superuser, logged in user, and anonymous donator]
+![Catnip Cove User Flow Diagram: Login/Register](./documentation/diagrams/login-register-flowchart.png)
+![Catnip Cove User Flow Diagram: General User](./documentation/diagrams/general-user-flowchart.png)
+![Catnip Cove User Flow Diagram: Logged In Superuser](./documentation/diagrams/superuser-flowchart.png)
+![Catnip Cove User Flow Diagram: Logged In User](./documentation/diagrams/logged-in-user-flowchart.png)
+
 
 ### **Database Design**
 Designing an efficient, useful database is a matter of following the proper process, including these phases:
