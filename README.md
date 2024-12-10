@@ -339,7 +339,7 @@ All the cat images were obtained using the free image section of [Pexels](https:
 
 ## **FEATURES**
 
-This website consists of 8 pages, all of which are extended from the base page.
+This website consists of 13 pages, all of which are extended from the base page.
 
 - Home page
 - Cats Page
@@ -367,36 +367,23 @@ Created at [Favicon](https://favicon.io/) Example - <img src="./documentation/br
 <br>
 The second component is the main navigation links that allow visitors to browse through the cats at the rescue, go to a contact form, and the donation form. The navbar and all its components are fully responsive, as shown below.
 
-    - Top Navigation:
-
-        - Logo (text-based logo)
-        - Search bar
-        - My account (login, register)
-        - for logged in Superuser:
-            - Cat management
-            - My profile
-            - Logout
-        - For general logged in users (no superadmin permissions):
-            - My profile
-            - Logout
-            - Blog
+* **Top Navigation**
+    * Catnip Cove Text Logo
+    * Search bar
+    * My account (login, register)
+        * for logged in Superuser:
+            * Cat management
+            * My profile
+            * Logout
+        * For general logged in users (no superadmin permissions):
+            * My profile
+            * Logout
+            * Blog
 
 <br>
 <img src="./documentation/features/nav-bar-screenshot.png" width="800" alt="Nav bar screenshot">
 <br>
 <br>
-
-* **Top Navigation screenshots<br/>
-    1. Top Navigation - desktop
-    * ![Top Navigation - desktop]()
-    2. Top Navigation - mobile
-    * ![Top Navivation - mobile]()
-    3. Top Navigation - desktop - logged in user
-    * ![Top Navigation - desktop - logged in user]()
-    4. Top Navigation - tablet - logged in user
-    * ![Top Navigation - tablet - logged in user]()
-
-<br/>
 
 * **Main Navigation**
     * Catnip Cove Text Logo
@@ -416,20 +403,18 @@ The second component is the main navigation links that allow visitors to browse 
             * Cat management, my profile, members blog, logout
 
     Main Navigation screenshots<br/>
-    1. Main Navigation - desktop
-    * ![Main Navigation - desktop]()
-    2. Main Navigation - tablet - before
-    * ![Main Navigation - tablet - before]()
-    3. Main Navigation - tablet - after
-    * ![Main Navigation - tablet - after]()
-    4. Main Navigation - mobile - before
-    * ![Main Navigation - mobile - before]()
-    5. Main Navigation - mobile - after
-    * ![Main Navigation - mobile - after]()
+    1. Main Navigation - Cat Dropdown Menu Desktop
+    * ![Main Navigation - Cat Menu Desktop](./documentation/features/cat-dropdown-desktop.png)
+    3. Main Navigation - Cat Menu Dropdown Menu Mobile
+    * ![Main Navigation - Cat Menu Mobile](./documentation/features/cat-dropdown-mobile.png)
+    4. Main Navigation - My Account Dropdown Menu Desktop
+    * ![Main Navigation - My Account Menu Desktop](./documentation/features/my-account-dropdown.png)
+    5. Main Navigation - My Account Dropdown Menu Mobile
+    * ![Main Navigation - My Account Menu Mobile]() <!-- SORT OUT MENU TO DISPLAY PROPERLY AND TAKE SCREENSHOT --->
 
 - Responsive across all devices, using Bootstrap and Flexbox.
 <br> 
-[Responsive Image HERE]
+[Responsive Image HERE] <!-- DO THIS AFTER DEPLOYMENT --->
 <br>
 <br>
 
@@ -496,419 +481,9 @@ The second component is the main navigation links that allow visitors to browse 
 ## Cat Management (Superuser/Admin only)
 
 ## 404 Error Page
-The error pages on the site include custom pages for the following errors:
+The error page on the site include custom pages for a 404 Error, see screenshot below.
 
-400
-403
-404
-500
-All pages use the same background image and layout with only the content amended to reflect the error code and message to the user.
-
-## **Defensive Programming**
-<!-- To keep the site secure and protected against a brute force attack or attempts to access pages reserved solely based on user permission levels, defensive programming was at the forefront of the development.
-
-* I implemented login_required functionality across relevant views and templates.
-* On specific views.py files, I made sure to check if the user is authenticated and when required, the user's permission level.
-
-Defensive programming is also implemented to handle bad user inputs or actions and their unintended consequences. One such example is the use of modals to confirm the intent of deleting a product or a review to avoid the unintended deletion of data.
-
-**Update**: deleting a product when it is still in the shopping bag caused an unnecessary 404 error. This was fixed by amending the modal popup to warn the shop owner to first check that this is not the case prior to deleting the product. -->
-
-<!-- **Defensive Programming at work:**
-* Edit a brand: user is logged in but without the correct permission level
-![Edit a brand -logged in user without the correct permission level](./documentation/features/edit-brand-logged-in-not-superadmin-user.gif)
-
-* Incognito Mode - edit a brand - user is not logged in
-![Incognito Mode - edit a brand - user is not logged in](./documentation/features/edit-brand-incognito-mode-user-not-logged-in.gif)
-
-* Add a product - logged in user without the correct permission level
-![Add a product - logged in user without the correct permission level](./documentation/features/add-product-logged-in-not-superadmin-user.gif)
-
-* Modal
-![Modal](./documentation/features/modal.png)
-* updated modal warning
-![Update: modal popup warning](./documentation/features/modal-updated.png) -->
-
-## **Accessibility**
-To ensure that Catnip Cove will be as easy for everyone to access and view, I ensure that the site is accessible by:
-* using Semantic HTML
-* using descriptive alt attributes on images used on the site
-<!-- * providing the order, role and accessible name (what is read by a screen reader) for all navigable elements that are used on the site (look this up) -->
-<!-- * providing ARIA attributes where they are needed (and this) -->
-* Ensuring that there is a sufficient colour contrast throughout the site.
-* Optimising images for the website by reducing the file and image size.
-
-<!-- I tested the Shop K-Beauty's accessibility using Lighthouse and WAVE and fixed any errors highlighted, including amending the colour scheme used for the site. -->
-
-<!-- ## **Extra Meta Tags for Specific Pages**
-The extra meta tags on specific pages of the site allow for a tailored image and content when posting on social media pages. Using the content (page title, page description and target keywords) that came out of the **Integrating Content Strategy and SEO exercise (SCOPE PLANE)** plus images, the result is a more engaging social media posts that actually help deliver the intended message as opposed to a generic one.
-
-Having these extra meta tags feature is particularly important for Shop K-Beauty as a business because the rise and continuing success of K-Beauty products as a whole becoming a global phenomenon are in large part driven by social media. Straits Research, in its report entitled, [K-Beauty Products Market Trend, Growth to 2022-2030](https://straitsresearch.com/report/k-beauty-products-market), the section on **Market Dynamics (Global K-Beauty Products Market Drivers)** discussed in detail that the *popularization of products are inspired by unique ingredients as well as digital marketing strategies.* The report added, *The West's journalists and social media influencers have also been interested in the K-Beauty boom. The K-Beauty businesses have been praised for using this as an inventive digital technique to get more popularity.*
-
-**Extra meta tags and examples of how they work on [Shop K-Beauty's social media page (Facebook)](https://www.facebook.com/shopkbeauty.new):**
-1. Products page shared on social media:
-* ![Products page shared on social media](./documentation/features/products-page-facebook-post.png)
-
-2. Product detail page shared on social media:
-* ![Product detail post](./documentation/features/product-detail-page-facebook-post.png)
-
-3. Brands page shared on social media:
-* ![Brands page shared on social media](./documentation/features/brands-page-facebook-post.png)
-
-4. Brand detail page shared on social media:
-* ![Brand detail post](./documentation/features/brand-detail-page-facebook-post.png)
-
-The meta tags are also in place to dynamically change what's displayed on the browser tabs, for example when the product detail page is opened, the name of the product comes up first followed by the site's title. This is particularly important as the slugs are not being utilised in place of product IDs.
-
-* Product Name on the browser tab
-    * ![Product name on the browser tab](./documentation/features/product-name-on-browser-tab.png)
-* Brand Name on the browser tab
-    * ![Brand name on the browser tab](./documentation/features/brand-name-on-browser-tab.png) -->
-
-<!-- ## **Multi Brands**
-As a reseller of K-Beauty products, Shop K-Beauty carries inventories from different brands, providing a convenient access to a wider range of *use at home* K-Beauty products. Shop K-Beauty's wide selection of K-Beauty products also enable customers to shop for skincare and hair &amp; body K-Beauty products with varied price range and discounts. These two key points help the Shop to achieve the project goals of solving two out of three problems discussed in the beginning of this document:
-
-* Project Goals:
-    * Problems we are trying to solve:
-        * *Problem 1: Convenient access to effective K-Beauty products that can be used at home without the help of medical aesthetician*
-        * *Problem 3: Expensive skincare and hair & body products*
-
-See also **Strategy Plane: Project Goals** above.
-
-As the shoppers are able to **Shop by Brand** via the Brands page, they are able to easily find the brands and products that they prefer.
-
-Lastly, as some shoppers may be new to K-Beauty, trust about the K-Beauty concept becomes a more important factor that must be addressed. By offering a wide selection of brands to choose from and featuring a selection of these brands, Shop K-Beauty is able to provide a stronger user experience that also rivals what shoppers expect when browsing a brick and mortar retail shop that tend to carry multiple brands.
-
-## **Brand Management - Authorized Personnel Only**
-As a multi brand ecommerce shop specialising in K-Beauty, being able to manage the brands is a necessity.
-
-Logged in Shop Owners are able to add a new brand or update an existing one at the click of a button directly at the store. At the top navigation, from the My Account area, one of the dropdown options is **Brand Management** that then takes the shop owners to the brand management page where they can easily add a new brand to the store.
-
-![Link to Brand Management](./documentation/features/brand-management-button.png)
-
-The brand management page provides the input fields for adding a new brand and also includes help texts underneath the required fields. These fields are:
-* Brand name
-* Friendly name
-* Brand slug
-* Brand description
-* Select image button
-* Is featured checkbox
-
-Underneath the form are two buttons, one to cancel the action and redirects the shop owner to the brands page and the other button is add brand.
-
-After a brand is successfully added, the shop owner will be redirected to the new brand's brand detail page.
-* brand management: add a brand page
-![brand management: add a brand](./documentation/features/brand-management-add-brand.png)
-
-To edit a brand, the shop owners only need to go to the brand detail page where underneath the brand description is the edit brand button. Clicking this button will open the brand management page - edit brand where the form fields are already pre-populated with the available data about the brand such as name, friendly name, slug, description, image and is featured checkbox. A toast also shows an alert that the brand is being edited.
-* edit brand button on the brand detail page (visible only to logged in Shop Owners)
-![edit brand button](./documentation/features/edit-brand-button.png)
-* brand management: edit a brand page
-* ![brand management: edit a brand](./documentation/features/brand-management-edit-brand-page.png)
-
-Deleting a brand requires the shop owners to log in to the Django administration page. This is because editing a brand will also delete all the products of that brand and requires more complexity that needs to be tackled in future development.
-
-## **Product Management - Authorized Personnel Only**
-Logged in Shop Owners are able to perform the full CRUD (create, read, update and delete) product management operations directly at the store.
-
-To add a new product, at the top navigation, from the My Account area, one of the dropdown options is **Product Management**. This takes the shop owners to the product management page where they can easily add a new product to the store.
-
-![Link to Product Management](./documentation/features/brand-management-button.png)
-
-The product management page provides the input fields for adding a new product and also includes help texts underneath the required fields. These fields are:
-* Main category title
-* Category title
-* Subcategory title
-* Brand title
-* Sku
-* Product name
-* Product slug
-* Is featured checkbox
-* Total quantity
-* Total availability
-* Product description
-* How to use
-* Product ingredients
-* Has sizes
-* Price
-* Discount
-* Original price
-* Select image button
-
-Underneath the form is a cancel button and an add product button. The cancel button redirects to the products page. If there is no error in adding the product, the add product button redirects to the newly added product detail page. On the other hand, if there is an error in adding the product, a help text will appear underneath the form field where the error occured.
-
-* product management: add a product
-![product management: add a product](./documentation/features/product-management-add-product.png)
-
-* product management: add a product - error
-![product management: add a product - error](./documentation/features/product-management-add-product-error.png)
-
-To edit a product, the shop owners only need to go to the product detail page where underneath the product image is the edit product button. Clicking this button will open the product management page - edit product where the form fields are already pre-populated with the available data about the product (as above). A toast also shows an alert that the product is being edited.
-
-* edit product button on the product detail page (visible only to logged in Shop Owners)
-![edit product button](./documentation/features/product-management-edit-product-button.png)
-* product management: edit a product
-![product management: edit a product](./documentation/features/product-management-edit-product.png)
-
-To delete a product, next to the edit a product button is the Delete Product button that when clicked opens a modal to confirm the intent of deleting a product to avoid the unintended deletion of data. (See also **Defensive Programming** above.) -->
-
-<!-- ## **Product Reviews**
-On the product detail page, product reviews (if available) are visible to all users by clicking the **see all reviews** button below the product image. Some reviews, if featured are displayed below the accordion. All the reviews has the same design and displays the same type of content:
-* review title
-* posted by: *username*
-* date
-* review content
-
-To add a review, shoppers must be authenticated. After clicking the **add a review** button on the product detail page, a shopper is taken to the add a review page with the product information displayed on the right of the screen (desktop and tablet) or bottom of the screen (mobile). The product information includes the image, name, category, subcategory, price, original price and discount (if available) plus a shop now button that links back to the product detail page.
-
-* see all reviews and add a review buttons
-    * [reviews buttons](./documentation/user_stories_testing/user-stories-34-view-available-reviews-part1.png)
-* all available reviews
-    * [available reviews for specific product](./documentation/user_stories_testing/user-stories-34-view-available-reviews-part2.png)
-* add a review
-    * ![add a review form](./documentation/user_stories_testing/user-stories-36-review-form-and-product-info.png)
-
-Store Owners are able to feature a product review using the Django admin backend by simply ticking the **Is featured** checkbox.
-* [feature a review](./documentation/user_stories_testing/user-stories-38-featured-review.png)
-
-Authenticated shop owners are currently able to edit the reviews directly at the store. The **edit** button is displayed underneath the review content.
-* [edit review](./documentation/user_stories_testing/user-stories-39-edit-submitted-reviews.png)
-
-A logged in store owner is able to also delete a review. To prevent unintended deletion, a modal pops up a warning that such action will delete the review forever if they continue. The option to cancel and delete buttons are also included in the modal.
-* [delete review modal](./documentation/user_stories_testing/user-stories-40-delete-review-modal.png)
-
-## **Related Products**
-There are numerous advantages to having a related products section on an ecommerce store. According to [ShopFactory](https://www.shopfactory.com/contents/en-us/p1567_The-benefits-of-showing-related-items-to-buyers-in-your-ShopFactory-online-store.html), *Related and recommended products can help boost sales by making buyers aware of other products available to them or providing more information to help them with their purchasing decisions.*
-
-Related Products are one of the many features implemented on Shop K-Beauty in order to:
-1. Give more options to the customers andd improve the shopping experience for buyers since they don't have to search for relevant items. This also introduces products to shoppers they may not yet know about.
-2. Meet user expectations since multi-national online stores as well as small and medium e-commerce shops already implement this system, shoppers expect to see a related product section.
-3. Builds more trust. Related products are a great way for the budget conscious shoppers to find the product that they want at a price point that they need.
-
-On the product detail page, below the featured reviews (if available) or below the accordion are four or less related products based on the product's subcategory. The related products are displayed randomly if there's more than four of them. Each related product card has the product name, category, subcategory, price, original price and discount (if they exist) and a shop now button.
-
-* related products
-    * ![related products](./documentation/user_stories_testing/user-story-13-related-products.png) -->
-
-
-* **Navbar**
-    The navbar has two main components, the top navigation and the main navigation. The first component is the top navigation (see below). It shows the site's logo, visitors can search for products using the search bar, sign up or login via the My Account icon and view the grand total of items in their bag. The second component is the main navigation that allows the visitors to browse for products, special offers, brands and K-Beauty tips. The navbar and all its components are fully responsive, as evidenced by the screenshots below.
-
-    * **Top Navigation**:
-        * logo (text-based logo)
-        * search bar (visitors can search for products, brands and ingredients)
-        * my account (login, register)
-            * for logged in superadmin:
-                * brand management
-                * product management
-                * my profile
-                * logout
-            * for logged in users (no superadmin permissions):
-                * my profile
-                * logout
-        * wishlist (for logged in users)
-        * bag
-
-        
-
-* **Delivery Banner**
-    The banner area is currently being used to flag the free delivery threshold.
-
-    Delivery Banner screenshots
-    1. mobile
-    * ![mobile](./documentation/features/delivery-banner-mobile.png)
-    2. tablet
-    * ![tablet](./documentation/features/delivery-banner-tablet.png)
-
-* **Footer**:
-    * Shop K-Beauty fictitious address, email and phone number
-    * About - brief blurb about the shop
-    * Policies - links to privacy policy, terms and conditions, return and refund policy and shipping policy pages
-    * Follow Us - Social Media Links (Facebook, Instagram, Pinterest and Twitter)
-        * I created a mock business page only for Facebook. I wanted to create an example of how a well thought out SEO strategy + the extra meta tags on specific pages can work well together to provide a better user experience for visitors and shoppers as well as save the shop owners the time to have to tailor every social media post, especially when they want to promote or call attention to specific products, brands or special deals.
-    * Payment Processing Statement
-    * Copyright and Disclaimer
-
-    Footer screenshots
-    1. footer on mobile
-    * [mobile](./documentation/features/footer-mobile.png)
-    2. footer on tablet
-    * [tablet](./documentation/features/footer-tablet.png)
-    3. desktop
-    * ![desktop](./documentation/features/footer-desktop.png)
-
-## **Site Pages**
-### **Home Page**
-Shop K-Beauty's home page features the following:
-* "Above the fold":
-    * A background hero image showcasing some of the globally renowned K-Beauty brands.
-    * An attention getting Call to Action text announcing the arrival of the latest collections and a "shop now" button that links to new arrivals
-* "Below the fold":
-    * Featured Products
-    * Featured Brands
-    * See All Brands Button
-
-Home page screenshot
-![Homepage - Laptop](./documentation/features/shop-k-beauty-homepage-laptop-large-1440x1207.webp)<br/>
-
-### **Products Page**
-The products page contains the following:
-* Badges to display the category names or specific subcategory when visitors click any of the links on skincare, hair &amp; body and special offers (navlinks).
-* The number of products available (left side of the screen on desktop and tablet and centre on mobile) plus a link to "View All Products" when a visitor clicks on any of the navigation links on All Products, Skincare, Hair &amp; Body and Special Offers. These navlinks act as filtering mechanism to dynamically change the number of available products.
-* A sorting functionality (right side of the screen on desktop and tablet and centre on mobile) for the visitors to sort the products by:
-    * Brand (A-Z, Z-A)
-    * Price (low to high, high to low)
-    * Discount (high to low, low to high)
-    * Name (A-Z, Z-A)
-    * Category (A-Z, Z-A)
-    * Subcategory (A-Z, Z-A)
-* The result of products being filtered can still be sorted further.
-* Individual products cards displaying the product image, name, category, subcategory, current price, original price (crossed out), savings and a shop now call to action button that then links to a product detail page. The currency is set to GBP.
-* The product card has a gentle transition on hover.
-
-Products page screenshots
-1. Products Page on mobile
-* [mobile](./documentation/features/products-page-on-mobile.png)
-2. Products Page on tablet
-* [tablet](./documentation/features/products-page-on-tablet.png)
-3. Products Page on desktop
-* ![desktop](./documentation/features/products-page-on-desktop.png)
-4. All Products sorted by discount (high-to-low)
-* [all products sorted by discount](./documentation/features/all-products-sorted-by-discount-high-to-low.png)
-5. All Products filtered by subcategory
-* [products filtered by subcategory](./documentation/features/all-products-filtered-by-subcategory.png)
-6. All Products filtered by category
-* [products filtered by category](./documentation/features/all-products-filtered-by-category.png)
-7. All Products filtered by multiple categories
-* ![products filtered by multiple categories](./documentation/features/all-products-filtered-by-multiple-categories.png)
-
-### **Product Detail Page**
-The product detail page contains the following: <br/>
-Centre of screen on mobile and left side of the screen on tablet and bigger screens:
-* Product image
-* Right below the product image are two CTA buttons:
-    * See all reviews button (if a review exists)
-    * Add review button
-
-Centre of screen on mobile and right side of the screen on tablet and bigger screens:
-* Product name
-* Product brand - this links to the brand detail page
-* Wishlist icon - right text of product brand that redirects to login page if user is not logged in, or adds the product to a user's wishlist
-* Product category - this links to all products page, filtered by the product's category
-* Product subcategory - this links to all products page, filtered by the product's subcategory
-* Product price
-* Crossed out original product price - if higher than the product price
-* Saved amount from discount (if a discount exists)
-* Quantity buttons to increment or decrement item quantity
-* Two CTAs next to each other (tablets and above, otherwise one on top of the other) to either keep shopping or add product to bag
-* An accordion that contains the product description, how to use and ingredients
-
-Below all of the above are the following:
-* Featured reviews, if they exist and a CTA to share experience of using the product, ie, add a review
-* Four or less related products with a shop now call to action button on each product card.
-
-Product detail page screenshot
-![desktop](./documentation/features/product-detail-page.png)
-
-### **Brands Page**
-The brands page contains all available brands via individual brand cards that displays the brand logo. Each brand card links to the brand detail page.
-
-Below then brand cards is a CTA button to view all products.
-
-Brands page screenshot
-1. Brands page on desktop
-* ![desktop](./documentation/features/brands-page-desktop.png)
-2. Brands page on tablet
-* [tablet](./documentation/features/brands-page.png)
-3. Brands page on mobile
-* [mobile](./documentation/features/brands-page-mobile.png)
-
-### **Brand Detail Page**
-The brand detail page contains the following:
-* the brand's logo
-* the brand name
-* the brand description
-* list of available products from the brand - these products are displayed in individual product card that contains the product name, category, subcategory, price, original price and discount (if they exist) and a CTA to shop now
-* a CTA to keep shopping that links to the products page
-
-Brand detail page screenshot
-1. Brand detail page on desktop
-* ![desktop](./documentation/features/brand-detail-page.png)
-2. Brand detail page on tablet
-* [brand detail page - tablet](./documentation/features/brand-detail-page-tablet.png)
-3. Brand detail page on mobile
-* [brand detail page - mobile](./documentation/features/brand-detail-page-mobile.png)
-
-### **Bag Page**
-The bag page is fully responsive and contains the following:
-* product info
-    * product image
-    * product name
-    * product size, if available, otherwise N/A
-    * product SKU
-* product price
-* quantity buttons to increment or decrement product quantity
-* update button to update the product quantity currently in the bag (in case the shopper decide)
-* remove button to remove the product from the bag
-* bag total
-* delivery cost
-* grand total of products in the bag
-* if the grand total is below the delivery threshold, a text in red will show the shopper how much they need to spend to get free delivery
-* keep shopping CTA button which links to the products page
-* secure checkout which opens the checkout page
-
-The session is enabled so an anonymous shopper can continue browsing for other products and the items in the bag will stay in the bag as long as the site's connection to the browser does not get disconnected.
-
-Should the shopper add a product that is already in the bag, the product quantity will increment and a toast message will appear to state that the item quantity has been updated to the total number of product items added in the bag.
-
-
-### **Checkout Page**
-The checkout page has two sections: the personal information and delivery form and the order summary. <br/> The personal information form includes the fields a shopper must complete for an order to be processed and has three main areas: the details, delivery and payment. The details area is for full name and email address; the delivery area has required fields (phone number, street address1, town or city and a dropdown to select the country) and the not required fields (street address2, county, state or locality and the postal code). An anonymous shopper can choose to create an account or login to save their delivery information. The payment area includes the input fields for the credit card number, the month and year or expiry and the Card Verification Code (CVC).
-
-The order summary section of the checkout page contains the information on the items in the shopper's shopping bag. It displays the product image, name, size, quantity of item, the subtotal, the order total, the delivery cost and the grand total.
-
-Below the payment area are two buttons: adjust bag button (which links back to the shopping bag page) and the complete order button. Underneath these two buttons is a reminder of how much the shopper's card will be charged with the grand total amount.
-
-After clicking the complete order button, Stripe will process the payment.
-
-Meanwhile, if a shopper is already logged in and has previously filled out their profile's default delivery information, these data will be used to pre-populate their checkout form.
-
-Lastly, if there's an error in filling out the form, the form gives an error at the time of submission and through a help text provides feedback to the shopper where the error occured what needs to be corrected.
-
-Errors in the payment area such as providing a card year that has expired are also handled by a help text.
-A form is provided for filtering the orders by date for a better user experience.
-
-
-Checkout page screenshot
-1. Checkout page on desktop
-* ![checkout page - desktop]
-
-### **Checkout Success Page**
-After a successful processing of an order, the shopper is redirected to the checkout success page where a receipt shows the order info, the order details, delivering to information and the billing info. A toast also informs the the shopper that the order has been successfully processed, the number number and that a confirmation email will be sent to the email address provided at checkout.
-
-At the bottom of the page, a call to action button to checkout the latest deals allows the shopper to go the products page, filtered to display all products in the new arrivals, top deals and clearance categories.
-
-![checkout success page]
-
-### **Profile Page**
-<!-- A logged in shopper's profile page contains:
-* a greeting with their provided username
-* a statement about what they will find in their profile page
-* a wishlist button which will take them to their wishlist page
-* the default delivery information that the shopper can update
-* the update information button
-* the shopper's order history which contains:
-    * the order number receipts that each links back to the checkout success page where a receipt shows the order info, the order details, the delivering to information and the billing info. The toast this time shows an alert that this is a past confirmation for a particular order and that a confirmation email was sent on the order date.
-    * the order dates
-    * the order items' product name and the quantity
-    * the order total
-
-When a shopper updates their information, the profile page will reload, updates the data prepopulated on the form with the new data provided and a toast confirms that the profile updated successfully.
-
-![profile page] -->
-
-
-### **Sign Up Page**
+<!--- ### **Sign Up Page**
 A regular user can register and create an account with Shop K-Beauty from the Sign Up page. The Sign Up page can be accessed from the site's top navigation which has the My Account icon. This icon has two dropdown links, the first of which is the Sign Up. Clicking the Sign Up link opens the site's sign up page where they can then register to create an account. Alternatively, shoppers who do not yet have an account with the site can also create an account from a link at the checkout page.
 
 * [sign up](./documentation/user_stories_testing/user-story-14-sign-up.png)
@@ -969,18 +544,41 @@ The shopper can either choose to signout by selecting the corresponding button o
 * signed out toast
     * ![signed out toast](./documentation/features/signed-out-toast.png)
 
+## **Defensive Programming**
+<!-- To keep the site secure and protected against a brute force attack or attempts to access pages reserved solely based on user permission levels, defensive programming was at the forefront of the development.
 
-### **Error Pages**
-The error pages on the site include custom pages for the following errors:
-* 400
-* 403
-* 404
-* 500
+* I implemented login_required functionality across relevant views and templates.
+* On specific views.py files, I made sure to check if the user is authenticated and when required, the user's permission level.
 
-They all use the same background image and layout with only the content amended to reflect the error code and message to the user.
+Defensive programming is also implemented to handle bad user inputs or actions and their unintended consequences. One such example is the use of modals to confirm the intent of deleting a product or a review to avoid the unintended deletion of data.
 
-* ![404 error page]
+**Update**: deleting a product when it is still in the shopping bag caused an unnecessary 404 error. This was fixed by amending the modal popup to warn the shop owner to first check that this is not the case prior to deleting the product. -->
 
+<!-- **Defensive Programming at work:**
+* Edit a brand: user is logged in but without the correct permission level
+![Edit a brand -logged in user without the correct permission level](./documentation/features/edit-brand-logged-in-not-superadmin-user.gif)
+
+* Incognito Mode - edit a brand - user is not logged in
+![Incognito Mode - edit a brand - user is not logged in](./documentation/features/edit-brand-incognito-mode-user-not-logged-in.gif)
+
+* Add a product - logged in user without the correct permission level
+![Add a product - logged in user without the correct permission level](./documentation/features/add-product-logged-in-not-superadmin-user.gif)
+
+* Modal
+![Modal](./documentation/features/modal.png)
+* updated modal warning
+![Update: modal popup warning](./documentation/features/modal-updated.png) -->
+
+## **Accessibility**
+To ensure that Catnip Cove will be as easy for everyone to access and view, I ensure that the site is accessible by:
+* using Semantic HTML
+* using descriptive alt attributes on images used on the site
+<!-- * providing the order, role and accessible name (what is read by a screen reader) for all navigable elements that are used on the site (look this up) -->
+<!-- * providing ARIA attributes where they are needed (and this) -->
+* Ensuring that there is a sufficient colour contrast throughout the site.
+* Optimising images for the website by reducing the file and image size.
+
+<!-- I tested the Shop K-Beauty's accessibility using Lighthouse and WAVE and fixed any errors highlighted, including amending the colour scheme used for the site. -->
 
 ---
 
