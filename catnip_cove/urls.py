@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from django.conf.urls import handler404, handler500
+from catnip_cove import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,3 +29,6 @@ urlpatterns = [
     path('profile/', include('profiles.urls')),
     path("blog/", include("blog.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+handler404 = 'catnip_cove.views.handler404'
+handler500 = 'catnip_cove.views.handler500'
