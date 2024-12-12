@@ -8,6 +8,7 @@
 {% block content %}
 <div class="overlay"></div>
 <div class="container-fluid mb-2 blog-detail-page-container">
+    
     {% if request.user.is_superuser %}
         <div class="ml-3 edit-delete-buttons-blog">
             <a href="{% url 'edit_blog' post.pk %}" class="btn btn-outline-dark" role="button">Edit</a>
@@ -68,7 +69,7 @@
                 <p>
                     {{ comment.body | linebreaks }}
                 </p>
-                
+
                 {% if request.user.is_superuser %}
                 <div class="ml-3 edit-delete-buttons-blog">
                     <!-- Trigger modal for comment deletion -->

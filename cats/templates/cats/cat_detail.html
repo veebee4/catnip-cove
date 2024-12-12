@@ -46,11 +46,32 @@
                         <a href="{% url 'donate' %}?cat_id={{ cat.id }}" class="card-link donation-link-btn">Donate for {{ cat.name }}</a>
                     </div>
                     {% if request.user.is_superuser %}
-                        <small class="ml-3">
-                            <a href="{% url 'edit_cat' cat.id %}">Edit</a> | 
-                            <a class="text-danger" href="{% url 'delete_cat' cat.id %}">Delete</a>
-                        </small>
-                    {% endif %}
+                    <div class="ml-3 edit-delete-buttons-blog">
+                        <a href="{% url 'edit_cat' cat.id %}">Edit</a> | 
+
+                        <!-- Triggers modal for delete button -->
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#modal-{{ cat.id }}" class="text-danger">Delete</a>
+                        <!-- Modal Structure -->
+                        <div class="modal fade" id="modal-{{ cat.id }}" tabindex="-1" aria-labelledby="modalLabel-{{ cat.id }}" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="modalLabel-{{ cat.id }}">Delete Cat Record</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Are you sure you want to delete this cat record?
+                                        This action cannot be undone; all information will be lost!
+                                    </div>
+                                    <div class="modal-footer">
+                                        <a href="{% url 'delete_cat' cat.id %}" class="btn btn-danger">Delete</a>
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
                 </div>
             </div>
         </div>
