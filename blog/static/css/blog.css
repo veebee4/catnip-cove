@@ -1,11 +1,10 @@
 /* ------------------------------------------------------------------------------------------- Blog Index Page*/
 
-.blog-page-container {
+.blog-post-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: auto;
-    width: 70%;
+    margin: 10rem;
 }
 
 .blog-header {

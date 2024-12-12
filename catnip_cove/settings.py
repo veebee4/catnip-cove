@@ -31,7 +31,7 @@ STRIPE_SECRET_KEY = os.getenv('STRIPE_TEST_SECRET_KEY')
 STRIPE_WEBHOOK_SECRET = os.getenv('STRIP_WEBHOOK_SECRET')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['8000-veebee4-catnipcove-yvdje4r4d7i.ws.codeinstitute-ide.net', '127.0.0.1', 'localhost']
 

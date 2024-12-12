@@ -30,20 +30,42 @@
             <small>
                 {{ post.created_on.date }} | Categories:
                 {% for category in post.categories.all %}
-                    <a href="{% url 'blog_category' category.name %}">
-                        {{ category.name }}
-                    </a>
+                    <a href="{% url 'blog_category' category.name %}">{{ category.name }}</a>
                 {% endfor %}
             </small>
             {% if request.user.is_superuser %}
             <div class="ml-3 edit-delete-buttons-blog">
                 <a href="{% url 'edit_blog' post.pk %}" class="btn btn-outline-dark" role="button">Edit</a>
-                <a href="{% url 'delete_blog' post.pk %}" class="btn text-danger btn-outline-danger" role="button">Delete</a>
-            </div> 
+
+                <!-- Triggers modal for delete button -->
+                <a href="#" data-bs-toggle="modal" data-bs-target="#modal-{{ post.pk }}" class="btn delete-btn btn-large text-danger btn-outline-danger">Delete</a>
+
+                <!-- Modal Structure -->
+                <div class="modal fade" id="modal-{{ post.pk }}" tabindex="-1" aria-labelledby="modalLabel-{{ post.pk }}" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="modalLabel-{{ post.pk }}">Delete Blog Post</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Are you sure you want to delete this blog post? This will also delete any associated comments!
+                                This action cannot be undone; all information will be lost!
+                            </div>
+                            <div class="modal-footer">
+                                <a href="{% url 'delete_blog' post.pk %}" class="btn btn-danger">Delete</a>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             {% endif %}
-            <p>{{ post.body | slice:":400" | safe }}...</p>
-            <hr class="mb-5">
-        {% endfor %}   
-    {% endblock posts %}
+
+            <p>{{ post.body | slice:":300" | safe }}...</p>
+            <hr class="m-5 w-50">
+        {% endfor %}
     </div>
+    {% endblock posts %}
+</div>
 {% endblock %}

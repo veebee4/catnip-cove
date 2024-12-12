@@ -480,8 +480,11 @@ The second component is the main navigation links that allow visitors to browse 
 
 ## Cat Management (Superuser/Admin only)
 
-## 404 Error Page
-The error page on the site include custom pages for a 404 Error, see screenshot below.
+## 404 & 500 Error Page
+The error pages on the site include custom pages for a 404 and 500 Error, see screenshots below.
+
+![404 Error Page]()
+![500 Error Page]()
 
 <!--- ### **Sign Up Page**
 A regular user can register and create an account with Shop K-Beauty from the Sign Up page. The Sign Up page can be accessed from the site's top navigation which has the My Account icon. This icon has two dropdown links, the first of which is the Sign Up. Clicking the Sign Up link opens the site's sign up page where they can then register to create an account. Alternatively, shoppers who do not yet have an account with the site can also create an account from a link at the checkout page.

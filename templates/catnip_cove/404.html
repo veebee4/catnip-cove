@@ -10,5 +10,24 @@
 {% endblock %}
 
 {% block content %}
+<div class="overlay"></div>
+<div class="container mb-2">
+    <div class="row">
+        <div class="col">
+            <h2 class="logo-font m-5 text-center error-header">Oops! Sorry, the cats are sleeping!...</h2>
+            <hr class="error-header-separator">
+        </div>
+    </div>
 
+    <div>
+        <img src="{% static 'images/cats-sleeping.jpg' %}">
+        <h3 class="center-align error-header">404 - Page not found</h3>
+
+        <h4 class="center-align error-tag">Looks like something has gone wrong!</h4>
+            <p class="center-align error-text">
+                Use the nav bar to navigate away from this page or click 
+                <a href="{% url 'home' %}">HERE</a> to go home.
+            </p>
+    </div>
+</div>
 {% endblock %}
