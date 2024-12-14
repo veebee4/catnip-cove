@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
+from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
 from django.db import transaction
@@ -8,8 +9,28 @@ from cats.models import Cat
 from .forms import DonationForm
 from profiles.models import UserProfile
 import stripe
+import json
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
+
+@require_POST
+def cache_donation_data(request):
+    try:
+        pid = request.POST.get('client_secret').split('_secret')[0]
+        stripe.api_key = settings.STRIPE_SECRET_KEY
+        donation = Donation.objects.get(id=request.POST.get('donation_id'))
+        stripe.PaymentIntent.modify(pid, metadata={
+            'donation_id': str(donation.id),
+            'amount': str(donation.amount),
+            'save_info': request.POST.get('save_info'),
+            'username': request.user,
+        })
+        return HttpResponse(status=200)
+    except Exception as e:
+        messages.error(request, 'Sorry, your payment cannot be \
+            processed right now. Please try again later.')
+        return HttpResponse(content=e, status=400)
+
 
 def donate(request):
     cat_id = request.GET.get('cat_id')
