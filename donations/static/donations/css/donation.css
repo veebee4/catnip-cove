@@ -154,7 +154,7 @@ input[type="checkbox"]:checked {
 .StripeElement {
     width: 40rem;
     padding: 10px 12px;
-    border: 1px solid transparent;
+    border: 1px solid black;
     border-radius: 4px;
 	background-color: white;
     box-shadow: 0 1px 3px 0 #e6ebf1;
@@ -167,7 +167,7 @@ input[type="checkbox"]:checked {
 	}
 
 .StripeElement--invalid {
-	border-color: #fa755a;
+	border-color: #dc3545;
 	}
 
 .StripeElement--webkit-autofill {
