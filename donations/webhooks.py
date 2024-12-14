@@ -1,4 +1,3 @@
-# All code taken from Boutique Ado tutorial
 from django.conf import settings
 from django.http import HttpResponse
 from django.views.decorators.http import require_POST
@@ -53,6 +52,3 @@ def webhook(request):
     # Call the event handler with the event
     response = event_handler(event)
     return response
-
-    print('Success')
-    return HttpResponse(status=200)
