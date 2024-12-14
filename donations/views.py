@@ -10,7 +10,8 @@ from profiles.forms import UserProfileForm
 from profiles.models import UserProfile
 import stripe
 
-stripe.api_key = settings.STRIPE_SECRET_KEY
+stripe.public_api_key = settings.STRIPE_PUBLIC_KEY
+stripe.secret_api_key = settings.STRIPE_SECRET_KEY
 
 def donate(request):
     cat_id = request.GET.get('cat_id')
@@ -33,64 +34,50 @@ def charge(request):
             custom_amount = donation_form.cleaned_data['custom_amount']
             save_info = 'save-info' in request.POST
 
-            request.session['save_info'] = save_info
-
-            # Determine the donation amount
-            if custom_amount:
-                try:
-                    amount = int(custom_amount) * 100
-                except ValueError:
-                    messages.error(request, "Invalid custom donation amount.")
-                    return redirect('donate')
-            elif selected_amount:
-                try:
-                    amount = int(selected_amount) * 100
-                except ValueError:
-                    messages.error(request, "Invalid predefined donation amount.")
-                    return redirect('donate')
-            else:
-                messages.error(request, "Please select or enter an amount.")
+            if amount is None:
+                messages.error(request, "Invalid donation amount.")
                 return redirect('donate')
+
+            request.session['save_info'] = save_info
 
             # Get the cat ID, if applicable
             cat_id = request.POST.get('cat_id')
             cat = get_object_or_404(Cat, id=cat_id) if cat_id else None
+            description = f"Donation for {cat.name}" if cat else "General Donation"
 
             # Create the Stripe payment intent
-            description = f"Donation for {cat.name}" if cat else "General Donation"
             try:
-                intent = stripe.PaymentIntent.create(
-                    amount=amount,
-                    currency='gbp',
-                    description=description,
-                    metadata={
-                        "cat_id": cat_id,
-                        "donor_email_address": donation_form.cleaned_data['donor_email_address'],
-                    }
-                )
+                intent = create_stripe_payment_intent(amount, description, {
+                "cat_id": cat_id,
+                "donor_email_address": donation_form.cleaned_data['donor_email_address'],
+            })
             except stripe.error.StripeError as e:
-                # Handle Stripe errors (like invalid payment info)
-                messages.error(request, f"Stripe error: {e.user_message}")
+                logger.error(f"Stripe error: {e.user_message}")
+                messages.error(request, "Payment processing failed. Please try again.")
                 return redirect('donate')
 
-
             # Save the donation in the database
-            donation = Donation(
-                cat=cat,
-                amount=amount / 100,
-                custom_amount=custom_amount,
-                donor_first_name=donation_form.cleaned_data['donor_first_name'],
-                donor_last_name=donation_form.cleaned_data['donor_last_name'],
-                donor_email_address=donation_form.cleaned_data['donor_email_address'],
-                donor_postcode=donation_form.cleaned_data['donor_postcode'],
-                stripe_pid=intent.id  # Store the payment ID from Stripe
-            )
-            donation.save()
+            try:
+                with transaction.atomic():
+                    donation = Donation(
+                        cat=cat,
+                        amount=amount / 100,
+                        custom_amount=custom_amount,
+                        donor_first_name=donation_form.cleaned_data['donor_first_name'],
+                        donor_last_name=donation_form.cleaned_data['donor_last_name'],
+                        donor_email_address=donation_form.cleaned_data['donor_email_address'],
+                        donor_postcode=donation_form.cleaned_data['donor_postcode'],
+                        stripe_pid=intent.id
+                    )
+                    donation.save()
+            except Exception as e:
+                logger.error(f"Error saving donation: {e}")
+                messages.error(request, "An error occurred while saving your donation.")
+                return redirect('donate')
 
+            # Redirect to success page
             return redirect(reverse('success', args=[donation.donation_number]) + "?is_new_donation=True")
-
         else:
-            # If the form is not valid, return to the donation page & display error
             messages.error(request, "There was an issue with the donation form.")
             return redirect('donate')
 
@@ -135,4 +122,3 @@ def successMsg(request, donation_number):
 
 
     return render(request, 'donations/success.html', context)
-
