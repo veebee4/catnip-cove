@@ -35,8 +35,6 @@
 
             {% if cat.image %}
             <img src="{{ cat.image.url }}" alt="{{ cat.name }}">
-            {% else %}
-            <img src="{{ MEDIA_URL }}noimage.png" alt="{{ cat.name }}">
             {% endif %}
     </div>
 
