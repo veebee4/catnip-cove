@@ -1,68 +1,66 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.conf import settings
-from django.http import JsonResponse
+from django.db import transaction
 
 from .models import Donation
 from cats.models import Cat
 from .forms import DonationForm
-from profiles.forms import UserProfileForm
 from profiles.models import UserProfile
 import stripe
 
-stripe.public_api_key = settings.STRIPE_PUBLIC_KEY
-stripe.secret_api_key = settings.STRIPE_SECRET_KEY
+stripe.api_key = settings.STRIPE_SECRET_KEY
 
 def donate(request):
     cat_id = request.GET.get('cat_id')
     cat = get_object_or_404(Cat, id=cat_id) if cat_id else None
-    form = DonationForm()
-
-    return render(request, 'donations/donate.html', {
-        'cat': cat,
-        'donation_form': form,
-    })
-
-
-def charge(request):
+    stripe_public_key = settings.STRIPE_PUBLIC_KEY
 
     if request.method == 'POST':
         donation_form = DonationForm(request.POST)
-        
+
         if donation_form.is_valid():
             selected_amount = donation_form.cleaned_data['amount']
             custom_amount = donation_form.cleaned_data['custom_amount']
-            save_info = 'save-info' in request.POST
 
-            if amount is None:
+            # Ensure only one of the fields is used
+            if selected_amount:
+                amount_to_donate = selected_amount
+            elif custom_amount:
+                amount_to_donate = custom_amount
+            else:
                 messages.error(request, "Invalid donation amount.")
                 return redirect('donate')
 
+            save_info = 'save-info' in request.POST
             request.session['save_info'] = save_info
 
-            # Get the cat ID, if applicable
-            cat_id = request.POST.get('cat_id')
-            cat = get_object_or_404(Cat, id=cat_id) if cat_id else None
-            description = f"Donation for {cat.name}" if cat else "General Donation"
+            amount_to_donate = int(amount_to_donate)
+            amount_in_pence = amount_to_donate * 100
 
-            # Create the Stripe payment intent
+            # Create Stripe payment intent
             try:
-                intent = create_stripe_payment_intent(amount, description, {
-                "cat_id": cat_id,
-                "donor_email_address": donation_form.cleaned_data['donor_email_address'],
-            })
+                description = f"Donation for {cat.name}" if cat else "General Donation"
+                intent = stripe.PaymentIntent.create(
+                    amount=amount_in_pence,
+                    currency='gbp',
+                    description=description,
+                    automatic_payment_methods={"enabled": True},
+                    metadata={
+                        "cat_id": cat_id,
+                        "donor_email_address": donation_form.cleaned_data['donor_email_address'],
+                    }
+                )
             except stripe.error.StripeError as e:
-                logger.error(f"Stripe error: {e.user_message}")
-                messages.error(request, "Payment processing failed. Please try again.")
+                messages.error(request, f"Stripe error: {e.user_message}")
                 return redirect('donate')
 
-            # Save the donation in the database
+            # Save the donation to the database
             try:
                 with transaction.atomic():
                     donation = Donation(
                         cat=cat,
-                        amount=amount / 100,
-                        custom_amount=custom_amount,
+                        amount=amount_to_donate,  # Store the amount as entered, not in pence
                         donor_first_name=donation_form.cleaned_data['donor_first_name'],
                         donor_last_name=donation_form.cleaned_data['donor_last_name'],
                         donor_email_address=donation_form.cleaned_data['donor_email_address'],
@@ -71,7 +69,6 @@ def charge(request):
                     )
                     donation.save()
             except Exception as e:
-                logger.error(f"Error saving donation: {e}")
                 messages.error(request, "An error occurred while saving your donation.")
                 return redirect('donate')
 
@@ -79,10 +76,28 @@ def charge(request):
             return redirect(reverse('success', args=[donation.donation_number]) + "?is_new_donation=True")
         else:
             messages.error(request, "There was an issue with the donation form.")
-            return redirect('donate')
+    else:
+        donation_form = DonationForm()
 
-    return redirect('donate')
+        # Create a temporary PaymentIntent for client-side rendering
+        client_secret = None
+        try:
+            intent = stripe.PaymentIntent.create(
+                amount=100,  # Temporary amount in pence for rendering the form
+                currency='gbp',
+                description="Temporary PaymentIntent",
+            )
+            client_secret = intent.client_secret
+        except Exception as e:
+            messages.error(request, f"Error creating payment intent: {e}")
+            client_secret = None
 
+    return render(request, 'donations/donate.html', {
+        'cat': cat,
+        'donation_form': donation_form,
+        'stripe_public_key': stripe_public_key,
+        'client_secret': intent.client_secret,
+    })
 
 def successMsg(request, donation_number):
     """
@@ -102,7 +117,7 @@ def successMsg(request, donation_number):
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)
 
-        # Attach the user profile to the order
+        # Attach the user profile to the donation
         donation.user_profile = profile
         donation.save()
 
@@ -119,6 +134,5 @@ def successMsg(request, donation_number):
                 user_profile_form.save()
             else:
                 messages.error(request, "There was an error saving your profile information.")
-
 
     return render(request, 'donations/success.html', context)
