@@ -43,7 +43,11 @@ def donate(request):
         if donation_form.is_valid():
             selected_amount = donation_form.cleaned_data['amount']
             custom_amount = donation_form.cleaned_data['custom_amount']
-
+            donation = donation_form.save(commit=False)
+            pid = request.POST.get('client_secret').split('_secret')[0]
+            donation.stripe_pid = pid
+            donation.original_donation = json.dumps(donation)
+            donation.save()
             # Ensure only one of the fields is used
             if selected_amount:
                 amount_to_donate = selected_amount

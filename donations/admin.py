@@ -8,6 +8,8 @@ class DonationAdmin(admin.ModelAdmin):
         'date',
         'amount',
         'custom_amount',
+        'original_donation',
+        'stripe_pid'
     )
 
     fields = (
@@ -21,6 +23,8 @@ class DonationAdmin(admin.ModelAdmin):
         'donor_last_name', 
         'donor_email_address', 
         'donor_postcode',
+        'original_donation',
+        'stripe_pid'
     )
 
     list_display = (

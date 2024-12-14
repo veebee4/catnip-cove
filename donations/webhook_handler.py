@@ -1,6 +1,11 @@
 # All code taken from Boutique Ado tutorial
 
 from django.http import HttpResponse
+from .models import Donation
+from cats.models import Cat
+
+import json
+import time
 
 
 class StripeWH_Handler:
@@ -21,12 +26,61 @@ class StripeWH_Handler:
         """
         Handle payment_intent.succeeded webhook from Stripe
         """
+
         intent = event.data.object
+        pid = intent.id
+        donation = intent.metadata.donation
+        save_info = intent.metadata.save_info
+
+        # Get the Charge object
+        stripe_charge = stripe.Charge.retrieve(
+            intent.latest_charge
+        )
+
         print(intent)
-        
+
+        order_exists = False
+        attempt = 1
+        while attempt <= 5:
+            try:
+                donation = Order.objects.get(
+                    first_name__iexact=billing_details.first_name,
+                    last_name__iexact=billing_details.last_name,
+                    email__iexact=billing_details.email,
+                    postcode__iexact=billing_details.postal_code,
+                    original_donation=donation,
+                    stripe_pid=pid,
+                )
+                order_exists = True
+                break
+            except Order.DoesNotExist:
+                attempt += 1
+                time.sleep(1)
+            if order_exists:
+                return HttpResponse(
+                content=f'Webhook received: {event["type"]} | SUCCESS: Verified order already in database',
+                status=200)
+            else:
+                donation = None
+            try:
+                donation = Donation.objects.create(
+                    first_name=billing_details.first_name,
+                    last_name=billing_details.last_name,
+                    email=billing_details.email,
+                    postcode=billing_details.postal_code,
+                    original_donation=donation,
+                    stripe_pid=pid,
+                )
+            except Exception as e:
+                if donation:
+                    donation.delete()
+                return HttpResponse(
+                    content=f'Webhook received: {event["type"]} | ERROR: {e}',
+                    status=500)
         return HttpResponse(
-            content=f'Webhook received: {event["type"]}',
+            content=f'Webhook received: {event["type"]} | SUCCESS: Created order in webhook',
             status=200)
+
 
     def handle_payment_intent_payment_failed(self, event):
         """

@@ -17,7 +17,8 @@ class Donation(models.Model):
     donor_email_address = models.EmailField(max_length=100, blank=False)
     donor_postcode = models.CharField(max_length=15, blank=True) 
     date = models.DateTimeField(auto_now_add=True)
-    stripe_pid = models.CharField(max_length=255, blank=True, null=True)
+    original_donation = models.TextField(null=False, blank=False, default='')
+    stripe_pid = models.CharField(max_length=254, null=False, blank=False, default='')
 
     def _generate_donation_number(self):
         """
