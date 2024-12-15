@@ -18,9 +18,9 @@ def cache_donation_data(request):
     try:
         pid = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
-        donation = Donation.objects.get(id=request.POST.get('donation_id'))
+        donation = Donation.objects.get(donation_number=request.POST.get('donation_number'))
         stripe.PaymentIntent.modify(pid, metadata={
-            'donation_id': str(donation.id),
+            'donation_number': str(donation.number),
             'amount': str(donation.amount),
             'save_info': request.POST.get('save_info'),
             'username': request.user,
@@ -34,6 +34,7 @@ def cache_donation_data(request):
 
 def donate(request):
     cat_id = request.GET.get('cat_id')
+    donation_number = request.GET.get('donation_number')
     cat = get_object_or_404(Cat, id=cat_id) if cat_id else None
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
 
@@ -41,12 +42,12 @@ def donate(request):
         donation_form = DonationForm(request.POST)
 
         if donation_form.is_valid():
+            donation_number = donation_form.cleaned_data['donation_number']
             selected_amount = donation_form.cleaned_data['amount']
             custom_amount = donation_form.cleaned_data['custom_amount']
             donation = donation_form.save(commit=False)
             pid = request.POST.get('client_secret').split('_secret')[0]
             donation.stripe_pid = pid
-            donation.original_donation = json.dumps(donation)
             donation.save()
             # Ensure only one of the fields is used
             if selected_amount:
@@ -73,9 +74,12 @@ def donate(request):
                     automatic_payment_methods={"enabled": True},
                     metadata={
                         "cat_id": cat_id,
+                        "donation_number": donation_number,
+                        "donation_amount": amount_to_donate,
                         "donor_email_address": donation_form.cleaned_data['donor_email_address'],
                     }
                 )
+                client_secret = intent.client_secret
             except stripe.error.StripeError as e:
                 messages.error(request, f"Stripe error: {e.user_message}")
                 return redirect('donate')
@@ -85,7 +89,8 @@ def donate(request):
                 with transaction.atomic():
                     donation = Donation(
                         cat=cat,
-                        amount=amount_to_donate,  # Store the amount as entered, not in pence
+                        donation_number=donation_number,
+                        amount=amount_to_donate,
                         donor_first_name=donation_form.cleaned_data['donor_first_name'],
                         donor_last_name=donation_form.cleaned_data['donor_last_name'],
                         donor_email_address=donation_form.cleaned_data['donor_email_address'],
@@ -104,24 +109,10 @@ def donate(request):
     else:
         donation_form = DonationForm()
 
-        # Create a temporary PaymentIntent for client-side rendering
-        client_secret = None
-        try:
-            intent = stripe.PaymentIntent.create(
-                amount=100,  # Temporary amount in pence for rendering the form
-                currency='gbp',
-                description="Temporary PaymentIntent",
-            )
-            client_secret = intent.client_secret
-        except Exception as e:
-            messages.error(request, f"Error creating payment intent: {e}")
-            client_secret = None
-
     return render(request, 'donations/donate.html', {
         'cat': cat,
         'donation_form': donation_form,
         'stripe_public_key': stripe_public_key,
-        'client_secret': intent.client_secret,
     })
 
 def successMsg(request, donation_number):

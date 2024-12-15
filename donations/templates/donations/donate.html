@@ -24,6 +24,15 @@
 
     <h1 class="text-center text-black donate-sub-header">{% if not cat %}Make a Donation{% endif %}</h1>
 
+    {% if client_secret %}
+    <script>
+        const clientSecret = "{{ client_secret }}";
+        // Proceed with Stripe setup
+    </script>
+    {% else %}
+    <p>There was an error creating the payment intent. Please try again later.</p>
+    {% endif %}
+
     <div class="cat-selected-donation text-center text-black">
         {% if cat %}
             <h2>You have selected {{ cat.name }}</h2>
@@ -40,6 +49,7 @@
             {% csrf_token %}
 
             <input type="hidden" name="cat_id" value="{{ cat.id }}">
+            <input type="hidden" name="donation_id" value="{{ donation.id }}">
 
             <div class="amount-input">
                 <div class="form-field amount-dropdown">

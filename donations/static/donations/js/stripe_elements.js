@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Handle form submit
     const form = document.getElementById('payment-form');
 
-    form.addEventListener('submit', function (ev) {
+    form.addEventListener('submit', function(ev) {
         ev.preventDefault();
         card.update({ 'disabled': true });
         $('#submit-button').attr('disabled', true);
@@ -56,24 +56,25 @@ document.addEventListener('DOMContentLoaded', function() {
         const saveInfo = Boolean($('#id-save-info').attr('checked'));
         // From using {% csrf_token %} in the form
         const csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
+        const donationId = document.querySelector('input[name="donation_id"]').value;
         const postData = {
             'csrfmiddlewaretoken': csrfToken,
             'client_secret': clientSecret,
             'save_info': saveInfo,
+            'donation_id': donationId,
         };
         const url = '/donations/cache_donation_data/';
 
-        $.post(url, postData).done(function () {
+        $.post(url, postData).done(function() {
             stripe.confirmCardPayment(clientSecret, {
                 payment_method: {
                     card: card,
                     billing_details: {
-                        name: (document.querySelector('input[name="donor_first_name"]').value + ' ' + 
-                        document.querySelector('input[name="donor_last_name"]').value).trim(),
-                        email: document.querySelector('input[name="donor_email_address"]').value.trim(),
+                        name: $.trim(form.donor_first_name.value) + ' ' + $.trim(form.donor_last_name.value),
+                        email: $.trim(form.donor_email_address.value),
                     },
                 }
-            }).then(function (result) { 
+            }).then(function(result) { 
                 if (result.error) {
                     const errorDiv = document.getElementById('card-errors');
                     const html = `
@@ -91,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 }
             });
-        }).fail(function () {
+        }).fail(function() {
             // just reload the page, the error will be in django messages
             location.reload();
         });
