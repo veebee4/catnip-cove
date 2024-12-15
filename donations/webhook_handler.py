@@ -1,6 +1,13 @@
 # All code taken from Boutique Ado tutorial
-
+from django.conf import settings
 from django.http import HttpResponse
+
+from .models import Donation
+from cats.models import Cat
+from profiles.models import UserProfile
+
+import json
+import time
 
 class StripeWH_Handler:
     """Handle Stripe webhooks"""
@@ -22,7 +29,7 @@ class StripeWH_Handler:
         """
         intent = event.data.object
         pid = intent.id
-        donation = intent.metadata.donation_amount
+        donation = intent.metadata.amount_to_donate
         save_info = intent.metadata.save_info
 
         # Get the Charge object
@@ -31,7 +38,7 @@ class StripeWH_Handler:
         )
 
         billing_details = stripe_charge.billing_details # updated
-        total = round(stripe_charge.donation_amount / 100, 2) # updated
+        total = round(stripe_charge.donation / 100, 2) # updated
 
         donation_exists = False
         attempt = 1
@@ -42,7 +49,7 @@ class StripeWH_Handler:
                     last_name__iexact=billing_details.last_name,
                     email_address__iexact=billing_details.email_address,
                     postcode__iexact=billing_details.postcode,
-                    total=total,
+                    original_donation=donation,
                     stripe_pid=pid,
                 )
                 donation_exists = True
@@ -62,7 +69,7 @@ class StripeWH_Handler:
                         last_name=billing_details.last_name,
                         email_address=billing_details.email_address,
                         postcode=billing_details.postcode,
-                        total=total,
+                        original_donation=donation,
                         stripe_pid=pid,
                     )
             except Exception as e:

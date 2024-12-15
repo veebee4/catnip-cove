@@ -1,12 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Create a Stripe client.
     const stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
-    let clientSecret = $('#id_client_secret').text().slice(1, -1);
-
     // Initialize Stripe with the public key
     const stripe = Stripe(stripePublicKey);
     // Create an instance of Elements.
     const elements = stripe.elements();
+
     const style = {
         base: {
             color: '#32325d',
@@ -27,74 +26,104 @@ document.addEventListener('DOMContentLoaded', function() {
     const card = elements.create('card', { style: style });
     // Add an instance of the card Element into the `card-element` <div>.
     card.mount('#card-element');
-    
-    // Handle real-time validation errors from the card Element.
-    card.addEventListener('change', function(event) {
-        const errorDiv = document.getElementById('card-errors');
-        if (event.error) {
-            const html = `
-                <span class="icon" role="alert">
-                    <i class="fas fa-times"></i>
-                </span>
-                <span>${event.error.message}</span>
-            `;
-            $(errorDiv).html(html);
+
+    let form = document.getElementById('payment-form');
+
+    // Handle form submission
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        let donationAmount;
+        const selectedAmountElement = document.getElementById("selected_amount");
+        const customAmountElement = document.getElementById("custom_amount");
+
+        if (customAmountElement && customAmountElement.value) {
+            // Use custom amount if provided
+            donationAmount = customAmountElement.value;
+        } else if (selectedAmountElement && selectedAmountElement.value) {
+            // Use selected amount otherwise
+            donationAmount = selectedAmountElement.value;
         } else {
-            errorDiv.textContent = '';
+            alert("Please select or enter a donation amount.");
+            return; // Stop form submission if no amount is provided
         }
-    });
 
-    // Handle form submit
-    const form = document.getElementById('payment-form');
-
-    form.addEventListener('submit', function(ev) {
-        ev.preventDefault();
-        card.update({ 'disabled': true });
-        $('#submit-button').attr('disabled', true);
-        $('#payment-form').fadeToggle(100);
-
-        const saveInfo = Boolean($('#id-save-info').attr('checked'));
-        // From using {% csrf_token %} in the form
         const csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
-        const donationId = document.querySelector('input[name="donation_id"]').value;
-        const postData = {
-            'csrfmiddlewaretoken': csrfToken,
-            'client_secret': clientSecret,
-            'save_info': saveInfo,
-            'donation_id': donationId,
-        };
-        const url = '/donations/cache_donation_data/';
+        const saveInfo = Boolean($('#id-save-info').attr('checked'));
+        const cacheUrl = "/donations/cache_donation_data/";
+        const intentUrl = "/donations/create_payment_intent/";
 
-        $.post(url, postData).done(function() {
-            stripe.confirmCardPayment(clientSecret, {
+        try {
+            const response = await fetch(intentUrl, {
+                method: "POST",
+                headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json",
+                    "X-CSRFToken": csrfToken,
+                },
+                body: JSON.stringify({
+                    donation_amount: donationAmount,
+                }),
+            });
+
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+
+            const data = await response.json();
+            const clientSecret = data.client_secret;
+            console.log(clientSecret)
+
+            let postData = {
+                csrfmiddlewaretoken: csrfToken,
+                client_secret: clientSecret,
+                message: form.message.value,
+                donation_amount: donationAmount,
+            };
+            if (saveInfo) {
+                postData["save_info"] = saveInfo;
+            }
+
+            // Post data to cache_donation_data URL
+            const cacheResponse = await fetch(cacheUrl, {
+                method: "POST",
+                headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json",
+                    "X-CSRFToken": csrfToken,
+                },
+                body: JSON.stringify(postData),
+            });
+
+            if (!cacheResponse.ok) {
+                throw new Error("Error caching donation data");
+            }
+
+            const paymentResult = await stripe.confirmCardPayment(clientSecret, {
                 payment_method: {
                     card: card,
                     billing_details: {
-                        name: $.trim(form.donor_first_name.value) + ' ' + $.trim(form.donor_last_name.value),
-                        email: $.trim(form.donor_email_address.value),
+                        first_name: form.first_name.value,
+                        last_name: form.last_name.value,
+                        email: form.email_address.value,
+                        postcode: form.postcode.value,
                     },
-                }
-            }).then(function(result) { 
-                if (result.error) {
-                    const errorDiv = document.getElementById('card-errors');
-                    const html = `
-                    <span class="icon" role="alert">
-                    <i class="fas fa-times"></i>
-                    </span>
-                    <span>${result.error.message}</span>`;
-                    $(errorDiv).html(html);
-                    $('#payment-form').fadeToggle(100);
-                    card.update({ 'disabled': false });
-                    $('#submit-button').attr('disabled', false);
-                } else { 
-                    if (result.paymentIntent.status === 'succeeded') {
-                        form.submit();
-                    }
-                }
+                },
             });
-        }).fail(function() {
-            // just reload the page, the error will be in django messages
-            location.reload();
-        });
+
+            if (paymentResult.error) {
+                throw new Error(paymentResult.error.message);
+            } else {
+                const clientSecretInput = document.createElement("input");
+                clientSecretInput.type = "hidden";
+                clientSecretInput.name = "client_secret";
+                clientSecretInput.value = clientSecret;
+                form.appendChild(clientSecretInput);
+                form.submit();
+            }
+        } catch (error) {
+            console.error("Error processing payment:", error);
+            alert("Error processing payment. Please try again.");
+        }
     });
-});
+}); // Closing bracket for DOMContentLoaded

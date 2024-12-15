@@ -13,28 +13,9 @@ import json
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
-@require_POST
-def cache_donation_data(request):
-    try:
-        pid = request.POST.get('client_secret').split('_secret')[0]
-        stripe.api_key = settings.STRIPE_SECRET_KEY
-        donation = Donation.objects.get(donation_number=request.POST.get('donation_number'))
-        stripe.PaymentIntent.modify(pid, metadata={
-            'donation_number': str(donation.number),
-            'amount': str(donation.amount),
-            'save_info': request.POST.get('save_info'),
-            'username': request.user,
-        })
-        return HttpResponse(status=200)
-    except Exception as e:
-        messages.error(request, 'Sorry, your payment cannot be \
-            processed right now. Please try again later.')
-        return HttpResponse(content=e, status=400)
-
 
 def donate(request):
     cat_id = request.GET.get('cat_id')
-    donation_number = request.GET.get('donation_number')
     cat = get_object_or_404(Cat, id=cat_id) if cat_id else None
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
 
@@ -42,13 +23,13 @@ def donate(request):
         donation_form = DonationForm(request.POST)
 
         if donation_form.is_valid():
-            donation_number = donation_form.cleaned_data['donation_number']
             selected_amount = donation_form.cleaned_data['amount']
             custom_amount = donation_form.cleaned_data['custom_amount']
             donation = donation_form.save(commit=False)
             pid = request.POST.get('client_secret').split('_secret')[0]
             donation.stripe_pid = pid
             donation.save()
+
             # Ensure only one of the fields is used
             if selected_amount:
                 amount_to_donate = selected_amount
@@ -58,49 +39,20 @@ def donate(request):
                 messages.error(request, "Invalid donation amount.")
                 return redirect('donate')
 
-            save_info = 'save-info' in request.POST
-            request.session['save_info'] = save_info
+             # Save the info to the user's profile if all is well
+            request.session['save_info'] = 'save-info' in request.POST
 
             amount_to_donate = int(amount_to_donate)
             amount_in_pence = amount_to_donate * 100
 
             # Create Stripe payment intent
-            try:
-                description = f"Donation for {cat.name}" if cat else "General Donation"
-                intent = stripe.PaymentIntent.create(
-                    amount=amount_in_pence,
-                    currency='gbp',
-                    description=description,
-                    automatic_payment_methods={"enabled": True},
-                    metadata={
-                        "cat_id": cat_id,
-                        "donation_number": donation_number,
-                        "donation_amount": amount_to_donate,
-                        "donor_email_address": donation_form.cleaned_data['donor_email_address'],
-                    }
+            description = f"Donation for {cat.name}" if cat else "General Donation"
+            intent = stripe.PaymentIntent.create(
+                amount=amount_in_pence,
+                currency=settings.STRIPE_CURRENCY,
+                description=description,
+                automatic_payment_methods={"enabled": True}
                 )
-                client_secret = intent.client_secret
-            except stripe.error.StripeError as e:
-                messages.error(request, f"Stripe error: {e.user_message}")
-                return redirect('donate')
-
-            # Save the donation to the database
-            try:
-                with transaction.atomic():
-                    donation = Donation(
-                        cat=cat,
-                        donation_number=donation_number,
-                        amount=amount_to_donate,
-                        donor_first_name=donation_form.cleaned_data['donor_first_name'],
-                        donor_last_name=donation_form.cleaned_data['donor_last_name'],
-                        donor_email_address=donation_form.cleaned_data['donor_email_address'],
-                        donor_postcode=donation_form.cleaned_data['donor_postcode'],
-                        stripe_pid=intent.id
-                    )
-                    donation.save()
-            except Exception as e:
-                messages.error(request, "An error occurred while saving your donation.")
-                return redirect('donate')
 
             # Redirect to success page
             return redirect(reverse('success', args=[donation.donation_number]) + "?is_new_donation=True")
@@ -152,3 +104,48 @@ def successMsg(request, donation_number):
                 messages.error(request, "There was an error saving your profile information.")
 
     return render(request, 'donations/success.html', context)
+
+
+@require_POST
+def cache_donation_data(request):
+    try:
+        pid = data["client_secret"].split("_secret")[0]
+        stripe.api_key = settings.STRIPE_SECRET_KEY
+        save_info = None
+        data = json.loads(request.body)
+
+        donation_amount = data["donation_amount"]
+        if "save_info" in data:
+            save_info = data["save_info"]
+
+        metadata = {
+            "donation_amount": donation_amount,
+        }
+        if "save_info" in request.POST:
+            metadata["save_info"] = save_info
+        if request.user.is_authenticated:
+            metadata["username"] = request.user
+        else:
+            metadata["username"] = "AnonymousUser"
+
+        stripe.PaymentIntent.modify(
+            pid,
+            metadata=metadata,
+        )
+        return HttpResponse(status=200)
+    except Exception as e:
+        messages.error(
+            request,
+            "Sorry, your payment cannot be processed right now. Please try again later.",
+        )
+
+    #     stripe.PaymentIntent.modify(pid, metadata={
+    #         'amount': str(donation.amount_to_donate),
+    #         'save_info': request.POST.get('save_info'),
+    #         'username': request.user,
+    #     })
+    #     return HttpResponse(status=200)
+    # except Exception as e:
+    #     messages.error(request, 'Sorry, your payment cannot be \
+    #         processed right now. Please try again later.')
+    #     return HttpResponse(content=e, status=400)
