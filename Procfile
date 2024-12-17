@@ -1,1 +1,1 @@
-web: gunicorn catnip-cove.wsgi:application
+web: gunicorn catnip_cove.wsgi:application
