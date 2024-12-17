@@ -27,27 +27,13 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add an instance of the card Element into the `card-element` <div>.
     card.mount('#card-element');
 
-    let form = document.getElementById('payment-form');
+    let form = document.getElementById('donation_form');
 
     // Handle form submission
     form.addEventListener("submit", async (e) => {
         e.preventDefault();
 
-        let donationAmount;
-        const selectedAmountElement = document.getElementById("selected_amount");
-        const customAmountElement = document.getElementById("custom_amount");
-
-        if (customAmountElement && customAmountElement.value) {
-            // Use custom amount if provided
-            donationAmount = customAmountElement.value;
-        } else if (selectedAmountElement && selectedAmountElement.value) {
-            // Use selected amount otherwise
-            donationAmount = selectedAmountElement.value;
-        } else {
-            alert("Please select or enter a donation amount.");
-            return; // Stop form submission if no amount is provided
-        }
-
+        const donationAmount = document.getElementById("id_amount").value;
         const csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
         const saveInfo = Boolean($('#id-save-info').attr('checked'));
         const cacheUrl = "/donations/cache_donation_data/";
@@ -72,7 +58,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const data = await response.json();
             const clientSecret = data.client_secret;
-            console.log(clientSecret)
 
             let postData = {
                 csrfmiddlewaretoken: csrfToken,
@@ -103,10 +88,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 payment_method: {
                     card: card,
                     billing_details: {
-                        first_name: form.first_name.value,
-                        last_name: form.last_name.value,
-                        email: form.email_address.value,
-                        postcode: form.postcode.value,
+                        address: {
+                            postal_code: form.donor_postcode.value,
+                          },
+                        name: form.donor_first_name.value + " " + form.donor_last_name.value,
+                        email: form.donor_email_address.value,
                     },
                 },
             });
@@ -126,4 +112,4 @@ document.addEventListener('DOMContentLoaded', function() {
             alert("Error processing payment. Please try again.");
         }
     });
-}); // Closing bracket for DOMContentLoaded
+});

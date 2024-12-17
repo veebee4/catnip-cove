@@ -1,6 +1,7 @@
 import uuid
 
 from django.conf import settings
+from django.core.validators import MinValueValidator
 from django.db import models
 from cats.models import Cat
 from profiles.models import UserProfile
@@ -10,14 +11,13 @@ class Donation(models.Model):
     donation_number = models.CharField(max_length=32, unique=True, null=False, editable=False)
     user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL, null=True, blank=True, related_name='donations')
     cat = models.ForeignKey('cats.Cat', on_delete=models.CASCADE, blank=True, null=True)
-    amount = models.DecimalField(max_digits=10, decimal_places=2)
-    custom_amount = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
+    amount = models.DecimalField(max_digits=7, decimal_places=2, validators=[MinValueValidator(0.50)])
+    message = models.TextField(blank=True)
     donor_first_name = models.CharField(max_length=100, blank=False)
     donor_last_name = models.CharField(max_length=100, blank=False)
     donor_email_address = models.EmailField(max_length=100, blank=False)
     donor_postcode = models.CharField(max_length=15, blank=True) 
     date = models.DateTimeField(auto_now_add=True)
-    original_donation = models.TextField(null=False, blank=False, default='')
     stripe_pid = models.CharField(max_length=254, null=False, blank=False, default='')
 
     def _generate_donation_number(self):
@@ -28,7 +28,7 @@ class Donation(models.Model):
 
     def save(self, *args, **kwargs):
         """
-        Override the original save method to set the order number
+        Override the original save method to set the donation number
         if it hasn't been set already.
         """
         if not self.donation_number:

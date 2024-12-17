@@ -447,26 +447,67 @@ The second component is the main navigation links that allow visitors to browse 
 ## **Site Pages**
 
 ## Home Page
+Catnip Cove's home page features the following:
+
+- Top and Main Nav (including search bar, 'My Account' dropdown menu and main nav links; 'Cats', 'Contact Us' and 'Donate')
+- Hero image of cat in a greenhouse for a cozy vibe
+- Introduction header and text about the rescue centre
+- Meet the cats button to take user directly to the cat records
+
 ![Home Page Screenshot](./documentation/features/home-page-screenshot.png)
 <br>
 
 ## Cats Page
+Catnip Cove's Cat pages feature the following:
+
+- Top and Main Nav (including search bar, 'My Account' dropdown menu and main nav links; 'Cats', 'Contact Us' and 'Donate')
+- Plain overlay to avoid the page being too 'busy'
+- Button bar to filter the records below, filter by; Breed, Colour, Male or Female Cats
+- Clickable cat picture/record
+- Back to the top button
+
 ![Cats Page Screenshot](./documentation/features/)
 <br>
 
 ## Contact Us Page
+Catnip Cove's Contact Us page features the following:
+
+- Top and Main Nav (including search bar, 'My Account' dropdown menu and main nav links; 'Cats', 'Contact Us' and 'Donate')
+- Hero image of cat in a greenhouse for a cozy vibe'
+- Form to send a message to the rescue
+
 ![Contact Us Page Screenshot](./documentation/features/contact-page-screenshot.png)
 <br>
 
 ## Donation Page
+Catnip Cove's Donation page feature the following:
+
+- Top and Main Nav (including search bar, 'My Account' dropdown menu and main nav links; 'Cats', 'Contact Us' and 'Donate')
+- Plain overlay to avoid the page being too 'busy'
+- Donation Form with card capture elements
+
 ![Donation Page Screenshot](./documentation/features/donate-page-screenshot.png)
 <br>
 
 ## Main Blog Page
+Catnip Cove's Blog index page features the following:
+
+- Top and Main Nav (including search bar, 'My Account' dropdown menu and main nav links; 'Cats', 'Contact Us' and 'Donate')
+- Plain overlay to avoid the page being too 'busy'
+- List of blogs, with title, date created, clickable category link and snippet of blog post text
+
 ![Main Blog Page Screenshot](./documentation/features/main-blog-page-screenshot.png)
 <br>
 
 ## Example Blog Article Page
+Catnip Cove's Blog index page features the following:
+
+- Top and Main Nav (including search bar, 'My Account' dropdown menu and main nav links; 'Cats', 'Contact Us' and 'Donate')
+- Plain overlay to avoid the page being too 'busy'
+- Blog title with picture if applicable with date created and clickable category link, and main blog content below
+- Comments section at the bottom to view and add comments
+- Button to take user back to the blog index page
+
 ![Example Blog Article Screenshot](./documentation/features/example-blog-article-screenshot.png)
 <br>
 

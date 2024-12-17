@@ -7,8 +7,6 @@ class DonationAdmin(admin.ModelAdmin):
         'donation_number',
         'date',
         'amount',
-        'custom_amount',
-        'original_donation',
         'stripe_pid'
     )
 
@@ -18,12 +16,10 @@ class DonationAdmin(admin.ModelAdmin):
         'date',
         'cat',
         'amount',
-        'custom_amount',
         'donor_first_name', 
         'donor_last_name', 
         'donor_email_address', 
         'donor_postcode',
-        'original_donation',
         'stripe_pid'
     )
 
@@ -32,7 +28,6 @@ class DonationAdmin(admin.ModelAdmin):
         'date',
         'cat',
         'amount',
-        'custom_amount',
         'donor_first_name', 
         'donor_last_name', 
         'donor_email_address', 
