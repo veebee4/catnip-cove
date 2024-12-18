@@ -28,9 +28,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'DEVELOPMENT' in os.environ
+DEBUG = True
 
-ALLOWED_HOSTS = ['catnip-cove-8a89db282e0c.herokuapp.com']
+# 'DEVELOPMENT' in os.environ
+
+ALLOWED_HOSTS = ['catnip-cove-8a89db282e0c.herokuapp.com', '8000-veebee4-catnipcove-yvdje4r4d7i.ws.codeinstitute-ide.net']
 
 # Application definition
 
