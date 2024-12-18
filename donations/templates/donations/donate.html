@@ -35,7 +35,8 @@
     </div>
 
     <div class="col-12 col-lg-10 col-md-8 col-sm-6 form-container">
-        <p class="text-muted mt-5 text-center instruct-text">Please fill out the form below to complete your donation</p>
+        <p class="mt-5 text-center instruct-text w-50">Please fill out the form below to complete your donation</p>
+        <hr class="w-50 donate-form-separator">
         <form action="{% url 'donate' %}" method="POST" id="donation_form" class="payment-section">
             {% csrf_token %}
 

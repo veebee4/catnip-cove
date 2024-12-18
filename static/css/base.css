@@ -4,15 +4,25 @@ html {
 }
 
 /* ------------------------------------------------------------------------------------------- Colors*/
-/* -------------------------------------------- Body Colors*/
+/* -------------------------------------------- Shared Colors*/
+
+.overlay {
+    background: #c0cfb1;
+}
 
 body {
     color: #555;
 }
 
-/* -------------------------------------------- Nav Colors*/
+/* delete button for cat records, blogs and comments */
+.btn-outline-danger:hover,
+.btn-outline-danger:active,
+.btn-outline-danger:focus {
+    color: white;
+}
 
-/* Nav background colour */
+/* -------------------------------------------- Nav & Mobile Nav Colors*/
+
 .custom-nav-bg, .navbar {
     background-color: #98b080;
 }
@@ -21,18 +31,15 @@ body {
     color: #1A191A;
 }
 
-/* Nav text logo colour */
 .logo-font {
     color: #1A191A;
 }
 
-/* Nav search button colour */
 .btn-green {
     background-color: #1A191A;
     color: white;
 }
 
-/* Nav search button feedback colours */
 .btn-green:hover,
 .btn-green:active,
 .btn-green:focus {
@@ -40,27 +47,22 @@ body {
     color: black;
 }
 
-/* Account link colour */
 .user-option-link {
     color: #1A191A;
 }
 
-/* Nav links colour */
 .navbar-option {
     color: #1A191A;
 }
 
-/* dropdown for cats nav link colour */
 .dropdown-menu {
     background-color: #1A191A;
 }
 
-/* all dropdowns link colour */
 .dropdown-item {
     color: white;
 }
 
-/* feedback nav link colours */
 .nav-link:hover,
 .nav-link:active,
 .nav-link:focus,
@@ -68,12 +70,6 @@ body {
 .user-option-link:active,
 .user-option-link:focus {
     color: white;
-}
-
-/* -------------------------------------------- Mobile Nav Colors*/
-
-.mobile-nav-icon {
-    color: #0a0a0a;
 }
 
 .search-submit-btn {
@@ -84,6 +80,10 @@ body {
 .search-submit-btn:active,
 .search-submit-btn:focus {
     background-color: #c0cfb1;
+}
+
+.mobile-nav-icon {
+    color: #0a0a0a;
 }
 
 /* -------------------------------------------- Home page Colors*/
@@ -112,10 +112,6 @@ body {
 
 /* -------------------------------------------- Cats page Colors*/
 
-.overlay {
-    background: #c0cfb1;
-}
-
 .cat-record-home-link {
     color: #0044CC;
 }
@@ -143,6 +139,71 @@ body {
 .contact-desc-text {
     color: black;
     background-color: #98b080;
+}
+
+/* ------------------------------------------------------------------------------------------- Cat Management Page Colours */
+/* -------------------------------------------------- Cat Form - Add & Edit */
+
+.form-label, p {
+    color: black;
+}
+
+.cancel-btn:hover,
+.cancel-btn:active,
+.cancel-btn:focus,
+.update-cat-btn:hover,
+.update-cat-btn:active,
+.update-cat-btn:focus,
+.add-cat-btn:hover,
+.add-cat-btn:active,
+.add-cat-btn:focus,
+.btn-file:hover,
+.btn-file:active,
+.btn-file:focus {
+    color: black;
+    background-color: #98b080;
+}
+
+.cancel-btn, .update-cat-btn, .add-cat-btn {
+    background-color: #6f8659;
+    color: black;
+}
+
+/* ------------------------------------------------------------------------------------------- Allauth template colours */
+
+.allauth-form-inner-content > p {
+    color: black;
+}
+
+.allauth-form-inner-content > form > p > input {
+    border-color: black;
+}
+
+.allauth-form-inner-content input::placeholder {
+    color: #aab7c4;
+}
+
+.allauth-form-inner-content button,
+.allauth-form-inner-content input[type='submit'] {
+	/* btn */
+    background-color: #6f8659;
+}
+
+.allauth-form-inner-content button:hover,
+.allauth-form-inner-content input[type='submit']:hover {	
+    background-color: #98b080;
+    border-color: #222;
+}
+
+.allauth-form-inner-content a {
+	color: #0044CC;
+    background-color: white;
+}
+
+.allauth-form-inner-content a:hover,
+.allauth-form-inner-content a:active,
+.allauth-form-inner-content a:focus {
+    color: #007BFF;
 }
 
 /* ------------------------------------------------------------------------------------------- Body */
@@ -214,6 +275,30 @@ input[name='q']::placeholder {
     margin-top: 1rem;
 }
 
+/* ------------------------------------------------------------------------------------------- Shared Styles */
+
+.overlay {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    z-index: -1;
+}
+
+.page-heading {
+    margin-top: revert;
+}
+
+.edit-delete-buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.edit-delete-buttons > a {
+    margin: 1rem;
+}
+
 /* ------------------------------------------------------------------------------------------- Home Page */
 
 .home-logo {
@@ -241,22 +326,10 @@ input[name='q']::placeholder {
     font-weight: 600;
     font-size: 1.5rem;
     margin-left: 13rem;
+    border: 2px solid black;
 }
 
 /* ------------------------------------------------------------------------------------------- Cats Page */
-
-.overlay {
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    position: fixed;
-    z-index: -1;
-}
-
-.page-heading {
-    margin-top: revert;
-}
 
 .hr-cats {
     width: 20%;
@@ -295,21 +368,6 @@ input[name='q']::placeholder {
     padding: 2rem;
 }
 
-.edit-delete-buttons {
-    display: flex;
-    justify-content: center;
-}
-
-.edit-delete-buttons > a {
-    margin: 1rem;
-}
-
-.btn-outline-danger:hover,
-.btn-outline-danger:active,
-.btn-outline-danger:focus {
-    color: white;
-}
-
 /* ------------------------------------------------------------------------------------------- Cat Detail Page */
 
 .cat-details-container {
@@ -339,10 +397,6 @@ input[name='q']::placeholder {
 
 /* -------------------------------------------------- Cat Form - Add & Edit */
 
-.form-label, p {
-    color: black;
-}
-
 .btn-file {
     border: 2px solid black;
     background-color: #6f8659;
@@ -367,8 +421,6 @@ input[name='q']::placeholder {
 .btn-file:active,
 .btn-file:focus {
     border: 2px solid black;
-    color: black;
-    background-color: #98b080;
 }
 
 .btn-file input[type="file"] {
@@ -388,9 +440,7 @@ input[name='q']::placeholder {
 
 .cancel-btn, .update-cat-btn, .add-cat-btn {
     border: 2px solid black;
-    background-color: #6f8659;
     border-radius: 3px;
-    color: black;
     font-weight: 600;
 }
 
@@ -406,6 +456,7 @@ input[name='q']::placeholder {
 
 .contact-header {
     margin-top: 3rem;
+    margin-left: 1rem;
     width: 80%;
 }
 
@@ -417,6 +468,7 @@ input[name='q']::placeholder {
 .contact-button {
     padding: 1rem;
     font-size: 1.5rem;
+    border: 2px solid black;
 }
 
 .contact-form-container {
@@ -425,6 +477,7 @@ input[name='q']::placeholder {
 
 .contact-desc-text {
     width: 80%;
+    margin-left: 1rem;
     padding: 2rem;
     font-weight: 700;
     border: 2px solid black;
@@ -438,21 +491,15 @@ input[name='q']::placeholder {
 }
 
 .allauth-form-inner-content > p {
-    color: black;
     font-weight: 700;
 }
 
 .allauth-form-inner-content > form > p > input {
-    border-color: black;
     border-radius: 4px;
 }
 
 .allauth-form-inner-content label:not([for='id_remember']) {
     display: none;
-}
-
-.allauth-form-inner-content input::placeholder {
-    color: #aab7c4;
 }
 
 .allauth-form-inner-content button,
@@ -466,34 +513,18 @@ input[name='q']::placeholder {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    background-color: #000;
     border: 1px solid #000;
     padding: .375rem .75rem;
     font-size: 1.3rem;
     line-height: 1.5;
     border-radius: 10px;
-    background-color: #6f8659;
-}
-
-.allauth-form-inner-content button:hover,
-.allauth-form-inner-content input[type='submit']:hover {	
-    background-color: #98b080;
-    border-color: #222;
 }
 
 .allauth-form-inner-content a {
-	color: #0044CC;
-    background-color: white;
     border: 2px solid #6f8659;
     border-radius: 10px;
     padding: 0.5rem;
     margin: 0.2rem;
-}
-
-.allauth-form-inner-content a:hover,
-.allauth-form-inner-content a:active,
-.allauth-form-inner-content a:focus {
-    color: #007BFF;
 }
 
 /* ------------------------------------------------------------------------------------------- Bootstrap Toasts */
@@ -530,8 +561,8 @@ input[name='q']::placeholder {
     .home-logo {
         font-size: 2rem;
         text-shadow: none;
-        margin-top: 1rem;
         margin: auto;
+        width: auto;
     }
 
     .rescue-info-container {
@@ -575,6 +606,30 @@ input[name='q']::placeholder {
     .card-wrapper {
         margin-bottom: 2rem;
     }
+
+    /*----------------- Contact Us page */
+
+    .contact-main-content {
+        width: 100%;
+    }
+
+    .contact-header {
+        margin-top: 8rem;
+    }
+
+    .contact-desc-text {
+        font-size: 1rem;
+        width: auto;
+    }
+
+    .contact-button {
+        margin-left: 2rem;
+    }
+
+    .contact-form-container {
+        width: 90%;
+    }
+
 }
 
 /*---------------------------- For Large sized Mobile screens */
@@ -644,7 +699,7 @@ input[name='q']::placeholder {
     }
 
     .contact-header {
-        margin-top: 0;
+        margin-top: 8rem;
     }
 }
 
@@ -690,9 +745,13 @@ input[name='q']::placeholder {
     }
 
     .contact-header {
-        margin-top: 0;
+        margin-top: 8rem;
     }
 
+    .contact-form-container {
+        width: 70%;
+        margin-left: 1rem;
+    }
 }
 
 /*---------------------------- For laptop screens */
@@ -716,10 +775,6 @@ input[name='q']::placeholder {
         padding: initial;
     }
 
-    .contact-desc-text {
-        font-size: 1.2rem;
-    }
-
     .meet-cats-button {
         width: auto;
         margin-left: 8.5rem;
@@ -740,6 +795,13 @@ input[name='q']::placeholder {
 
     .contact-header {
         margin-top: 1rem;
+        margin-left: 1rem;
+        width: 80%;
+    }
+
+    .contact-desc-text {
+        font-size: 1rem;
+        margin-left: 1rem;
     }
 
 }

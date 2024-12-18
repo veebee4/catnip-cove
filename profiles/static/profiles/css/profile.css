@@ -21,10 +21,6 @@
     padding: 1rem;
 }
 
-/* .profile-form-input {
-    border: 1px solid black;
-} */
-
 fieldset .fieldset-label {
     margin: 0.5rem;
     padding: 0.5rem;
@@ -50,6 +46,8 @@ fieldset .form-detail-input {
     border: 2px solid black;
     height: 29.5rem;
     width: 40%;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .btn-update {
