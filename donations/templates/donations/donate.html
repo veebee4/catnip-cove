@@ -105,10 +105,6 @@
 {% block postloadjs %}
     {{ block.super }}
     {{ stripe_public_key|json_script:"id_stripe_public_key" }}
-    {% if client_secret %}
-        {{ client_secret|json_script:"id_client_secret" }}
-    {% else %}
-        <p>Error: Could not generate payment intent.</p>
-    {% endif %}
+    {{ client_secret|json_script:"id_client_secret" }}
     <script src="{% static 'donations/js/stripe_elements.js' %}"></script>
 {% endblock %}

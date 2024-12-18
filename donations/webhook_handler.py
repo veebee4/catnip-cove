@@ -18,19 +18,20 @@ class StripeWH_Handler:
         self.self = self
         self.event = event
 
-    # def _send_confirmation_email(self, donation):
-    #     """Send the user a confirmation email"""
-    #     subject = render_to_string("emails/email_subject.txt")
-    #     body = render_to_string(
-    #         "emails/confirmation_email_body.txt",
-    #         {"donation": donation, "contact_email": settings.DEFAULT_FROM_EMAIL},
-    #     )
-    #     send_mail(
-    #         subject,
-    #         body,
-    #         settings.DEFAULT_FROM_EMAIL,
-    #         [donation.email],
-    #     )
+    # Email confirmation code taken from SJE Collins Animal House Django project - full credit in README
+    def _send_confirmation_email(self, donation):
+        """Send the user a confirmation email"""
+        subject = render_to_string("emails/email_subject.txt")
+        body = render_to_string(
+            "emails/confirmation_email_body.txt",
+            {"donation": donation, "contact_email": settings.DEFAULT_FROM_EMAIL},
+        )
+        send_mail(
+            subject,
+            body,
+            settings.DEFAULT_FROM_EMAIL,
+            [donation.email],
+        )
 
     def handle_event(self, event):
         """Handle a generic/unknown/unexpected webhook event"""
@@ -89,8 +90,8 @@ class StripeWH_Handler:
                 attempt += 1
                 time.sleep(1)
         if donation_exists:
-            # print("Donation already exists in database, send email")
-            # self._send_confirmation_email(donation)
+            print("Donation already exists in database, send email")
+            self._send_confirmation_email(donation)
             return HttpResponse(
                 content=f"Webhook received: {event['type']} | SUCCESS: Verified donation already in database",
                 status=200,
@@ -112,8 +113,8 @@ class StripeWH_Handler:
                     "Donation created from webhook payment_intent.succeeded event."
                 )
                 donation.save()
-                # print("Donation created in database, send email")
-                # self._send_confirmation_email(donation)
+                print("Donation created in database, send email")
+                self._send_confirmation_email(donation)
                 return HttpResponse(
                     content=f"Webhook received: {event['type']} | SUCCESS: Created donation in webhook",
                     status=200,
