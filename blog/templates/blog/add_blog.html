@@ -30,12 +30,6 @@
                         {{ field }}
                     {% endif %}
                 {% endfor %}
-
-                <div class="form-group">
-                    <label for="id_new_category">New Category (optional):</label>
-                    {{ form.new_category }}
-                </div>
-                
                 <div class="d-flex button-container">
                     <a class="btn cancel-btn" href="{% url 'blog_index' %}">Cancel</a>
                     <button class="btn add-cat-btn" type="submit">Add Blog Post</button>
