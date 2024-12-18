@@ -69,6 +69,7 @@ h3 {
     background-color: #6f8659;
     width: 100%;
     border: 2px solid black;
+    margin-left: 1rem;
 }
 
 .blog-back-link {
@@ -82,14 +83,20 @@ h3 {
 }
 
 .comments-area {
-    display: flex;
-    gap: 20rem;
+    display: inline;
 }
 
 .comments {
     background-color: #6f8659;
     border: 2px dashed black;
     width: fit-content;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.comment-form {
+    width: max-content;
+    margin-top: 2rem;
 }
 
 .form-control {
@@ -98,10 +105,10 @@ h3 {
 
 .comment-submit-button {
     background-color: #6f8659;
-    margin-left: 4rem;
+    margin-left: 15rem;
     padding: 0.3rem;
     border: 2px solid black;
-    width: 70%;
+    width: 40%;
 }
 
 .comment-submit-button:hover,
@@ -114,4 +121,181 @@ h3 {
 
 .category-title {
     line-height: normal;
+}
+
+/* ------------------------------------------------------------------------------------------- Media Queries */
+
+/*---------------------------- For Small & Medium sized Mobile screens */
+
+@media screen and (min-width: 320px) and (max-width: 424px) {
+
+/* --------------------- Blog Index Page*/
+
+    .blog-header {
+        font-size: 2rem;
+        margin-top: 8rem;
+    }
+
+    .blog-post-container {
+        margin: 2rem;
+    }
+
+/* --------------------- Blog Detail Page*/
+
+    .blog-detail-page-container {
+        margin-top: 8rem;
+        width: auto;
+    }
+
+    .img {
+        height: 10rem;
+    }
+
+    .comments-area {
+        display: contents;
+        margin-top: 1rem;
+    }
+
+    .comment-form {
+        width: 80%;
+    }
+
+    .comment-submit-button {
+        margin-left: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .comments {
+        margin: inherit;
+    }
+
+    .back-to-blog-button {
+        margin-left: 0.2rem;
+    }
+
+    /* --------------------- Edit Blog Page*/
+
+    .cat-management-header {
+        font-size: 2rem;
+        margin-top: 5rem;
+    }
+
+    .button-container {
+        gap: 2rem;
+    }
+
+}
+
+/*---------------------------- For Large sized Mobile screens */
+
+@media screen and (min-width: 425px) and (max-width: 767px) {
+
+/* --------------------- Blog Index Page*/
+
+    .blog-header {
+        font-size: 2rem;
+        margin-top: 10rem;
+    }
+
+    .blog-post-container {
+        margin: 2rem;
+    }
+
+    /* --------------------- Blog Detail Page*/
+
+    .blog-detail-page-container {
+        margin-top: 8rem;
+        width: auto;
+    }
+
+    .post-image {
+        height: 10rem;
+    }
+
+    .comments-area {
+        display: contents;
+        margin-top: 1rem;
+    }
+
+    .comment-form {
+        width: 80%;
+    }
+
+    .comment-submit-button {
+        margin-left: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .comments {
+        margin: inherit;
+    }
+
+    .back-to-blog-button {
+        margin-left: 0.2rem;
+    }
+
+    /* --------------------- Edit Blog Page*/
+
+    .cat-management-header {
+        font-size: 3rem;
+        margin-top: 5rem;
+    }
+}
+
+/*---------------------------- For Tablet screens */
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+
+    /* --------------------- Blog Index Page*/
+
+    .blog-header {
+        font-size: 2rem;
+        margin-top: 10rem;
+    }
+
+    .blog-post-container {
+        margin: 2rem;
+    }
+
+    /* --------------------- Blog Detail Page*/
+
+    .blog-detail-page-container {
+        margin-top: 8rem;
+        width: auto;
+    }
+
+    .post-image {
+        height: 10rem;
+    }
+
+    .comments-area {
+        display: contents;
+        margin-top: 1rem;
+    }
+
+    .comment-form {
+        width: 80%;
+    }
+
+    .comment-submit-button {
+        margin-bottom: 1rem;
+        width: 40%;
+        margin-left: 11rem;
+    }
+
+    .comments {
+        margin: inherit;
+    }
+
+    .back-to-blog-button {
+        margin-left: 0.2rem;
+    }
+
+    /* --------------------- Edit Blog Page*/
+
+    .cat-management-header {
+        font-size: 4rem;
+        margin-top: 5rem;
+    }
+
 }
