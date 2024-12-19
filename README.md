@@ -1,8 +1,8 @@
 # **Catnip Cove**
 
-![amiresponsive mock-ups of Catnip Cove]
+![Am I Responsive mock-up of Catnip Cove](./documentation/features/responsive-screenshot.png)
 
-**[Link to the Deployed Site]**
+**[Link to the Deployed Site]** - [Catnip Cove](https://catnip-cove-8a89db282e0c.herokuapp.com/)
 
 ![GitHub last commit]
 ![GitHub language count]
@@ -23,7 +23,6 @@ Catnip Cove is my 4th milestone project for Code Institute's Level 5 Diploma in 
         * [Project Goals](#project-goals)
     * [Scope Plane](#scope-plane)
         * [Feature Planning](#feature-planning)
-        * [Content Requirement Planning](#content-requirement-planning)
         * [User Stories](#user-stories)
     * [Structure Plane](#structure-plane)
         * [User Flow Diagram](#user-flow-diagram)
@@ -49,12 +48,19 @@ Catnip Cove is my 4th milestone project for Code Institute's Level 5 Diploma in 
         * [Home Page](#home-page)
         * [Cats Page](#cats-page)
         * [Contact Us Page](#contact-us-page)
+        * [Donation Page](#donation-page)
         * [Main Blog Page](#main-blog-page)
         * [Example Blog Article Page](#example-blog-article-page)
         * [Example Blog Category Page](#example-blog-category-page)
         * [Profile Page](#profile-page)
+        * [Register Page](#registersign-up-page)
+        * [Login Page](#loginsign-in-page)
+        * [Log Out Page](#log-outsign-out-page)
         * [Cat Management Page (Superuser/Admin Only)](#cat-management-page-superuseradmin-only)
-        * [404 Error Page](#404-error-page)
+        * [Edit a Cat Page (Superuser/Admin Only)](#edit-a-cat-page-superuseradmin-only)
+        * [Blog Management (Superuser/Admin Only)](#blog-management-superuseradmin-only)
+        * [Edit a Blog Page (Superuser/Admin Only)](#edit-a-blog-page-superuseradmin-only)
+        * [404 & 500 Error Page](#404--500-error-page)
     * [Defensive Programming](#defensive-programming)
     * [Accessibility](#accessibility)
 * [Future Development, Iteration and Implementation](#future-development-iteration-and-implementation)
@@ -69,11 +75,7 @@ Catnip Cove is my 4th milestone project for Code Institute's Level 5 Diploma in 
     * [Cloud Storage Services Used](#cloud-storage-services-used)
 * [Testing](#testing)
 * [Bugs, Issues and Solutions](#bugs-issues-and-solutions)
-* [Deployment and Local Development](#deployment-and-local-development)
-    * [Deployment](#deployment)
-    * [Local Development](#local-development)
-        * [How to Fork](#how-to-fork)
-        * [How to Clone](#how-to-clone)
+* [Deployment](#deployment)
 * [Credits](#credits)
 * [Acknowledgements](#acknowledgements)
 
@@ -86,6 +88,21 @@ Catnip Cove is my 4th milestone project for Code Institute's Level 5 Diploma in 
 Cat rescue centres are hardworking charities that employ numerous staff, including volunteers and require donations to continue the work that they do. From helping strays to struggling families with household pet cats.
 They have even helped people who are in a domestic abuse situation within their living space (according to Cats Protection (https://www.cats.org.uk/mediacentre/facts-figures)), by taking in pets to help and make it easier for the victims to get away from the situation they are in without worrying about their pets.
 They require all the help they can get, from anyone.
+
+Whilst looking for ideas for my donation form, I came across "https://givebutter.com/blog/donation-form-template" which had a quote on the page
+"Fundraising pro, Lynne Wester, said it best during a recent webinar on nonprofit trends:
+
+“What questions should you ask when someone is making a donation? Less is more. You need my name, but my marital status is none of your business. 
+Every click a donor has to make leads to 20% more abandonment. I can buy a live goat on Amazon in one click, but I try to give you $500 and you’re killing me—asking me for my street address? 
+Stop making it hard for me to give you money.”
+Though each nonprofit is different, there are a few common elements that are crucial to consider when reviewing a donation form template. We recommend you stick to the basics:
+
+✅ First and last name
+✅ Email address
+✅ Payment information
+✅ Postal code"
+
+So I decided to skim down my original idea for the donation page required information.
 
 ## Target Audience
 
@@ -500,7 +517,7 @@ Catnip Cove's Blog index page features the following:
 <br>
 
 ## Example Blog Article Page
-Catnip Cove's Blog index page features the following:
+Catnip Cove's Blog Article page features the following:
 
 - Top and Main Nav (including search bar, 'My Account' dropdown menu and main nav links; 'Cats', 'Contact Us' and 'Donate')
 - Plain overlay to avoid the page being too 'busy'
@@ -512,137 +529,147 @@ Catnip Cove's Blog index page features the following:
 <br>
 
 ## Example Blog Category Page
-![Example Blog Article Screenshot](./documentation/features/example-blog-article-screenshot.png)
+Catnip Cove's Blog Category page features the following:
+
+- Top and Main Nav (including search bar, 'My Account' dropdown menu and main nav links; 'Cats', 'Contact Us' and 'Donate')
+- Plain overlay to avoid the page being too 'busy'
+- Sub headings to show user is on a specific category
+- List of blogs within the category
+- Button to take user back to the index page
+
+![Example Blog Article Screenshot](./documentation/features/example-blog-category-screenshot.png)
 <br>
 
 ## Profile page
+Catnip Cove's Profile page features the following:
+
+- Top and Main Nav (including search bar, 'My Account' dropdown menu and main nav links; 'Cats', 'Contact Us' and 'Donate')
+- Plain overlay to avoid the page being too 'busy'
+- Header and welcome message to user
+- Form to update personal detail record
+- History of donations made
+
 ![Profile Page Screenshot](./documentation/features/profile-page-screenshot.png)
 <br>
 
+## Register/Sign Up Page
+Catnip Cove's Register page features the following:
+
+- Top and Main Nav (including search bar, 'My Account' dropdown menu and main nav links; 'Cats', 'Contact Us' and 'Donate')
+- Plain overlay to avoid the page being too 'busy'
+- Header and message to user, displaying link to sign in if they already have an account
+- Registration form
+
+![Register Page Screenshot](./documentation/features/sign-up-screenshot.png)
+<br>
+
+## Login/Sign In Page
+Catnip Cove's login page features the following:
+
+- Top and Main Nav (including search bar, 'My Account' dropdown menu and main nav links; 'Cats', 'Contact Us' and 'Donate')
+- Plain overlay to avoid the page being too 'busy'
+- Header and message to user, displaying link to sign up if they do not have an account
+- Username and password inputs
+- Remember me check box
+
+![Login Page Screenshot](./documentation/features/sign-in-screenshot.png)
+<br>
+
+## Log Out/Sign Out Page
+Catnip Cove's log out page features the following:
+
+- Top and Main Nav (including search bar, 'My Account' dropdown menu and main nav links; 'Cats', 'Contact Us' and 'Donate')
+- Plain overlay to avoid the page being too 'busy'
+- Header and message to user, asking to confirm they wish to log out
+- Button to complete sign out
+
+![Log Out Page Screenshot](./documentation/features/sign-out-screenshot.png)
+<br>
+
 ## Cat Management (Superuser/Admin only)
+Catnip Cove's Cat Management page features the following:
+
+- Top and Main Nav (including search bar, 'My Account' dropdown menu and main nav links; 'Cats', 'Contact Us' and 'Donate')
+- Plain overlay to avoid the page being too 'busy'
+- Header
+- Form to add a cat record
+
+![Cat Management Page Form Top Screenshot](./documentation/features/cat-management-form-top.png)
+![Cat Management Page Form Bottom Screenshot](./documentation/features/cat-management-form-bottom.png)
+
+### Edit a Cat Page (Superuser/Admin only)
+Catnip Cove's Edit a Cat Record page features the following:
+
+- Top and Main Nav (including search bar, 'My Account' dropdown menu and main nav links; 'Cats', 'Contact Us' and 'Donate')
+- Plain overlay to avoid the page being too 'busy'
+- Header
+- Form with pre-filled information to update a cat record and see current picture
+
+Bottom of form screenshot below as top looks similar to the above
+![Cat Edit Page Form Bottom Screenshot](./documentation/features/cat-edit-record-screenshot.png)
+
+## Blog Management (Superuser/Admin only)
+Catnip Cove's Blog Management page features the following:
+
+- Top and Main Nav (including search bar, 'My Account' dropdown menu and main nav links; 'Cats', 'Contact Us' and 'Donate')
+- Plain overlay to avoid the page being too 'busy'
+- Header
+- Form to add a blog record
+
+![Blog Management Page Screenshot](./documentation/features/blog-management-form.png)
+(Bottom of form is the same as the Cat Management form)
+
+### Edit a Blog Page (Superuser/Admin only)
+Catnip Cove's Edit a Blog Article page features the following:
+
+- Top and Main Nav (including search bar, 'My Account' dropdown menu and main nav links; 'Cats', 'Contact Us' and 'Donate')
+- Plain overlay to avoid the page being too 'busy'
+- Header
+- Form with pre-filled information to update a blog article record and see current picture (if applicable)
+- Category selection for blog article or creation of new category
 
 ## 404 & 500 Error Page
 The error pages on the site include custom pages for a 404 and 500 Error, see screenshots below.
 
-![404 Error Page]()
+![404 Error Page]()<br>
 ![500 Error Page]()
 
-<!--- ### **Sign Up Page**
-A regular user can register and create an account with Shop K-Beauty from the Sign Up page. The Sign Up page can be accessed from the site's top navigation which has the My Account icon. This icon has two dropdown links, the first of which is the Sign Up. Clicking the Sign Up link opens the site's sign up page where they can then register to create an account. Alternatively, shoppers who do not yet have an account with the site can also create an account from a link at the checkout page.
-
-* [sign up](./documentation/user_stories_testing/user-story-14-sign-up.png)
-* [register an account](./documentation/user_stories_testing/user-story-14-register-for-account.png)
-* [create an account link from checkout page](./documentation/user_stories_testing/user-story-14-checkout-create-an-account.png)
-
-### **Verify Email Page**
-After registering for an account, a shopper will receive an email with a link to confirm their new account. After clicking the email confirmation link, the site opens to the login page where the shopper's username or email and password are already pre-populated and a toast displaying that the email has been confirmed.
-
-* [email-confirmation](./documentation/user_stories_testing/user-story-15-email-confirmation.png)
-* [confirm email](./documentation/user_stories_testing/user-story-15-confirm-email.png)
-* [login page after email is confirmed](./documentation/user_stories_testing/user-story-15-after-new-account-is-verified.png)
-
-### **Log in Page**
-The Log In page has a link to the sign up page right above the input fields for:
-* username
-* password
-
-Below the input fields are:
-* a remember me checkbox
-* two buttons next to each other: link to the homepage and a login button
-* underneath the two buttons is a forgot password link
-
-* [log in page after email is confirmed](./documentation/user_stories_testing/user-story-15-after-new-account-is-verified.png)
-
-### **Password Reset Page**
-If registered users need to reset their password, from the accounts/login page, they have the option to click on the Forgot Password? link which takes them to the password reset page.
-
-* [forgot password link](./documentation/user_stories_testing/user-story-17-forgot-password-link.png)
-* ![password reset](./documentation/user_stories_testing/user-story-17-password-reset.png),
-
-Resetting the password comes in several process (continues below):
-* step 1 of 3) Enter the email address to receive a password reset email.
-
-### **Change Password Page**
-Resetting the password comes in several process (continues below):
-* step 2 of 3) Open the password reset email that with the link that has the secure key added to take the user to the change password page.
-
-Meanwhile, should a shopper enter an email that is not associated with any user account, the password reset page will display the error message.
-* ![change password page](./documentation/user_stories_testing/user-story-17-change-password.png)
-
-### **Password Changed Page**
-Resetting the password comes in several process:
-* step 3 of 3) Change the password. A successful password change is further confirmed by a toast message and the user can now login to their account with using their new password.
-
-* password changed successfully
-    * ![password changed successfully](./documentation/user_stories_testing/user-story-17-password-changed-success.png)
-* error message if email is not in any user account
-    * ![error message if email not in any user account](./documentation/user_stories_testing/user-story-17-password-reset-email-not-assigned-to-any-user-account.png)
-
-### **Sign Out Page**
-When an authenticated shopper selects the Logout link from the top navigation's My Accounts, they will be prompted to confirm if they are sure that they want to sign out.
-
-The shopper can either choose to signout by selecting the corresponding button or cancel to be redirected back to the homepage without signing out. If they selected to sign out, a toast let's them know that they have successfully signed out.
-
-* sign out page
-    * ![sign out page](./documentation/features/sign-out-page.png)
-* signed out toast
-    * ![signed out toast](./documentation/features/signed-out-toast.png)
-
 ## **Defensive Programming**
-<!-- To keep the site secure and protected against a brute force attack or attempts to access pages reserved solely based on user permission levels, defensive programming was at the forefront of the development.
+To keep the site secure and protected against a brute force attack or attempts to access pages reserved solely based on user permission levels, defensive programming was at the forefront of the development.
 
-* I implemented login_required functionality across relevant views and templates.
-* On specific views.py files, I made sure to check if the user is authenticated and when required, the user's permission level.
+* Added "from django.contrib.auth.decorators import login_required" & inserted @login_required above the corresponding view to ensure the user has to log in and will be directed to the log in page if the user tries to access the urls manually.
+* Implemented rendering of certain elements on certain templates and menu's only if user is authenticated and/or is a superuser.
+* On certain views.py files, I wrote code to check if the user is authenticated and/or is a superuser.
 
-Defensive programming is also implemented to handle bad user inputs or actions and their unintended consequences. One such example is the use of modals to confirm the intent of deleting a product or a review to avoid the unintended deletion of data.
+Defensive programming has also been written to handle bad user inputs or actions and their unintended consequences. For example, the use of modals to confirm the intent of deleting a cat record/blog/comment to avoid the unintended deletion of data.
 
-**Update**: deleting a product when it is still in the shopping bag caused an unnecessary 404 error. This was fixed by amending the modal popup to warn the shop owner to first check that this is not the case prior to deleting the product. -->
+![Modal - Delete Cat](./documentation/features/modal-delete-cat.png)<br>
+![Modal - Delete Blog/Comment](./documentation/features/modal-delete-blog-comment.png)
 
-<!-- **Defensive Programming at work:**
-* Edit a brand: user is logged in but without the correct permission level
-![Edit a brand -logged in user without the correct permission level](./documentation/features/edit-brand-logged-in-not-superadmin-user.gif)
-
-* Incognito Mode - edit a brand - user is not logged in
-![Incognito Mode - edit a brand - user is not logged in](./documentation/features/edit-brand-incognito-mode-user-not-logged-in.gif)
-
-* Add a product - logged in user without the correct permission level
-![Add a product - logged in user without the correct permission level](./documentation/features/add-product-logged-in-not-superadmin-user.gif)
-
-* Modal
-![Modal](./documentation/features/modal.png)
-* updated modal warning
-![Update: modal popup warning](./documentation/features/modal-updated.png) -->
 
 ## **Accessibility**
 To ensure that Catnip Cove will be as easy for everyone to access and view, I ensure that the site is accessible by:
 * using Semantic HTML
 * using descriptive alt attributes on images used on the site
-<!-- * providing the order, role and accessible name (what is read by a screen reader) for all navigable elements that are used on the site (look this up) -->
-<!-- * providing ARIA attributes where they are needed (and this) -->
 * Ensuring that there is a sufficient colour contrast throughout the site.
 * Optimising images for the website by reducing the file and image size.
-
-<!-- I tested the Shop K-Beauty's accessibility using Lighthouse and WAVE and fixed any errors highlighted, including amending the colour scheme used for the site. -->
 
 ---
 
 # **Future Development, Iteration and Implementation**
-| **FOR FUTURE IMPLEMENTATION** |   |
-<!-- | --- | --- |
-| 1 | Investigate further / fix the console log error for timed out event listener
-| 2 | Add a product attribute model and properly set up the product prices depending on product size |
-| 3 | Add an if else statement to delete product views to better handle situations encountered on solved bug # 17 |
-| 4 | Add social media registration and login functionality |
-| 5 | Add a stock inventory app so shop owners can keep track of product stock, display the product stock availability on product detail page and have a way to handle decrementing the product stock availability after every successful purchase. |
-| 6 | Add an order management functionality to the store |
+| **FOR FUTURE IMPLEMENTATION** - I WOULD HAVE LIKED TO... |   |
+| --- | --- |
+| 1 | Add a feature to sort the cats by age but due to the information I wanted to provide and how I wanted to provide it (age in months as well as whole numbers), the process was too long to research and complete within the timeframe I had |
+| 2 | Have a drop down for set donation amounts and a custom donation box for users to specify their donation amount but when trying to complete the webhooks, it presented complications on where to obtain the donation amount, which I do not have the skills for so this was removed from the donation form, model and view |
+| 3 | Following on from the above point, I would have liked to include extra validation to ensure the user can only type in values that increment in £0.50, due to time constraints, this could not be looked into and implemented. |
+| 4 | Add functionality so that if the user donates for a specific cat, they get an update within their Profile about the cat and their progress. Also, I would have liked to add a profile photo and birthdate to user profile and trigger an event on the users birthday - due to lack of skills and time this could not be completed |
+| 5 | Add social media registration and login functionality |
+| 6 | Pre-populate the donation form for a logged in user, with their profile information, but from the Boutique Ado tutorial, I couldn't work out how to make it work for my page |
 | 7 | Add email subscription and email marketing |
-| 8 | Add a contact form |
-| 9 | Add digital discount vouchers |
-| 10 | Add a loyalty card |
-| 11 | Add a digital gift card product |
-| 12 | For better SEO, investigate further / fix the urls to use slug with dash and not id and not underscores |
-| 13 | Add a maincategory, category and subcategory management functionality to the store |
-| 14 | Add more content to K-Beauty tips page | -->
+| 8 | Add a digital gift card product |
+| 9 | For better SEO, investigate further / fix the urls to use slug with dash and not id and not underscores |
+| 10 | Add more content to the blog pages |
+| 11 | Focus more on the aesthetic appearance of the website |
 
 ---
 # **TECHNOLOGIES USED**
@@ -651,46 +678,43 @@ To ensure that Catnip Cove will be as easy for everyone to access and view, I en
 * [CSS3](https://en.wikipedia.org/wiki/CSS#CSS_3) was used for the styling of the site.
 * [JavaScript](https://en.wikipedia.org/wiki/JavaScript) was used for the interactivity of the site.
 * [Python](https://www.python.org/) was used for the back end programming of the site.
+
 ## Frameworks Used
-* [DJANGO - v3.2 ](https://docs.djangoproject.com/en/4.1/releases/3.2/) Django is a free and open-source, Python-based web  framework that follows the model–template–views architectural pattern.
-* [Bootstrap4 - v4.6](https://getbootstrap.com/docs/4.6/getting-started/introduction/) was used as the frontend framework.
+* [DJANGO - v4.2](https://docs.djangoproject.com/en/4.2/releases/4.2/) Django is a free and open-source, Python-based web  framework that follows the model–template–views architectural pattern.
+* [Bootstrap5](https://getbootstrap.com/docs/5.3/getting-started/introduction/) was used as the frontend framework.
+
 ## Databases Used
 * [DB.SQLITE3](https://docs.djangoproject.com/en/4.1/ref/databases/#sqlite-notes) was the database used for the project (development).
-* [ElephantSQL](https://www.elephantsql.com/) ElephantSQL's Postgres as a Service was used to host the the database for the project (production).
+* [PostgreSQL](https://www.postgresql.org/) PostgreSQL Database Server was used to store PostgreSQL database (production).
+
 ## **Libraries and Packages Used**
-* [django-allauth](https://django-allauth.readthedocs.io/en/latest/) is an integrated set of Django applications dealing with account authentication, registration, management, and third-party (social) account authentication.
-* [JQuery - v3.5.1](https://jquery.com/) is a fast, small, and feature-rich JavaScript library.
+* [Django-allauth](https://django-allauth.readthedocs.io/en/latest/) is an integrated set of Django applications dealing with account authentication, registration, management, and third-party (social) account authentication.
+* [JQuery - v3.4.1](https://jquery.com/) is a fast, small, and feature-rich JavaScript library.
 * [Font Awesome Kit](https://fontawesome.com/v5/docs/web/setup/use-kit) is used for its icon toolkit.
-* [django-countries, v7.2.1](https://pypi.org/project/django-countries/7.2.1/) was the Django application used to provide country choices for use with forms, and a country field for models.
-* [django-crispy-forms, v1.14.0](https://pypi.org/project/django-crispy-forms/) was used to build programmatic reusable layouts out of form components.
-* [gunicorn](https://gunicorn.org/) - a Python WSGI HTTP Server that allows us to run any Python application concurrently by running multiple processes within a single dyno
-* [pillow](https://pypi.org/project/Pillow/) - a required Python imaging library used to enable handling of images.
-* [psycopg2](https://pypi.org/project/psycopg2/) - a postgresql database adapter for python and used to connect with our postgres database
-* [boto3==1.26.27](https://pypi.org/project/boto3/), [botocore==1.29.27] is an Amazon Web Services (AWS) software development kit (SDK) used to connect to the S3 bucket
-* [pip](https://pip.pypa.io/en/stable/) is the package installer for Python, allowing us to install the packages we need for this site.
-* [django storages](https://django-storages.readthedocs.io/en/latest/) - collection of custom storage backends for Django
-* [coverage==7.0.4](https://coverage.readthedocs.io/en/7.1.0/) used after automated testings were written to find out the percentage of statements that I was able to cover and those that I missed for every installed application
+* [Django-crispy-forms, v2.3](https://pypi.org/project/django-crispy-forms/) was used to build programmatic reusable layouts out of form components.
+* [Gunicorn](https://gunicorn.org/) - a Python WSGI HTTP Server that allows us to run any Python application concurrently by running multiple processes within a single dyno
+* [Pillow](https://pypi.org/project/Pillow/) - a required Python imaging library used to enable handling of images.
+* [Psycopg2](https://pypi.org/project/psycopg2/) - a postgresql database adapter for python and used to connect with our postgres database
+* [Boto3==1.35.82](https://pypi.org/project/boto3/), [Botocore==1.35.82] is an Amazon Web Services (AWS) software development kit (SDK) used to connect to the S3 bucket
+* [Pip](https://pip.pypa.io/en/stable/) is the package installer for Python, allowing us to install the packages we need for this site.
+* [Django storages](https://django-storages.readthedocs.io/en/latest/) - collection of custom storage backends for Django
+* [Google Fonts](https://fonts.google.com/) Used to import the fonts Pacifico & Dosis, which have been used on all pages within the project.
 
 ## **Programmes and Applications Used**
-* [Visual Site Maps](https://visualsitemaps.com/) was used to autogenerate Shop K-Beauty's visualized site map.
 * [Lucid Chart](https://www.lucidchart.com/pages/) was used to draw and build the Entity Relationship Diagram. It was also used to draw the User Flow Diagram.
-* [favicon.io](https://favicon.io/) used to create the site's favicon
-* [Git](https://git-scm.com/) used for version control and saving work in the repository, using the GitPod extension in Google Chrome to commit to GitHub.
-* [GitHub](https://github.com/) is the project's git repository
-* [GitHub Projects](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects) used to track and integrate issues for Agile Development
-* [Chrome DevTools](https://www.google.com/intl/en_uk/chrome/) - used for debugging, validation (Lighthouse) and taking fullscreen screenshots of the site
+* [favicon.io](https://favicon.io/) used to create the site's favicon.
+* [Git](https://git-scm.com/) The git command was used for version control via the terminal in Gitpod, to commit to Git and Push to GitHub.
+* [GitHub](https://github.com/) is the project's git repository.
+* [Chrome DevTools](https://www.google.com/intl/en_uk/chrome/) - used for debugging and validation (Lighthouse).
+* [PEP8 Validator](https://pep8ci.herokuapp.com/) Used to check python code for errors.
+* [Am I Responsive?](https://ui.dev/amiresponsive) To show the website image on a range of devices.
+* [Balsamiq](https://balsamiq.com/) Balsamiq was used to create wireframes.
 
 ## **Payment Processing Platform Used**
 * [Stripe](https://stripe.com/gb) was used to test and implement the payment processing for the site.
 
-Stripe how to test cards interactively:
-| **CARD NUMBER** | **MM &amp; YY**  | **CVC** | **SIMULATED PAYMENT RESULT** |
-| --- | --- | --- | --- |
-| 4242 4242 4242 4242 | use any valid future month and year | use any three digit CVC | successful payment |
-| 4000 0000 0000 0002 | use any valid future month and year | use any three digit CVC | generic decline |
-
 ## **Cloud Application Platforms Used**
-* [Heroku](https://devcenter.heroku.com/) was used for hosting and deployment of the live site. Throughout, we have ensured the version being deployed to Heroku matches the development version by checking features and screen layouts on both versions.
+* [Heroku](https://devcenter.heroku.com/) was used for hosting and deployment of the live site. I have ensured the version being deployed to Heroku matches the development version by checking features and screen layouts on both versions.
 
 ## **Cloud Storage Services Used**
 * [AWS S3](https://aws.amazon.com/) was used to store the images and static files.
@@ -714,58 +738,36 @@ Please also refer to [TESTING.md](./TESTING.md) file for:
 # **DEPLOYMENT**
 Please refer to [DEPLOYMENT.md](./DEPLOYMENT.md) file for:
 * Creating the database to be used in production
-    * Instructions to common question: *"What if you didn't use fixtures in your project?"*
 * Deploying to Heroku
 * Setting up AmazonS3 for hosting our static and media files
 ---
 
 # **CREDITS**
 ## **Code**
-* Credit to [Code Institute's](https://codeinstitute.net/) Boutique Ado walkthrough, from which this project got its start.
-*
-* 
-* 
-* Credit to [Adam Johnson](https://adamj.eu/tech/2022/10/06/how-to-safely-pass-data-to-javascript-in-a-django-template/) on How to Safely Pass Data to JavaScript in a Django Template.
-* Credit to [BugBytes](https://www.youtube.com/watch?v=h39eMGWmEV4) for his video based on Adam Johnson's post.
-* 
-* Credit to [Masa Kudamatsu at DEV.to](https://dev.to/masakudamatsu/loading-google-fonts-and-any-other-web-fonts-as-fast-as-possible-in-early-2021-4f5o) for his very helpful article, **Loading Google Fonts and any other web fonts as fast as possible in early 2021** which helped me increase the Lighthouse performance score (mobile) from 67% to 73%.
-* 
-* 
-* Credit to [Ordinary Coders](https://ordinarycoders.com/blog/article/how-to-add-django-meta-tags) on guidance on *How to add meta tags to a Django HTML template*
-* Credit to [CSS Tricks's The Essential Meta Tags for Social Media](https://css-tricks.com/essential-meta-tags-social-media/)
-* 
-
-## **Content**
-The images, descriptions, brand logos and description and other information were sourced from:
-* 
-* 
-* 
-* 
-* 
-* 
-* 
-* 
-* 
-* 
-
+* Credit to [Code Institute's](https://codeinstitute.net/) Boutique Ado walkthrough, from which this project is based from.
+* To create a 404 and 500 page, I used these tutorials:
+    * [TUTORIAL FOR 404/500 PAGE](https://pythoncircle.com/post/40/designing-custom-404-and-500-error-pages-in-django/)
+    * [TUTORIAL FOR 404/500 PAGE](https://stackoverflow.com/questions/58873692/common-404-500-page-for-my-django-project-having-multiple-application)
+* To create the blog part of the project, I followed these [tutorials](https://realpython.com/build-a-blog-from-scratch-django/#add-the-blog-app-that-youll-build-from-scratch) and also [this](https://www.youtube.com/watch?v=m3hhLE1KR5Q) tutorial.
+* Used the Stripe [Documentation](https://docs.stripe.com/api/customers/create) to learn about creating customers for future use, to track donations etc.
+* I didn't want the user to be able to type a number less than 1 in the donation amount input box, whilst using Sarah from Code Institutes Code, I found "validators=[MinValueValidator(0.50)]" in her model, which I looked into briefly and found I could change it to suit my input by changing to "1".
+* I learned how to override the init to pre-populate the select cats field when the donation form is clicked through a specific cat on [this](https://python-code.dev/articles/3064552) tutorial.
+* STRIPE DONATION PAGE - Used tutorial (https://www.youtube.com/watch?v=oZwyA9lUwRk)
+* I wanted to be able to view the donation records in the admin but I did not want them to be editable as there is no need to. I found this [tutorial](https://stackoverflow.com/questions/48067882/django-admin-making-a-required-field-read-only) to help me achieve this. This is also in the Boutique Ado tutorial, but is not explained at length.
 
 
 ## **Media**
-* All images were either created with AI or from pexels.com
+* The hero image 'banner-cat.jpg' was created using DeepAI image generator.
+* All other images came from Pexels.com which does not require attributation but I would like to list the names of the users below.
 
-## **Other Resources**
-<!-- These other resources were used for research and/or for finding solutions when I got stuck.
-1. [Stack Overflow](https://stackoverflow.com/)
-2. [Very Academy](https://www.youtube.com/playlist?list=PLOLrQ9Pn6cay_cQkyg-WYYiJ_EKU8KWKh)
-3. [Codemy YouTube](https://www.youtube.com/watch?v=HHx3tTQWUx0&list=PLCC34OHNcOtqW9BJmgQPPzUpJ8hl49AGy)
-4. [CodingEx YouTube](https://www.youtube.com/watch?v=3cTVjPdP8ps&list=PLTV1jAY3nKHPPi74LSSsqiqG1H7pSlSj5)
-5. [CodePiep YouTube](https://www.youtube.com/watch?v=AU9kjY2iZp0)
-6. [The Open Graph Protocol](https://ogp.me/)
-6. [Makneta Coding Journal](https://makneta.herokuapp.com/post/how-to-add-unique-meta-tags-in-django/) -->
 ---
 
 # **ACKNOWLEDGEMENTS**
-
+I would like to acknowledge the following people for helping me to complete this project:
+* Roman @ Student Support - for great guidance on a few aspects of the project including the widget on the edit cat form due to code in the source code for the Boutique Ado walkthrough not being correct
+* Sarah and Rebecca @ Student Support - who gave me the most help when dealing with stripe and webhooks issues! These two are legends; Sarah gave me her project to help with the webhook and handler issues - https://github.com/SJECollins/animalhousedjango/tree/main which I adapted and tweaked to work within my own project.
+* My spouse who has provided me with great support at home while creating this project and throughout this course.
+* My College Tutor, Rachel Furlong for always being so helpful and providing great guidance.
 
 # *Copyrights*
  (An e-commerce Full Stack Developer Project)
