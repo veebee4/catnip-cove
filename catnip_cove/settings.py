@@ -32,7 +32,7 @@ DEBUG = True
 
 # 'DEVELOPMENT' in os.environ
 
-ALLOWED_HOSTS = ['catnip-cove-8a89db282e0c.herokuapp.com', '8000-veebee4-catnipcove-yvdje4r4d7i.ws.codeinstitute-ide.net']
+ALLOWED_HOSTS = ['catnip-cove-8a89db282e0c.herokuapp.com', '8000-veebee4-catnipcove-yvdje4r4d7i.ws.codeinstitute-ide.net', 'localhost']
 
 # Application definition
 
@@ -127,6 +127,7 @@ CSRF_TRUSTED_ORIGINS = [
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
+
 
 if 'DATABASE_URL' in os.environ:
     DATABASES = {

@@ -7,7 +7,7 @@ class DonationAdmin(admin.ModelAdmin):
         'donation_number',
         'date',
         'amount',
-        'message'
+        'message',
         'stripe_pid'
     )
 
@@ -21,7 +21,7 @@ class DonationAdmin(admin.ModelAdmin):
         'donor_last_name', 
         'donor_email_address', 
         'donor_postcode',
-        'message'
+        'message',
         'stripe_pid'
     )
 
@@ -34,7 +34,7 @@ class DonationAdmin(admin.ModelAdmin):
         'donor_last_name', 
         'donor_email_address', 
         'donor_postcode',
-        'message'
+        'message',
     )
 
     ordering = ('-date',)
