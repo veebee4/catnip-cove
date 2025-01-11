@@ -47,6 +47,7 @@ Catnip Cove is my 4th milestone project for Code Institute's Level 5 Diploma in 
     * [Site Pages](#site-pages)
         * [Home Page](#home-page)
         * [Cats Page](#cats-page)
+        * [Cat Detail Page](#cat-detail-page)
         * [Contact Us Page](#contact-us-page)
         * [Donation Page](#donation-page)
         * [Main Blog Page](#main-blog-page)
@@ -483,7 +484,21 @@ Catnip Cove's Cat pages feature the following:
 - Clickable cat picture/record
 - Back to the top button
 
-![Cats Page Screenshot](./documentation/features/)
+![Cats Page Screenshot](./documentation/features/cats-page-screenshot.png)
+<br>
+
+## Cat Detail Page
+Catnip Cove's Cat Detail pages feature the following:
+
+- Top and Main Nav (including search bar, 'My Account' dropdown menu and main nav links; 'Cats', 'Contact Us' and 'Donate')
+- Plain overlay to avoid the page being too 'busy'
+- Card to display all information about cat
+- Clickable cat picture/record
+- Link for donating against this cat
+- Link for editing cat record (Superuser/Admin only)
+- Link for deleting cat record (Superuser/Admin only)
+
+![Cat Detail Page Screenshot](./documentation/features/cat-detail-page-screenshot.png)
 <br>
 
 ## Contact Us Page
