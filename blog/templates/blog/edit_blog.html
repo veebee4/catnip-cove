@@ -43,9 +43,9 @@
 
 {% block postloadjs %}
     {{ block.super }}
-    <script type="text/javascript">
+    <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const fileInput = document.getElementById('new-image'); // targets the element with ID 'new-image'
+            const fileInput = document.getElementById('id_image'); // targets the element with ID 'new-image'
             const filenameDisplay = document.getElementById('filename'); // targets the element with the ID 'filename'
 
             fileInput.addEventListener('change', () => { // listens to the change event of the file input
