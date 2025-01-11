@@ -56,16 +56,16 @@
                   </div>
               </form>
           </div>
-          <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 account-bag-links">
+          <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
               <ul class="list-inline list-unstyled text-center text-lg-right my-0">
                   <li class="list-inline-item dropdown">
-                      <a class="text-black nav-link" href="#" id="user-options" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <a class="text-black nav-link" href="#" id="user-options-desktop" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           <div class="text-center">
                               <div class="nav-link-container"><i class="fa-solid fa-cat fa-2xl icon nav-bar-icon"></i></div>
                               <p class="my-0 user-option-link">My Account</p>
                           </div>
                       </a>
-                      <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                      <div class="dropdown-menu border-0" aria-labelledby="user-options-desktop">
                           {% if request.user.is_authenticated %}
                               {% if request.user.is_superuser %}
                                   <a href="{% url 'add_cat' %}" class="dropdown-item">Cat Management</a>
