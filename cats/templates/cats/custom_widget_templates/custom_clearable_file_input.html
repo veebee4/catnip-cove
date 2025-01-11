@@ -1,7 +1,7 @@
 {% if widget.is_initial %}
     <p>{{ widget.initial_text }}:</p>
     <a href="{{ widget.value.url }}">
-        <img class="rounded shadow-sm" height="150" width="150" src="{{ widget.value.url }}">
+        <img class="rounded shadow-sm" height="150" width="150" src="{{ widget.value.url }}" alt="current cat image">
     </a>
     {% if not widget.required %}
         <div class="custom-checkbox mt-2">
