@@ -1,3 +1,9 @@
+# **Catnip Cove Deployment &amp; Local Development**
+
+![Am I Responsive mock-up of Catnip Cove](./documentation/features/responsive-screenshot.png)
+
+**[Link to the Deployed Site]** - [Catnip Cove](https://catnip-cove-8a89db282e0c.herokuapp.com/)
+
 ## **Deployment Steps**
 Catnip Cove is deployed on Heroku and uses AWS3 for staticfiles cloud storage.
 
@@ -163,7 +169,7 @@ Save the **settings.py** file, add, commit and then git push these changes.
 * Complete the verification and once you confirm all the required information, your account will be created.
 **Create a bucket**
 * Once your signed in to your account, find S3 using the search bar, select and navigate to S3 to create a new bucket which will be used to store your static and media files
-* Click the *create bucket* button and on the General configuration section, add the name of your bucket. It is a good idea to name the bucket the same as your project to keep your buckets organized and clear
+* Click the *create bucket* button and on the General configuration section, add the name of your bucket. It is a good idea to name the bucket the same as your project to keep your buckets organised and clear
 * Select the region closest to you
 * On the Object Ownership section, select *ACLs enabled* and then select *Bucket owner preferred*
 * On the Block Public Access settings for this bucket section, uncheck *Block all public access*, check the *I acknowledge that the current settings might result in this bucket and the objects within becoming public* checkbox to make the bucket public and click *create bucket*
@@ -275,12 +281,12 @@ class MediaStorage(S3Boto3Storage):
 ---
 ## How to Fork the repository
 To create a copy of the repository on your account and change it without affection the original project, click the *Fork* button on GitHub:
-* On the Catnip Cove repository, click the *Fork* butoon on the top right side of the page.
+* On the Catnip Cove repository, click the *Fork* button on the top right side of the page.
 * A forked version of Catnip Cove will be available as one of your repositories on GitHub
 
 ---
 ## How to Clone the repository
-* On the Catnip Cove repositoru page, click the *<> Code* button (left of the green *GitPod* button)
+* On the Catnip Cove repository page, click the *<> Code* button (left of the green *GitPod* button)
 * Choose from *HTTPS, SSH and GitHub CLI* (I recommend *HTTPS*) and *copy the link* given
 * On your IDE, open *Git Bash*
 * Enter the command `git clone` followed by the copied link
