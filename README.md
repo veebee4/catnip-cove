@@ -431,7 +431,7 @@ The second component is the main navigation links that allow visitors to browse 
 
 - Responsive across all devices, using Bootstrap and Flexbox.
 <br> 
-[Responsive Image HERE] <!-- DO THIS AFTER DEPLOYMENT --->
+![Am I Responsive mock-up of Catnip Cove](./documentation/features/responsive-screenshot.png)
 <br>
 <br>
 
@@ -758,7 +758,8 @@ Please refer to [DEPLOYMENT.md](./DEPLOYMENT.md) file for:
 
 ## **Media**
 * The hero image 'banner-cat.jpg' was created using DeepAI image generator.
-* All other images came from Pexels.com which does not require attributation but I would like to list the names of the users below.
+* All other images used on the cats page and also on the blog pages, came from Pexels.com which do not require attribution but I would like to list the names of the users below.
+    - Burak Argun, Mathias Reding, Omar Ramadan, Bogdan Groshev, Nika Benedictova, Ольга Макарова, cottonbro studio, Maria Luiza Melo, Samet Dikmen, Dan Galvani Sommavilla, Faheem Ahamad, Nadiye Odabaşı, Doğan Furkan Yeşilırmak, Mateusz Walendzik, Burak Kağan Güneş, FURKAN, Leticia  Curvelo, Gökhan Yetimova, Sarkhan Asgarli, Cats Coming & Thirdman.
 
 ---
 
@@ -770,4 +771,4 @@ I would like to acknowledge the following people for helping me to complete this
 * My College Tutor, Rachel Furlong for always being so helpful and providing great guidance.
 
 # *Copyrights*
- (An e-commerce Full Stack Developer Project)
+ (An e-commerce Full Stack Developer Project for educational purposes only)
