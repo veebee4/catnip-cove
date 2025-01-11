@@ -18,13 +18,13 @@
 <div class="container mb-2">
     <div class="row">
         <div class="col">
-            <h2 class="logo-font m-5 text-center profile-header">My Profile <br> Welcome {{ userprofile.user.username }}</h2>
-            <p></p>
+            <h2 class="logo-font m-5 text-center profile-header">My Profile</h2>
+            <p class="text-center profile-welcome-text">Welcome {{ userprofile.user.username }}</p>
             <hr class="profile-header-separator">
         </div>
     </div>
 
-    <div class="row mt-5">
+    <div class="row mt-5 profile-details-container">
         <div class="col-12 col-lg-6 p-3 d-flex profile-form-wrapper">
                     <form class="mt-3 profile-form" action="{% url 'profile' %}" method="POST" id="profile-update-form">
                         {% csrf_token %}

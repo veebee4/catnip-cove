@@ -5,6 +5,11 @@
     margin: auto;
 }
 
+.profile-welcome-text {
+    font-family: Pacifico;
+    font-size: 3rem;
+}
+
 .profile-form-wrapper {
     flex-direction: column;
 }
@@ -42,6 +47,7 @@ fieldset .form-detail-input {
 
 .donation-history-details {
     margin-top: 2rem;
+    margin-bottom: 5rem;
     background-color: white;
     border: 2px solid black;
     height: 29.5rem;
