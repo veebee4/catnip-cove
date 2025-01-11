@@ -2,8 +2,8 @@
 {% load static %}
 
 {% block extra_js %}
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-<script type="text/javascript">
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
     (function() {
         emailjs.init("T1hI3_NLTj2GPQBdu");
     })();
@@ -22,7 +22,7 @@
 <div class="container h-100">
     <div class="row h-100 justify-content-end">
         <div class="col-6 col-md-5 mt-2 contact-main-content">
-            <h1 class="display-4 home-logo text-center contact-header rounded-3 mb-4">
+            <h1 class="display-4 home-logo text-center contact-header rounded-3 mb-4 mt-5">
                 Contact Us!
             </h1>
             <h5 class="contact-desc-text text-center rounded-pill">
@@ -30,8 +30,8 @@
             </h5>
             <div class="contact-form-container my-5">
                     <form id="contactForm" onsubmit="return sendEmail(this);">
-                        <input type="text" name="name" id="name" class="form-control contact-input" placeholder="Full Name" required />
-                        <input type="email" name="email" id="emailaddress" class="form-control contact-input" placeholder="Email" required />
+                        <input type="text" name="name" id="name" class="form-control contact-input" placeholder="Full Name" required>
+                        <input type="email" name="email" id="emailaddress" class="form-control contact-input" placeholder="Email" required>
                         <textarea rows="5" name="message" id="message" class="form-control contact-input" placeholder="Your message here..." required></textarea>
                         <div class="form-row text-center">
                             <div class="col">
@@ -39,7 +39,6 @@
                             </div>
                         </div>
                     </form>
-                </div>
             </div>
         </div>
     </div>
