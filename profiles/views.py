@@ -27,7 +27,8 @@ def profile(request):
     template = 'profiles/profile.html'
     context = {
         'form': form,
-        'donations': donations
+        'donations': donations,
+        'userprofile': profile
     }
 
     return render(request, template, context)
