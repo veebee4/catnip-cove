@@ -25,12 +25,12 @@
     <h1 class="text-center text-black donate-sub-header">{% if not cat %}Make a Donation{% endif %}</h1>
 
     <div class="cat-selected-donation text-center text-black">
-        {% if cat %}
-            <h2>You have selected {{ cat.name }}</h2>
+            {% if cat %}
+                <h2>You have selected {{ cat.name }}</h2>
             {% endif %}
 
             {% if cat.image %}
-            <img src="{{ cat.image.url }}" alt="{{ cat.name }}">
+                <img src="{{ cat.image.url }}" alt="{{ cat.name }}">
             {% endif %}
     </div>
 
@@ -40,32 +40,25 @@
         <form action="{% url 'donate' %}" method="POST" id="donation_form" class="payment-section">
             {% csrf_token %}
 
-            <input type="hidden" name="cat_id" value="{{ cat.id }}">
+            {% if cat %}
+                <input type="hidden" name="cat_id" value="{{ cat.id }}">
+            {% endif %}
 
             <div class="amount-input">
                 <div class="form-field amount-dropdown">
                     <label for="amount" class="amount-label">Please enter your donation amount below:</label>
                     {{ form.amount | as_crispy_field }}
-                </div>  
+                </div>
+            </div> 
 
             <div class="detail-input-wrapper rounded-1">
                 <div class="customer-details">
                     <fieldset>
                         <legend class="fieldset-label rounded small text-black w-auto">Customer Details</legend>
-                        <br>
-                        <br>
                             {{ form.donor_first_name | as_crispy_field }}
-                            <br>
-                            <br>
                             {{ form.donor_last_name | as_crispy_field }}
-                            <br>
-                            <br>
                             {{ form.donor_email_address | as_crispy_field }}
-                            <br>
-                            <br>
                             {{ form.donor_postcode | as_crispy_field }}
-                            <br>
-                            <br>
                             {{ form.message | as_crispy_field }}
                             <div class="form-check form-check-inline float-right mr-0 mb-3">
                                 {% if user.is_authenticated %}

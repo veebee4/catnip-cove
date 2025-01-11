@@ -63,6 +63,10 @@ legend {
     right: 0;
 }
 
+.form-field {
+    margin-bottom: 1.5rem;
+}
+
 .donation-page-container {
     flex-direction: column;
     align-items: center;
