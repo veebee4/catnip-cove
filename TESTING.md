@@ -28,62 +28,55 @@
     * [Known Bugs](#known-bugs)
 ---
 
-<!--## Automated Testing and Validation
+## Automated Testing and Validation
 ### HTML Validation
-I used [W3C Markup Validation Service](https://validator.w3.org/) to validate all the HTML files by direct input:
+I used [W3C Markup Validation Service](https://validator.w3.org/) to validate all the HTML files by url and direct input:
 | Page | Result | Validation Details & Screenshots |
 | ---- | :-: | -------------------------- |
-| 'templates/home/index.html' | 0 error and 0 warning | [Homepage](./documentation/html_validation/homepage-html-validation.png) |
-| 'templates/products/products.html' | 0 error and 0 warning | [Products Page - New](./documentation/html_validation/products-page-html-validation-new.png) |
-| 'templates/products/add_product.html' | 0 error and 0 warning | [Add a Product Page](./documentation/html_validation/add-product-html-validation-no-error.png) |
-| 'templates/products/edit_product.html' | 0 error and 0 warning | [Edit a Product Page](./documentation/html_validation/edit-product-html-validation-no-error.png) |
-| 'templates/products/product_detail.html' | 0 error and 0 warning | [Product Detail Page](./documentation/html_validation/product-detail-page-html-validation.png) |
-| 'templates/products/brands.html' | 0 error and 0 warning | [Brands Page](./documentation/html_validation/brands-page-html-validation.png) |
-| 'templates/products/brand_detail.html' | 0 error and 0 warning | [Brand Detail Page](./documentation/html_validation/brand-detail-page-html-validation.png) |
-| 'templates/products/add_brand.html' | 0 error and 0 warning | [Add Brand Page](./documentation/html_validation/add-brand-html-validation-no-error.png) |
-| 'templates/products/edit_brand.html' | 0 error and 0 warning | [Edit Brand Page](./documentation/html_validation/edit-brand-html-validation-no-error.png) |
-| 'templates/reviews/add_review.html' | 0 error and 0 warning | [Add Review Page](./documentation/html_validation/add-a-review-page-html-validation.png) |
-| 'templates/reviews/edit_review.html' | 0 error and 0 warning | [Edit Review Page](./documentation/html_validation/edit-a-review-page-html-validation.png) |
-| 'templates/reviews/review_detail.html' | 0 error and 0 warning | [Review Detail Page](./documentation/html_validation/review-detail-page-html-validation.png) |
-| 'templates/reviews/reviews.html' | 0 error and 0 warning | [Reviews Page](./documentation/html_validation/reviews-page-html-validation.png) |
-| 'templates/bag/bag.html' | 0 error and 0 warning | [Bag Page](./documentation/html_validation/bag-page-html-validation.png) |
-| 'templates/checkout/checkout.html' | 0 error and 0 warning | [Checkout Page](./documentation/html_validation/checkout-page-html-validation.png) |
-| 'templates/checkout/checkout_success.html' | 0 error and 0 warning | [Checkout Success Page](./documentation/html_validation/checkout-success-page-html-validation.png) |
-| 'templates/allauth/account/login.html' | 0 error and 0 warning | [Log In Page](./documentation/html_validation/sign-in-html-validation.png) |
-| 'templates/allauth/account/signup.html' | 0 error and 0 warning | [Sign Up Page](./documentation/html_validation/sign-up-html-validation.png) |
-| 'templates/profiles/profile.html' | 0 error and 0 warning | [Profile Page](./documentation/html_validation/profile-page-html-validation.png) |
-| 'templates/home/privacy_policy.html' | 0 error and 0 warning | [Privacy Policy Page](./documentation/html_validation/privacy-policy-page-html-validation.png) |
-| 'templates/home/terms_and_conditions.html' | 0 error and 0 warning | [Terms & Conditions Page](./documentation/html_validation/terms-and-conditions-page-html-validation.png) |
-| 'templates/home/return_and_refund_policy.html' | 0 error and 0 warning | [Return & Refund Policy Page](./documentation/html_validation/return-refund-policy-page-html-validation.png) |
-| 'templates/home/shipping_policy.html' | 0 error and 0 warning | [Shipping Policy Page](./documentation/html_validation/shipping-policy-page-html-validation.png) |
-| 'templates/home/skincare_tips.html' | 0 error and 0 warning | [Skincare Tips Page](./documentation/html_validation/skincare-tips-html-validation-no-error.png) |
-| 'templates/wishlist/wishlist.html' | 0 error and 0 warning | [Wishlist Page](./documentation/html_validation/wishlist-html-validation-no-error.png) |
-| 404 page | 0 error and 0 warning  | [404 page](./documentation/html_validation/404-page-html-validation.png) |
+| 'templates/home/index.html' | 0 errors and 0 warnings | [Home Page](./documentation/validation/html_validation/html-validator-home-page.png) |
+| 'templates/home/contact.html' | 0 errors and 0 warnings | [Contact Us Page](./documentation/validation/html_validation/html-validator-contact-page.png) |
+| 'templates/cats/cats.html' | 0 errors and 0 warnings | [Cats Page](./documentation/validation/html_validation/html-validator-cats-page.png) |
+| 'templates/cats/cat_detail.html' | 0 errors and 0 warnings | [Cat Detail Page](./documentation/validation/html_validation/html-validator-cat-detail-page.png) |
+| 'templates/cats/add_cat.html' | 0 errors and 0 warnings | [Add Cat Page](./documentation/validation/html_validation/html-validator-add-cat-page.png) |
+| 'templates/cats/edit_cat.html' | 0 errors and 0 warnings | [Edit Cat Page]() |
+| 'templates/blog/blog_index.html' | 0 errors and 0 warnings | [Blog Index Page]() |
+| 'templates/blog/blog_detail.html' | 0 errors and 0 warnings | [Blog Detail Page]() |
+| 'templates/blog/category.html' | 0 errors and 0 warnings | [Blog Category Page]() |
+| 'templates/blog/add_blog.html' | 0 errors and 0 warnings | [Add Blog Page]() |
+| 'templates/blog/edit_blog.html' | 0 errors and 0 warnings | [Edit Blog Page]() |
+| 'templates/donations/donate.html' | 0 errors and 0 warnings | [Donation Page](./documentation/validation/html_validation/html-validator-donation-page.png) |
+| 'templates/donations/success.html' | 0 errors and 0 warnings | [Donation Success Page](./documentation/validation/html_validation/html-validator-donation-success.png) |
+| 'templates/profiles/profile.html' | 0 errors and 0 warnings | [Profile Page]() |
+| 'templates/allauth/account/login.html' | 0 errors and 0 warnings | [Log In Page]() |
+| 'templates/allauth/account/logout.html' | 0 errors and 0 warnings | [Log Out Page]() |
+| 'templates/allauth/account/signup.html' | 0 errors and 0 warnings | [Sign Up Page]() |
+| 404 page | 0 errors and 0 warnings | [404 page]() |
 
 ### CSS Validation
 I used [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/) to validate all CSS files by direct input.
 | File | Result | Test Details & Screenshots |
 | ---- | :-: | -------------------------- |
-| checkout/static/checkout/css/checkout.css | Pass | [checkout.css](./documentation/css_validation/checkout-css.png) |
-| profiles/static/profiles/css/profiles.css | Pass | [profile.css](./documentation/css_validation/profile-css.png) |
-| reviews/static/reviews/css/reviews.css | Pass | [reviews.css](./documentation/css_validation/reviews-css.png) |
-| static/css/base.css | Pass | [base.css](./documentation/css_validation/base-css.png) |
+| blog/static/blog/css/blog.css | Pass | [blog.css](.) |
+| donations/static/donations/css/donation.css | Pass | [donation.css](.) |
+| profiles/static/profiles/css/profile.css | Pass | [profile.css](.) |
+| static/css/base.css | Pass | [base.css](.) |
 
 ### JavaScript Validation
 I used [JSHint](https://jshint.com/) to validate all JavaScript and JQuery files
-| Page | Result | Test Details & Screenshots |
+| Page/File | Result | Test Details & Screenshots |
 | ---- | :-: | -------------------------- |
-| bag/templates/bag/includes/scroll_to_top_script.html | 0 errors, <br/>0 warnings | [scrollToTop script](./documentation/javascript_validation/scroll-to-top-script.png) |
-| bag/templates/bag/includes/quantity_update_remove_script.html | 0 errors, <br/>0 warnings | [updateQuantity and removeItem and reload script](./documentation/javascript_validation/update-quantity-remove-item-reload-script.png) |
-| home/templates/home/includes/show_hide_brands_list_script.html | 0 errors, <br/>0 warnings | [show and hide list of brands on click script](./documentation/javascript_validation/show-hide-brands-list-script.png) |
-| home/templates/home/includes/pass_data_from_backend_to_js_script.html | 0 errors, <br/>0 warnings| [safely passing data from backend to JavaScript script](./documentation/javascript_validation/safely-passing-data-from-backend-to-javascript-script.png) |
-| home/templates/home/includes/pass_data_from_backend_to_js_script.html | 0 errors, <br/>0 warnings | [JQuery for the sort selector box](./documentation/javascript_validation/jquery-for-sort-selector-box-script.png) |
-| products/templates/products/includes/quantity_input_script.html | 0 errors, <br/>7 warnings | [Quantity Input Script](./documentation/javascript_validation/quantity-input-script.png) |
-| profiles/static/profiles/js/countryfield.js | 0 errors, <br/>0 warnings | [countryfield script](./documentation/javascript_validation/countryfield-script.png) |
-| products/templates/products/includes/new_image_widget_script.html | 0 errors, <br/>0 warnings | [new image widget script](./documentation/javascript_validation/new-image-widget-script.png) |
+| donations/static/donations/js/stripe_elements.js | 0 errors 21 warnings | [Stripe Element JS](./documentation/validation/js_validation/js-validator-stripe-elements-file.png) [Stripe Element JS Continued](./documentation/validation/js_validation/js-validator-stripe-elements-file2.png) |
+| blog/templates/blog/add_blog.html | 0 errors 7 warnings | [Widget Script](./documentation/validation/js_validation/js-validator-script-add-blog-page.png) |
+| blog/templates/blog/edit_blog.html | 0 errors 7 warnings | [Widget Script](./documentation/validation/js_validation/js-validator-script-edit-blog-page.png) |
+| cats/templates/cats/add_cat.html | 0 errors 7 warnings| [Widget Script](./documentation/validation/js_validation/js-validator-script-add-cat-page.png) |
+| cats/templates/cats/edit_cat.html | 0 errors 7 warnings | [Widget Script](./documentation/validation/js_validation/js-validator-script-edit-cat-page.png) |
+| cats/templates/cats/cats.html  | 0 errors 5 warnings | [Cat Sorting & Back To Top of Page Script](./documentation/validation/js_validation/js-validator-script-cats-page.png) |
+| home/templates/home/contact.html | 0 errors 0 warnings | [Contact Form Script](./documentation/validation/js_validation/js-validator-script-contact-page.png) |
 
-### Python Validation
-At the project inception, I installed [PyCodeStyle](https://pycodestyle.pycqa.org/en/latest/intro.html#configuration) in my IDE and throughout the development, I was using it to test and fix the errors as they appear. I also used [Code Institute's Python Linter](https://pep8ci.herokuapp.com/) to lint my Python code.
+Any warnings received have all been to do with ES6 & ES11 and no errors with actual code.
+
+<!-- ### Python Validation
+I used [Code Institute's Python Linter](https://pep8ci.herokuapp.com/) to lint my Python code.
 | File | Result | Validation Details & Screenshots |
 | :-- | :-: | -------------------------- |
 | custom_storages.py | All clear, no errors found | [custom_storages.py](./documentation/python_validation/custom_storages.png)|
