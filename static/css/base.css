@@ -627,7 +627,7 @@ input[name='q']::placeholder {
     }
 
     .contact-header {
-        margin-top: 8rem;
+        margin-top: 8rem !important;
     }
 
     .contact-desc-text {
@@ -723,7 +723,7 @@ input[name='q']::placeholder {
     }
 
     .contact-header {
-        margin-top: 8rem;
+        margin-top: 8rem !important;
     }
 
     /*----------------- Cat Management page */
@@ -780,7 +780,7 @@ input[name='q']::placeholder {
     }
 
     .contact-header {
-        margin-top: 8rem;
+        margin-top: 8rem !important;
     }
 
     .contact-form-container {
