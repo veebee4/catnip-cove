@@ -7,7 +7,6 @@ from django.contrib import messages
 from django.conf import settings
 
 from .models import Donation
-from cats.models import Cat
 from .forms import DonationForm
 from profiles.models import UserProfile
 import stripe
@@ -51,8 +50,6 @@ class Donate(generic.View):
 
     def post(self, request):
             form = DonationForm(request.POST)
-            cat_id = request.GET.get('cat_id')
-            cat = get_object_or_404(Cat, id=cat_id) if cat_id else None
             if form.is_valid():
                 donation = form.save()
                 pid = request.POST.get("client_secret").split("_secret")[0]

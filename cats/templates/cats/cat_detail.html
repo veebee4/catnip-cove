@@ -13,7 +13,7 @@
 <div class="overlay"></div>
 <div class="container fluid">
     <div class="row cat-details-container">
-        <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
+        <div class="col-12 col-md-6 col-lg-4  offset-lg-2">
             <div class="image-container my-5">
                 {% if cat.image %}
                     <a href="{{ cat.image.url }}" target="_blank">
@@ -26,25 +26,23 @@
                 {% endif %}
             </div>
         </div>
+
         <div class="col-12 col-md-6 col-lg-4 cat-id-container">
             <div class="card cat-id-card">
                 <div class="card-header">
-                    CAT ID
+                    CAT ID - {{ cat.id }}
                 </div>
                 <div class="card-body">
-                    <h4 class="card-title text-center fw-bolder">{{ cat.name }}</h4>
+                    <h4 class="card-title text-center text-black">{{ cat.name }}</h4>
                 </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item text-center">Breed: {{ cat.breed }}</li>
-                        <li class="list-group-item text-center">Age (if known): {{ cat.age_if_known }}</li>
-                        <li class="list-group-item text-center">Sex: {{ cat.gender }}</li>
-                        <li class="list-group-item text-center">Main Colour: {{ cat.colour }}</li>
-                        <li class="list-group-item text-center">Description: {{ cat.description }}</li>
+                        <li class="list-group-item text-center"><p class="card-section-title"><strong>Breed:</strong></p> {{ cat.breed }}</li>
+                        <li class="list-group-item text-center"><p class="card-section-title"><strong>Age (if known):</strong></p> {{ cat.age_if_known }}</li>
+                        <li class="list-group-item text-center"><p class="card-section-title"><strong>Sex:</strong></p> {{ cat.gender }}</li>
+                        <li class="list-group-item text-center"><p class="card-section-title"><strong>Main Colour:</strong></p> {{ cat.colour }}</li>
+                        <li class="list-group-item text-center"><p class="card-section-title"><strong>Description:</strong></p> {{ cat.description }}</li>
                     </ul>
                 <div class="card-body">
-                    <div class="col-12">
-                        <a href="{% url 'donate' %}?cat_id={{ cat.id }}" class="card-link donation-link-btn">Donate for {{ cat.name }}</a>
-                    </div>
                     {% if request.user.is_superuser %}
                     <div class="ml-3 edit-delete-buttons-blog">
                         <a href="{% url 'edit_cat' cat.id %}">Edit</a> | 

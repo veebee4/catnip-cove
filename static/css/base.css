@@ -379,6 +379,15 @@ input[name='q']::placeholder {
     margin-top: 10rem;
 }
 
+.card-title {
+    font-family: Pacifico;
+    font-size: 3rem;
+}
+
+.card-section-title {
+    text-decoration: underline;
+}
+
 /* ------------------------------------------------------------------------------------------- Cat Management Pages */
 /* -------------------------------------------------- Add a Cat Page */
 
