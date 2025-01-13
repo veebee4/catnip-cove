@@ -760,9 +760,6 @@ Please refer to [DEPLOYMENT.md](./DEPLOYMENT.md) file for:
 # **CREDITS**
 ## **Code**
 * Credit to [Code Institute's](https://codeinstitute.net/) Boutique Ado walkthrough, from which this project is based from.
-* To create a 404 and 500 page, I used these tutorials:
-    * [TUTORIAL FOR 404/500 PAGE](https://pythoncircle.com/post/40/designing-custom-404-and-500-error-pages-in-django/)
-    * [TUTORIAL FOR 404/500 PAGE](https://stackoverflow.com/questions/58873692/common-404-500-page-for-my-django-project-having-multiple-application)
 * To create the blog part of the project, I followed these [tutorials](https://realpython.com/build-a-blog-from-scratch-django/#add-the-blog-app-that-youll-build-from-scratch) and also [this](https://www.youtube.com/watch?v=m3hhLE1KR5Q) tutorial.
 * Used the Stripe [Documentation](https://docs.stripe.com/api/customers/create) to learn about creating customers for future use, to track donations etc.
 * I didn't want the user to be able to type a number less than 1 in the donation amount input box, whilst using Sarah from Code Institutes Code, I found "validators=[MinValueValidator(0.50)]" in her model, which I looked into briefly and found I could change it to suit my input by changing to "1".
