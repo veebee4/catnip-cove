@@ -500,6 +500,8 @@ input[name='q']::placeholder {
 
 .error-header {
     padding-top: 4rem;
+    padding-bottom: 2rem;
+    font-size: 3rem;
 }
 
 .error-message-container {
@@ -521,6 +523,12 @@ input[name='q']::placeholder {
 .error-page-home-btn {
     padding: 0.5rem;
     background-color: #6f8659;
+    color: black;
+}
+
+.error-page-home-btn:active,
+.error-page-home-btn:hover,
+.error-page-home-btn:focus {
     color: white;
 }
 
