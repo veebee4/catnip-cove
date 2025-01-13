@@ -499,11 +499,22 @@ input[name='q']::placeholder {
 /* ------------------------------------------------------------------------------------------- 404 & 500 Page */
 
 .error-header {
-    padding: 2rem;
+    padding: 4rem;
 }
 
-.error-header-separator {
-    width: 50% !important;
+.error-page-image {
+    height: 20rem;
+}
+
+.fa-shield-cat {
+    padding: 2rem;
+    color: black;
+}
+
+.error-page-home-btn {
+    padding: 0.5rem;
+    background-color: #6f8659;
+    color: white;
 }
 
 /* ------------------------------------------------------------------------------------------- Allauth templates */
