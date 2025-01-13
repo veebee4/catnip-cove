@@ -499,11 +499,18 @@ input[name='q']::placeholder {
 /* ------------------------------------------------------------------------------------------- 404 & 500 Page */
 
 .error-header {
-    padding: 4rem;
+    padding-top: 4rem;
+}
+
+.error-message-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .error-page-image {
     height: 20rem;
+    margin: 2rem;
 }
 
 .fa-shield-cat {
