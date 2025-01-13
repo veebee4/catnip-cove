@@ -496,6 +496,16 @@ input[name='q']::placeholder {
     border: 2px solid black;
 }
 
+/* ------------------------------------------------------------------------------------------- 404 & 500 Page */
+
+.error-header {
+    padding: 2rem;
+}
+
+.error-header-separator {
+    width: 50% !important;
+}
+
 /* ------------------------------------------------------------------------------------------- Allauth templates */
 
 .allauth-form-inner-content {

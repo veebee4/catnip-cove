@@ -30,8 +30,6 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEVELOPMENT' in os.environ
 
-# 'DEVELOPMENT' in os.environ
-
 ALLOWED_HOSTS = ['catnip-cove-8a89db282e0c.herokuapp.com', '8000-veebee4-catnipcove-yvdje4r4d7i.ws.codeinstitute-ide.net', 'localhost']
 
 # Application definition

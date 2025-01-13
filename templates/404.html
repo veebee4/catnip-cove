@@ -14,17 +14,17 @@
 <div class="container mb-2">
     <div class="row">
         <div class="col">
-            <h2 class="logo-font m-5 text-center error-header">Oops! Sorry, the cats are sleeping!...</h2>
+            <h2 class="logo-font m-5 text-center error-header">Sorry, the cats are sleeping...</h2>
             <hr class="error-header-separator">
         </div>
     </div>
 
     <div>
-        <img src="{% static 'images/cats-sleeping.jpg' %}">
-        <h3 class="center-align error-header">404 - Page not found</h3>
+        <i class="fa-solid fa-shield-cat fa-2xl"></i>
+        <h3 class="text-center text-black error-header">404 - Page not found</h3>
 
-        <h4 class="center-align error-tag">Looks like something has gone wrong!</h4>
-            <p class="center-align error-text">
+        <h4 class="text-center error-tag text-black">Looks like something has gone wrong!</h4>
+            <p class="text-center error-text">
                 Use the nav bar to navigate away from this page or click 
                 <a href="{% url 'home' %}">HERE</a> to go home.
             </p>
