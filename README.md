@@ -161,7 +161,7 @@ When planning for this website, I researched existing websites and found that th
 | 18 | Email Confirmation of Donation | Donator | 5 | 5 | 5 | ✅ |
 | 19 | Donation History | Registered Users | 5 | 5 | 5 | ✅ |
 | 20 | Save/ Update Customer Details on form submission | Registered Users/Sign Up Users | 5 | 5 | 5 | ✅ |
-| 21 | Pre-fill Form From Profile Details | Registered Users |  5 | 3 | 3 | ✅ |
+| 21 | Pre-fill Form From Profile Details | Registered Users |  5 | 3 | 3 | ❌ |
 | 22 | Share Donation Via Social Media | All users |  5 | 2 | 2 | ❌ |
 | Blog |  |  |  |  |  |  |
 | 23 | Articles - Create, Read, Update and Delete | Superuser/Admin | 5 | 5 | 5 | ✅ |
@@ -357,20 +357,25 @@ All the cat images were obtained using the free image section of [Pexels](https:
 
 ## **FEATURES**
 
-This website consists of 13 pages, all of which are extended from the base page.
+This website consists of 18 pages, all of which are extended from a base template.
 
 - Home page
 - Cats Page
 - Cat Detail Page
 - Cat Management/Add Cat (Superuser/Admin only)
 - Cat Management/Edit Cat (Superuser/Admin only)
-- Contact Us page
-- Donation page
+- Contact Us Page
+- Donation Page
+- Donation Success Page
 - Blog Index Page (linking to blog articles)
 - Blog Detail Page
+- Blog Category Page
 - Blog Management/Add Blog (Superuser/Admin only)
 - Blog Management/Edit Blog (Superuser/Admin only)
 - Profile page
+- Register Page
+- Login Page
+- Logout Page
 - 404 Error Page
 
 ### **Site Features Common to All Pages**
@@ -552,7 +557,7 @@ Catnip Cove's Blog Category page features the following:
 - List of blogs within the category
 - Button to take user back to the index page
 
-![Example Blog Article Screenshot](./documentation/features/example-blog-category-screenshot.png)
+![Example Blog Category Screenshot](./documentation/features/example-blog-category-screenshot.png)
 <br>
 
 ## Profile page
@@ -644,10 +649,9 @@ Catnip Cove's Edit a Blog Article page features the following:
 - Category selection for blog article or creation of new category
 
 ## 404 & 500 Error Page
-The error pages on the site include custom pages for a 404 and 500 Error, see screenshots below.
+The error pages on the site include custom pages for a 404 and 500 Error, they are both the same, just the error message has been changed appropriately.
 
 ![404 Error Page]()<br>
-![500 Error Page]()
 
 ## **Defensive Programming**
 To keep the site secure and protected against a brute force attack or attempts to access pages reserved solely based on user permission levels, defensive programming was at the forefront of the development.
@@ -677,14 +681,15 @@ To ensure that Catnip Cove will be as easy for everyone to access and view, I en
 | 1 | Add a feature to sort the cats by age but due to the information I wanted to provide and how I wanted to provide it (age in months as well as whole numbers), the process was too long to research and complete within the timeframe I had |
 | 2 | Have a drop down for set donation amounts and a custom donation box for users to specify their donation amount but when trying to complete the webhooks, it presented complications on where to obtain the donation amount, which I do not have the skills for so this was removed from the donation form, model and view |
 | 3 | Following on from the above point, I would have liked to include extra validation to ensure the user can only type in values that increment in £0.50, due to time constraints, this could not be looked into and implemented. |
-| 4 | Add functionality so that if the user donates for a specific cat, they get an update within their Profile about the cat and their progress. Also, I would have liked to add a profile photo and birthdate to user profile and trigger an event on the users birthday - due to lack of skills and time this could not be completed |
-| 5 | Add social media registration and login functionality |
-| 6 | Pre-populate the donation form for a logged in user, with their profile information, but from the Boutique Ado tutorial, I couldn't work out how to make it work for my page |
-| 7 | Add email subscription and email marketing |
-| 8 | Add a digital gift card product |
-| 9 | For better SEO, investigate further / fix the urls to use slug with dash and not id and not underscores |
-| 10 | Add more content to the blog pages |
-| 11 | Focus more on the aesthetic appearance of the website |
+| 4 | Add functionality for donations for a specific cat - due to lack of time this could not be completed |
+| 5 | Add functionality so that if the user donates for a specific cat, they get an update within their Profile about the cat and their progress. Also, I would have liked to add a profile photo and birthdate to user profile and trigger an event on the users birthday - due to lack of skills and time this could not be completed |
+| 6 | Add social media registration and login functionality |
+| 7 | Pre-populate the donation form for a logged in user, with their profile information, but from the Boutique Ado tutorial, I couldn't work out how to make it work for my page |
+| 8 | Add email subscription and email marketing |
+| 9 | Add a digital gift card product |
+| 10 | For better SEO, investigate further / fix the urls to use slug with dash and not id and not underscores |
+| 11 | Add more content to the blog pages |
+| 12 | Focus more on the aesthetic appearance of the website |
 
 ---
 # **TECHNOLOGIES USED**
