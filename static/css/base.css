@@ -518,6 +518,7 @@ input[name='q']::placeholder {
 .fa-shield-cat {
     padding: 2rem;
     color: black;
+    font-size: 3rem;
 }
 
 .error-page-home-btn {
