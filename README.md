@@ -765,6 +765,7 @@ Please refer to [DEPLOYMENT.md](./DEPLOYMENT.md) file for:
 # **CREDITS**
 ## **Code**
 * Credit to [Code Institute's](https://codeinstitute.net/) Boutique Ado walkthrough, from which this project is based from.
+* Credit to Sarah from Code Institute, who provided me with her [Animal House Project](https://github.com/SJECollins/animalhousedjango/tree/main) due to struggling with getting webhooks to work. I have also used and adjusted her code for the donation confirmation emails from this project.
 * To create the blog part of the project, I followed these [tutorials](https://realpython.com/build-a-blog-from-scratch-django/#add-the-blog-app-that-youll-build-from-scratch) and also [this](https://www.youtube.com/watch?v=m3hhLE1KR5Q) tutorial.
 * Used the Stripe [Documentation](https://docs.stripe.com/api/customers/create) to learn about creating customers for future use, to track donations etc.
 * I didn't want the user to be able to type a number less than 1 in the donation amount input box, whilst using Sarah from Code Institutes Code, I found "validators=[MinValueValidator(0.50)]" in her model, which I looked into briefly and found I could change it to suit my input by changing to "1".

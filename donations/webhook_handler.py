@@ -55,8 +55,8 @@ class StripeWH_Handler:
             intent.latest_charge
         )
 
-        billing_details = stripe_charge.billing_details # updated
-        total = round(stripe_charge.amount / 100, 2) # updated
+        billing_details = stripe_charge.billing_details
+        total = round(stripe_charge.amount / 100, 2)
 
         print('BILLING: ', billing_details)
         # update profile information if save_info was checked

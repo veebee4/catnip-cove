@@ -1,0 +1,7 @@
+Hello {{ donation.name }},
+
+Thank you for your generous donation of £{{ donation.amount }} made on our website!
+Your support is greatly appreciated and will help us to continue our work.
+
+Best Regards,
+Catnip Cove Rescue Centre
