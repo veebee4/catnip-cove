@@ -24,7 +24,7 @@
     </div>
 
 {% block page_title %}
-    <h2 class="category-title text-black m-3">Blog posts for {{ category }}</h2>
+    <h2 class="category-title text center text-black m-3">Blog posts for {{ category }}</h2>
 {% endblock page_title %}
 
 {% block posts %}
@@ -45,14 +45,15 @@
     {% endblock posts %}
     </div>
 
-<div class="row">
-    <div class="col-12 col-lg-7 back-to-blog-button mb-5 p-2 rounded">
-        <a href="{% url 'blog_index' %}" class="text-black my-2">
-            <span class="icon mr-2">
-                <i class="fas fa-angle-left"></i>
-            </span>
-            <strong>Back to Blog Posts</strong>
-        </a>
+    <div class="row">
+        <div class="col-12 col-lg-7 back-to-blog-button mb-5 p-2 rounded">
+            <a href="{% url 'blog_index' %}" class="text-black my-2">
+                <span class="icon mr-2">
+                    <i class="fas fa-angle-left"></i>
+                </span>
+                <strong>Back to Blog Posts</strong>
+            </a>
+        </div>
     </div>
 </div>
 {% endblock %}

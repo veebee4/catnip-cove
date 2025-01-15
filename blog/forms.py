@@ -4,28 +4,24 @@ from .models import Post, Comment, Category
 
 
 class BlogForm(forms.ModelForm):
-
     new_category = forms.CharField(
         max_length=100,
         required=False,
         label="New Category (optional)",
         widget=forms.TextInput(attrs={"class": "form-control", "placeholder": "Enter a new category"}),
     )
-
     categories = forms.ModelMultipleChoiceField(
         queryset=Category.objects.all(),
         required=False,
-        widget=forms.CheckboxSelectMultiple(attrs={"class": "form-control"}),
+        widget=forms.CheckboxSelectMultiple(),
     )
+
     class Meta:
         model = Post
         fields = ['title', 'slug', 'body', 'image', 'categories', 'new_category']
-
-    image = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput)
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        posts = Post.objects.all()
+        widgets = {
+            'image': CustomClearableFileInput,
+        }
 
     def clean(self):
         cleaned_data = super().clean()
@@ -33,10 +29,10 @@ class BlogForm(forms.ModelForm):
 
         # Create a new category if the user entered a new category name
         if new_category:
-            # Check if the category already exists to avoid duplication
             category, created = Category.objects.get_or_create(name=new_category)
             if created:
-                cleaned_data['categories'] = [category]  # Add the new category to the post's categories
+                categories = cleaned_data.get('categories') or []
+                cleaned_data['categories'] = list(categories) + [category]
             else:
                 self.add_error('new_category', 'This category already exists.')
         return cleaned_data
