@@ -38,28 +38,32 @@ I used [W3C Markup Validation Service](https://validator.w3.org/) to validate al
 | 'templates/cats/cats.html' | 0 errors and 0 warnings | [Cats Page](./documentation/validation/html_validation/html-validator-cats-page.png) |
 | 'templates/cats/cat_detail.html' | 0 errors and 0 warnings | [Cat Detail Page](./documentation/validation/html_validation/html-validator-cat-detail-page.png) |
 | 'templates/cats/add_cat.html' | 0 errors and 0 warnings | [Add Cat Page](./documentation/validation/html_validation/html-validator-add-cat-page.png) |
-| 'templates/cats/edit_cat.html' | 0 errors and 0 warnings | [Edit Cat Page]() |
-| 'templates/blog/blog_index.html' | 0 errors and 0 warnings | [Blog Index Page]() |
-| 'templates/blog/blog_detail.html' | 0 errors and 0 warnings | [Blog Detail Page]() |
-| 'templates/blog/category.html' | 0 errors and 0 warnings | [Blog Category Page]() |
-| 'templates/blog/add_blog.html' | 0 errors and 0 warnings | [Add Blog Page]() |
-| 'templates/blog/edit_blog.html' | 0 errors and 0 warnings | [Edit Blog Page]() |
+| 'templates/cats/edit_cat.html' | 0 errors and 0 warnings | [Edit Cat Page](./documentation/validation/html_validation/html-validator-edit-cat-page.png) |
+| 'templates/blog/blog_index.html' | 0 errors and 0 warnings | [Blog Index Page](./documentation/validation/html_validation/html-validator-blog-page.png) |
+| 'templates/blog/blog_detail.html' | 0 errors and 0 warnings | [Blog Detail Page](./documentation/validation/html_validation/html-validator-blog-article.png) |
+| 'templates/blog/category.html' | 0 errors and 0 warnings | [Blog Category Page](./documentation/validation/html_validation/html-validator-blog-category-page.png) |
+| 'templates/blog/add_blog.html' | 0 errors and 0 warnings | [Add Blog Page](./documentation/validation/html_validation/html-validator-add-blog-page.png) |
+| 'templates/blog/edit_blog.html' | 0 errors and 0 warnings | [Edit Blog Page](./documentation/validation/html_validation/html-validator-edit-blog-page.png) |
 | 'templates/donations/donate.html' | 0 errors and 0 warnings | [Donation Page](./documentation/validation/html_validation/html-validator-donation-page.png) |
 | 'templates/donations/success.html' | 0 errors and 0 warnings | [Donation Success Page](./documentation/validation/html_validation/html-validator-donation-success.png) |
-| 'templates/profiles/profile.html' | 0 errors and 0 warnings | [Profile Page]() |
-| 'templates/allauth/account/login.html' | 0 errors and 0 warnings | [Log In Page]() |
-| 'templates/allauth/account/logout.html' | 0 errors and 0 warnings | [Log Out Page]() |
-| 'templates/allauth/account/signup.html' | 0 errors and 0 warnings | [Sign Up Page]() |
-| 404 page | 0 errors and 0 warnings | [404 page]() |
+| 'templates/profiles/profile.html' | 0 errors and 0 warnings | [Profile Page](./documentation/validation/html_validation/html-validator-profile-page.png) |
+| 'templates/allauth/account/login.html' | 4 errors and 0 warnings | [Log In Page](./documentation/validation/html_validation/html-account-signin-page.png) |
+| 'templates/allauth/account/logout.html' | 0 errors and 0 warnings | [Log Out Page](./documentation/validation/html_validation/html-validator-logout-page.png) |
+| 'templates/allauth/account/signup.html' | 4 errors and 0 warnings | [Sign Up Page](./documentation/validation/html_validation/html-account-signup-page.png) |
+| 404 page | 0 errors and 0 warnings | [404 page](./documentation/validation/html_validation/html-validator-404-error-page.png) |
+
+Errors found on login and signup pages were left as I could not figure out where these came from due to them being pre-defined Allauth templates. With more time, I would have liked to investigate these in-depth and resolve the errors.
 
 ### CSS Validation
 I used [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/) to validate all CSS files by direct input.
 | File | Result | Test Details & Screenshots |
 | ---- | :-: | -------------------------- |
-| blog/static/blog/css/blog.css | Pass | [blog.css](.) |
-| donations/static/donations/css/donation.css | Pass | [donation.css](.) |
-| profiles/static/profiles/css/profile.css | Pass | [profile.css](.) |
-| static/css/base.css | Pass | [base.css](.) |
+| blog/static/blog/css/blog.css | Pass | [blog.css](./documentation/validation/css_validation/css-validator-blog.png) |
+| donations/static/donations/css/donation.css | Pass with warnings | [donation.css](./documentation/validation/css_validation/css-validator-donations.png) [warnings donation.css](./documentation/validation/css_validation/css-validator-donations-warnings.png) |
+| profiles/static/profiles/css/profile.css | Pass | [profile.css](./documentation/validation/css_validation/css-validator-profile.png) |
+| static/css/base.css | Pass with warnings | [base.css](./documentation/validation/css_validation/css-validator-base.png) [warnings base.css](./documentation/validation/css_validation/css-validator-base-warnings.png)|
+
+All warnings mentioned above relate to webkits and a border colour for a checkbox which is intentional.
 
 ### JavaScript Validation
 I used [JSHint](https://jshint.com/) to validate all JavaScript and JQuery files
@@ -75,76 +79,52 @@ I used [JSHint](https://jshint.com/) to validate all JavaScript and JQuery files
 
 Any warnings received have all been to do with ES6 & ES11 and no errors with actual code.
 
-<!-- ### Python Validation
+### Python Validation
 I used [Code Institute's Python Linter](https://pep8ci.herokuapp.com/) to lint my Python code.
 | File | Result | Validation Details & Screenshots |
 | :-- | :-: | -------------------------- |
-| custom_storages.py | All clear, no errors found | [custom_storages.py](./documentation/python_validation/custom_storages.png)|
-| **SHOP_KBEAUTY** |  |  |
-| shop_kbeauty/settings.py | All clear, no errors found | [settings.py validation](./documentation/python_validation/shop-kbeauty-settings-dot-py.png) |
-| shop_kbeauty/urls.py | All clear, no errors found | [urls.py validation](./documentation/python_validation/shop-kbeauty-urls-dot-py.png) |
-| shop_kbeauty/wsgi.py | All clear, no errors found | [wsgi.py validation](./documentation/python_validation/shop-kbeauty-wsgi-dot-py.png) |
-| **BAG APP** |  |  |
-| bag/templatestags/bag_tools.py | All clear, no errors found | [bag_tools.py validation](./documentation/python_validation/bag-tools.png) |
-| bag/apps.py | All clear, no errors found | [apps.py validation](./documentation/python_validation/bag-apps.png) |
-| bag/contexts.py | All clear, no errors found | [contexts.py validation](./documentation/python_validation/bag-contexts.png) |
-| bag/urls.py | All clear, no errors found | [urls.py validation](./documentation/python_validation/bag-urls.png) |
-| bag/views.py | All clear, no errors found | [views.py validation](./documentation/python_validation/bag-views.png) |
-| bag/tests/test_views.py | All clear, no errors found | [bag/tests/test_views.py validation](./documentation/python_validation/bag-tests-test-views.png.png) |
-| **CHECKOUT APP** |  |  |
-| checkout/admin.py | All clear, no errors found | [admin.py validation](./documentation/python_validation/checkout-admin.png) |
-| checkout/apps.py | All clear, no errors found | [apps.py validation](./documentation/python_validation/checkout-apps.png) |
-| checkout/forms.py | All clear, no errors found | [forms.py validation](./documentation/python_validation/checkout-forms.png) |
-| checkout/models.py | All clear, no errors found | [models.py validation](./documentation/python_validation/checkout-models.png) |
-| checkout/signals.py | All clear, no errors found | [signals.py validation](./documentation/python_validation/checkout-signals.png) |
-| checkout/urls.py | All clear, no errors found | [urls.py validation](./documentation/python_validation/checkout-urls.png) |
-| checkout/views.py | All clear, no errors found | [views.py validation](./documentation/python_validation/checkout-views.png) |
-| checkout/webhook_handler.py | All clear, no errors found | [webhook_handler.py validation](./documentation/python_validation/checkout-webhook-handler.png) |
-| checkout/webhooks.py | All clear, no errors found | [webhooks.py validation](./documentation/python_validation/checkout-webhooks.png) |
-| checkout/tests/test_forms.py | All clear, no errors found | [test_forms.py validation](./documentation/python_validation/checkout-tests-test-forms.png) |
-| checkout/tests/test_models.py | All clear, no errors found | [test_models.py validation](./documentation/python_validation/checkout-tests-test-models.png) |
-| checkout/tests/test_views.py | All clear, no errors found | [test_views.py validation](./documentation/python_validation/checkout-tests-test-views.png) |
+| custom_storages.py | All clear, no errors found | [custom_storages.py](.)|
+| **CATNIP COVE** |  |  |
+| catnip_cove/settings.py | All clear, no errors found | [settings.py validation](.) |
+| catnip_cove/urls.py | All clear, no errors found | [urls.py validation](.) |
+| catnip_cove/wsgi.py | All clear, no errors found | [wasgi.py validation](.) |
+| **BLOG APP** |  |  |
+| blog/widgets.py | All clear, no errors found | [widgets.py validation](.) |
+| blog/views.py | All clear, no errors found | [](.) |
+| blog/urls.py | All clear, no errors found | [](.) |
+| blog/models.py | All clear, no errors found | [](.) |
+| blog/forms.py | All clear, no errors found | [](.) |
+| blog/apps.py | All clear, no errors found | [](.) |
+| blog/admin.py | All clear, no errors found | [](.) |
+| **CATS APP** |  |  |
+| cats/widgets.py | All clear, no errors found | [](.) |
+| cats/views.py | All clear, no errors found | [](.) |
+| cats/urls.py | All clear, no errors found | [](.) |
+| cats/models.py | All clear, no errors found | [](.) |
+| cats/forms.py | All clear, no errors found | [](.) |
+| cats/apps.py | All clear, no errors found | [](.) |
+| cats/admin.py | All clear, no errors found | [](.) |
+| **DONATION APP** |  |  |
+| donations/admin.py | All clear, no errors found | [admin.py validation](.) |
+| donations/apps.py | All clear, no errors found | [apps.py validation](.) |
+| donations/forms.py | All clear, no errors found | [forms.py validation](.) |
+| donations/models.py | All clear, no errors found | [models.py validation](.) |
+| donations/urls.py | All clear, no errors found | [urls.py validation](.) |
+| donations/views.py | All clear, no errors found | [views.py validation](.) |
+| donations/webhook_handler.py | All clear, no errors found | [webhook_handler.py validation](.) |
+| donations/webhooks.py | All clear, no errors found | [webhooks.py validation](.) |
 | **HOME APP** |  |  |
-| home/apps.py | All clear, no errors found | [apps.py validation](./documentation/python_validation/home-apps.png) |
-| home/urls.py | All clear, no errors found | [urls.py validation](./documentation/python_validation/home-urls.png) |
-| home/views.py | All clear, no errors found | [views.py validation](./documentation/python_validation/home-views.png) |
-| home/tests/test_views.py | All clear, no errors found | [test_views.py validation](./documentation/python_validation/home-tests-test-views.png) |
-| **PRODUCTS APP** |  |  |
-| products/admin.py | All clear, no errors found | [admin.py validation](./documentation/python_validation/products-admin.png) |
-| products/apps.py | All clear, no errors found | [apps.py validation](./documentation/python_validation/products-apps.png) |
-| products/forms.py | All clear, no errors found | [forms.py validation](./documentation/python_validation/products-forms.png) |
-| products/models.py | All clear, no errors found | [models.py validation](./documentation/python_validation/products-models.png) |
-| products/urls.py | All clear, no errors found | [urls.py validation](./documentation/python_validation/products-urls.png) |
-| products/views.py | All clear, no errors found | [views.py validation](./documentation/python_validation/products-urls.png) |
-| products/widgets.py | All clear, no errors found | [widgets.py validation](./documentation/python_validation/products-widgets.png) |
-| products/tests/test_forms.py | All clear, no errors found | [test_forms.py validation](./documentation/python_validation/products-tests-test-forms.png) |
-| products/tests/test_models.py | All clear, no errors found | [test_models.py validation](./documentation/python_validation/products-tests-test-models.png) |
-| products/tests/test_views.py | All clear, no errors found | [test_views.py validation](./documentation/python_validation/products-tests-test-views.png) |
+| home/apps.py | All clear, no errors found | [apps.py validation](.) |
+| home/urls.py | All clear, no errors found | [urls.py validation](.) |
+| home/views.py | All clear, no errors found | [views.py validation](.) |
 | **PROFILES APP** |  |  |
-| profiles/apps.py | All clear, no errors found | [apps.py validation](./documentation/python_validation/profiles-apps.png) |
-| profiles/forms.py | All clear, no errors found | [forms.py validation](./documentation/python_validation/profiles-forms.png) |
-| profiles/models.py | All clear, no errors found | [models.py validation](./documentation/python_validation/profiles-models.png) |
-| profiles/urls.py | All clear, no errors found | [urls.py validation](./documentation/python_validation/profiles-urls.png) |
-| profiles/views.py | All clear, no errors found | [views.py validation](./documentation/python_validation/profiles-views.png) |
-| profiles/tests/test_views.py | All clear, no errors found | [test_views.py validation](./documentation/python_validation/profiles-tests-test-views.png) |
-| **REVIEWS APP** |  |  |
-| reviews/admin.py | All clear, no errors found | [admin.py validation](./documentation/python_validation/reviews-admin.png) |
-| reviews/apps.py | All clear, no errors found | [apps.py validation](./documentation/python_validation/reviews-apps.png) |
-| reviews/forms.py | All clear, no errors found | [forms.py validation](./documentation/python_validation/reviews-forms.png) |
-| reviews/models.py | All clear, no errors found | [models.py validation](./documentation/python_validation/reviews-models.png) |
-| reviews/urls.py | All clear, no errors found | [urls.py validation](./documentation/python_validation/reviews-urls.png) |
-| reviews/views.py | All clear, no errors found | [views.py validation](./documentation/python_validation/reviews-views.png) |
-| reviews/tests/test_models.py | All clear, no errors found | [test_models.py validation](./documentation/python_validation/reviews-tests-test-models.png) |
-| reviews/tests/test_views.py | All clear, no errors found | [test_views.py validation](./documentation/python_validation/reviews-tests-test-views.png) |
-| **WISHLIST APP** |  |  |
-| wishlist/admin.py | All clear, no errors found | [admin.py validation](./documentation/python_validation/wishlist-admin.png) |
-| wishlist/apps.py | All clear, no errors found | [apps.py validation](./documentation/python_validation/wishlist-apps.png) |
-| wishlist/models.py | All clear, no errors found | [models.py validation](./documentation/python_validation/wishlist-models.png) |
-| wishlist/urls.py | All clear, no errors found | [urls.py validation](./documentation/python_validation/wishlist-urls.png) |
-| wishlist/views.py | All clear, no errors found | [views.py validation](./documentation/python_validation/wishlist-views.png) |
-| wishlist/tests/test_views.py | All clear, no errors found | [test_views.py validation](./documentation/python_validation/wishlist-tests-test-views.png) |
+| profiles/apps.py | All clear, no errors found | [apps.py validation](.) |
+| profiles/forms.py | All clear, no errors found | [forms.py validation](.) |
+| profiles/models.py | All clear, no errors found | [models.py validation](.) |
+| profiles/urls.py | All clear, no errors found | [urls.py validation](.) |
+| profiles/views.py | All clear, no errors found | [views.py validation](.) |
 
-### Lighthouse Report
+<!-- ### Lighthouse Report
 [Chrome DevTools' Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/) was used to test the performance, accessibility, best practices and SEO of the site
 #### Desktop
 | Page | Performance (%) | Accessibility (%) | Best Practices (%) | SEO (%) | If score is below 90% |

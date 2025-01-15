@@ -50,6 +50,7 @@ Catnip Cove is my 4th milestone project for Code Institute's Level 5 Diploma in 
         * [Cat Detail Page](#cat-detail-page)
         * [Contact Us Page](#contact-us-page)
         * [Donation Page](#donation-page)
+        * [Donation Success Page](#donation-success-page)
         * [Main Blog Page](#main-blog-page)
         * [Example Blog Article Page](#example-blog-article-page)
         * [Example Blog Category Page](#example-blog-category-page)
@@ -517,13 +518,24 @@ Catnip Cove's Contact Us page features the following:
 <br>
 
 ## Donation Page
-Catnip Cove's Donation page feature the following:
+Catnip Cove's Donation page features the following:
 
 - Top and Main Nav (including search bar, 'My Account' dropdown menu and main nav links; 'Cats', 'Contact Us' and 'Donate')
 - Plain overlay to avoid the page being too 'busy'
 - Donation Form with card capture elements
 
 ![Donation Page Screenshot](./documentation/features/donate-page-screenshot.png)
+<br>
+
+## Donation Success Page
+Catnip Cove's Donation success page features the following:
+
+- Top and Main Nav (including search bar, 'My Account' dropdown menu and main nav links; 'Cats', 'Contact Us' and 'Donate')
+- Plain overlay to avoid the page being too 'busy'
+- Thank you messages, detailing donators name, email and amount they have donated
+- Button to go back to the donation page
+
+![Donation Page Screenshot](./documentation/features/donation-success-page-screenshot.png)
 <br>
 
 ## Main Blog Page
@@ -651,7 +663,7 @@ Catnip Cove's Edit a Blog Article page features the following:
 ## 404 & 500 Error Page
 The error pages on the site include custom pages for a 404 and 500 Error, they are both the same, just the error message has been changed appropriately.
 
-![404 Error Page]()<br>
+![404 Error Page](./documentation/features/404-error-page-screenshot.png)<br>
 
 ## **Defensive Programming**
 To keep the site secure and protected against a brute force attack or attempts to access pages reserved solely based on user permission levels, defensive programming was at the forefront of the development.
