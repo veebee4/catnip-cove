@@ -11,37 +11,56 @@ from .forms import DonationForm
 from profiles.models import UserProfile
 import stripe
 import json
+import logging
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
+logger = logging.getLogger(__name__)
+
+# Constants for messages
+STRIPE_KEY_MISSING_MSG = "Stripe public key is missing. Did you forget to set it in your environment?"
+FORM_ERROR_MSG = "There was an error with your form. Please double-check your information."
+DONATION_SUCCESS_MSG = "Your donation of £{amount:.2f} was successful!"
+PAYMENT_ERROR_MSG = "Sorry, your payment cannot be processed right now. Please try again later."
+PROFILE_SAVE_ERROR_MSG = "There was an error saving your profile information."
+
+def get_user_profile(user):
+    """
+    Helper function to get the user's profile and return default values.
+    """
+    try:
+        profile = UserProfile.objects.get(user=user)
+        return {
+            "first_name": profile.default_first_name,
+            "last_name": profile.default_last_name,
+            "email": profile.default_email_address,
+            "postcode": profile.default_postcode,
+            "profile": profile,
+        }
+    except UserProfile.DoesNotExist:
+        return None
 
 
 class Donate(generic.View):
-
     def get(self, request):
         stripe_public_key = settings.STRIPE_PUBLIC_KEY
-        form = None
+
+        # Get initial data if the user is authenticated
+        initial_data = {}
         if request.user.is_authenticated:
-            try:
-                profile = UserProfile.objects.get(user=request.user)
-                form = DonationForm(
-                    initial={
-                        "first name": profile.default_first_name,
-                        "last name": profile.default_last_name,
-                        "email": profile.default_email_address,
-                        "postcode": profile.default_postcode,
-                    }
-                )
-            except Profile.DoesNotExist:
-                form = DonationForm()
-        else:
-            form = DonationForm()
+            profile_data = get_user_profile(request.user)
+            if profile_data:
+                initial_data = {
+                    "first_name": profile_data["first_name"],
+                    "last_name": profile_data["last_name"],
+                    "email": profile_data["email"],
+                    "postcode": profile_data["postcode"],
+                }
+
+        form = DonationForm(initial=initial_data)
 
         if not stripe_public_key:
-            messages.warning(
-                request,
-                "Stripe public key is missing."
-                "Did you forget to set it in your environment?"
-            )
+            messages.warning(request, STRIPE_KEY_MISSING_MSG)
+
         context = {
             "form": form,
             "stripe_public_key": stripe_public_key,
@@ -50,113 +69,117 @@ class Donate(generic.View):
 
     def post(self, request):
         form = DonationForm(request.POST)
-        context = {
-                "form": form,
-                "stripe_public_key": settings.STRIPE_PUBLIC_KEY,
-            }
+        stripe_public_key = settings.STRIPE_PUBLIC_KEY
+
         if form.is_valid():
-            donation = form.save()
-            pid = request.POST.get("client_secret").split("_secret")[0]
+            # Save the donation instance
+            donation = form.save(commit=False)
+            pid = request.POST.get("client_secret", "").split("_secret")[0]
             donation.stripe_pid = pid
             donation.save()
 
-            if "save_info" in request.POST:
-                profile = Profile.objects.get(user=request.user)
-                profile.default_first_name = donation.donor_first_name
-                profile.default_last_name = donation.donor_last_name
-                profile.default_email_address = donation.donor_email_address
-                profile.default_postcode = donation.donor_postcode
-                profile.save()
+            # Save user information if 'save_info' is checked
+            save_info = request.POST.get("save_info", "off") == "on"
+            if save_info and request.user.is_authenticated:
+                try:
+                    # Fetch the user's profile
+                    profile = UserProfile.objects.get(user=request.user)
+                    # Update profile with the donation form data
+                    profile.default_first_name = donation.donor_first_name
+                    profile.default_last_name = donation.donor_last_name
+                    profile.default_email_address = donation.donor_email_address
+                    profile.default_postcode = donation.donor_postcode
+                    profile.save()
+                except UserProfile.DoesNotExist:
+                    messages.warning(
+                        request, "Could not save your information. User profile not found."
+                    )
+
+            # Success message and redirect
             messages.success(request, f"Your donation of £{donation.amount:.2f} was successful!")
-            return redirect(reverse('success', args=[donation.donation_number]) + "?is_new_donation=True")
+            return redirect(
+                reverse("success", args=[donation.donation_number]) + "?is_new_donation=True"
+            )
         else:
-            messages.error(request, "There was an error with your form. Please double check your information.")
+            # Error handling if the form is invalid
+            messages.error(request, "There was an error with your form. Please double-check your information.")
+
+        # Re-render the donation form with errors
+        context = {
+            "form": form,
+            "stripe_public_key": stripe_public_key,
+        }
         return render(request, "donations/donate.html", context)
 
 
 def create_payment_intent(request):
-    stripe.api_key = settings.STRIPE_SECRET_KEY
-    donation_amount = json.loads(request.body)["donation_amount"]
+    try:
+        stripe.api_key = settings.STRIPE_SECRET_KEY
+        donation_amount = json.loads(request.body).get("donation_amount", 0)
 
-    intent = stripe.PaymentIntent.create(
-        amount=round(float(donation_amount) * 100),
-        currency="gbp",
+        if not donation_amount or float(donation_amount) <= 0:
+            return JsonResponse(
+                {"error": "Invalid donation amount. Please enter a valid number."},
+                status=400,
+            )
+
+        intent = stripe.PaymentIntent.create(
+            amount=round(float(donation_amount) * 100),
+            currency="gbp",
         )
-    return JsonResponse({"client_secret": intent.client_secret})
+        return JsonResponse({"client_secret": intent.client_secret})
+    except Exception as e:
+        logger.error(f"Error creating payment intent: {e}")
+        return JsonResponse(
+            {"error": "An error occurred while creating the payment intent."},
+            status=500,
+        )
 
 
 @require_POST
 def cache_donation_data(request):
     try:
         stripe.api_key = settings.STRIPE_SECRET_KEY
-        save_info = None
         data = json.loads(request.body)
         pid = data["client_secret"].split("_secret")[0]
-        donation_amount = data["donation_amount"]
-        if "save_info" in data:
-            save_info = data["save_info"]
+        save_info = data.get("save_info", False)
 
         metadata = {
-            "donation_amount": donation_amount,
+            "donation_amount": data.get("donation_amount"),
+            "save_info": save_info,
+            "username": request.user.username if request.user.is_authenticated else "AnonymousUser",
         }
-        if "save_info" in request.POST:
-            metadata["save_info"] = save_info
-        if request.user.is_authenticated:
-            metadata["username"] = request.user
-        else:
-            metadata["username"] = "AnonymousUser"
 
-        stripe.PaymentIntent.modify(
-            pid,
-            metadata=metadata,
-        )
+        stripe.PaymentIntent.modify(pid, metadata=metadata)
         return HttpResponse(status=200)
     except Exception as e:
-        messages.error(
-            request,
-            "Sorry, your payment cannot be processed right now."
-            "Please try again later."
-        )
+        logger.error(f"Error caching donation data: {e}")
+        messages.error(request, PAYMENT_ERROR_MSG)
         return HttpResponse(content=e, status=400)
 
 
 def successMsg(request, donation_number):
-    """
-    Handle successful donations and update user profile if needed
-    """
     donation = get_object_or_404(Donation, donation_number=donation_number)
-    amount = donation.amount
-    save_info = request.session.get('save_info', False)
-    is_new_donation_str = request.GET.get('is_new_donation', 'False')
-    is_new_donation = is_new_donation_str.lower() == 'true'
-
-    context = {
-        'donation': donation,
-        'is_new_donation': is_new_donation
-    }
+    save_info = request.session.get("save_info", False)
+    is_new_donation = request.GET.get("is_new_donation", "false").lower() == "true"
 
     if request.user.is_authenticated:
-        profile = UserProfile.objects.get(user=request.user)
+        profile_data = get_user_profile(request.user)
+        if profile_data:
+            profile = profile_data["profile"]
+            donation.user_profile = profile
+            donation.save()
 
-        # Attach the user profile to the donation
-        donation.user_profile = profile
-        donation.save()
+            # Save user info if requested
+            if save_info:
+                profile.default_first_name = donation.donor_first_name
+                profile.default_last_name = donation.donor_last_name
+                profile.default_email_address = donation.donor_email_address
+                profile.default_postcode = donation.donor_postcode
+                profile.save()
 
-        # Save the user's info
-        if save_info:
-            profile_data = {
-                'default_first_name': donation.donor_first_name,
-                'default_last_name': donation.donor_last_name,
-                'default_postcode': donation.donor_postcode,
-                'default_email_address': donation.donor_email_address,
-            }
-            user_profile_form = UserProfileForm(profile_data, instance=profile)
-            if user_profile_form.is_valid():
-                user_profile_form.save()
-            else:
-                messages.error(
-                    request,
-                    "There was an error saving your profile information."
-                )
-
-    return render(request, 'donations/success.html', context)
+    context = {
+        "donation": donation,
+        "is_new_donation": is_new_donation,
+    }
+    return render(request, "donations/success.html", context)
