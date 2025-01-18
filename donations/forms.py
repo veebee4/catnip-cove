@@ -35,7 +35,8 @@ class DonationForm(forms.ModelForm):
         }
 
         self.fields['amount'].widget.attrs['autofocus'] = True
-        self.fields['amount'].widget.attrs['min'] = '1'  # Ensures min value is 1 on frontend
+        # Ensure min value is 1 on frontend
+        self.fields['amount'].widget.attrs['min'] = '1'
         # Iterate over each field in the donation form
         for field in self.fields:
             placeholder = placeholders.get(field)

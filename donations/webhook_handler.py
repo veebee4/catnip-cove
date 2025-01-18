@@ -17,13 +17,17 @@ class StripeWH_Handler:
     def __init__(self, event):
         self.event = event
 
-    # Email confirmation code taken from SJE Collins Animal House Django project - full credit in README
+    """ Email confirmation code used and adjusted from SJE Collins Animal
+    House Django project - full credit in README """
     def _send_confirmation_email(self, donation):
         """Send the user a confirmation email"""
         subject = render_to_string("emails/email_subject.txt")
         body = render_to_string(
             "emails/confirmation_email_body.txt",
-            {"donation": donation, "contact_email": settings.DEFAULT_FROM_EMAIL},
+            {
+                "donation": donation,
+                "contact_email": settings.DEFAULT_FROM_EMAIL
+            },
         )
         send_mail(
             subject,
@@ -92,7 +96,10 @@ class StripeWH_Handler:
             print("Donation already exists in database, send email")
             self._send_confirmation_email(donation)
             return HttpResponse(
-                content=f"Webhook received: {event['type']} | SUCCESS: Verified donation already in database",
+                content=(
+                        f"Webhook received: {event['type']} | "
+                        "SUCCESS: Verified donation already in database"
+                    ),
                 status=200,
             )
 
@@ -109,13 +116,17 @@ class StripeWH_Handler:
                     stripe_pid=pid,
                 )
                 donation.message = (
-                    "Donation created from webhook payment_intent.succeeded event."
+                    "Donation created from webhook "
+                    "payment_intent.succeeded event."
                 )
                 donation.save()
                 print("Donation created in database, send email")
                 self._send_confirmation_email(donation)
                 return HttpResponse(
-                    content=f"Webhook received: {event['type']} | SUCCESS: Created donation in webhook",
+                    content=(
+                        f"Webhook received: {event['type']} | "
+                        "SUCCESS: Created donation in webhook"
+                        ),
                     status=200,
                 )
             except Exception as e:
@@ -129,4 +140,5 @@ class StripeWH_Handler:
 
     def handle_payment_intent_payment_failed(self, event):
         """Handle the payment_intent.payment_failed webhook from Stripe"""
-        return HttpResponse(content=f"Webhook received: {event['type']}", status=200)
+        return HttpResponse(
+                content=f"Webhook received: {event['type']}", status=200)

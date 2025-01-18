@@ -17,11 +17,21 @@ stripe.api_key = settings.STRIPE_SECRET_KEY
 logger = logging.getLogger(__name__)
 
 # Constants for messages
-STRIPE_KEY_MISSING_MSG = "Stripe public key is missing. Did you forget to set it in your environment?"
-FORM_ERROR_MSG = "There was an error with your form. Please double-check your information."
+STRIPE_KEY_MISSING_MSG = (
+    "Stripe public key is missing. "
+    "Did you forget to set it in your environment?"
+)
+FORM_ERROR_MSG = (
+    "There was an error with your form. "
+    "Please double-check your information."
+)
 DONATION_SUCCESS_MSG = "Your donation of £{amount:.2f} was successful!"
-PAYMENT_ERROR_MSG = "Sorry, your payment cannot be processed right now. Please try again later."
+PAYMENT_ERROR_MSG = (
+    "Sorry, your payment cannot be processed right now. "
+    "Please try again later."
+)
 PROFILE_SAVE_ERROR_MSG = "There was an error saving your profile information."
+
 
 def get_user_profile(user):
     """
@@ -87,22 +97,35 @@ class Donate(generic.View):
                     # Update profile with the donation form data
                     profile.default_first_name = donation.donor_first_name
                     profile.default_last_name = donation.donor_last_name
-                    profile.default_email_address = donation.donor_email_address
+                    profile.default_email_address = (
+                        donation.donor_email_address
+                    )
                     profile.default_postcode = donation.donor_postcode
                     profile.save()
                 except UserProfile.DoesNotExist:
                     messages.warning(
-                        request, "Could not save your information. User profile not found."
+                        request,
+                        "Could not save your information. "
+                        "User profile not found."
                     )
 
             # Success message and redirect
-            messages.success(request, f"Your donation of £{donation.amount:.2f} was successful!")
+            messages.success(
+                request,
+                f"Your donation of £{donation.amount:.2f} was successful!"
+            )
             return redirect(
-                reverse("success", args=[donation.donation_number]) + "?is_new_donation=True"
+                reverse(
+                    "success",
+                    args=[donation.donation_number]) + "?is_new_donation=True"
             )
         else:
             # Error handling if the form is invalid
-            messages.error(request, "There was an error with your form. Please double-check your information.")
+            messages.error(
+                request,
+                "There was an error with your form. "
+                "Please double-check your information."
+            )
 
         # Re-render the donation form with errors
         context = {
@@ -119,7 +142,10 @@ def create_payment_intent(request):
 
         if not donation_amount or float(donation_amount) <= 0:
             return JsonResponse(
-                {"error": "Invalid donation amount. Please enter a valid number."},
+                {
+                    "error": "Invalid donation amount. "
+                    "Please enter a valid number."
+                },
                 status=400,
             )
 
@@ -147,7 +173,11 @@ def cache_donation_data(request):
         metadata = {
             "donation_amount": data.get("donation_amount"),
             "save_info": save_info,
-            "username": request.user.username if request.user.is_authenticated else "AnonymousUser",
+            "username": (
+                request.user.username
+                if request.user.is_authenticated
+                else "AnonymousUser",
+            )
         }
 
         stripe.PaymentIntent.modify(pid, metadata=metadata)
@@ -161,7 +191,9 @@ def cache_donation_data(request):
 def successMsg(request, donation_number):
     donation = get_object_or_404(Donation, donation_number=donation_number)
     save_info = request.session.get("save_info", False)
-    is_new_donation = request.GET.get("is_new_donation", "false").lower() == "true"
+    is_new_donation = (
+        request.GET.get("is_new_donation", "false").lower() == "true"
+    )
 
     if request.user.is_authenticated:
         profile_data = get_user_profile(request.user)
