@@ -25,14 +25,14 @@ class StripeWH_Handler:
             "emails/confirmation_email_body.txt",
             {"donation": donation, "contact_email": settings.DEFAULT_FROM_EMAIL},
         )
-        print(f"Sending email to: {donation.email}")  # Debugging the email recipient
+        print(f"Sending email to: {donation.donor_email_address}")  # Debugging the email recipient
         send_mail(
             subject,
             body,
             settings.DEFAULT_FROM_EMAIL,
-            [donation.email],
+            [donation.donor_email_address],
         )
-        print(f"Email sent to: {donation.email}")  # Confirm email was sent
+        print(f"Email sent to: {donation.donor_email_address}")  # Confirm email was sent
 
     def handle_event(self, event):
         """Handle a generic/unknown/unexpected webhook event"""
