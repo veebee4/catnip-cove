@@ -39,7 +39,8 @@ class Donate(generic.View):
         if not stripe_public_key:
             messages.warning(
                 request,
-                "Stripe public key is missing. Did you forget to set it in your environment?",
+                "Stripe public key is missing."
+                "Did you forget to set it in your environment?"
             )
         context = {
             "form": form,
@@ -47,26 +48,29 @@ class Donate(generic.View):
         }
         return render(request, "donations/donate.html", context)
 
-
     def post(self, request):
-            form = DonationForm(request.POST)
-            if form.is_valid():
-                donation = form.save()
-                pid = request.POST.get("client_secret").split("_secret")[0]
-                donation.stripe_pid = pid
-                donation.save()
+        form = DonationForm(request.POST)
+        if form.is_valid():
+            donation = form.save()
+            pid = request.POST.get("client_secret").split("_secret")[0]
+            donation.stripe_pid = pid
+            donation.save()
 
-                if "save_info" in request.POST:
-                    profile = Profile.objects.get(user=request.user)
-                    profile.default_first_name = donation.donor_first_name
-                    profile.default_last_name = donation.donor_last_name
-                    profile.default_email_address = donation.donor_email_address
-                    profile.default_postcode = donation.donor_postcode
-                    profile.save()
+            if "save_info" in request.POST:
+                profile = Profile.objects.get(user=request.user)
+                profile.default_first_name = donation.donor_first_name
+                profile.default_last_name = donation.donor_last_name
+                profile.default_email_address = donation.donor_email_address
+                profile.default_postcode = donation.donor_postcode
+                profile.save()
                 messages.success(
-                    request, f"Your donation of £{donation.amount:.2f} was successful!"
+                    request,
+                    f"Your donation of £{donation.amount:.2f} was successful!"
                 )
-                return redirect(reverse('success', args=[donation.donation_number]) + "?is_new_donation=True")
+                return redirect(
+                    reverse('success', args=[donation.donation_number]) +
+                    "?is_new_donation=True"
+                )
             else:
                 context = {
                     "form": form,
@@ -75,11 +79,12 @@ class Donate(generic.View):
                 }
                 messages.error(
                     request,
-                    "There was an error with your form. Please double check your information.",
+                    "There was an error with your form."
+                    "Please double check your information."
                 )
                 return render(request, "donations/donate.html", context)
 
-    
+
 def create_payment_intent(request):
     print('IN CREATE PAYMENT INTENT')
     stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -122,7 +127,8 @@ def cache_donation_data(request):
     except Exception as e:
         messages.error(
             request,
-            "Sorry, your payment cannot be processed right now. Please try again later.",
+            "Sorry, your payment cannot be processed right now."
+            "Please try again later."
         )
         return HttpResponse(content=e, status=400)
 
@@ -141,7 +147,7 @@ def successMsg(request, donation_number):
         'donation': donation,
         'is_new_donation': is_new_donation
     }
-    
+
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)
 
@@ -161,6 +167,9 @@ def successMsg(request, donation_number):
             if user_profile_form.is_valid():
                 user_profile_form.save()
             else:
-                messages.error(request, "There was an error saving your profile information.")
+                messages.error(
+                    request,
+                    "There was an error saving your profile information."
+                )
 
     return render(request, 'donations/success.html', context)

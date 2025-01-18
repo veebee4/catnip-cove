@@ -8,17 +8,31 @@ from profiles.models import UserProfile
 
 
 class Donation(models.Model):
-    donation_number = models.CharField(max_length=32, unique=True, null=False, editable=False)
-    user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL, null=True, blank=True, related_name='donations')
-    cat = models.ForeignKey('cats.Cat', on_delete=models.CASCADE, blank=True, null=True)
-    amount = models.DecimalField(max_digits=7, decimal_places=2, validators=[MinValueValidator(1)])
+    donation_number = models.CharField(
+        max_length=32, unique=True, null=False, editable=False
+    )
+    user_profile = models.ForeignKey(
+        UserProfile,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name='donations'
+    )
+    cat = models.ForeignKey(
+        'cats.Cat', on_delete=models.CASCADE, blank=True, null=True
+    )
+    amount = models.DecimalField(
+        max_digits=7, decimal_places=2, validators=[MinValueValidator(1)]
+    )
     message = models.TextField(blank=True)
     donor_first_name = models.CharField(max_length=100, blank=False)
     donor_last_name = models.CharField(max_length=100, blank=False)
     donor_email_address = models.EmailField(max_length=100, blank=False)
-    donor_postcode = models.CharField(max_length=15, blank=True) 
+    donor_postcode = models.CharField(max_length=15, blank=True)
     date = models.DateTimeField(auto_now_add=True)
-    stripe_pid = models.CharField(max_length=254, null=False, blank=False, default='')
+    stripe_pid = models.CharField(
+        max_length=254, null=False, blank=False, default=''
+    )
 
     def _generate_donation_number(self):
         """
@@ -36,6 +50,5 @@ class Donation(models.Model):
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return f"Donation of {self.amount} by {self.donor_first_name} {self.donor_last_name} for {self.cat.name if self.cat else 'General Donation'}"
-
-
+        return f"Donation of {self.amount} by {self.donor_first_name} "
+        "{self.donor_last_name}"

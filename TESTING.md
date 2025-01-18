@@ -83,46 +83,46 @@ Any warnings received have all been to do with ES6 & ES11 and no errors with act
 I used [Code Institute's Python Linter](https://pep8ci.herokuapp.com/) to lint my Python code.
 | File | Result | Validation Details & Screenshots |
 | :-- | :-: | -------------------------- |
-| custom_storages.py | All clear, no errors found | [custom_storages.py](.)|
+| custom_storages.py | All clear, no errors found | [custom_storages.py](./documentation/validation/python_validation/python-linter-custom-storages.png)|
 | **CATNIP COVE** |  |  |
-| catnip_cove/settings.py | All clear, no errors found | [settings.py validation](.) |
-| catnip_cove/urls.py | All clear, no errors found | [urls.py validation](.) |
-| catnip_cove/wsgi.py | All clear, no errors found | [wasgi.py validation](.) |
+| catnip_cove/settings.py | All clear, no errors found | [Catnip Cove settings.py validation](./documentation/validation/python_validation/python-linter-catnip-cove-settings.png) |
+| catnip_cove/urls.py | All clear, no errors found | [Catnip Cove urls.py validation](./documentation/validation/python_validation/python-linter-catnip-cove-urls.png) |
+| catnip_cove/wsgi.py | All clear, no errors found | [Catnip Cove wsgi.py validation](./documentation/validation/python_validation/python-linter-catnip-cove-wsgi.png) |
 | **BLOG APP** |  |  |
-| blog/widgets.py | All clear, no errors found | [widgets.py validation](.) |
-| blog/views.py | All clear, no errors found | [](.) |
-| blog/urls.py | All clear, no errors found | [](.) |
-| blog/models.py | All clear, no errors found | [](.) |
-| blog/forms.py | All clear, no errors found | [](.) |
-| blog/apps.py | All clear, no errors found | [](.) |
-| blog/admin.py | All clear, no errors found | [](.) |
+| blog/widgets.py | All clear, no errors found | [Blog widgets.py validation](./documentation/validation/python_validation/python-linter-blog-widgets.png) |
+| blog/views.py | All clear, no errors found | [Blog views.py validation](./documentation/validation/python_validation/python-linter-blog-views.png) |
+| blog/urls.py | All clear, no errors found | [Blog urls.py validation](./documentation/validation/python_validation/python-linter-blog-urls.png) |
+| blog/models.py | All clear, no errors found | [Blog models.py validation](./documentation/validation/python_validation/python-linter-blog-models.png) |
+| blog/forms.py | All clear, no errors found | [Blog forms.py validation](./documentation/validation/python_validation/python-linter-blog-forms.png) |
+| blog/apps.py | All clear, no errors found | [Blog apps.py validation](./documentation/validation/python_validation/python-linter-blog-apps.png) |
+| blog/admin.py | All clear, no errors found | [Blog admin.py validation](./documentation/validation/python_validation/python-linter-blog-admin.png) |
 | **CATS APP** |  |  |
-| cats/widgets.py | All clear, no errors found | [](.) |
-| cats/views.py | All clear, no errors found | [](.) |
-| cats/urls.py | All clear, no errors found | [](.) |
-| cats/models.py | All clear, no errors found | [](.) |
-| cats/forms.py | All clear, no errors found | [](.) |
-| cats/apps.py | All clear, no errors found | [](.) |
-| cats/admin.py | All clear, no errors found | [](.) |
+| cats/widgets.py | All clear, no errors found | [Cats widgets.py validation](./documentation/validation/python_validation/python-linter-cats-widgets.png) |
+| cats/views.py | All clear, no errors found | [Cats views.py validation](./documentation/validation/python_validation/python-linter-cats-views.png) |
+| cats/urls.py | All clear, no errors found | [Cats urls.py validation](./documentation/validation/python_validation/python-linter-cats-urls.png) |
+| cats/models.py | All clear, no errors found | [Cats models.py validation](./documentation/validation/python_validation/python-linter-cats-models.png) |
+| cats/forms.py | All clear, no errors found | [Cats forms.py validation](./documentation/validation/python_validation/python-linter-cats-forms.png) |
+| cats/apps.py | All clear, no errors found | [Cats apps.py validation](./documentation/validation/python_validation/python-linter-cats-apps.png) |
+| cats/admin.py | All clear, no errors found | [Cats admins.py validation](./documentation/validation/python_validation/python-linter-cats-admin.png) |
 | **DONATION APP** |  |  |
-| donations/admin.py | All clear, no errors found | [admin.py validation](.) |
-| donations/apps.py | All clear, no errors found | [apps.py validation](.) |
-| donations/forms.py | All clear, no errors found | [forms.py validation](.) |
-| donations/models.py | All clear, no errors found | [models.py validation](.) |
-| donations/urls.py | All clear, no errors found | [urls.py validation](.) |
-| donations/views.py | All clear, no errors found | [views.py validation](.) |
-| donations/webhook_handler.py | All clear, no errors found | [webhook_handler.py validation](.) |
-| donations/webhooks.py | All clear, no errors found | [webhooks.py validation](.) |
+| donations/admin.py | All clear, no errors found | [Donations admin.py validation](./documentation/validation/python_validation/python-linter-donations-admin.png) |
+| donations/apps.py | All clear, no errors found | [Donations apps.py validation](./documentation/validation/python_validation/python-linter-donations-apps.png) |
+| donations/forms.py | All clear, no errors found | [Donations forms.py validation](./documentation/validation/python_validation/python-linter-donations-forms.png) |
+| donations/models.py | All clear, no errors found | [Donations models.py validation](./documentation/validation/python_validation/python-linter-donations-models.png) |
+| donations/urls.py | All clear, no errors found | [Donations urls.py validation](./documentation/validation/python_validation/python-linter-donations-urls.png) |
+| donations/views.py | All clear, no errors found | [Donations views.py validation](./documentation/validation/python_validation/python-linter-donations-views.png) |
+| donations/webhook_handler.py | All clear, no errors found | [Donations webhook_handler.py validation](.) |
+| donations/webhooks.py | All clear, no errors found | [Donations webhooks.py validation](./documentation/validation/python_validation/python-linter-donations-webhooks.png) |
 | **HOME APP** |  |  |
-| home/apps.py | All clear, no errors found | [apps.py validation](.) |
-| home/urls.py | All clear, no errors found | [urls.py validation](.) |
-| home/views.py | All clear, no errors found | [views.py validation](.) |
+| home/apps.py | All clear, no errors found | [Home apps.py validation](./documentation/validation/python_validation/python-linter-home-apps.png) |
+| home/urls.py | All clear, no errors found | [Home urls.py validation](./documentation/validation/python_validation/python-linter-home-urls.png) |
+| home/views.py | All clear, no errors found | [Home views.py validation](./documentation/validation/python_validation/python-linter-home-views.png) |
 | **PROFILES APP** |  |  |
-| profiles/apps.py | All clear, no errors found | [apps.py validation](.) |
-| profiles/forms.py | All clear, no errors found | [forms.py validation](.) |
-| profiles/models.py | All clear, no errors found | [models.py validation](.) |
-| profiles/urls.py | All clear, no errors found | [urls.py validation](.) |
-| profiles/views.py | All clear, no errors found | [views.py validation](.) |
+| profiles/apps.py | All clear, no errors found | [Profiles apps.py validation](./documentation/validation/python_validation/python-linter-profiles-apps.png) |
+| profiles/forms.py | All clear, no errors found | [Profiles forms.py validation](./documentation/validation/python_validation/python-linter-profiles-forms.png) |
+| profiles/models.py | All clear, no errors found | [Profiles models.py validation](./documentation/validation/python_validation/python-linter-profiles-models.png) |
+| profiles/urls.py | All clear, no errors found | [Profiles urls.py validation](./documentation/validation/python_validation/python-linter-profiles-urls.png) |
+| profiles/views.py | All clear, no errors found | [Profiles views.py validation](./documentation/validation/python_validation/python-linter-profiles-views.png) |
 
 <!-- ### Lighthouse Report
 [Chrome DevTools' Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/) was used to test the performance, accessibility, best practices and SEO of the site
