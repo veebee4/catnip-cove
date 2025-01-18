@@ -52,7 +52,7 @@ I used [W3C Markup Validation Service](https://validator.w3.org/) to validate al
 | 'templates/allauth/account/signup.html' | 4 errors and 0 warnings | [Sign Up Page](./documentation/validation/html_validation/html-account-signup-page.png) |
 | 404 page | 0 errors and 0 warnings | [404 page](./documentation/validation/html_validation/html-validator-404-error-page.png) |
 
-Errors found on login and signup pages were left as I could not figure out where these came from due to them being pre-defined Allauth templates. With more time, I would have liked to investigate these in-depth and resolve the errors.
+Errors found on login and signup pages were left as I could not figure out where these came from due to them being pre-defined Allauth templates using templating. With more time, I would have liked to investigate these in-depth and resolve the errors, the pages still work as they should.
 
 ### CSS Validation
 I used [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/) to validate all CSS files by direct input.

@@ -15,7 +15,6 @@ class StripeWH_Handler:
     """Handle Stripe webhooks"""
 
     def __init__(self, event):
-        self.self = self
         self.event = event
 
     # Email confirmation code taken from SJE Collins Animal House Django project - full credit in README

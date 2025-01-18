@@ -58,6 +58,7 @@ Catnip Cove is my 4th milestone project for Code Institute's Level 5 Diploma in 
         * [Register Page](#registersign-up-page)
         * [Login Page](#loginsign-in-page)
         * [Log Out Page](#log-outsign-out-page)
+        * [Password Rest Page](#password-reset-page)
         * [Cat Management Page (Superuser/Admin Only)](#cat-management-page-superuseradmin-only)
         * [Edit a Cat Page (Superuser/Admin Only)](#edit-a-cat-page-superuseradmin-only)
         * [Blog Management (Superuser/Admin Only)](#blog-management-superuseradmin-only)
@@ -614,6 +615,18 @@ Catnip Cove's log out page features the following:
 - Plain overlay to avoid the page being too 'busy'
 - Header and message to user, asking to confirm they wish to log out
 - Button to complete sign out
+
+![Log Out Page Screenshot](./documentation/features/sign-out-screenshot.png)
+<br>
+
+## Password Reset Page
+Catnip Cove's password reset page features the following:
+
+- Top and Main Nav (including search bar, 'My Account' dropdown menu and main nav links; 'Cats', 'Contact Us' and 'Donate')
+- Plain overlay to avoid the page being too 'busy'
+- Header and message to user, asking if they've forgotten their password, how to reset it and contact if any problems
+- Input element for entering email address to obtain reset link
+- Button to reset password
 
 ![Log Out Page Screenshot](./documentation/features/sign-out-screenshot.png)
 <br>
