@@ -50,6 +50,10 @@ class Donate(generic.View):
 
     def post(self, request):
         form = DonationForm(request.POST)
+        context = {
+                "form": form,
+                "stripe_public_key": settings.STRIPE_PUBLIC_KEY,
+            }
         if form.is_valid():
             donation = form.save()
             pid = request.POST.get("client_secret").split("_secret")[0]
@@ -63,30 +67,14 @@ class Donate(generic.View):
                 profile.default_email_address = donation.donor_email_address
                 profile.default_postcode = donation.donor_postcode
                 profile.save()
-                messages.success(
-                    request,
-                    f"Your donation of £{donation.amount:.2f} was successful!"
-                )
-                return redirect(
-                    reverse('success', args=[donation.donation_number]) +
-                    "?is_new_donation=True"
-                )
-            else:
-                context = {
-                    "form": form,
-                    "stripe_public_key": settings.STRIPE_PUBLIC_KEY,
-                    "client_secret": "test",
-                }
-                messages.error(
-                    request,
-                    "There was an error with your form."
-                    "Please double check your information."
-                )
-                return render(request, "donations/donate.html", context)
+            messages.success(request, f"Your donation of £{donation.amount:.2f} was successful!")
+            return redirect(reverse('success', args=[donation.donation_number]) + "?is_new_donation=True")
+        else:
+            messages.error(request, "There was an error with your form. Please double check your information.")
+        return render(request, "donations/donate.html", context)
 
 
 def create_payment_intent(request):
-    print('IN CREATE PAYMENT INTENT')
     stripe.api_key = settings.STRIPE_SECRET_KEY
     donation_amount = json.loads(request.body)["donation_amount"]
 
@@ -94,7 +82,6 @@ def create_payment_intent(request):
         amount=round(float(donation_amount) * 100),
         currency="gbp",
         )
-    print('INTENT: ', intent)
     return JsonResponse({"client_secret": intent.client_secret})
 
 
