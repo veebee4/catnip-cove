@@ -628,7 +628,7 @@ Catnip Cove's password reset page features the following:
 - Input element for entering email address to obtain reset link
 - Button to reset password
 
-![Log Out Page Screenshot](./documentation/features/sign-out-screenshot.png)
+![Password Reset Page Screenshot](./documentation/features/password-reset-screenshot.png)
 <br>
 
 ## Cat Management (Superuser/Admin only)

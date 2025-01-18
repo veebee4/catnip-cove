@@ -51,4 +51,4 @@ class Donation(models.Model):
 
     def __str__(self):
         return f"Donation of {self.amount} by {self.donor_first_name} "
-        "{self.donor_last_name}"
+        f" {self.donor_last_name} "
