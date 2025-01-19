@@ -5,6 +5,10 @@
     <link rel="stylesheet" href="{% static 'donations/css/donation.css' %}">
 {% endblock %}
 
+{% block extra_js %}
+    <script src="https://js.stripe.com/v3/"></script>
+{% endblock %}
+
 {% block page_header %}
     <div class="container header-container">
         <div class="row">
