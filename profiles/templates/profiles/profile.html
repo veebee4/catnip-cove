@@ -6,11 +6,11 @@
 {% endblock %}
 
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
     </div>
+</div>
 {% endblock %}
 
 {% block content %}
@@ -24,48 +24,58 @@
         </div>
     </div>
 
-    <div class="row mt-5 profile-details-container">
-        <div class="col-12 col-lg-6 p-3 d-flex profile-form-wrapper">
-                    <form class="mt-3 profile-form" action="{% url 'profile' %}" method="POST" id="profile-update-form">
-                        {% csrf_token %}
-
-                        <fieldset class="profile-details-form rounded-3">
-                            <legend class="fieldset-label small text-black w-auto rounded-3">Your Details</legend>
-                            {{ form|crispy }}
-                            <button class="btn btn-update rounded-3 text-uppercase float-right">Update Information</button>
-                        </fieldset>
-                    </form>
+    {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
         </div>
+    {% endif %}
+
+    <div class="row mt-5 profile-details-container">
+        <div class="col-12 col-lg-6 p-3 profile-form-wrapper">
+            <form class="profile-form" action="{% url 'profile' %}" method="POST" id="profile-update-form">
+                {% csrf_token %}
+                <fieldset class="profile-details-form rounded-3">
+                    <legend class="fieldset-label small text-black w-auto rounded-3">Your Details</legend>
+                    {{ form|crispy }}
+                    <button type="submit" class="btn btn-update rounded-3 text-uppercase float-right">Update Information</button>
+                </fieldset>
+            </form>
+        </div>
+
         <div class="col-12 col-lg-6 donation-history-details text-black rounded-3">
             <p class="donation-history-header rounded-3 mt-3 mb-3 p-2">Donation History</p>
             <div class="order-history table-responsive">
                 <table class="table table-sm table-borderless">
                     <thead>
                         <tr>
-                            <th>Donation Number</th>
-                            <th>Date & Time</th>
-                            <th>Amount</th>
+                            <th scope="col">Donation Number</th>
+                            <th scope="col">Date & Time</th>
+                            <th scope="col">Amount</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {% for donation in donations %}
+                        {% if donations %}
+                            {% for donation in donations %}
+                                <tr>
+                                    <td>
+                                        <a href="{% url 'donation_history' donation.donation_number %}" 
+                                           title="{{ donation.donation_number }}">
+                                            {{ donation.donation_number|truncatechars:6 }}
+                                        </a>
+                                    </td>
+                                    <td>{{ donation.date|date:"d M Y H:i" }}</td>
+                                    <td>£{{ donation.amount|floatformat:2 }}</td>
+                                </tr>
+                            {% endfor %}
+                        {% else %}
                             <tr>
-                                <td>
-                                    <a href="{% url 'donation_history' donation.donation_number %}" 
-                                    title="{{ donation.donation_number }}">
-                                        {{ donation.donation_number|truncatechars:6 }}
-                                    </a>
-                                </td>
-                                <td>{{ donation.date }}</td>
-                                <td>
-                                    {% if donation.custom_amount %}
-                                        {{ donation.custom_amount }} 
-                                    {% else %}
-                                        {{ donation.amount }}
-                                    {% endif %}
-                                </td>
+                                <td colspan="3" class="text-center">No donations found.</td>
                             </tr>
-                        {% endfor %}
+                        {% endif %}
                     </tbody>
                 </table>
             </div>

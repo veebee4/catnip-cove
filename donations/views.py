@@ -186,9 +186,12 @@ def cache_donation_data(request):
 
     except Exception as e:
         logger.error(f"Error caching donation data: {e}")
-        messages.error(request, "Sorry, there was an issue processing your donation. Please try again later.")
+        messages.error(
+            request,
+            "Sorry, there was an issue processing your donation. "
+            "Please try again later."
+        )
         return HttpResponse(content=e, status=400)
-
 
 
 def successMsg(request, donation_number):
