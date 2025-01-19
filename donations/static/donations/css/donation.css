@@ -232,6 +232,17 @@ input[type="checkbox"]:checked {
     .instruct-text {
         margin-top: 1rem !important;
     }
+
+    /*----------------- Past Donation page */
+
+    .thankyou-container {
+        margin-top: 8rem !important;
+        width: 80%;
+    }
+
+    .thankyou-message {
+        width: 80%;
+    }
 }
 
 /*---------------------------- For Medium sized Mobile screens */
@@ -277,6 +288,17 @@ input[type="checkbox"]:checked {
     .instruct-text {
         margin-top: 1rem !important;
     }
+
+    /*----------------- Past Donation page */
+
+    .thankyou-container {
+        margin-top: 8rem !important;
+        width: 80%;
+    }
+
+    .thankyou-message {
+        width: 80%;
+    }
 }
 
 /*---------------------------- For Large sized Mobile screens */
@@ -314,6 +336,17 @@ input[type="checkbox"]:checked {
     .instruct-text {
         margin-top: 1rem !important;
     }
+
+    /*----------------- Past Donation page */
+
+    .thankyou-container {
+        margin-top: 8rem !important;
+        width: 80%;
+    }
+
+    .thankyou-message {
+        width: 80%;
+    }
 }
 
 /*---------------------------- For tablet screens */
@@ -347,6 +380,21 @@ input[type="checkbox"]:checked {
     .instruct-text {
         margin-top: 1rem !important;
     }
+
+    /*----------------- Past Donation page */
+
+    .thankyou-container {
+        margin-top: 10rem !important;
+        width: 80%;
+    }
+
+    .thankyou-message {
+        width: 80%;
+    }
+
+    .back-to-donate-button {
+        margin-right: 5rem;
+    }
 }
 
 /*---------------------------- For laptop screens */
@@ -375,5 +423,16 @@ input[type="checkbox"]:checked {
 
     .instruct-text {
         margin-top: 1rem !important;
+    }
+
+    /*----------------- Past Donation page */
+
+    .thankyou-container {
+        margin-top: 15rem !important;
+        width: 60%;
+    }
+
+    .thankyou-message {
+        width: 60%;
     }
 }

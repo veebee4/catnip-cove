@@ -47,10 +47,6 @@
         <p class="text-black">submitted on {{ donation.date }} - A confirmation email was sent to {{ donation.donor_email_address }} on this date.</p>
     </div>
 
-    {% if donation.cat %}
-    <p><strong>Donated for:</strong><i class="fa-solid fa-cat"></i> {{ donation.cat.name }} <i class="fa-solid fa-cat"></i> </p>
-    {% endif %}
-
     <div class="text-center text-black thankyou-message container col-6 col-md-5 rounded">
         <h4>You kindly donated £{{ donation.amount }}</h4>
         <p>Your support helps us fulfill our objective of helping rescued cats and allowing us to continue our work!</p>
@@ -58,7 +54,7 @@
     </div>
 
     <div class="row">
-        <div class="col-12 col-lg-7 profile-donate-buttons mt-5">
+        <div class="col-12 col-lg-9 profile-donate-buttons mt-5">
             <a href="{% url 'profile' %}" class="back-to-donate-button text-black rounded my-2">
                 <span class="icon mr-2">
                     <i class="fas fa-angle-left"></i>
