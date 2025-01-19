@@ -89,7 +89,7 @@
                         <div class="card h-100 border-2">
                             {% if cat.image %}
                             <a href="{% url 'cat_detail' cat.id %}">
-                                <img class="card-img-top img-fluid" src="{{ cat.image.url }}" alt="{{ cat.name }}">
+                                <img class="card-img-top img-fluid" src="{{ cat.image.url }}" alt="{{ cat.name }}" srcset="238×357, 476×714, 714×1071">
                             </a>
                             {% else %}
                             <a href="{% url 'cat_detail' cat.id %}">
