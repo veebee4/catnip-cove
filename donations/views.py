@@ -170,22 +170,25 @@ def cache_donation_data(request):
         pid = data["client_secret"].split("_secret")[0]
         save_info = data.get("save_info", False)
 
+        # Ensure all metadata values are strings
         metadata = {
-            "donation_amount": data.get("donation_amount"),
-            "save_info": save_info,
+            "donation_amount": str(data.get("donation_amount", "")),
+            "save_info": str(save_info),
             "username": (
-                request.user.username
+                str(request.user.username)
                 if request.user.is_authenticated
-                else "AnonymousUser",
-            )
+                else "AnonymousUser"
+            ),
         }
 
         stripe.PaymentIntent.modify(pid, metadata=metadata)
         return HttpResponse(status=200)
+
     except Exception as e:
         logger.error(f"Error caching donation data: {e}")
-        messages.error(request, PAYMENT_ERROR_MSG)
+        messages.error(request, "Sorry, there was an issue processing your donation. Please try again later.")
         return HttpResponse(content=e, status=400)
+
 
 
 def successMsg(request, donation_number):
