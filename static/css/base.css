@@ -371,8 +371,6 @@ input[name='q']::placeholder {
 
 .cat-details-container {
     margin-top: 3rem;
-    margin-bottom: 5rem;
-    margin-right: 20rem;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -380,7 +378,7 @@ input[name='q']::placeholder {
 }
 
 .cat-id-card {
-    width: 50rem;
+    max-width: 50rem;
     margin-top: 3rem;
 }
 
@@ -693,6 +691,21 @@ input[name='q']::placeholder {
         gap: 1.9rem;
     }
 
+    /*----------------- Cat Detail page */
+
+    .image-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .cat-image-detail {
+        width: 200px;
+        margin-top: 4rem;
+    }
+
+    .cat-details-container {
+        display: initial;
+    }
 }
 
 /*---------------------------- For Large sized Mobile screens */
@@ -776,6 +789,22 @@ input[name='q']::placeholder {
         gap: 3rem;
     }
 
+    /*----------------- Cat Detail page */
+
+    .image-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .cat-image-detail {
+        width: 238px;
+        margin-top: 4rem;
+    }
+
+    .cat-details-container {
+        display: initial;
+    }
+
     /*----------------- All Auth Templates */
 
     .allauth-form-inner-content {
@@ -844,6 +873,17 @@ input[name='q']::placeholder {
     .button-container {
         gap: 3rem;
     }
+
+    /*----------------- Cat Detail page */
+
+    .cat-details-container {
+        margin-top: 6rem;
+        display: flex;
+    }
+
+    .cat-id-card {
+        width: auto;
+    }
 }
 
 /*---------------------------- For laptop screens */
@@ -902,6 +942,16 @@ input[name='q']::placeholder {
         gap: 3rem;
     }
 
+    /*----------------- Cat Detail page */
+
+    .cat-id-card {
+        width: 35rem;
+    }
+
+    .cat-details-container {
+        margin-right: 20rem;
+        margin-top: 0;
+    }
 }
 
 /*---------------------------- For large laptop screens */
@@ -941,6 +991,16 @@ input[name='q']::placeholder {
 
     .button-container {
         gap: 3rem;
+    }
+
+    /*----------------- Cat Detail page */
+
+    .cat-id-card {
+        width: 50rem;
+    }
+
+    .cat-details-container {
+        margin-right: 20rem;
     }
 
 }
