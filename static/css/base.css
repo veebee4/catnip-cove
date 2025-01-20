@@ -370,12 +370,18 @@ input[name='q']::placeholder {
 /* ------------------------------------------------------------------------------------------- Cat Detail Page */
 
 .cat-details-container {
-    margin-top: 5rem;
+    margin-top: 3rem;
+    margin-bottom: 5rem;
+    margin-right: 20rem;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
 }
 
 .cat-id-card {
     width: 50rem;
-    margin-top: 10rem;
+    margin-top: 3rem;
 }
 
 .card-title {
@@ -385,6 +391,10 @@ input[name='q']::placeholder {
 
 .card-section-title {
     text-decoration: underline;
+}
+
+.cat-image-detail {
+    width: 238px;
 }
 
 /* ------------------------------------------------------------------------------------------- Cat Management Pages */

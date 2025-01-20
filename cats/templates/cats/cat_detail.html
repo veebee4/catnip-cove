@@ -11,17 +11,17 @@
 
 {% block content %}
 <div class="overlay"></div>
-<div class="container fluid">
+<div class="container-fluid mb-5">
     <div class="row cat-details-container">
-        <div class="col-12 col-md-6 col-lg-4  offset-lg-2">
+        <div class="col-12 col-md-6 col-lg-2 offset-lg-1">
             <div class="image-container my-5">
                 {% if cat.image %}
                     <a href="{{ cat.image.url }}" target="_blank">
-                        <img class="card-img-top img-fluid rounded-pill" src="{{ cat.image.url }}" alt="{{ cat.name }}">
+                        <img class="card-img-top img-fluid rounded-3 cat-image-detail" src="{{ cat.image.url }}" alt="{{ cat.name }}">
                     </a>
                     {% else %}
                     <a href="">
-                        <img class="card-img-top img-fluid rounded-circle" src="{{ MEDIA_URL }}noimage.png" alt="{{ cat.name }}">
+                        <img class="card-img-top img-fluid rounded-3 cat-image-detail" src="{{ MEDIA_URL }}noimage.png" alt="{{ cat.name }}">
                     </a>
                 {% endif %}
             </div>
