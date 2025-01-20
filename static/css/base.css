@@ -208,7 +208,7 @@ body {
 /* ------------------------------------------------------------------------------------------- Body */
 
 body {
-    background: url('/media/banner-cat.jpg') no-repeat center center fixed;
+    background: url('/media/banner-cat.webp') no-repeat center center fixed;
     background-size: cover;
     height: calc(100vh - 164px);
     font-family: 'Dosis';
