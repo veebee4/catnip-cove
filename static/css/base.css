@@ -24,7 +24,7 @@ body {
 /* -------------------------------------------- Nav & Mobile Nav Colors*/
 
 .custom-nav-bg, .navbar {
-    background-color: #98b080;
+    background-color: #c0cfb1;
 }
 
 .nav-bar-icon {
@@ -69,7 +69,7 @@ body {
 .user-option-link:hover,
 .user-option-link:active,
 .user-option-link:focus {
-    color: white;
+    color: #003366;
 }
 
 .search-submit-btn {
@@ -260,7 +260,7 @@ body {
 }
 
 input[name='q']::placeholder {
-    color: #aab7c4;
+    color: #000;
 }
 
 /* ------------------------------------------------------------------------------------------- Mobile Nav */
@@ -298,6 +298,18 @@ input[name='q']::placeholder {
     margin: 1rem;
 }
 
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
 /* ------------------------------------------------------------------------------------------- Home Page */
 
 .home-logo {
@@ -317,6 +329,7 @@ input[name='q']::placeholder {
 .home-desc-text {
     padding: 2rem;
     font-weight: 700;
+    font-size: 1.2rem;
     border: 2px solid black;
 }
 
@@ -385,10 +398,6 @@ input[name='q']::placeholder {
 .card-title {
     font-family: Pacifico;
     font-size: 3rem;
-}
-
-.card-section-title {
-    text-decoration: underline;
 }
 
 .cat-image-detail {

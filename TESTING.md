@@ -149,38 +149,29 @@ I used [Code Institute's Python Linter](https://pep8ci.herokuapp.com/) to lint m
 
 I would have liked to improve the mobile scores more, but due to time constraints this could not be done and would be implemented in a future version.
 
-<!---### WAVE Web Accessibility Evaluation Tool
-[WAVE](https://wave.webaim.org/) was used to ensure that Shop K-Beauty's content is also accessible to individuals with disabilities. WAVE can identify many accessibility and Web Content Accessibility Guideline (WCAG) errors, which are then corrected following the results of the initial evaluation.
+### WAVE Web Accessibility Evaluation Tool
+[WAVE](https://wave.webaim.org/) was used to ensure that Catnip Cove's content is easily accessible to individuals with disabilities. WAVE assesses the page and identifies many accessibility and Web Content Accessibility Guideline (WCAG) errors, including contrast errors and general accessibility errors within the HTML code, which can then be rectified following the results of the initial evaluation.
 
-In order to fully validate the page, I used the WAVE Chrome extension. This enabled me to test the pages that require user authentication.
+I used the WAVE Chrome extension to enable testing of the public pages and also any pages that require user authentication.
 
 | Page | WAVE This Page Result | Reasons for not fixing the contrast errors, if any |
 | :-- | --- | --- |
-| Bag Page | no errors |  |
-| Checkout Page | no errors, 2 contrast errors | Both of the contrast errors point to the placeholder text for country but as it is a default Stripe styling, I decided to leave it alone as the placeholder text for other fields in the form uses the same font color from this class: <br/> ```.stripe-style-input::placeholder { color: #aab7c4 } ``` <br/> and they all passed the contrast validation. |
-| Checkout Success Page | no errors |  |
-| Products Page  | no errors |  |
-| Product Detail Page  | no errors |  |
-| Add a Product Page | no errors |  |
-| Edit a Product Page | no errors |  |
-| Brands Page | no errors |  |
-| Brand Detail Page | no errors |  |
-| Add a Brand Page | no errors |  |
-| Edit a Brand Page | no errors |  |
-| Profiles Page | no errors, 1 contrast error | This is the same contrast error as in the Checkout Page. |
-| Reviews Page | no errors |  |
-| Add a Review Page | no errors |  |
-| Edit a Review Page | no errors |  |
-| Review Detail Page | no errors |  |
-| Wishlist Page | no errors |  |
-| K-Beauty Tips Page | no errors |  |
-| Privacy Policy Page | no errors |  |
-| Terms &amp; Conditions Page | no errors |  |
-| Return &amp; Refund Policy Page | no errors |  |
-| Shipping Policy Page | no errors |  |
+| Home Page | 0 errors, 0 contrast errors |  |
+| Cats Page | no errors, 0 contrast errors |  |
+| Cat Detail Page | no errors, 0 contrast errors |  |
+| Add a Cat Page  | no errors |  | ***** start here
+| Edit a Cat Page  | no errors |  |
+| Contact Page | no errors |  |
+| Donate Page | no errors |  |
+| Profile Page | no errors |  |
+| Blog Index Page | no errors |  |
+| Add a Blog Page | no errors |  |
+| Edit a Blog Page | no errors |  |
+| Blog Detail Page | no errors |  |
+| Blog Category Page | no errors |  |
 | 404 Error Page | no errors |  |
 
-### Django Automated Testing
+<!--### Django Automated Testing
 For the automated testing, the writing and running of these tests used [Django's built in test module](https://docs.djangoproject.com/en/4.1/topics/testing/overview/). For each installed application, I created a folder called tests, added the ```__init__.py``` file and the separate files for testing the views, models and forms.
 
 I also used coverage to generate the report and find out the percentage of statements that I was able to cover and those that I missed for every installed application. I tried to achieve as close to the 100% mark as I possibly can, but I am still fairly new to using Automated Testing and am looking forward to learning more to reach this goal.

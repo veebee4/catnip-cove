@@ -21,7 +21,7 @@
                     </a>
                     {% else %}
                     <a href="">
-                        <img class="card-img-top img-fluid rounded-3 cat-image-detail" src="{{ MEDIA_URL }}noimage.png" alt="{{ cat.name }}">
+                        <img class="card-img-top img-fluid rounded-3 cat-image-detail" src="{{ MEDIA_URL }}noimage.webp" alt="{{ cat.name }}">
                     </a>
                 {% endif %}
             </div>
@@ -33,7 +33,7 @@
                     CAT ID - {{ cat.id }}
                 </div>
                 <div class="card-body">
-                    <h4 class="card-title text-center text-black">{{ cat.name }}</h4>
+                    <h1 class="card-title text-center text-black">{{ cat.name }}</h1>
                 </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item text-center"><p class="card-section-title"><strong>Breed:</strong></p> {{ cat.breed }}</li>
