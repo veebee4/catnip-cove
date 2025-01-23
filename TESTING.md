@@ -156,39 +156,38 @@ I used the WAVE Chrome extension to enable testing of the public pages and also 
 
 | Page | WAVE This Page Result | Reasons for not fixing the contrast errors, if any |
 | :-- | --- | --- |
-| Home Page | no errors |  |
-| Cats Page | no errors |  |
-| Cat Detail Page | no errors |  |
-| Add a Cat Page  | no errors |  |
+| Home Page | no errors | - |
+| Cats Page | no errors | - |
+| Cat Detail Page | no errors | - |
+| Add a Cat Page  | no errors | - |
 | Edit a Cat Page  | no errors, 1 alert | The alert pointed to some text that is hidden for the current cat image, as this was part of the widget created with the Boutique Ado walkthrough, as it's only an alert, I have left it as it is |
-| Contact Page | no errors |  |
+| Contact Page | no errors | - |
 | Donate Page | no errors, 1 alert | The alert points to an 'orphaned form label', which is the credit/debit card form input label, as this is to do with stripe and only an alert, I have left as it is |
-| Profile Page | 0 errors | Fixed: The crispy form did not render 5 labels, I couldn't find a solution by googling so I turned to chatGPT which gave the code and satisfied the WAVE errors; "self.fields[field].widget.attrs['aria-label'] = placeholders.get(field, field.replace('_', ' ').capitalize())" added to the form.py file |
-| Blog Index Page | no errors |  |
-| Add a Blog Page | 1 errors | The error pointed to the select image button, I added the same code that I put on the add cat page as they are the same widget but the error did not clear, due to time constraints this was left |
-| Edit a Blog Page | 1 error, 1 alert | The error is the same as above and the alert was regarding the alt text for the current blog image, the same as the edit cat page alert so these were left as well |
-| Blog Detail Page | no errors, 3 alerts | Two alerts applied to headings, which I changed the code but they did not clear, I assume this is a caching issue, tried to clear the website but still did not work. The other alert was for a minor unordered list that was within the blog article itself so this was ignored |
-| Blog Category Page | no errors |  |
-| 404 Error Page | no errors |  |
+| Profile Page | 5 errors | Fixed: The crispy form did not render 5 labels, I couldn't find a solution by googling so I turned to chatGPT which gave the code and satisfied the WAVE errors; "self.fields[field].widget.attrs['aria-label'] = placeholders.get(field, field.replace('_', ' ').capitalize())" added to the form.py file |
+| Blog Index Page | no errors | - |
+| Add a Blog Page | no errors | - |
+| Edit a Blog Page | no errors, 1 alert | The alert was regarding the alt text for the current blog image, the same as the edit cat page alert so this was left as well |
+| Blog Detail Page | no errors, 2 alerts | One alert applied to headings, which I changed the code but they did not clear, I assume this is a caching issue, tried to clear the website cache but it still did not work. The other alert was for a minor unordered list that was within the blog article itself so this was ignored |
+| Blog Category Page | no errors | - |
+| 404 Error Page | no errors | - |
 
-<!--### Django Automated Testing
-For the automated testing, the writing and running of these tests used [Django's built in test module](https://docs.djangoproject.com/en/4.1/topics/testing/overview/). For each installed application, I created a folder called tests, added the ```__init__.py``` file and the separate files for testing the views, models and forms.
+### Django Automated Testing
+Automated testing is accomplished by writing tests for models, forms and views, within a test.py file, and running those tests automatically to verify that the code behaves as expected. 
+The tests were carried out using Django's built in module [Django's built in test module](https://docs.djangoproject.com/en/4.1/topics/testing/overview/). For each installed application, I created a folder called tests, added the ```__init__.py``` file and the separate files for testing the views, models and forms.
 
-I also used coverage to generate the report and find out the percentage of statements that I was able to cover and those that I missed for every installed application. I tried to achieve as close to the 100% mark as I possibly can, but I am still fairly new to using Automated Testing and am looking forward to learning more to reach this goal.
+I also used coverage to generate a report and to measure which parts of your code were actually tested by those tests. I have tried to achieve as close to the 100% mark as I possibly can, but I am still fairly new to using Automated Testing and would research this more extensively with more time.
 
 #### Coverage
 | Installed App Coverage Report | Cover in Percentage | Screenshot of Coverage Report |
 | -- | :-: | :-: |
-| bag app | 77% | [bag app cover](./documentation/coverage_report/coverage-report-bag-app.png) |
-| checkout app | 61% | [checkout app cover](./documentation/coverage_report/coverage-report-checkout-app.png) |
-| home app | 100% | [home app cover](./documentation/coverage_report/coverage-report-home-app.png) |
-| products app | 81% | [product app cover](./documentation/coverage_report/coverage-report-products-app.png) |
-| profiles app | 97% | [profile app cover](./documentation/coverage_report/coverage-report-profiles-app.png) |
-| reviews app | 83% | [reviews app cover](./documentation/coverage_report/coverage-report-reviews-app.png) |
-| wishlist app | 74% | [wishlist app cover](./documentation/coverage_report/coverage-report-wishlist-app.png) |
+| blog app | % | []() |
+| cats app | % | []() |
+| donations app | % | [](.) |
+| home app | % | [](.) |
+| profiles app | % | [](.) |
 
 ---
-## Manual Testing
+<!--## Manual Testing
 ### Testing User Stories
 ### **User Stories**
 | **User Story #** | **As a/an** | **I want to be able to...** | **So that I can...** | **How was this achieved** | **Evidence**
