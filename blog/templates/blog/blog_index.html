@@ -18,15 +18,15 @@
 <div class="container-fluid mb-2 blog-page-container">
     <div class="row">
         <div class="col d-flex flex-column">
-            <h2 class="logo-font mb-5 mt-5 text-center blog-header">The Cat Nap</h2>
-            <h5 class="text-center text-black">An informative blog about all things cats!</h5>
+            <h1 class="logo-font mb-5 mt-5 text-center blog-header">The Cat Nap</h1>
+            <h2 class="text-center text-black">An informative blog about all things cats!</h2>
         </div>
     </div>
 
     {% block posts %}
     <div class="blog-post-container mt-5">
         {% for post in posts %}
-            <h4><a href="{% url 'blog_detail' post.pk %}">{{ post.title }}</a></h4>
+            <h3><a href="{% url 'blog_detail' post.pk %}">{{ post.title }}</a></h3>
             <small>
                 {{ post.created_on.date }} | Categories:
                 {% for category in post.categories.all %}

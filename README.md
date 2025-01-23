@@ -693,6 +693,7 @@ Defensive programming has also been written to handle bad user inputs or actions
 
 ## **Accessibility**
 To ensure that Catnip Cove will be as easy for everyone to access and view, I ensure that the site is accessible by:
+* Checking accessibility with the WAVE chrome extension
 * using Semantic HTML
 * using descriptive alt attributes on images used on the site
 * Ensuring that there is a sufficient colour contrast throughout the site.

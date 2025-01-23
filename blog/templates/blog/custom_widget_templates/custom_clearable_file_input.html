@@ -12,7 +12,8 @@
     <br>
     {{ widget.input_text }}
 {% endif %}
+<label for="id_{{ widget.name }}" class="visually-hidden">Select an image</label>
 <span class="btn btn-file">
-    Select Image <input type="{{ widget.type }}" name="{{ widget.name }}" {% include "django/forms/widgets/attrs.html" %}>
+    Select Image <input id="id_{{ widget.name }}" type="{{ widget.type }}" name="{{ widget.name }}" {% include "django/forms/widgets/attrs.html" %}>
 </span>
 <p class="text-danger" id="filename"><strong></strong></p>

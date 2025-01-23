@@ -9,6 +9,8 @@
 
 .blog-header {
     line-height: normal;
+    text-decoration: none;
+    font-weight: 400;
 }
 
 a {

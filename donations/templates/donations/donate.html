@@ -22,11 +22,11 @@
 <div class="container-fluid mb-2 d-flex donation-page-container">
     <div class="row">
         <div class="col">
-            <h2 class="logo-font mb-4 text-center donate-header">Donation Form</h2>
+            <h1 class="logo-font mb-4 text-center donate-header">Donation Form</h1>
         </div>
     </div>
 
-    <h1 class="text-center text-black donate-sub-header">Make a Donation</h1>
+    <h2 class="text-center text-black donate-sub-header">Make a Donation</h2>
 
     <div class="col-12 col-lg-10 col-md-8 col-sm-6 form-container">
         <p class="mt-5 text-center instruct-text w-50">Please fill out the form below to complete your donation</p>
@@ -45,10 +45,15 @@
                 <div class="customer-details">
                     <fieldset>
                         <legend class="fieldset-label rounded small text-black w-auto">Customer Details</legend>
+                            <label for="id_donor_first_name" class="visually-hidden">First Name</label>
                             {{ form.donor_first_name | as_crispy_field }}
+                            <label for="id_donor_last_name" class="visually-hidden">Last Name</label>
                             {{ form.donor_last_name | as_crispy_field }}
+                            <label for="id_donor_email_address" class="visually-hidden">Email Address</label>
                             {{ form.donor_email_address | as_crispy_field }}
+                            <label for="id_donor_postcode" class="visually-hidden">Postcode</label>
                             {{ form.donor_postcode | as_crispy_field }}
+                            <label for="id_message" class="visually-hidden">Message</label>
                             {{ form.message | as_crispy_field }}
                             <div class="form-check form-check-inline float-right mr-0 mb-3">
                                 {% if user.is_authenticated %}

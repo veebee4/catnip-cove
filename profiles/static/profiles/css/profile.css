@@ -39,7 +39,6 @@ fieldset .form-detail-input {
 }
 
 .donation-history-header {
-    text-decoration: underline;
     border: 1px dashed black;
     background-color: #6f8659;
     display: inline-block;

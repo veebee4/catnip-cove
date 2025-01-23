@@ -14,11 +14,16 @@ body {
     color: #555;
 }
 
+.btn-outline-danger {
+    background-color: black;
+    color: #fff;
+}
+
 /* delete button for cat records, blogs and comments */
 .btn-outline-danger:hover,
 .btn-outline-danger:active,
 .btn-outline-danger:focus {
-    color: white;
+    color: #000;
 }
 
 /* -------------------------------------------- Nav & Mobile Nav Colors*/

@@ -28,4 +28,5 @@ class UserProfileForm(forms.ModelForm):
             self.fields[field].widget.attrs['class'] = (
                 'rounded-3 profile-form-input'
             )
-            self.fields[field].label = False
+            # Add visually hidden labels - Below code taken from ChatGPT
+            self.fields[field].widget.attrs['aria-label'] = placeholders.get(field, field.replace('_', ' ').capitalize())
