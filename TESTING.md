@@ -156,18 +156,18 @@ I used the WAVE Chrome extension to enable testing of the public pages and also 
 
 | Page | WAVE This Page Result | Reasons for not fixing the contrast errors, if any |
 | :-- | --- | --- |
-| Home Page | 0 errors, 0 contrast errors |  |
-| Cats Page | no errors, 0 contrast errors |  |
-| Cat Detail Page | no errors, 0 contrast errors |  |
-| Add a Cat Page  | no errors |  | ***** start here
-| Edit a Cat Page  | no errors |  |
+| Home Page | no errors |  |
+| Cats Page | no errors |  |
+| Cat Detail Page | no errors |  |
+| Add a Cat Page  | no errors |  |
+| Edit a Cat Page  | no errors, 1 alert | The alert pointed to some text that is hidden for the current cat image, as this was part of the widget created with the Boutique Ado walkthrough, as it's only an alert, I have left it as it is |
 | Contact Page | no errors |  |
-| Donate Page | no errors |  |
-| Profile Page | no errors |  |
+| Donate Page | no errors, 1 alert | The alert points to an 'orphaned form label', which is the credit/debit card form input label, as this is to do with stripe and only an alert, I have left as it is |
+| Profile Page | 0 errors | Fixed: The crispy form did not render 5 labels, I couldn't find a solution by googling so I turned to chatGPT which gave the code and satisfied the WAVE errors; "self.fields[field].widget.attrs['aria-label'] = placeholders.get(field, field.replace('_', ' ').capitalize())" added to the form.py file |
 | Blog Index Page | no errors |  |
-| Add a Blog Page | no errors |  |
-| Edit a Blog Page | no errors |  |
-| Blog Detail Page | no errors |  |
+| Add a Blog Page | 1 errors | The error pointed to the select image button, I added the same code that I put on the add cat page as they are the same widget but the error did not clear, due to time constraints this was left |
+| Edit a Blog Page | 1 error, 1 alert | The error is the same as above and the alert was regarding the alt text for the current blog image, the same as the edit cat page alert so these were left as well |
+| Blog Detail Page | no errors, 3 alerts | Two alerts applied to headings, which I changed the code but they did not clear, I assume this is a caching issue, tried to clear the website but still did not work. The other alert was for a minor unordered list that was within the blog article itself so this was ignored |
 | Blog Category Page | no errors |  |
 | 404 Error Page | no errors |  |
 
