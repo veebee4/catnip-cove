@@ -172,19 +172,32 @@ I used the WAVE Chrome extension to enable testing of the public pages and also 
 | 404 Error Page | no errors | - |
 
 ### Django Automated Testing
-Automated testing is accomplished by writing tests for models, forms and views, within a test.py file, and running those tests automatically to verify that the code behaves as expected. 
-The tests were carried out using Django's built in module [Django's built in test module](https://docs.djangoproject.com/en/4.1/topics/testing/overview/). For each installed application, I created a folder called tests, added the ```__init__.py``` file and the separate files for testing the views, models and forms.
+Automated testing is accomplished by writing test cases that target various components of the code, such as models, forms, urls and views, typically within seperate test.py files (such as test_models.py, test_urls.py etc.), and running those tests automatically to verify that the code behaves as expected, ensuring correctness and reliability throughout development. 
+After reading the testing documentation and only really understanding how to run the tests once they had been written, I did not really know where to start with defining my own testing, so to better understand the unit testing, I asked chatGPT how to approach the process. The tests were carried out using Django's built in module [Django's built in test module](https://docs.djangoproject.com/en/4.1/topics/testing/overview/), with instruction from ChatGPT.
 
-I also used coverage to generate a report and to measure which parts of your code were actually tested by those tests. I have tried to achieve as close to the 100% mark as I possibly can, but I am still fairly new to using Automated Testing and would research this more extensively with more time.
+ChatGPT advised of certain installed apps that need to be present and to ensure debug was set to false for faster tests. It described the process for creating the folders and files for testing, which I already understood and provided examples for testing. As I still didn't understand how to formulate the actual tests, I asked ChatGPT to do testing for my blog app's urls and models. After it provided the testing code, it provided explanations and breakdowns of the imported SimpleTestCase class from the django.test module (which is used for tests that don't require a database, TestCase is for tests that do) and the functions it used within the provided test code and what each test does.
+
+I asked chatGPT:
+
+[Write unit test for URL.py file](./documentation/testing/automated_testing/chat-gpt-unit-test-url-question.png)
+[ChatGPT response](./documentation/testing/automated_testing/chat-gpt-unit-test-blog-url-code.png)
+
+For just the blog application, I created a folder called tests, added the ```__init__.py``` file and the separate files for testing the urls and models.
+
+Then to run the tests I typed ``` python manage.py test ``` in the terminal and the tests passed - result below.
+
+RESULTS:
+![Testing Results](./documentation/testing/automated_testing/blog-automated-test-result.png)
+
+Due to time constraints, I initially was not going to include automated testing as I was unable to get to grips with the process of writing the tests myself but with more time, I would have liked to implement this on all of the apps myself.
 
 #### Coverage
+I also used coverage to generate a report to measure which parts of the blog app code was actually tested by those tests, I am new to using Automated Testing and would research this more extensively with more time.
+Coverage needed to be installed by typing ``` pip install coverage ``` in the terminal, then by running ``` coverage run --source=blog manage.py test blog ``` (this command was sourced from chatGPT again) to run the testing and coverage so that it can measure the files within the blog app. Then by typing ``` coverage report ``` in the terminal, the below report is produced (there is also an option to produce a more user friendly report by replacing report with "html" and then typing ``` start htmlcov/index.html ``` in the terminal to view the report).
+
 | Installed App Coverage Report | Cover in Percentage | Screenshot of Coverage Report |
 | -- | :-: | :-: |
-| blog app | % | []() |
-| cats app | % | []() |
-| donations app | % | [](.) |
-| home app | % | [](.) |
-| profiles app | % | [](.) |
+| blog app | 70% | [blog app coverage report](./documentation/testing/automated_testing/blog-coverage-report.png) |
 
 ---
 <!--## Manual Testing

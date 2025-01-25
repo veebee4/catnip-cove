@@ -24,7 +24,6 @@ class BlogForm(forms.ModelForm):
         model = Post
         fields = [
             'title',
-            'slug',
             'body',
             'image',
             'categories',
