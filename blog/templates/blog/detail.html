@@ -14,7 +14,7 @@
             <a href="{% url 'edit_blog' post.pk %}" class="btn btn-outline-dark" role="button">Edit</a>
 
             <!-- Triggers modal for delete button -->
-            <a href="#" data-bs-toggle="modal" data-bs-target="#modal-{{ post.pk }}" class="btn delete-btn btn-large text-danger btn-outline-danger">Delete</a>
+            <a href="#" data-bs-toggle="modal" data-bs-target="#modal-{{ post.pk }}" class="btn delete-btn btn-large btn-outline-dark">Delete</a>
             <!-- Modal Structure -->
             <div class="modal fade" id="modal-{{ post.pk }}" tabindex="-1" aria-labelledby="modalLabel-{{ post.pk }}" aria-hidden="true">
                 <div class="modal-dialog">
@@ -70,7 +70,7 @@
                 {% if request.user.is_superuser %}
                 <div class="ml-3 edit-delete-buttons-blog">
                     <!-- Trigger modal for comment deletion -->
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#comment-modal-{{ comment.pk }}" class="btn btn-outline-danger" role="button">Delete</a>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#comment-modal-{{ comment.pk }}" class="btn btn-outline-dark comment-delete-button" role="button">Delete</a>
 
                     <!-- Modal Structure for Comment Deletion -->
                     <div class="modal fade" id="comment-modal-{{ comment.pk }}" tabindex="-1" aria-labelledby="commentModalLabel-{{ comment.pk }}" aria-hidden="true">
@@ -96,7 +96,7 @@
         </div>
 
         <div class="comment-form">
-            <h2>Leave a comment:</h2>
+            <h2 class="text-black">Leave a comment:</h2>
             <form method="post">
                 {% csrf_token %}
                 <div>

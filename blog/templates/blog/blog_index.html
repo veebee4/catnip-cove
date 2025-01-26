@@ -38,7 +38,7 @@
                 <a href="{% url 'edit_blog' post.pk %}" class="btn btn-outline-dark" role="button">Edit</a>
 
                 <!-- Triggers modal for delete button -->
-                <a href="#" data-bs-toggle="modal" data-bs-target="#modal-{{ post.pk }}" class="btn delete-btn btn-large text-danger btn-outline-danger">Delete</a>
+                <a href="#" data-bs-toggle="modal" data-bs-target="#modal-{{ post.pk }}" class="btn delete-btn btn-large btn-outline-dark">Delete</a>
 
                 <!-- Modal Structure -->
                 <div class="modal fade" id="modal-{{ post.pk }}" tabindex="-1" aria-labelledby="modalLabel-{{ post.pk }}" aria-hidden="true">

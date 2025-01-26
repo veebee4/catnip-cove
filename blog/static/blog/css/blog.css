@@ -119,6 +119,11 @@ h3 {
     background-color: #98b080
 }
 
+.comment-delete-button {
+    background-color: #000;
+    color: #fff;
+}
+
 /* ------------------------------------------------------------------------------------------- Blog Category Page*/
 
 .category-title {
