@@ -479,7 +479,7 @@ The second component is the main navigation links that allow visitors to browse 
 <br>
 - The Cats page link and the my account link has a dropdown which features a different colour for feedback to the user to indicate what they are hovering over.
 <br>
-![Cat Link Dropdown](./documentation/features/cat-dropdown-feedback.png) ![Account Link Dropdown](./documentation/features/account-dropdown-feedback.png)
+![Cat Link Dropdown](./documentation/features/cat-dropdown-feedback.png) ![Account Link Dropdown](./documentation/features/account-dropdown-feedback-superuser.png)
 <br>
 <br>
 - There is a counter on the cat pages to indicate how many records there are - this updates when the filtering system is used.
