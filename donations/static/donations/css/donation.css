@@ -13,6 +13,14 @@ legend {
     color: white;
 }
 
+#div_id_donor_first_name {
+    margin-top: 7rem;
+}
+
+fieldset {
+    margin-left: 3rem;
+}
+
 .text-info {
     color: #0044CC;
 }
