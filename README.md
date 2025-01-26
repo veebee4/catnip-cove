@@ -141,7 +141,7 @@ When planning for this website, I researched existing websites and found that th
 | Users |  |  |  |  |  |  |
 | 1 | Admin Access | Superuser/Admin | 5 | 5 | 5 | ✅ |
 | 2 | Account Registration | All Users | 5 | 5 | 5 | ✅ |
-| 3 | User Email Confirmation | Registered User | 5 | 5 | 5 | ✅ |
+| 3 | User Verification Email | Registered User | 5 | 5 | 5 | ✅ |
 | 4 | Password Change/Reset | Registered Users | 5 | 5 | 5 | ✅ |
 | 5 | User Profile Page | Registered Users | 5 | 5 | 5 | ✅ |
 | Navigation |  |  |  |  |  |  |
@@ -153,7 +153,7 @@ When planning for this website, I researched existing websites and found that th
 | 10 | Filter Cat Records | All Users | 5 | 5 | 5 | ✅ |
 | 11 | Sort Cat Records | All Users | 5 | 5 | 5 | ✅ |
 | 12 | Cat details/information | All Users | 5 | 5 | 5 | ✅ |
-| 13 | Link to Donate for Specific Cat | All Users | 4 | 5 | 5 | ✅ |
+| 13 | Link to Donate for Specific Cat | All Users | 4 | 5 | 5 | ❌ |
 | 14 | Display Counter of Cat Records | All Users | 5 | 5 | 5 | ✅ |
 | 15 | Cat Management Frontend | Superuser/Admin | 5 | 5 | 5 | ✅ |
 | Contact Us |  |  |  |  |  |  |
@@ -162,7 +162,7 @@ When planning for this website, I researched existing websites and found that th
 | Donate |  |  |  |  |  |  |
 | 18 | Email Confirmation of Donation | Donator | 5 | 5 | 5 | ✅ |
 | 19 | Donation History | Registered Users | 5 | 5 | 5 | ✅ |
-| 20 | Save/ Update Customer Details on form submission | Registered Users/Sign Up Users | 5 | 5 | 5 | ✅ |
+| 20 | Save/update customer details for profile on form submission | Registered Users/Sign Up Users | 5 | 5 | 5 | ✅ |
 | 21 | Pre-fill Form From Profile Details | Registered Users |  5 | 3 | 3 | ❌ |
 | 22 | Share Donation Via Social Media | All users |  5 | 2 | 2 | ❌ |
 | Blog |  |  |  |  |  |  |
@@ -214,10 +214,34 @@ When planning for this website, I researched existing websites and found that th
 ## STRUCTURE PLANE
 
 #### **User Flow Diagram**
-![Catnip Cove User Flow Diagram: Login/Register](./documentation/diagrams/login-register-flowchart.png)
-![Catnip Cove User Flow Diagram: General User](./documentation/diagrams/general-user-flowchart.png)
-![Catnip Cove User Flow Diagram: Logged In Superuser](./documentation/diagrams/superuser-flowchart.png)
-![Catnip Cove User Flow Diagram: Logged In User](./documentation/diagrams/logged-in-user-flowchart.png)
+
+<details>
+  <summary>Click here to view Login/Register User Flow Diagram</summary>
+
+  <img src="./documentation/diagrams/login-register-flowchart.png" height="800" alt="Login/Register User Flow Diagram">
+
+</details>
+
+<details>
+  <summary>Click here to view General User Flow Diagram</summary>
+
+  <img src="./documentation/diagrams/general-user-flowchart.png" height="800" alt="General User User Flow Diagram">
+
+</details>
+
+<details>
+  <summary>Click here to view Logged In Superuser Flow Diagram</summary>
+
+  <img src="./documentation/diagrams/superuser-flowchart.png" width="1000" alt="Logged In Superuser User Flow Diagram">
+
+</details>
+
+<details>
+  <summary>Click here to view Logged In User Flow Diagram</summary>
+
+  <img src="./documentation/diagrams/logged-in-user-flowchart.png" width="1000" alt="Logged In User User Flow Diagram">
+
+</details>
 
 
 ### **Database Design**
@@ -252,7 +276,7 @@ This first phase was completed after carrying out research & brainstorming:
 **Entity Relationship Diagram**<br/>
 The below ER diagram shows the relationships between real-world entities identified in my project, for use with the project.
 
-Initial ERD: [ERD/DATABASE SCHEMA](./documentation/database/catnip-cove-database-erd.png)<br/>
+[ERD/DATABASE SCHEMA](./documentation/database/catnip-cove-database-erd.png)<br/>
 
 #### **Data Modelling**
 As shown by the database design and the ERD above, the data model type used for this project is the Relational Model. This is basically an organised digital filing system where you store related/connected information in tables made up of rows and columns. You can read more about Relational Databases [here](https://www.oracle.com/uk/database/what-is-a-relational-database/).

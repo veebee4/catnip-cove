@@ -2,6 +2,7 @@ from django.test import SimpleTestCase
 from django.urls import reverse, resolve
 from blog import views
 
+
 class TestBlogUrls(SimpleTestCase):
 
     def test_blog_index_url(self):
