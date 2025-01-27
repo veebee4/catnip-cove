@@ -17,10 +17,6 @@ legend {
     margin-top: 7rem;
 }
 
-fieldset {
-    margin-left: 3rem;
-}
-
 .text-info {
     color: #0044CC;
 }
@@ -113,6 +109,11 @@ fieldset {
 
 .amount-label  {
     margin-bottom: 0.5rem;
+}
+
+fieldset {
+    margin-right: -4rem;
+    margin-left: 1rem;
 }
 
 .fieldset-label {
@@ -241,6 +242,11 @@ input[type="checkbox"]:checked {
         margin-top: 1rem !important;
     }
 
+    fieldset {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
     /*----------------- Past Donation page */
 
     .thankyou-container {
@@ -297,6 +303,11 @@ input[type="checkbox"]:checked {
         margin-top: 1rem !important;
     }
 
+    fieldset {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
     /*----------------- Past Donation page */
 
     .thankyou-container {
@@ -345,6 +356,11 @@ input[type="checkbox"]:checked {
         margin-top: 1rem !important;
     }
 
+    fieldset {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
     /*----------------- Past Donation page */
 
     .thankyou-container {
@@ -387,6 +403,11 @@ input[type="checkbox"]:checked {
 
     .instruct-text {
         margin-top: 1rem !important;
+    }
+
+    fieldset {
+        margin-left: 0;
+        margin-right: 0;
     }
 
     /*----------------- Past Donation page */
@@ -433,6 +454,11 @@ input[type="checkbox"]:checked {
         margin-top: 1rem !important;
     }
 
+    fieldset {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
     /*----------------- Past Donation page */
 
     .thankyou-container {
@@ -442,5 +468,17 @@ input[type="checkbox"]:checked {
 
     .thankyou-message {
         width: 60%;
+    }
+}
+
+/*---------------------------- For laptop screens */
+
+@media screen and (min-width: 1440px) and (max-width: 2559px) {
+
+    /*----------------- Donation page */
+
+    fieldset {
+        margin-left: 1rem;
+        margin-right: 0;
     }
 }
