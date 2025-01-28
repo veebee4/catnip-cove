@@ -833,7 +833,6 @@ Please refer to [DEPLOYMENT.md](./DEPLOYMENT.md) file for:
 
 # **ACKNOWLEDGEMENTS**
 I would like to acknowledge the following people for helping me to complete this project:
-* Roman @ Student Support - for great guidance on a few aspects of the project including the widget on the edit cat form due to code in the source code for the Boutique Ado walkthrough not being correct
 * Sarah and Rebecca @ Student Support - who gave me the most help when dealing with stripe and webhooks issues! These two are legends; Sarah gave me her project to help with the webhook and handler issues - https://github.com/SJECollins/animalhousedjango/tree/main which I adapted and tweaked to work within my own project.
 * My spouse who has provided me with great support at home while creating this project and throughout this course.
 * My College Tutor, Rachel Furlong for always being so helpful and providing great guidance.
