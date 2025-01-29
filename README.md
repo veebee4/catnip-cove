@@ -740,6 +740,7 @@ To ensure that Catnip Cove will be as easy for everyone to access and view, I en
 | 10 | For better SEO, investigate further / fix the urls to use slug with dash and not id and not underscores |
 | 11 | Add more content to the blog pages |
 | 12 | Focus more on the aesthetic appearance of the website |
+| 13 | Provide a rich text editor to the blog management form as it currently requires the user to use HTML tags when adding a blog to apply formatting and layout styling - The user wouldn't necessarily know HTML either so this could be done incorrectly. |
 
 ---
 # **TECHNOLOGIES USED**
