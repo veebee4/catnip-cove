@@ -18,13 +18,13 @@
 <div class="container-fluid mb-2 blog-page-container">
     <div class="row">
         <div class="col d-flex flex-column">
-            <h1 class="logo-font mb-5 mt-5 text-center blog-header">The Cat Nap</h1>
-            <h2 class="text-center text-black">An informative blog about all things cats!</h2>
+            <h1 class="logo-font mb-5 mt-5 blog-header">The Cat Nap</h1>
+            <h2 class="text-black blog-subheader">An informative blog about all things cats!</h2>
         </div>
     </div>
 
 {% block page_title %}
-    <h3 class="category-title text center text-black m-3">Blog posts for {{ category }}</h3>
+    <h3 class="category-title text-black m-3">Blog posts for {{ category }}</h3>
 {% endblock page_title %}
 
 {% block posts %}
