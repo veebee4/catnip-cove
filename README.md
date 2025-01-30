@@ -4,9 +4,10 @@
 
 **[Link to the Deployed Site]** - [Catnip Cove](https://catnip-cove-8a89db282e0c.herokuapp.com/)
 
-![GitHub last commit]
-![GitHub language count]
-![GitHub top language] - go to shields.io
+![GitHub contributors](https://img.shields.io/github/contributors/veebee4/catnip-cove?style=for-the-badge)
+![Last Commit](https://img.shields.io/github/last-commit/veebee4/catnip-cove?style=for-the-badge)
+![Languages](https://img.shields.io/github/languages/count/veebee4/catnip-cove?style=for-the-badge)
+![Top Language](https://img.shields.io/github/languages/top/veebee4/catnip-cove?style=for-the-badge)
 
 # Project Overview
 
@@ -89,23 +90,21 @@ Catnip Cove is my 4th milestone project for Code Institute's Level 5 Diploma in 
 ## STRATEGY PLANE
 
 Cat rescue centres are hardworking charities that employ numerous staff, including volunteers and require donations to continue the work that they do. From helping strays to struggling families with household pet cats.
-They have even helped people who are in a domestic abuse situation within their living space (according to Cats Protection (https://www.cats.org.uk/mediacentre/facts-figures)), by taking in pets to help and make it easier for the victims to get away from the situation they are in without worrying about their pets.
+They have even helped people who are in a domestic abuse situation within their living space (according to Cats Protection (https://www.cats.org.uk/mediacentre/facts-figures)), by taking in pets to help and make it easier for the victims to get away from the situation they are in without having to worry about their pets.
 They require all the help they can get, from anyone.
 
-Whilst looking for ideas for my donation form, I came across "https://givebutter.com/blog/donation-form-template" which had a quote on the page
+Whilst looking for ideas for my donation form, I came across "https://givebutter.com/blog/donation-form-template" which had a quote on the page; <br><br>
 "Fundraising pro, Lynne Wester, said it best during a recent webinar on nonprofit trends:
-
 “What questions should you ask when someone is making a donation? Less is more. You need my name, but my marital status is none of your business. 
-Every click a donor has to make leads to 20% more abandonment. I can buy a live goat on Amazon in one click, but I try to give you $500 and you’re killing me—asking me for my street address? 
-Stop making it hard for me to give you money.”
+Every click a donor has to make leads to 20% more abandonment. I can buy a live goat on Amazon in one click, but I try to give you $500 and you’re killing me—asking me for my street address? Stop making it hard for me to give you money.”
 Though each nonprofit is different, there are a few common elements that are crucial to consider when reviewing a donation form template. We recommend you stick to the basics:
 
-✅ First and last name
-✅ Email address
-✅ Payment information
-✅ Postal code"
+✅ First and last name <br>
+✅ Email address <br>
+✅ Payment information <br>
+✅ Postal code" <br>
 
-So I decided to skim down my original idea for the donation page required information.
+Because of this information, I decided to trim down my original idea for the requested information on the donation form.
 
 ## Target Audience
 
@@ -142,12 +141,12 @@ When planning for this website, I researched existing websites and found that th
 | 1 | Admin Access | Superuser/Admin | 5 | 5 | 5 | ✅ |
 | 2 | Account Registration | All Users | 5 | 5 | 5 | ✅ |
 | 3 | User Verification Email | Registered User | 5 | 5 | 5 | ✅ |
-| 4 | Password Change/Reset | Registered Users | 5 | 5 | 5 | ✅ |
+| 4 | Password Reset | Registered Users | 5 | 5 | 5 | ✅ |
 | 5 | User Profile Page | Registered Users | 5 | 5 | 5 | ✅ |
 | Navigation |  |  |  |  |  |  |
 | 6 | Top Navigation to Include: logo, search bar, my account (register, login) and site links | All Users | 5 | 5 | 5 | ✅ |
-| 7 | Top Navigation to Include: my account (my profile, logout), and members blog | Logged In Users | 5 | 5 | 5 | ✅ |
-| 8 | Top Navigation to Include: my account (cat management, my profile, logout) and members blog | Logged In Superuser/Admin | 5 | 5 | 5 | ✅ |
+| 7 | Top Navigation to Include: my account (my profile, logout and members blog) | Logged In Users | 5 | 5 | 5 | ✅ |
+| 8 | Top Navigation to Include: my account (cat management, blog management, my profile, logout and members blog) | Logged In Superuser/Admin | 5 | 5 | 5 | ✅ |
 | 9 | Top Navigation Search Bar: to be enabled for searching by cat name, breed or colour | All Users | 5 | 5 | 5 | ✅ |
 | Cats |  |  |  |  |  |  |
 | 10 | Filter Cat Records | All Users | 5 | 5 | 5 | ✅ |
@@ -158,7 +157,7 @@ When planning for this website, I researched existing websites and found that th
 | 15 | Cat Management Frontend | Superuser/Admin | 5 | 5 | 5 | ✅ |
 | Contact Us |  |  |  |  |  |  |
 | 16 | Contact Form | All Users | 5 | 3 | 5 | ✅ |
-| 17 | Email of Contact Details Sent | Superuser/Admin/Owner | 5 | 5 | 5 | ✅ |
+| 17 | Email of Contact Form | Superuser/Admin/Owner | 5 | 5 | 5 | ✅ |
 | Donate |  |  |  |  |  |  |
 | 18 | Email Confirmation of Donation | Donator | 5 | 5 | 5 | ✅ |
 | 19 | Donation History | Registered Users | 5 | 5 | 5 | ✅ |
@@ -166,7 +165,7 @@ When planning for this website, I researched existing websites and found that th
 | 21 | Pre-fill Form From Profile Details | Registered Users |  5 | 3 | 3 | ❌ |
 | 22 | Share Donation Via Social Media | All users |  5 | 2 | 2 | ❌ |
 | Blog |  |  |  |  |  |  |
-| 23 | Articles - Create, Read, Update and Delete | Superuser/Admin | 5 | 5 | 5 | ✅ |
+| 23 | Articles/Posts - Create, Read, Update and Delete | Superuser/Admin | 5 | 5 | 5 | ✅ |
 | 24 | Comments - Read and Delete | Superuser/Admin | 5 | 5 | 5 | ✅ |
 | 25 | Comment on Articles | Registered Users | 5 | 5 | 5 | ✅ |
 
@@ -273,10 +272,11 @@ This first phase was completed after carrying out research & brainstorming:
 * For normalizing, the tables can only have unique rows and atomic values (no lists or arrays). For instance, a cat cannot have more than one gender/breed etc.
 
 #### **Database ERD**
-**Entity Relationship Diagram**<br/>
-The below ER diagram shows the relationships between real-world entities identified in my project, for use with the project.
+**Entity Relationship Diagram**<br>
+The below ER diagram shows the relationships between real-world entities identified in my project, for use with the project. I created an initial schema and adjusted it along the way, but by the end of the project there were a couple tweaks to it, so I have included that ERD as well below.
 
-[ERD/DATABASE SCHEMA](./documentation/database/catnip-cove-database-erd.png)<br/>
+[INITIAL ERD/DATABASE SCHEMA](./documentation/database/catnip-cove-database-erd.png)<br>
+[FINAL ERD/DATABASE SCHEMA](./documentation/database/catnip-cove-database-erd-final.png)<br>
 
 #### **Data Modelling**
 As shown by the database design and the ERD above, the data model type used for this project is the Relational Model. This is basically an organised digital filing system where you store related/connected information in tables made up of rows and columns. You can read more about Relational Databases [here](https://www.oracle.com/uk/database/what-is-a-relational-database/).
@@ -297,17 +297,17 @@ As shown by the database design and the ERD above, the data model type used for 
 - It is one of three original custom Django models created for the project.
 
 ##### *Donation Model*
-- The Donation model contains the following fields: donation_number, amount, custom_amount, donor_first_name, donor_last_name, donor_email_address, donor_postcode, date, stripe_pid.
+- The Donation model contains the following fields: donation_number, amount, message, donor_first_name, donor_last_name, donor_email_address, donor_postcode, date, stripe_pid.
 - It also contains user_profile and cat as a ForeignKey
 - It is one of the models included in the installed donation application.
 
 ##### *BlogPost Model*
-- The BlogPost model (called Post in application) contains the following fields: slug, title, body, created_on, last_modified, categories, image_url, image.
+- The BlogPost model (called Post in application) contains the following fields: title, body, created_on, last_modified, categories, image_url, image.
 - It is one of the models included in the installed Blog application.
 - It is one of FIVE original custom Django models created for the project.
 
 ##### *BlogComment Model*
-- The BlogComment model (called Comment in application) contains the following fields: author, body, created_on.
+- The BlogComment model (called Comment in application) contains the following fields: author, body, created_on, post.
 - It also contains Post as a ForeignKey.
 - It is one of the models included in the installed Blog application.
 
@@ -383,7 +383,7 @@ All the cat images were obtained using the free image section of [Pexels](https:
 
 ## **FEATURES**
 
-This website consists of 18 pages, all of which are extended from a base template.
+This website consists of 19 pages, all of which are extended from a base template.
 
 - Home page
 - Cats Page
@@ -403,6 +403,7 @@ This website consists of 18 pages, all of which are extended from a base templat
 - Login Page
 - Logout Page
 - 404 Error Page
+- 500 Error Page
 
 ### **Site Features Common to All Pages**
 The below items are used throughout the website.
@@ -459,37 +460,49 @@ The second component is the main navigation links that allow visitors to browse 
     4. Main Navigation - My Account Dropdown Menu Desktop
     * ![Main Navigation - My Account Menu Desktop](./documentation/features/my-account-dropdown.png)
     5. Main Navigation - My Account Dropdown Menu Mobile
-    * ![Main Navigation - My Account Menu Mobile]() <!-- SORT OUT MENU TO DISPLAY PROPERLY AND TAKE SCREENSHOT --->
+    * ![Main Navigation - My Account Menu Mobile](./documentation/features/mobile-dropdown.png) - This menu is obscured at the right side of the page and mentioned in **KNOWN BUGS** within TESTING.md
 
 - Responsive across all devices, using Bootstrap and Flexbox.
 <br> 
+
 ![Am I Responsive mock-up of Catnip Cove](./documentation/features/responsive-screenshot.png)
+
 <br>
 <br>
 
 - User feedback with lighter colour on all buttons to show when they are hovered over.
 <br>
+
 ![User Feedback on Buttons](./documentation/features/button-feedback-screenshot.png)
+
 <br>
 <br>
-- Main nav links and account link also have a lighter feedback colour when hovered over.
+- Main nav links and account link also have a different feedback colour when hovered over.
 <br>
+
 ![Nav Link Feedback](./documentation/features/nav-link-feedback.png)
+
 <br>
 <br>
-- The Cats page link and the my account link has a dropdown which features a different colour for feedback to the user to indicate what they are hovering over.
+- The Cats page link and the my account link has a dropdown which features a different colour for feedback to the user to indicate what they are hovering over. 
 <br>
+
 ![Cat Link Dropdown](./documentation/features/cat-dropdown-feedback.png) ![Account Link Dropdown](./documentation/features/account-dropdown-feedback-superuser.png)
+
 <br>
 <br>
 - There is a counter on the cat pages to indicate how many records there are - this updates when the filtering system is used.
 <br>
+
 ![Cat Record Counter](./documentation/features/cat-record-counter.png)
+
 <br>
 <br>
 - The filtering buttons on the cats page also have a different colour for hovering over and current view to provide more user feedback.
 <br>
+
 ![Cat Filter Buttons](./documentation/features/filter-buttons-feedback.png)
+
 <br>
 <br>
 
@@ -697,6 +710,8 @@ Catnip Cove's Edit a Blog Article page features the following:
 - Form with pre-filled information to update a blog article record and see current picture (if applicable)
 - Category selection for blog article or creation of new category
 
+![Edit a Blog Page](./documentation/features/edit-blog-screenshot.png)<br>
+
 ## 404 & 500 Error Page
 The error pages on the site include custom pages for a 404 and 500 Error, they are both the same, just the error message has been changed appropriately.
 
@@ -708,12 +723,14 @@ To keep the site secure and protected against a brute force attack or attempts t
 * Added "from django.contrib.auth.decorators import login_required" & inserted @login_required above the corresponding view to ensure the user has to log in and will be directed to the log in page if the user tries to access the urls manually.
 * Implemented rendering of certain elements on certain templates and menu's only if user is authenticated and/or is a superuser.
 * On certain views.py files, I wrote code to check if the user is authenticated and/or is a superuser.
+* Meaningful feedback to the user in the form of toast messages, covering success, errors, alerts and warnings
 
 Defensive programming has also been written to handle bad user inputs or actions and their unintended consequences. For example, the use of modals to confirm the intent of deleting a cat record/blog/comment to avoid the unintended deletion of data.
 
 ![Modal - Delete Cat](./documentation/features/modal-delete-cat.png)<br>
 ![Modal - Delete Blog/Comment](./documentation/features/modal-delete-blog-comment.png)
 
+[Toast Example](./documentation/features/toast-example.png)
 
 ## **Accessibility**
 To ensure that Catnip Cove will be as easy for everyone to access and view, I ensure that the site is accessible by:
@@ -815,18 +832,17 @@ Please refer to [DEPLOYMENT.md](./DEPLOYMENT.md) file for:
 
 # **CREDITS**
 ## **Code**
-* Credit to [Code Institute's](https://codeinstitute.net/) Boutique Ado walkthrough, from which this project is based from.
+* Credit to [Code Institute's](https://codeinstitute.net/) Boutique Ado walkthrough, from which this project is based on.
 * Credit to Sarah from Code Institute, who provided me with her [Animal House Project](https://github.com/SJECollins/animalhousedjango/tree/main) due to struggling with getting webhooks to work. I have also used and adjusted her code for the donation confirmation emails from this project.
 * To create the blog part of the project, I followed these [tutorials](https://realpython.com/build-a-blog-from-scratch-django/#add-the-blog-app-that-youll-build-from-scratch) and also [this](https://www.youtube.com/watch?v=m3hhLE1KR5Q) tutorial.
 * Used the Stripe [Documentation](https://docs.stripe.com/api/customers/create) to learn about creating customers for future use, to track donations etc.
 * I didn't want the user to be able to type a number less than 1 in the donation amount input box, whilst using Sarah from Code Institutes Code, I found "validators=[MinValueValidator(0.50)]" in her model, which I looked into briefly and found I could change it to suit my input by changing to "1".
-* I learned how to override the init to pre-populate the select cats field when the donation form is clicked through a specific cat on [this](https://python-code.dev/articles/3064552) tutorial.
 * STRIPE DONATION PAGE - Used tutorial (https://www.youtube.com/watch?v=oZwyA9lUwRk)
-* I wanted to be able to view the donation records in the admin but I did not want them to be editable as there is no need to. I found this [tutorial](https://stackoverflow.com/questions/48067882/django-admin-making-a-required-field-read-only) to help me achieve this. This is also in the Boutique Ado tutorial, but is not explained at length.
+* I wanted to be able to view the donation records in the admin but I did not want them to be editable as there is no need to. I found this [tutorial](https://stackoverflow.com/questions/48067882/django-admin-making-a-required-field-read-only) to help me understand the subject further. This is also in the Boutique Ado tutorial, but is not explained at length.
 
 
 ## **Media**
-* The hero image 'banner-cat.jpg' was created using DeepAI image generator.
+* The hero image 'banner-cat' was created using DeepAI image generator.
 * All other images used on the cats page and also on the blog pages, came from Pexels.com which do not require attribution but I would like to list the names of the users below.
     - Burak Argun, Mathias Reding, Omar Ramadan, Bogdan Groshev, Nika Benedictova, Ольга Макарова, cottonbro studio, Maria Luiza Melo, Samet Dikmen, Dan Galvani Sommavilla, Faheem Ahamad, Nadiye Odabaşı, Doğan Furkan Yeşilırmak, Mateusz Walendzik, Burak Kağan Güneş, FURKAN, Leticia  Curvelo, Gökhan Yetimova, Sarkhan Asgarli, Cats Coming & Thirdman.
 
