@@ -22,6 +22,7 @@
         * [Coverage](#coverage)
 * [Manual Testing](#manual-testing)
     * [Testing User Stories](#testing-user-stories)
+    * [Testing Donation Confirmation Email](#testing-donation-confirmation-email)
     * [Full Testing](#full-testing)
 * [Bugs, Errors & Solutions](#bugs-found-during-testing-and-development-phase)
     * [Solved Bugs](#solved-bugs)
@@ -249,6 +250,18 @@ Coverage needed to be installed by typing ``` pip install coverage ``` in the te
 | 29 | Superuser/Admin | Edit a cat/blog | Keep records up-to-date | Once logged in, the superuser can visit any cat/blog record and edit/delete buttons will be in a couple of different places - refer to screenshots for point 13. The user can click the edit button and will be taken to a page with a form of pre-filled information from the record | [Edit Cat Record](./documentation/testing/manual_testing/screenshots/cat-edit-record.png) <br> [Edit Blog Record](./documentation/testing/manual_testing/screenshots/blog-edit-record.png) |
 | 30 | Superuser/Admin | Delete a cat/blog/comment | Keep records/blogs up-to-date, remove cats that are no longer in the rescue centre and blogs/comments that are no longer required or inappropriate | As above with the placement of the buttons, except when the delete button is pressed, a modal is triggered to confirm the user is happy to delete the record | Detailed Below |
 | 31 | Superuser/Admin | Receive a warning when I click the delete button | Avoid accidental deletion of a cat record/blog/comment | Any time a delete button is pressed on a cat record, blog article or comment, a modal is triggered | [Delete Modal Blog](./documentation/features/modal-delete-blog-comment.png) <br> [Delete Modal Cat](./documentation/features/modal-delete-cat.png)  |
+<br>
+
+### Testing Donation Confirmation Email
+
+| **Test No.** | **Action** | **Outcome** | **Evidence** | 
+:-- | :-- | :-- | :-- |
+| 1 | Obtain temporary email address for donation form | Visited to temp-mail.org and copied email address  | [Temp Mail Email Address](./documentation/testing/manual_testing/screenshots/temp-mail-email-address-for-donation-form.png) |
+| 2 | Fill out Donation form with dummy details/temp email/test debit card and submit | All fields filled and submitted | [Donation Form Filled In](./documentation/testing/manual_testing/screenshots/donation-form-filled-out.png) |
+| 3 | Donation success page loaded | Donation was successful and success/web confirmation message displayed with correct details | [Donation Success Page](./documentation/testing/manual_testing/screenshots/donation-success-page-after-test-donation.png) |
+| 4 | Check Temp Mail page for donation email | Donation email seen in the inbox of the Temp Mail address used | [Temp Mail Email Overview](./documentation/testing/manual_testing/screenshots/temp-mail-received-donation-confirmation.png) |
+| 4 | Open donation confirmation email in Temp Mail page | Full donation confirmation email displayed | [Temp Mail Donation Full Email](./documentation/testing/manual_testing/screenshots/temp-mail-confirmation-email-full.png) |
+<br>
 
 ### Full Testing
 Full testing was conducted using the following physical devices:
@@ -256,8 +269,9 @@ Full testing was conducted using the following physical devices:
     * iPhone 14 Plus
 * Desktop
     * 27 inch Monitor on Desktop PC
-
 ---
+<br><br>
+
 ## Bugs found during testing and development phase
 ### Solved Bugs
 | # | Bugs, Errors and Issues | Solutions |
